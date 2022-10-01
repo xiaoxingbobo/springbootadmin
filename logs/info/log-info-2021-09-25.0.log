@@ -1,0 +1,35 @@
+2021-09-25 20:45:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 3372 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2021-09-25 20:45:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-09-25 20:45:35 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-25 20:45:35 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2021-09-25 20:45:36 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-09-25 20:45:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-09-25 20:45:36 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-09-25 20:45:36 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-09-25 20:45:36 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-09-25 20:45:36 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1797 ms
+2021-09-25 20:45:36 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-25 20:45:36 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-25 20:45:37 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-25 20:45:37 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-09-25 20:45:58 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2021-09-25 20:45:59 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-25 20:45:59 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-25 20:46:00 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-25 20:46:01 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-09-25 20:46:01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-09-25 20:46:01 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-09-25 20:46:01 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-09-25 20:46:02 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_1
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: addUsingPOST_1
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_1
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: findUsingGET_1
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_2
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: listUsingGET_3
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: paginationUsingGET_1
+2021-09-25 20:46:02 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: updateUsingPUT_1
+2021-09-25 20:46:02 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 28.351 seconds (JVM running for 31.31)
+2021-09-25 20:46:05 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-25 20:46:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-09-25 20:46:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms

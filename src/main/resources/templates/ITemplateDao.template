@@ -1,0 +1,11 @@
+package com.xxbb.springbootapi.dao;
+
+import com.xxbb.springbootapi.entity.{entityName};
+import com.xxbb.springbootapi.mapper.{entityName}Mapper;
+import com.xxbb.springbootapi.wrapper.{entityName}Query;
+import com.xxbb.springbootapi.wrapper.{entityName}Update;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface I{entityName}Dao extends IBaseDao<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
+}

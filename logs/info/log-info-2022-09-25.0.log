@@ -1,0 +1,592 @@
+2022-09-25 16:58:13 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 16:58:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 7528 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 16:58:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 16:58:15 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 16:58:15 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 JPA repository interfaces.
+2022-09-25 16:58:16 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 16:58:16 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 16:58:16 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 16:58:16 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 16:58:16 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 16:58:16 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2537 ms
+2022-09-25 16:58:16 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 16:58:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 16:58:16 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 16:58:17 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 16:58:17 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 16:58:19 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 16:58:19 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 16:58:20 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 16:58:20 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 16:58:20 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 16:58:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 16:58:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3514237f]]
+2022-09-25 16:58:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 16:58:21 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 8.541 seconds (JVM running for 11.09)
+2022-09-25 16:59:20 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:08:37 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:08:37 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3514237f]]
+2022-09-25 17:08:37 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:08:47 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:08:47 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 7832 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:08:47 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:08:48 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:08:48 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:08:49 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:08:49 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:08:49 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:08:49 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:08:49 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:08:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2231 ms
+2022-09-25 17:08:49 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:08:49 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:08:50 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:08:50 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:08:50 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:08:51 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:08:51 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:08:51 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:08:52 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:08:52 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:08:52 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:08:52 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62808e9e]]
+2022-09-25 17:08:52 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:08:52 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.35 seconds (JVM running for 8.521)
+2022-09-25 17:09:08 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:09:08 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:09:08 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2022-09-25 17:09:51 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:10:33 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:10:33 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62808e9e]]
+2022-09-25 17:10:33 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:10:39 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:10:39 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 13236 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:10:39 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:10:40 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:10:40 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:10:41 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:10:41 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:10:41 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:10:41 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:10:41 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:10:41 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2157 ms
+2022-09-25 17:10:41 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:10:41 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:10:41 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:10:42 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:10:42 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:10:43 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:10:43 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:10:43 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:10:44 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:10:44 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:10:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:10:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@539dd2d0]]
+2022-09-25 17:10:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:10:44 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.143 seconds (JVM running for 8.367)
+2022-09-25 17:10:50 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:10:50 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:10:50 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2022-09-25 17:11:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:11:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@539dd2d0]]
+2022-09-25 17:11:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:11:28 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:11:28 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:11:35 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:11:35 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 6776 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:11:35 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:11:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:11:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 34 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:11:37 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:11:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:11:37 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:11:37 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:11:37 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:11:37 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2685 ms
+2022-09-25 17:11:38 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:11:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:11:38 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:11:38 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:11:38 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:11:39 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:11:39 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:11:41 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:11:42 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:11:42 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:11:43 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:11:43 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@306c9b2c]]
+2022-09-25 17:11:43 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:11:43 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 9.648 seconds (JVM running for 12.644)
+2022-09-25 17:11:52 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:11:52 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:11:52 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-09-25 17:12:41 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:13:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:13:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@306c9b2c]]
+2022-09-25 17:13:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:13:56 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:13:56 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:14:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 14548 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:14:04 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:14:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:14:05 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:14:05 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:14:06 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:14:06 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:14:06 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:14:06 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:14:06 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:14:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2066 ms
+2022-09-25 17:14:06 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:14:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:14:07 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:14:07 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:14:07 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:14:08 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:14:08 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:14:09 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:14:09 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:14:09 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:14:10 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:14:10 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:14:10 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:14:10 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.626 seconds (JVM running for 8.973)
+2022-09-25 17:14:49 [http-nio-8099-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:14:49 [http-nio-8099-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:14:49 [http-nio-8099-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2022-09-25 17:15:03 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:15:03 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:15:03 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:15:04 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:15:04 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:15:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 17512 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:15:13 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:15:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:15:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:15:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:15:14 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:15:14 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:15:14 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:15:14 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:15:15 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:15:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1989 ms
+2022-09-25 17:15:15 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:15:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:15:15 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:15:15 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:15:15 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:15:16 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:15:16 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:15:17 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:15:17 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:15:17 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:15:18 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:15:18 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5bc14211]]
+2022-09-25 17:15:18 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:15:18 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.704 seconds (JVM running for 7.64)
+2022-09-25 17:15:24 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:15:24 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:15:24 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2022-09-25 17:16:17 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:18:25 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:18:25 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5bc14211]]
+2022-09-25 17:18:25 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:18:26 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:18:26 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:18:37 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 2256 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:18:37 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:18:37 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:18:38 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:18:38 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:18:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:18:39 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:18:39 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:18:39 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:18:39 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:18:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1979 ms
+2022-09-25 17:18:39 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:18:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:18:39 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:18:39 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:18:40 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:18:41 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:18:41 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:18:42 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:18:42 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:18:42 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-09-25 17:18:42 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-25 17:19:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 18272 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:19:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:19:04 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:19:05 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:19:05 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:19:06 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:19:06 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:19:06 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:19:06 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:19:06 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:19:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1989 ms
+2022-09-25 17:19:06 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:19:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:19:06 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:19:06 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:19:07 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:19:08 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:19:08 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:19:08 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:19:09 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:19:09 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:19:09 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:19:09 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:19:09 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:19:09 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.179 seconds (JVM running for 8.429)
+2022-09-25 17:19:13 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:19:13 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:19:13 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2022-09-25 17:20:08 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:37:04 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:37:04 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:37:04 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:37:13 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:37:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 6340 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:37:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:37:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:37:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:37:15 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:37:15 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:37:15 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:37:15 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:37:15 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:37:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2370 ms
+2022-09-25 17:37:15 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:37:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:37:16 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:37:16 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:37:16 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:37:17 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:37:17 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:37:18 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:37:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:37:18 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:37:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:37:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5bc14211]]
+2022-09-25 17:37:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:37:19 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 7.149 seconds (JVM running for 9.219)
+2022-09-25 17:37:23 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:37:23 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:37:23 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-09-25 17:38:18 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:46:11 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:46:11 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5bc14211]]
+2022-09-25 17:46:11 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:46:12 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:46:12 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:46:16 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:46:17 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 4368 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:46:17 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:46:18 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:46:18 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:46:19 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:46:19 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:46:19 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:46:19 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:46:19 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:46:19 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2252 ms
+2022-09-25 17:46:19 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:46:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:46:19 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:46:19 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:46:20 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:46:20 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:46:20 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:46:21 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:46:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:46:22 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:46:22 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:46:22 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:46:22 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:46:22 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.294 seconds (JVM running for 8.361)
+2022-09-25 17:46:52 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:46:52 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:46:52 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-09-25 17:47:21 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:49:29 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:49:29 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:49:29 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:49:30 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:49:30 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:49:36 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:49:36 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 16616 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:49:36 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:49:38 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:49:38 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:49:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:49:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:49:38 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:49:38 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:49:39 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:49:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2469 ms
+2022-09-25 17:49:39 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:49:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:49:40 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:49:40 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:49:41 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:49:42 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:49:42 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:49:44 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:49:45 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:49:45 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:49:46 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:49:46 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@71f8ce0e]]
+2022-09-25 17:49:46 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:49:46 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 11.249 seconds (JVM running for 14.252)
+2022-09-25 17:50:10 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:50:10 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:50:10 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-09-25 17:51:53 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:52:58 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:52:58 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@71f8ce0e]]
+2022-09-25 17:52:58 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:53:59 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:53:59 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 16256 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:53:59 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:54:01 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:54:01 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:54:02 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:54:02 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:54:02 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:54:02 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:54:02 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:54:02 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2787 ms
+2022-09-25 17:54:02 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:54:03 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:54:03 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:54:03 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:54:03 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:54:04 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:54:04 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:54:05 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:54:05 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:54:05 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:54:06 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:54:06 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:54:06 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:54:06 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 7.077 seconds (JVM running for 9.208)
+2022-09-25 17:54:13 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:54:13 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:54:13 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-09-25 17:55:05 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:55:17 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:55:17 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:55:17 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:55:18 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:55:18 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-09-25 17:55:23 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:55:23 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 15424 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:55:23 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:55:25 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:55:25 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:55:26 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:55:26 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:55:26 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:55:26 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:55:26 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:55:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2883 ms
+2022-09-25 17:55:27 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:55:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:55:27 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:55:27 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:55:27 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:55:28 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:55:28 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:55:30 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:55:31 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:55:31 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:55:32 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:55:32 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1fcc3461]]
+2022-09-25 17:55:32 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:55:32 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 9.433 seconds (JVM running for 12.138)
+2022-09-25 17:55:50 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:55:50 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:55:50 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-09-25 17:56:38 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 17:57:07 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 17:57:07 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1fcc3461]]
+2022-09-25 17:57:07 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-09-25 17:57:15 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 16060 (E:\SpringBoot\spring-boot-api\target\classes started by Administrator in E:\SpringBoot\spring-boot-api)
+2022-09-25 17:57:15 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-09-25 17:57:15 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-09-25 17:57:17 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-25 17:57:17 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 0 JPA repository interfaces.
+2022-09-25 17:57:17 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2022-09-25 17:57:17 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:57:17 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-09-25 17:57:17 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-09-25 17:57:18 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-09-25 17:57:18 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2408 ms
+2022-09-25 17:57:18 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-25 17:57:18 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-09-25 17:57:18 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-25 17:57:18 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-09-25 17:57:18 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-09-25 17:57:19 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-25 17:57:19 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-25 17:57:20 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-09-25 17:57:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2022-09-25 17:57:21 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-25 17:57:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-09-25 17:57:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 17:57:21 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-09-25 17:57:22 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.95 seconds (JVM running for 9.087)
+2022-09-25 17:58:08 [http-nio-8099-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-25 17:58:08 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-09-25 17:58:08 [http-nio-8099-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2022-09-25 17:58:20 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-09-25 18:00:05 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-09-25 18:00:05 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@254513e8]]
+2022-09-25 18:00:05 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.

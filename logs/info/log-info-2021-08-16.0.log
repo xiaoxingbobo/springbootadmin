@@ -1,0 +1,568 @@
+2021-08-16 14:42:37 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 13276 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 14:42:37 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 14:42:40 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 14:42:40 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:42:40 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 14:42:40 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 14:42:40 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 14:42:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3254 ms
+2021-08-16 14:42:41 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:42:42 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:42:42 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 14:42:42 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 14:42:42 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 14:42:42 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 14:42:42 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 14:42:42 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 14:42:42 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 6.717 seconds (JVM running for 10.515)
+2021-08-16 14:44:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 16292 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 14:44:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 14:44:56 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 14:44:56 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:44:56 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 14:44:56 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 14:44:57 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 14:44:57 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1621 ms
+2021-08-16 14:44:57 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:44:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:44:58 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 14:44:58 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 14:44:58 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 14:44:58 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 14:44:58 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 14:44:58 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 14:44:58 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 3.748 seconds (JVM running for 5.749)
+2021-08-16 14:46:36 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 14292 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 14:46:36 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 14:46:37 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 14:46:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:46:37 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 14:46:37 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 14:46:37 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 14:46:37 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1571 ms
+2021-08-16 14:46:38 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:46:39 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:46:39 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 14:46:39 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 14:46:39 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 14:46:39 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 14:46:39 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 14:46:39 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 14:46:39 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.035 seconds (JVM running for 6.05)
+2021-08-16 14:46:48 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 14:46:48 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 14:46:48 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2021-08-16 14:51:01 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 14700 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 14:51:01 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 14:51:03 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 14:51:03 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:51:03 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 14:51:03 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 14:51:03 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 14:51:03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2049 ms
+2021-08-16 14:51:04 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:51:04 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 14:51:04 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 14:51:04 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 14:51:04 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 14:51:05 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 14:51:05 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 14:51:05 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 14:51:05 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.923 seconds (JVM running for 10.999)
+2021-08-16 14:51:12 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 14:51:12 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 14:51:12 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 14:51:48 [http-nio-8080-exec-10] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:52:39 [http-nio-8080-exec-3] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 14:52:40 [http-nio-8080-exec-7] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 15:01:48 [http-nio-8080-exec-8] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:12:08 [http-nio-8080-exec-9] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:13:20 [http-nio-8080-exec-7] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:13:33 [http-nio-8080-exec-10] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:14:49 [http-nio-8080-exec-3] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:15:27 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12572 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 15:15:27 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 15:15:29 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 15:15:29 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:15:29 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 15:15:29 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 15:15:29 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 15:15:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2311 ms
+2021-08-16 15:15:30 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:15:31 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:15:31 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 15:15:31 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 15:15:31 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 15:15:31 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 15:15:31 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 15:15:31 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 15:15:31 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.031 seconds (JVM running for 10.586)
+2021-08-16 15:15:33 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 15:15:33 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 15:15:33 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2021-08-16 15:16:11 [http-nio-8080-exec-1] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:17:18 [http-nio-8080-exec-4] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 15:18:28 [http-nio-8080-exec-2] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 15:21:16 [http-nio-8080-exec-5] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - Inconsistent constructor declaration on bean with name 'testController': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public com.xxbb.springbootapi.controller.TestController(com.xxbb.springbootapi.dao.impl.UserDao,com.xxbb.springbootapi.entity.JsonResult)
+2021-08-16 15:22:33 [http-nio-8080-exec-9] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:23:57 [http-nio-8080-exec-2] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:28:18 [http-nio-8080-exec-5] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:30:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12152 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 15:30:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 15:30:58 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 15:30:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:30:58 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 15:30:58 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 15:30:58 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 15:30:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2542 ms
+2021-08-16 15:30:59 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:30:59 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:30:59 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 15:30:59 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 15:30:59 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 15:30:59 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 15:30:59 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 15:30:59 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 15:30:59 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.954 seconds (JVM running for 10.522)
+2021-08-16 15:33:42 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 15:33:42 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 15:33:42 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 15:34:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12332 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 15:34:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 15:34:06 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 15:34:06 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:34:06 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 15:34:06 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 15:34:06 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 15:34:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2033 ms
+2021-08-16 15:34:07 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:34:07 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:34:07 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 15:34:07 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 15:34:07 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 15:34:07 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 15:34:07 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 15:34:07 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 15:34:07 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.567 seconds (JVM running for 10.944)
+2021-08-16 15:34:38 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 15:34:38 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 15:34:38 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 15:35:08 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12912 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 15:35:08 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 15:35:10 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 15:35:10 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:35:10 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 15:35:10 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 15:35:10 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 15:35:10 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2192 ms
+2021-08-16 15:35:11 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 15:35:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 15:35:11 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 15:35:11 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 15:35:11 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 15:35:11 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 15:35:11 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 15:35:11 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 15:35:11 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.775 seconds (JVM running for 11.01)
+2021-08-16 15:37:58 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 15:37:58 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 15:37:58 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 15:39:57 [http-nio-8080-exec-10] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:04:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 6288 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 16:04:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 16:04:36 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 16:04:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 16:04:36 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 16:04:36 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 16:04:37 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 16:04:37 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2399 ms
+2021-08-16 16:04:37 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:04:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 16:04:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 16:04:38 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 16:04:38 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 16:04:38 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 16:04:38 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 16:04:38 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 16:04:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.02 seconds (JVM running for 11.063)
+2021-08-16 16:04:51 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 16:04:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 16:04:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 16:05:55 [http-nio-8080-exec-6] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:07:11 [http-nio-8080-exec-8] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:09:10 [http-nio-8080-exec-8] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:09:39 [http-nio-8080-exec-4] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:12:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 3452 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 16:12:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 16:12:40 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 16:12:40 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 16:12:40 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 16:12:40 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 16:12:40 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 16:12:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2010 ms
+2021-08-16 16:12:41 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 16:12:41 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 16:12:41 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 16:12:41 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 16:12:41 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 16:12:41 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 16:12:42 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 16:12:42 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 16:12:42 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.523 seconds (JVM running for 10.141)
+2021-08-16 16:13:04 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 16:13:04 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 16:13:04 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-08-16 16:15:06 [http-nio-8080-exec-8] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:51:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 13592 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:51:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:51:36 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:51:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:36 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:51:36 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:51:36 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:51:36 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2391 ms
+2021-08-16 22:51:37 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:51:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 22:51:38 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 22:51:38 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 22:51:38 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 22:51:38 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 22:51:38 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 22:51:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.034 seconds (JVM running for 7.429)
+2021-08-16 22:51:43 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 4028 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:51:43 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:51:45 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:51:45 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:45 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:51:45 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:51:46 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:51:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2720 ms
+2021-08-16 22:51:47 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:51:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:48 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-08-16 22:51:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:51:48 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-08-16 22:52:18 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 22:52:18 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 22:52:18 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 22:52:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 14720 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:52:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:52:57 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:52:57 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:52:57 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:52:57 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:52:57 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:52:57 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2673 ms
+2021-08-16 22:52:59 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:52:59 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:52:59 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 22:52:59 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 22:52:59 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 22:52:59 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 22:52:59 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 22:52:59 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 22:52:59 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.773 seconds (JVM running for 12.401)
+2021-08-16 22:53:22 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 22:53:22 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 22:53:22 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 22:54:46 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 3704 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:54:46 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:54:48 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:54:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:54:48 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:54:48 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:54:49 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:54:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2413 ms
+2021-08-16 22:54:50 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:54:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:54:50 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 22:54:50 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 22:54:50 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 22:54:50 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 22:54:50 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 22:54:50 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 22:54:51 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.348 seconds (JVM running for 11.698)
+2021-08-16 22:55:05 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 22:55:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 22:55:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 22:55:27 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 8028 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:55:27 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:55:30 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:55:30 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:55:30 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:55:30 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:55:30 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:55:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2523 ms
+2021-08-16 22:55:31 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:55:31 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:55:31 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 22:55:31 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 22:55:31 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 22:55:32 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 22:55:32 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 22:55:32 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 22:55:32 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.66 seconds (JVM running for 11.898)
+2021-08-16 22:58:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 5080 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 22:58:55 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 22:58:58 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 22:58:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:58:58 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 22:58:58 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 22:58:58 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 22:58:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2485 ms
+2021-08-16 22:58:59 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 22:59:00 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 22:59:00 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 22:59:00 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 22:59:00 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 22:59:00 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 22:59:00 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 22:59:00 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 22:59:00 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.645 seconds (JVM running for 11.935)
+2021-08-16 22:59:15 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 22:59:15 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 22:59:15 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 23:13:47 [http-nio-8080-exec-4] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:15:22 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12648 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:15:22 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:15:24 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:15:24 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:15:24 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:15:24 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:15:24 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:15:24 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1951 ms
+2021-08-16 23:15:25 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:15:25 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:15:25 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:15:25 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:15:25 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:15:25 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:15:25 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:15:25 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:15:26 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.497 seconds (JVM running for 10.071)
+2021-08-16 23:15:33 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:15:33 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:15:33 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2021-08-16 23:19:32 [http-nio-8080-exec-6] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:20:31 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 9400 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:20:31 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:20:33 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:20:33 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:20:33 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:20:33 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:20:33 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:20:33 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1956 ms
+2021-08-16 23:20:34 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:20:34 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:20:34 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:20:34 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:20:34 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:20:34 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:20:35 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:20:35 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:20:35 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.314 seconds (JVM running for 10.099)
+2021-08-16 23:20:43 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:20:43 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:20:43 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 23:21:33 [http-nio-8080-exec-7] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:21:44 [http-nio-8080-exec-9] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:22:09 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 12264 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:22:09 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:22:11 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:22:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:22:11 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:22:11 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:22:11 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:22:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2045 ms
+2021-08-16 23:22:12 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:22:13 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:22:13 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:22:13 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:22:13 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:22:13 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:22:13 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:22:13 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:22:13 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.758 seconds (JVM running for 10.541)
+2021-08-16 23:22:14 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:22:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:22:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 23:25:11 [http-nio-8080-exec-3] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 23:26:01 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 11920 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:26:01 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:26:03 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:26:03 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:26:03 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:26:03 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:26:04 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:26:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2674 ms
+2021-08-16 23:26:05 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:26:05 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:26:05 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:26:05 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:26:05 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:26:05 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:26:05 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:26:05 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:26:05 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.338 seconds (JVM running for 11.148)
+2021-08-16 23:26:18 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:26:18 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:26:18 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 23:26:41 [http-nio-8080-exec-4] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 23:26:48 [http-nio-8080-exec-5] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_2
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_4
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_5
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ailUsingPOST_1
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: eturnIntUsingPOST_1
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_2
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_2
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_2
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_4
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_5
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_2
+2021-08-16 23:27:29 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_2
+2021-08-16 23:35:45 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 596 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:35:45 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:35:48 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:35:48 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:35:48 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:35:48 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:35:48 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:35:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2425 ms
+2021-08-16 23:35:49 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:35:49 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:35:49 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:35:49 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:35:49 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:35:49 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:35:49 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:35:49 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:35:49 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.077 seconds (JVM running for 10.728)
+2021-08-16 23:35:51 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:35:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:35:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ailUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: eturnIntUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 23:39:04 [http-nio-8080-exec-8] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 23:40:16 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 15196 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:40:16 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:40:18 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:40:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:40:18 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:40:18 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:40:18 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:40:18 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2100 ms
+2021-08-16 23:40:19 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:40:19 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:40:19 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:40:19 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:40:19 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:40:19 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:40:19 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:40:19 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:40:19 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 4.761 seconds (JVM running for 10.945)
+2021-08-16 23:40:37 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:40:37 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:40:37 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-08-16 23:43:49 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_181 on fxdPC with PID 3656 (E:\Spring Boot\spring-boot-api\target\classes started by Administrator in E:\Spring Boot\spring-boot-api)
+2021-08-16 23:43:49 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2021-08-16 23:43:51 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2021-08-16 23:43:51 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:43:51 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-08-16 23:43:51 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-16 23:43:51 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-08-16 23:43:51 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2127 ms
+2021-08-16 23:43:53 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-08-16 23:43:53 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2021-08-16 23:43:53 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-16 23:43:53 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-08-16 23:43:53 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-08-16 23:43:53 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:43:53 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-16 23:43:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-08-16 23:43:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-08-16 23:43:53 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_1
+2021-08-16 23:43:53 [main] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_1
+2021-08-16 23:43:53 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 5.212 seconds (JVM running for 10.642)
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_2
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_3
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ailUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: eturnIntUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_2
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_3
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_1
+2021-08-16 23:45:16 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_1
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: SuccessUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_4
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: TestUsingPOST_5
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ailUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: eturnIntUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: AddUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: DeleteUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: FindUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_4
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: ListUsingPOST_5
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: PaginationUsingPOST_2
+2021-08-16 23:48:25 [http-nio-8080-exec-6] INFO  s.d.s.w.r.operation.CachingOperationNameGenerator - Generating unique operation named: UpdateUsingPOST_2
