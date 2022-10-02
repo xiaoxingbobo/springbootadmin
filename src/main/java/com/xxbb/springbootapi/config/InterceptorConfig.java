@@ -1,4 +1,3 @@
-
 package com.xxbb.springbootapi.config;
 
 import com.xxbb.springbootapi.interceptor.JWTInterceptor;
@@ -20,6 +19,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
         //放行路径
         List<String> excludePathPatternsList = new ArrayList<>();
         excludePathPatternsList.add("/Accounts/login");
+        //默认接口
+        excludePathPatternsList.add("/index/**");
         //knife4j文档
         excludePathPatternsList.add("/doc.html");
 
@@ -42,8 +43,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
         List<String> addPathPatternsList = new ArrayList<>();
         addPathPatternsList.add("/**");
         //注册
-        registry.addInterceptor(new JWTInterceptor())
-                .addPathPatterns(addPathPatternsList)
-                .excludePathPatterns(excludePathPatternsList);
+        registry.addInterceptor(new JWTInterceptor())//添加拦截器获取token
+                .addPathPatterns(addPathPatternsList).excludePathPatterns(excludePathPatternsList);
     }
 }

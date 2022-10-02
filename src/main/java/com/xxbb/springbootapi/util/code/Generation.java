@@ -37,6 +37,7 @@ public class Generation {
      * @return
      */
     public static Boolean start(String entityName, Boolean isCover) {
+
 //        List<String> entityList=new ArrayList<>();
 //        entityList.add("User");
         Map<String, String> listPair = new HashMap<>();
@@ -61,14 +62,14 @@ public class Generation {
         listPair.put(serviceTemp, service);
         listPair.put(controllerTemp, controller);
 
-        listPair.forEach((k,v)->{
+        listPair.forEach((k, v) -> {
             File file = new File(k);//读取模板
             String content = FileUtil.readString(file, Charset.defaultCharset());
             Map<String, String> map = new HashMap<>();
             map.put("entityName", entityName);
             String contents = StrUtil.format(content, map);//替换字符串
             try {
-                write(contents, v, isCover) ;//输出模板
+                write(contents, v, isCover);//输出模板
             } catch (IOException e) {
                 throw new LegalException("代码生成异常！异常位置：" + v + "：异常信息：" + e.getMessage());
             }

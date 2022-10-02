@@ -1,7 +1,7 @@
 import createAxios from '/@/utils/axios'
 import { useAdminInfo } from '/@/stores/adminInfo'
 
-const controllerUrl = '/admin/index/'
+const controllerUrl = '/api/Accounts/'
 
 export function index() {
     return createAxios({

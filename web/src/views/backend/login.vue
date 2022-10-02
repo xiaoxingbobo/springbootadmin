@@ -24,12 +24,12 @@
                     <img class="profile-avatar" src="~assets/avatar.png" alt="" />
                     <div class="content">
                         <el-form @keyup.enter="onSubmit(formRef)" ref="formRef" :rules="rules" size="large" :model="form">
-                            <el-form-item prop="username">
+                            <el-form-item prop="account">
                                 <el-input
-                                    ref="usernameRef"
+                                    ref="accountRef"
                                     type="text"
                                     clearable
-                                    v-model="form.username"
+                                    v-model="form.account"
                                     :placeholder="t('adminLogin.Please enter an account')"
                                 >
                                     <template #prefix>
@@ -104,10 +104,11 @@ import { buildCaptchaUrl } from '/@/api/common'
 import { uuid } from '../../utils/random'
 import { validatorPassword, validatorAccount } from '/@/utils/validate'
 import router from '/@/router'
-var timer: NodeJS.Timer
+let timer: NodeJS.Timer
 
 const config = useConfig()
 const adminInfo = useAdminInfo()
+
 
 const state = reactive({
     showCaptcha: false,
@@ -120,11 +121,11 @@ const onChangeCaptcha = () => {
 }
 
 const formRef = ref<InstanceType<typeof ElForm>>()
-const usernameRef = ref<InstanceType<typeof ElInput>>()
+const accountRef = ref<InstanceType<typeof ElInput>>()
 const passwordRef = ref<InstanceType<typeof ElInput>>()
 const captchaRef = ref<InstanceType<typeof ElInput>>()
 const form = reactive({
-    username: '',
+    account: '',
     password: '',
     captcha: '',
     keep: false,
@@ -136,7 +137,7 @@ const { t } = useI18n()
 
 // 表单验证规则
 const rules = reactive({
-    username: [
+    account: [
         {
             required: true,
             message: t('adminLogin.Please enter an account'),
@@ -174,8 +175,8 @@ const rules = reactive({
 })
 
 const focusInput = () => {
-    if (form.username === '') {
-        usernameRef.value!.focus()
+    if (form.account === '') {
+        accountRef.value!.focus()
     } else if (form.password === '') {
         passwordRef.value!.focus()
     } else if (form.captcha === '') {
