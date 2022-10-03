@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("{entityNameLowCase}s")
+@RequestMapping("{entityNameLowCase}")
 @Api(tags = "{entityName}表")
 @RestController
 public class {entityName}Controller extends ApiController<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {

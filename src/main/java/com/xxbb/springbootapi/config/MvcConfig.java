@@ -30,7 +30,8 @@ public class MvcConfig implements WebMvcConfigurer {
         //放行路径
         List<String> excludePathPatternsList = new ArrayList<>();
         //默认接口
-        excludePathPatternsList.add("/index/login");
+        excludePathPatternsList.add("/user/login");
+        excludePathPatternsList.add("/user/logout");
         excludePathPatternsList.add("/common/captcha");
         //knife4j文档
         excludePathPatternsList.add("/doc.html");
