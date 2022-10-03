@@ -36,7 +36,6 @@ public class IndexController {
     @GetMapping("login")
     @ApiOperation(value = "登录")
     public JsonResult login() {
-
         return new JsonResultData<>().Success(new LoginResult().setCaptcha(true));
     }
 }
