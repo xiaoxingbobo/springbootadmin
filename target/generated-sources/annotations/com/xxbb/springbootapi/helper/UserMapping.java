@@ -63,6 +63,14 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
+   *  email : email
+   */
+  public static final FieldMapping<User> email = new FieldMapping<User>
+  	("email", "email", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setEmail((String) v), User::getEmail);
+
+  /**
+   * 实体属性 : 数据库字段 映射
    *  isDeleted : is_deleted
    */
   public static final FieldMapping<User> isDeleted = new FieldMapping<User>
@@ -76,6 +84,30 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
   public static final FieldMapping<User> name = new FieldMapping<User>
   	("name", "name", null, null, null, String.class, null)
   	.sg((e, v) -> e.setName((String) v), User::getName);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  nickname : nickname
+   */
+  public static final FieldMapping<User> nickname = new FieldMapping<User>
+  	("nickname", "nickname", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setNickname((String) v), User::getNickname);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  password : password
+   */
+  public static final FieldMapping<User> password = new FieldMapping<User>
+  	("password", "password", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setPassword((String) v), User::getPassword);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  roleId : role_id
+   */
+  public static final FieldMapping<User> roleId = new FieldMapping<User>
+  	("roleId", "role_id", null, null, null, Integer.class, null)
+  	.sg((e, v) -> e.setRoleId((Integer) v), User::getRoleId);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -93,10 +125,18 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), User::getUpdateTime);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  username : username
+   */
+  public static final FieldMapping<User> username = new FieldMapping<User>
+  	("username", "username", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setUsername((String) v), User::getUsername);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, age, createTime, isDeleted, name, sex, updateTime));
+  	.asList(id, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime, username));
 
   public static final UserMapping MAPPING = new UserMapping();
 

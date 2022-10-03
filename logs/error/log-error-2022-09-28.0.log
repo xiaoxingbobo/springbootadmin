@@ -415,12 +415,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-A component required a bean of type 'com.xxbb.springbootapi.config.WebConfig' that could not be found.
+A component required a bean of type 'com.xxbb.springbootapi.config.AppConfig' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.xxbb.springbootapi.config.WebConfig' in your configuration.
+Consider defining a bean of type 'com.xxbb.springbootapi.config.AppConfig' in your configuration.
 
 2022-09-28 08:56:12 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
 
@@ -430,12 +430,12 @@ APPLICATION FAILED TO START
 
 Description:
 
-A component required a bean of type 'com.xxbb.springbootapi.config.WebConfig' that could not be found.
+A component required a bean of type 'com.xxbb.springbootapi.config.AppConfig' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'com.xxbb.springbootapi.config.WebConfig' in your configuration.
+Consider defining a bean of type 'com.xxbb.springbootapi.config.AppConfig' in your configuration.
 
 2022-09-28 09:01:14 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
 
@@ -445,7 +445,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field configUtil in com.xxbb.springbootapi.controller.FileController required a bean of type 'com.xxbb.springbootapi.config.WebConfig' that could not be found.
+Field configUtil in com.xxbb.springbootapi.controller.FileController required a bean of type 'com.xxbb.springbootapi.config.AppConfig' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -453,7 +453,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.xxbb.springbootapi.config.WebConfig' in your configuration.
+Consider defining a bean of type 'com.xxbb.springbootapi.config.AppConfig' in your configuration.
 
 2022-09-28 09:15:05 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
 
@@ -463,7 +463,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field webConfig in com.xxbb.springbootapi.controller.FileController required a bean of type 'com.xxbb.springbootapi.config.WebConfig' that could not be found.
+Field webConfig in com.xxbb.springbootapi.controller.FileController required a bean of type 'com.xxbb.springbootapi.config.AppConfig' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -471,7 +471,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.xxbb.springbootapi.config.WebConfig' in your configuration.
+Consider defining a bean of type 'com.xxbb.springbootapi.config.AppConfig' in your configuration.
 
 2022-09-28 09:21:42 [http-nio-8099-exec-2] ERROR c.x.springbootapi.interceptor.MyExceptionHandler - 发生异常！信息：java.lang.NullPointerException：null
 2022-09-28 09:21:42 [http-nio-8099-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause

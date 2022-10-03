@@ -44,6 +44,10 @@ public interface UserSegment {
       return this.set(createTime);
     }
 
+    default R email() {
+      return this.set(email);
+    }
+
     default R isDeleted() {
       return this.set(isDeleted);
     }
@@ -52,12 +56,28 @@ public interface UserSegment {
       return this.set(name);
     }
 
+    default R nickname() {
+      return this.set(nickname);
+    }
+
+    default R password() {
+      return this.set(password);
+    }
+
+    default R roleId() {
+      return this.set(roleId);
+    }
+
     default R sex() {
       return this.set(sex);
     }
 
     default R updateTime() {
       return this.set(updateTime);
+    }
+
+    default R username() {
+      return this.set(username);
     }
   }
 
@@ -90,6 +110,10 @@ public interface UserSegment {
       return this.process(createTime, _alias_);
     }
 
+    public Selector email(String _alias_) {
+      return this.process(email, _alias_);
+    }
+
     public Selector isDeleted(String _alias_) {
       return this.process(isDeleted, _alias_);
     }
@@ -98,12 +122,28 @@ public interface UserSegment {
       return this.process(name, _alias_);
     }
 
+    public Selector nickname(String _alias_) {
+      return this.process(nickname, _alias_);
+    }
+
+    public Selector password(String _alias_) {
+      return this.process(password, _alias_);
+    }
+
+    public Selector roleId(String _alias_) {
+      return this.process(roleId, _alias_);
+    }
+
     public Selector sex(String _alias_) {
       return this.process(sex, _alias_);
     }
 
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
+    }
+
+    public Selector username(String _alias_) {
+      return this.process(username, _alias_);
     }
   }
 
@@ -131,6 +171,10 @@ public interface UserSegment {
       return this.set(createTime);
     }
 
+    public StringWhere<W, UserQuery> email() {
+      return this.set(email);
+    }
+
     public NumericWhere<W, UserQuery> isDeleted() {
       return this.set(isDeleted);
     }
@@ -139,12 +183,28 @@ public interface UserSegment {
       return this.set(name);
     }
 
+    public StringWhere<W, UserQuery> nickname() {
+      return this.set(nickname);
+    }
+
+    public StringWhere<W, UserQuery> password() {
+      return this.set(password);
+    }
+
+    public NumericWhere<W, UserQuery> roleId() {
+      return this.set(roleId);
+    }
+
     public NumericWhere<W, UserQuery> sex() {
       return this.set(sex);
     }
 
     public ObjectWhere<W, UserQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public StringWhere<W, UserQuery> username() {
+      return this.set(username);
     }
   }
 

@@ -185,5 +185,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-websocket:2.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-websocket:5.3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:23.0.0" level="project" />
   </component>
 </module>

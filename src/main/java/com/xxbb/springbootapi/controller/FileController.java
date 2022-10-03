@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.config.WebConfig;
+import com.xxbb.springbootapi.config.AppConfig;
 import com.xxbb.springbootapi.entity.JsonResult;
 import com.xxbb.springbootapi.entity.JsonResultData;
 import com.xxbb.springbootapi.service.impl.SiteOperatorService;
@@ -29,7 +29,7 @@ import java.util.Objects;
 public class FileController {
 
     @Autowired
-    private WebConfig webConfig;
+    private AppConfig appConfig;
     @Autowired
     private SiteOperatorService siteOperatorService;
 
@@ -43,21 +43,21 @@ public class FileController {
         for (String item : dir) {
             if (!item.isEmpty()) pt += "/" + item;
         }
-        String uploadPath = webConfig.getUploadPath();
+        String uploadPath = appConfig.getUploadPath();
         File f = new File(uploadPath);
         if (!f.exists()) {
             f.mkdirs();
         }
 //        log.info(pt);
         //获取upload的绝对路径
-        String realPath = webConfig.getUploadPath() + pt;
+        String realPath = appConfig.getUploadPath() + pt;
         try {
             //处理文件
             file.transferTo(new File(realPath, Objects.requireNonNull(file.getOriginalFilename())));
         }catch (Exception e){
             e.printStackTrace();
         }
-        return new JsonResultData<>(webConfig.getUploadPrefix() +"/"+ file.getOriginalFilename()).Success();
+        return new JsonResultData<>(appConfig.getUploadPrefix() +"/"+ file.getOriginalFilename()).Success();
     }
 
     @GetMapping("download/{fileName}")
@@ -65,7 +65,7 @@ public class FileController {
     @ResponseBody
     public void download(HttpServletRequest request, HttpServletResponse response,@PathVariable("fileName") String fileName) throws IOException {
         //获取相对路径
-        String realPath = webConfig.getUploadPath();
+        String realPath = appConfig.getUploadPath();
         //判断是否是文件
         if (!new File(realPath + fileName).isFile()) {
             throw new LoadException("暂不支持下载文件夹或者当前文件不存在！请勿进行修改代码操作，已记录您本次请求！");

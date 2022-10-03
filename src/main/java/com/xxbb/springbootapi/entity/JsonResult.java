@@ -76,7 +76,15 @@ public class JsonResult implements Serializable {
         this.code = -1;
         return this;
     }
-
+    /**
+     * 空值
+     */
+    public JsonResult Null(String message) {
+        this.state = false;
+        this.message = message;
+        this.code = -1;
+        return this;
+    }
     /**
      * 未知
      */

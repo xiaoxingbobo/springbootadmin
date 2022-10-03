@@ -67,6 +67,7 @@ public class Generation {
             String content = FileUtil.readString(file, Charset.defaultCharset());
             Map<String, String> map = new HashMap<>();
             map.put("entityName", entityName);
+            map.put("entityNameLowCase", entityName.toLowerCase());
             String contents = StrUtil.format(content, map);//替换字符串
             try {
                 write(contents, v, isCover);//输出模板

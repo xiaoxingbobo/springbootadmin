@@ -32,6 +32,16 @@ public class User extends Common implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
     @ApiModelProperty(value = "主键",example = "0")
     private Integer id = super.id;
+
+    @ApiModelProperty("用户名")
+    private String username;
+    @ApiModelProperty("密码")
+    private String password;
+    @ApiModelProperty("邮箱")
+    private String email;
+    @ApiModelProperty(value = "角色主键", example = "0")
+    private Integer roleId;
+
     @ApiModelProperty("创建时间")
     @TableField(insert = "now()", update = "now()")
     private Date createTime = super.createTime;
@@ -43,6 +53,8 @@ public class User extends Common implements Serializable {
     private Integer isDeleted = super.isDeleted;
     @ApiModelProperty("名称")
     private String name;
+    @ApiModelProperty("昵称")
+    private String nickname;
     @ApiModelProperty(value = "年龄",example = "0")
     private Integer age;
     @ApiModelProperty(value = "性别",example = "0")

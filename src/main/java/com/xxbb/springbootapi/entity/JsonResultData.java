@@ -8,13 +8,16 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-@Data
+
 @AllArgsConstructor
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
+@Data
 @JsonSerialize
 public class JsonResultData<T> extends JsonResult implements Serializable {
     private T data;
+    //构造函数
+
     public JsonResultData(Integer code, String msg, Boolean state, T data){
         super(code,msg,state);
         this.data = data;

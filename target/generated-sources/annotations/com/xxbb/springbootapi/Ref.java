@@ -1,6 +1,5 @@
 package com.xxbb.springbootapi;
 
-import com.xxbb.springbootapi.helper.AccountMapping;
 import com.xxbb.springbootapi.helper.AuthorityMapping;
 import com.xxbb.springbootapi.helper.CommonMapping;
 import com.xxbb.springbootapi.helper.RoleAuthorityMapping;
@@ -22,9 +21,6 @@ public interface Ref {
    * 所有Entity FieldMapping引用
    */
   interface Field {
-    final class Account extends AccountMapping {
-    }
-
     final class Authority extends AuthorityMapping {
     }
 
@@ -45,8 +41,6 @@ public interface Ref {
   }
 
   interface Query {
-    AccountMapping account = AccountMapping.MAPPING;
-
     AuthorityMapping authority = AuthorityMapping.MAPPING;
 
     CommonMapping common = CommonMapping.MAPPING;

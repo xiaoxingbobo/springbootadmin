@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class FileConfig implements WebMvcConfigurer {
 
     @Autowired
-    private WebConfig webConfig;
+    private AppConfig appConfig;
 
     /**
      * 实现资源映射访问路径方法
@@ -30,7 +30,7 @@ public class FileConfig implements WebMvcConfigurer {
 //            registry.addResourceHandler("/fileData/**").addResourceLocations("file:" + lindir);
 //        }
 
-        registry.addResourceHandler(webConfig.getUploadPrefix()+"/**").addResourceLocations("file:" + webConfig.getUploadPath());
+        registry.addResourceHandler(appConfig.getUploadPrefix()+"/**").addResourceLocations("file:" + appConfig.getUploadPath());
 
     }
 }
