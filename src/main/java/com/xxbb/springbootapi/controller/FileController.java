@@ -43,7 +43,7 @@ public class FileController {
         for (String item : dir) {
             if (!item.isEmpty()) pt += "/" + item;
         }
-        String uploadPath = appConfig.getUploadPath();
+        String uploadPath = appConfig.getUploadPath(); //D:/upload
         File f = new File(uploadPath);
         if (!f.exists()) {
             f.mkdirs();
