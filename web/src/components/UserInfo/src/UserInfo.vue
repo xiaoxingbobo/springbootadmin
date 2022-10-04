@@ -16,7 +16,7 @@ const prefixCls = getPrefixCls('user-info')
 
 const { t } = useI18n()
 
-const { wsCache } = useCache()
+const { wsCache } = useCache('localStorage')
 
 const { replace } = useRouter()
 

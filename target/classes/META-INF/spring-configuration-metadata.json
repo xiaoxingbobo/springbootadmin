@@ -1,0 +1,11 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "logging.config.file.path",
+      "type": "java.lang.String",
+      "description": "Description for logging.config.file.path."
+    }
+  ],
+  "hints": []
+}

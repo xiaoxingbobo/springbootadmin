@@ -15,7 +15,7 @@ const appStore = useAppStoreWithOut()
 
 const dictStore = useDictStoreWithOut()
 
-const { wsCache } = useCache()
+const { wsCache } = useCache('localStorage')
 
 const { start, done } = useNProgress()
 

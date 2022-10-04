@@ -6,7 +6,7 @@ import { isArray } from '@/utils/is'
 import { useAppStoreWithOut } from '@/store/modules/app'
 
 const { t } = useI18n()
-const { wsCache } = useCache()
+const { wsCache } = useCache('localStorage')
 const appStore = useAppStoreWithOut()
 
 // 全部权限

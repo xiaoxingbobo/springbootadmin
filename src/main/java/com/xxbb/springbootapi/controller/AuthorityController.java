@@ -8,7 +8,7 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("Authoritys")
+@RequestMapping("authority")
 @Api(tags = "Authority表")
 @RestController
 public class AuthorityController extends ApiController<Authority, AuthorityQuery, AuthorityUpdate, AuthorityMapper> {

@@ -14,3 +14,51 @@
 2022-10-04 10:22:15 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-04 10:22:15 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-04 10:22:15 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 17:54:53 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorityController' defined in file [E:\SpringBoot\springbootadmin\target\classes\com\xxbb\springbootapi\controller\AuthorityController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.xxbb.springbootapi.controller.AuthorityController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.xxbb.springbootapi.mapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	AuthorityQuery cannot be resolved to a type
+	AuthorityUpdate cannot be resolved to a type
+	AuthorityMapper cannot be resolved to a type
+
+2022-10-04 17:58:14 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorityController' defined in file [E:\SpringBoot\springbootadmin\target\classes\com\xxbb\springbootapi\controller\AuthorityController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.xxbb.springbootapi.controller.AuthorityController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.xxbb.springbootapi.mapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	AuthorityQuery cannot be resolved to a type
+	AuthorityUpdate cannot be resolved to a type
+	AuthorityMapper cannot be resolved to a type
+
+2022-10-04 17:59:28 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorityController' defined in file [E:\SpringBoot\springbootadmin\target\classes\com\xxbb\springbootapi\controller\AuthorityController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.xxbb.springbootapi.controller.AuthorityController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.xxbb.springbootapi.mapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	AuthorityQuery cannot be resolved to a type
+	AuthorityUpdate cannot be resolved to a type
+	AuthorityMapper cannot be resolved to a type
+
+2022-10-04 18:00:59 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authorityController' defined in file [E:\SpringBoot\springbootadmin\target\classes\com\xxbb\springbootapi\controller\AuthorityController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.xxbb.springbootapi.controller.AuthorityController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
+	The import com.xxbb.springbootapi.mapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	The import com.xxbb.springbootapi.wrapper cannot be resolved
+	AuthorityQuery cannot be resolved to a type
+	AuthorityUpdate cannot be resolved to a type
+	AuthorityMapper cannot be resolved to a type
+
+2022-10-04 18:04:54 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2022-10-04 18:04:55 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void

@@ -23,7 +23,7 @@ const permissionStore = usePermissionStore()
 
 const { currentRoute, addRoute, push } = useRouter()
 
-const { wsCache } = useCache()
+const { wsCache } = useCache('localStorage')
 
 const { t } = useI18n()
 
