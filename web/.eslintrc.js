@@ -64,6 +64,7 @@ module.exports = defineConfig({
       }
     ],
     'vue/multi-word-component-names': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    "indent": 0,
   }
 })

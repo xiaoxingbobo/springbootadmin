@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { store } from '../index'
+import { store } from '@/store'
 
 export interface DictState {
   isSetDict: boolean

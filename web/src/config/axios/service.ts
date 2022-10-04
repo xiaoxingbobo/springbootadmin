@@ -1,5 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 
+import { AxiosRequestHeaders, AxiosResponseHeaders } from 'axios'
+
+import { useCache } from '@/hooks/web/useCache'
+
 import qs from 'qs'
 
 import { config } from './config'
@@ -7,6 +11,8 @@ import { config } from './config'
 import { ElMessage } from 'element-plus'
 
 const { result_code, base_url } = config
+
+const { wsCache } = useCache('localStorage')
 
 export const PATH_URL = base_url[import.meta.env.VITE_API_BASEPATH]
 
@@ -19,6 +25,7 @@ const service: AxiosInstance = axios.create({
 // request拦截器
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
+    // Do something before request is sent
     if (
       config.method === 'post' &&
       (config.headers as any)['Content-Type'] === 'application/x-www-form-urlencoded'
@@ -39,6 +46,12 @@ service.interceptors.request.use(
       config.params = {}
       config.url = url
     }
+    // 如果token存在，每个http header都加上token
+    const token = wsCache.get('token') || ''
+    if (token) {
+      config.headers['Authorization'] = token
+    }
+
     return config
   },
   (error: AxiosError) => {
