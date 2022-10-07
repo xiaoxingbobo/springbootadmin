@@ -12,9 +12,9 @@
 
     <!--打包配置-->
     <groupId>com.xxbb</groupId>
-    <artifactId>SpringBootApi</artifactId>
-    <version>0.0.1-SNAPSHOT</version><!--打包版本-->
-    <name>SpringBootApi</name><!--打包名字-->
+    <artifactId>dam</artifactId>
+    <version>1.0</version><!--打包版本-->
+    <name>dam</name><!--打包名字-->
     <description>Demo project for Spring Boot</description>
     <!--java 版本-->
     <properties>
@@ -63,6 +63,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--jpa实体生成comment(字段描述)-->
+        <dependency>
+            <groupId>com.github.biyanwen</groupId>
+            <artifactId>jpa-comment-spring-boot-starter</artifactId>
+            <version>1.0.1</version>
         </dependency>
         <!-- 引入fluent-mybatis 运行依赖包, scope为compile -->
         <dependency>

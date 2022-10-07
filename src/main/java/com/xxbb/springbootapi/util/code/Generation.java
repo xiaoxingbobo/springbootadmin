@@ -5,11 +5,12 @@ import cn.hutool.core.util.StrUtil;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import lombok.extern.slf4j.Slf4j;
 
-
+import java.beans.Introspector;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 public class Generation {
@@ -67,7 +68,7 @@ public class Generation {
             String content = FileUtil.readString(file, Charset.defaultCharset());
             Map<String, String> map = new HashMap<>();
             map.put("entityName", entityName);
-            map.put("entityNameLowCase", entityName.toLowerCase());
+            map.put("entityNameLowCase", Introspector.decapitalize(entityName));//首字母转小写
             String contents = StrUtil.format(content, map);//替换字符串
             try {
                 write(contents, v, isCover);//输出模板
