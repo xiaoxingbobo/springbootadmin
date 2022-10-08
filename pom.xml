@@ -130,6 +130,13 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <!--orika实体映射-->
+        <!-- https://mvnrepository.com/artifact/com.gitlab.haynes/orika-spring-boot-starter -->
+        <dependency>
+            <groupId>com.gitlab.haynes</groupId>
+            <artifactId>orika-spring-boot-starter</artifactId>
+            <version>1.26.0</version>
+        </dependency>
 
 
     </dependencies>
