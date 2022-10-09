@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,11 @@ import java.io.Serializable;
 @NoArgsConstructor//无参数构造
 @JsonSerialize
 public class JsonResult implements Serializable {
+    @ApiModelProperty("响应状态：true，false")
     private Boolean state;
+    @ApiModelProperty("响应信息")
     private String message;
+    @ApiModelProperty("响应码：1成功，0失败，-1异常，-2未知，2空值")
     private Integer code;
 
     public JsonResult(Integer code, String msg, Boolean state) {
@@ -82,7 +86,7 @@ public class JsonResult implements Serializable {
     public JsonResult Null(String message) {
         this.state = false;
         this.message = message;
-        this.code = -1;
+        this.code = 2;
         return this;
     }
     /**

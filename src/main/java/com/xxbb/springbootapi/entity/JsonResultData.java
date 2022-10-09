@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @Data
 @JsonSerialize
 public class JsonResultData<T> extends JsonResult implements Serializable {
+    @ApiModelProperty("数据")
     private T data;
     //构造函数
 

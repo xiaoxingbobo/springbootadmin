@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.entity;
 
-import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,8 @@ import java.util.List;
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 public class DataList<T> {
-    private int total;
+    @ApiModelProperty("数据条数")
+    private Integer total;
+    @ApiModelProperty("数据列表")
     private List<T> list;
 }
