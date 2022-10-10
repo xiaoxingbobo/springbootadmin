@@ -4,7 +4,10 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.Common;
-import com.xxbb.springbootapi.entity.DataList;
+import com.xxbb.springbootapi.entity.dto.PagedInput;
+import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedResult;
+import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.service.impl.BaseService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -20,7 +23,7 @@ public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extend
 
     @PostMapping
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean add(@RequestBody K entity) {
+    public Boolean create(@RequestBody K entity) {
         return service.add(entity);
     }
 
@@ -36,8 +39,19 @@ public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extend
         return service.update(entity);
     }
 
+    @PostMapping("/searches")
+    @ApiOperation(value = "搜索")
+    public List<K> select(@RequestBody List<Search> searches) {
+        if(searches.size()==1)
+            return service.search(searches.get(0));
+        else if (searches.size()>1)
+            return service.search(searches);
+        else
+            return service.list();
+    }
+
     @GetMapping("/{id}")
-    @ApiOperation(value = "查询一个")
+    @ApiOperation(value = "查询一条")
     public K find(@PathVariable("id") int id) {
         return (K) service.find(id);
     }
@@ -45,23 +59,30 @@ public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extend
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<K> list(@PathVariable("limit") int limit) {
+    public List<K> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
     @GetMapping
     @ApiOperation(value = "查询所有")
-    public List<K> list() {
+    public List<K> select() {
         return service.list();
     }
 
+    @PostMapping("/paged")
+    @ApiOperation(value = "分页筛选")
+    public PagedResult<K> select(@RequestBody PagedInputC<K> input) {
+        return service.list(input);
+    }
     @ApiOperation(value = "分页查询")
-    @GetMapping("/{index}/{limit}")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "index", value = "数据索引", defaultValue = "0"),
-            @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    })
-    public DataList<K> pagination(@PathVariable("index") int index, @PathVariable("limit") int limit) {
-        return service.pagination(index, limit);
+    @GetMapping("/paged/{current}/{size}")
+    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
+    public PagedResult<K> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+        return service.paged(new PagedInput().setCurrent(current).setSize(size));
+    }
+    @PostMapping("/paged/searches")
+    @ApiOperation(value = "分页搜索")
+    public PagedResult<K> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+        return service.searchPaged(pagedInput);
     }
 }

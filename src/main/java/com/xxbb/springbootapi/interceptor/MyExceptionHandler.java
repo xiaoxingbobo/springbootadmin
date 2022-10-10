@@ -2,7 +2,6 @@ package com.xxbb.springbootapi.interceptor;
 
 
 import com.xxbb.springbootapi.entity.JsonResult;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

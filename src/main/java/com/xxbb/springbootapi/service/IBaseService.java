@@ -4,7 +4,10 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.Common;
-import com.xxbb.springbootapi.entity.DataList;
+import com.xxbb.springbootapi.entity.dto.PagedInput;
+import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedResult;
+import com.xxbb.springbootapi.entity.dto.Search;
 
 import java.util.List;
 
@@ -64,10 +67,24 @@ public interface IBaseService<K extends Common, T extends BaseQuery<K, T>, V ext
      * */
     List<K> list();
 
+    List<K> list(List<Integer> ids);
+
+    PagedResult<K> list(PagedInputC<K> input);
+
+    /**
+     * 搜索
+     *
+     * @param search
+     * @return
+     */
+    List<K> search(Search search);
+    List<K> search(List<Search> searches);
+
+
+    PagedResult<K> searchPaged(PagedInputC<List<Search>> searches);
+
     /*
      * 分页查询
      * */
-    DataList<K> pagination(int index, int limit);
-
-
+    PagedResult<K> paged(PagedInput input);
 }

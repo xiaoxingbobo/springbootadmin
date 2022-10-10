@@ -1,6 +1,5 @@
 package com.xxbb.springbootapi.config;
 
-import com.xxbb.springbootapi.interceptor.JWTInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -39,6 +38,7 @@ public class MvcConfig implements WebMvcConfigurer {
         excludePathPatternsList.add("/swagger-resources/**");
         excludePathPatternsList.add("/webjars/**");
         excludePathPatternsList.add("/v2/**");
+        excludePathPatternsList.add("/favicon.ico");
         excludePathPatternsList.add("/swagger-ui.html/**");
         //static
         excludePathPatternsList.add("/ws.html");
@@ -53,8 +53,8 @@ public class MvcConfig implements WebMvcConfigurer {
         List<String> addPathPatternsList = new ArrayList<>();
         addPathPatternsList.add("/**");
         //注册
-        registry.addInterceptor(new JWTInterceptor())//添加拦截器获取token
-                .addPathPatterns(addPathPatternsList)
-                .excludePathPatterns(excludePathPatternsList);
+//        registry.addInterceptor(new JWTInterceptor())//添加拦截器获取token
+//                .addPathPatterns(addPathPatternsList)
+//                .excludePathPatterns(excludePathPatternsList);
     }
 }

@@ -86,7 +86,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         if (user != null) {
             throw new LegalException("账号已存在");
         }
-        return dao.add(entity) > 0;
+        return dao.insert(entity) > 0;
     }
 
     //删除

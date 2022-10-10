@@ -4,17 +4,22 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.Common;
-import com.xxbb.springbootapi.entity.DataList;
+import com.xxbb.springbootapi.entity.dto.PagedInput;
+import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedResult;
+import com.xxbb.springbootapi.entity.dto.Search;
 
 import java.util.List;
 
 public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> {
 
     E mapper();
+
     /*
      * 增加
      * */
-    int add(K entity);
+
+    int insert(K entity);
 
     /**
      * 批量添加
@@ -22,12 +27,20 @@ public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends
      * @param list
      * @return
      */
-    int add(List<K> list);
+    int insert(List<K> list);
 
     /*
      * 删除
      * */
     int delete(int id);
+
+    /**
+     * 批量删除
+     *
+     * @param ids
+     * @return
+     */
+    int deleteBatch(List<Integer> ids);
 
     /*
      * 修改
@@ -49,8 +62,43 @@ public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends
      * */
     List<K> list();
 
+
+
+    /**
+     * 通过关键字搜索列表
+     * @param search
+     * @return
+     */
+    List<K> search(Search search);
+    /**
+     * 多条件搜索
+     * @param searches
+     * @return
+     */
+    List<K> search(List<Search> searches);
+
+    PagedResult<K> searchPaged(PagedInputC<List<Search>> pagedInputCondition);
+
+    /**
+     * 动态条件查询
+     *
+     * @param query
+     * @return
+     */
+    List<K> list(T query);
+
+    PagedResult<K> list(PagedInputC<K> pagedInputC);
+
+    /**
+     * 通过ids查询列表
+     * @param ids
+     * @return
+     */
+    List<K> list(List<Integer> ids);
+
+
     /*
      * 查询列表，分页查询
      * */
-    DataList<K> pagination(int index, int limit);
+    PagedResult<K> paged(PagedInput pagedInput);
 }
