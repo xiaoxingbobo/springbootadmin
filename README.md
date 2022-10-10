@@ -1,7 +1,7 @@
 # SpringBootApi
 
 #### 介绍
-SpringBootApi快速开发框架，高度封装
+SpringBootAdmin快速开发框架，继承SpringBootApi+Vue3+Vite+TypeScript，高度封装，集成Admin管理后台，低代码量
 
 #### 软件架构
 软件架构说明
@@ -14,6 +14,9 @@ SpringBootApi快速开发框架，高度封装
 8. jwt
 9. Pbkdf2加密
 10. jpa实体类生成数据库
+11. Vue3
+12. Vite
+13. TypeScript
 
 
 #### 安装教程
@@ -21,7 +24,7 @@ SpringBootApi快速开发框架，高度封装
 1. 安装meven里面的所有包即可
 2. 创建数据库springbootapi
 3. 在application.yml里面配置spring:sql: init: mode: always，第一次初始化数据库，初始化成功后改为never，不然每次启动都会初始化数据库
-4. 运行项目，访问http://localhost:8080/doc.html
+4. 运行项目，访问http://localhost:8686/doc.html
 
 #### 使用说明
 1. 直接启动，默认端口8099，访问localhost:8099/doc.html打开api接口文档，如下图
