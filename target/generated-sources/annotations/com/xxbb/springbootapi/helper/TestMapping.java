@@ -47,6 +47,14 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
+   *  address : address
+   */
+  public static final FieldMapping<Test> address = new FieldMapping<Test>
+  	("address", "address", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setAddress((String) v), Test::getAddress);
+
+  /**
+   * 实体属性 : 数据库字段 映射
    *  createTime : create_time
    */
   public static final FieldMapping<Test> createTime = new FieldMapping<Test>
@@ -63,6 +71,22 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
+   *  name : name
+   */
+  public static final FieldMapping<Test> name = new FieldMapping<Test>
+  	("name", "name", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setName((String) v), Test::getName);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  tel : tel
+   */
+  public static final FieldMapping<Test> tel = new FieldMapping<Test>
+  	("tel", "tel", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setTel((String) v), Test::getTel);
+
+  /**
+   * 实体属性 : 数据库字段 映射
    *  updateTime : update_time
    */
   public static final FieldMapping<Test> updateTime = new FieldMapping<Test>
@@ -72,7 +96,7 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, createTime, isDeleted, updateTime));
+  	.asList(id, address, createTime, isDeleted, name, tel, updateTime));
 
   public static final TestMapping MAPPING = new TestMapping();
 

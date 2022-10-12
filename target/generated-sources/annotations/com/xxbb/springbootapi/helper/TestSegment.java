@@ -17,6 +17,7 @@ import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
+import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
 import com.xxbb.springbootapi.wrapper.TestQuery;
 import com.xxbb.springbootapi.wrapper.TestUpdate;
 
@@ -35,12 +36,24 @@ public interface TestSegment {
       return this.set(id);
     }
 
+    default R address() {
+      return this.set(address);
+    }
+
     default R createTime() {
       return this.set(createTime);
     }
 
     default R isDeleted() {
       return this.set(isDeleted);
+    }
+
+    default R name() {
+      return this.set(name);
+    }
+
+    default R tel() {
+      return this.set(tel);
     }
 
     default R updateTime() {
@@ -69,12 +82,24 @@ public interface TestSegment {
       return this.process(id, _alias_);
     }
 
+    public Selector address(String _alias_) {
+      return this.process(address, _alias_);
+    }
+
     public Selector createTime(String _alias_) {
       return this.process(createTime, _alias_);
     }
 
     public Selector isDeleted(String _alias_) {
       return this.process(isDeleted, _alias_);
+    }
+
+    public Selector name(String _alias_) {
+      return this.process(name, _alias_);
+    }
+
+    public Selector tel(String _alias_) {
+      return this.process(tel, _alias_);
     }
 
     public Selector updateTime(String _alias_) {
@@ -98,12 +123,24 @@ public interface TestSegment {
       return this.set(id);
     }
 
+    public StringWhere<W, TestQuery> address() {
+      return this.set(address);
+    }
+
     public ObjectWhere<W, TestQuery> createTime() {
       return this.set(createTime);
     }
 
     public NumericWhere<W, TestQuery> isDeleted() {
       return this.set(isDeleted);
+    }
+
+    public StringWhere<W, TestQuery> name() {
+      return this.set(name);
+    }
+
+    public StringWhere<W, TestQuery> tel() {
+      return this.set(tel);
     }
 
     public ObjectWhere<W, TestQuery> updateTime() {

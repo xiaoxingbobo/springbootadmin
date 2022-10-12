@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("authority")
 @Api(tags = "Authority表")
 @RestController
-public class AuthorityController extends ApiController<Authority, AuthorityQuery, AuthorityUpdate, AuthorityMapper> {
+public class AuthorityController extends AuthApiController<Authority, AuthorityQuery, AuthorityUpdate, AuthorityMapper> {
 
 }

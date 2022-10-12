@@ -1,9 +1,9 @@
 package com.xxbb.springbootapi.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableAsync;
-
-@Configuration
-@EnableAsync
+/**
+ * 异步接口配置
+ */
+//@Configuration
+//@EnableAsync
 public class AsyncConfiguration {
 }

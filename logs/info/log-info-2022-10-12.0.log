@@ -1086,3 +1086,335 @@
 2022-10-12 13:42:20 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-12 13:42:20 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3aa8c337]]
 2022-10-12 13:42:20 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 14:50:38 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 14:50:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 19108 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 14:50:38 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 14:50:40 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 14:50:40 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 0 JPA repository interfaces.
+2022-10-12 14:50:41 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4f9a6c2d' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:50:41 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:50:43 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 14:50:43 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 14:50:43 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 14:50:43 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 14:50:44 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 14:50:44 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5495 ms
+2022-10-12 14:50:44 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 14:50:44 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 14:50:44 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 14:50:45 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 14:50:45 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 14:50:47 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 14:50:47 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 14:50:49 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 14:50:50 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ba08f26, org.springframework.security.web.context.SecurityContextPersistenceFilter@581d5b33, org.springframework.security.web.header.HeaderWriterFilter@7bd1098, org.springframework.security.web.authentication.logout.LogoutFilter@d271d6c, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@4976085, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7d07e04e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44a9971f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3909308c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6033f36c, org.springframework.security.web.session.SessionManagementFilter@6a562255, org.springframework.security.web.access.ExceptionTranslationFilter@abf1816, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ea4e762]
+2022-10-12 14:50:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 14:50:50 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 14:50:51 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 14:50:51 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6e0f259e]]
+2022-10-12 14:50:51 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 14:50:51 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 14.403 seconds (JVM running for 15.888)
+2022-10-12 14:51:40 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 14:51:40 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 14:51:40 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-10-12 14:51:49 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 14:52:15 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 14:52:15 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6e0f259e]]
+2022-10-12 14:52:15 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 14:52:16 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 14:52:16 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-10-12 14:52:30 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 14:52:30 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 13756 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 14:52:30 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 14:52:32 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 14:52:32 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 0 JPA repository interfaces.
+2022-10-12 14:52:33 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@77bb48d5' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:52:33 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:52:35 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 14:52:35 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 14:52:35 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 14:52:35 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 14:52:35 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 14:52:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5085 ms
+2022-10-12 14:52:35 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 14:52:36 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 14:52:36 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 14:52:36 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 14:52:36 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 14:52:38 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 14:52:38 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 14:52:39 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 14:52:40 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@520ec7a7, org.springframework.security.web.context.SecurityContextPersistenceFilter@50caeb4b, org.springframework.security.web.header.HeaderWriterFilter@314c28dc, org.springframework.security.web.authentication.logout.LogoutFilter@629de8, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@3134153d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50b4e7b2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c7c07ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@744f0e0b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53551fef, org.springframework.security.web.session.SessionManagementFilter@2f498f21, org.springframework.security.web.access.ExceptionTranslationFilter@78f4d15d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4745bcc6]
+2022-10-12 14:52:41 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 14:52:41 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 14:52:42 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 14:52:42 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62c42a3]]
+2022-10-12 14:52:42 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 14:52:42 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 12.538 seconds (JVM running for 13.619)
+2022-10-12 14:53:40 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 14:54:56 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 14:54:56 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 14:54:56 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2022-10-12 14:59:45 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 14:59:45 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62c42a3]]
+2022-10-12 14:59:45 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 14:59:46 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 14:59:46 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-10-12 14:59:54 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 14:59:54 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 10560 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 14:59:54 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 14:59:56 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 14:59:56 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 0 JPA repository interfaces.
+2022-10-12 14:59:56 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@68f0f72c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:59:56 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 14:59:58 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 14:59:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 14:59:58 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 14:59:58 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 14:59:58 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 14:59:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4738 ms
+2022-10-12 14:59:59 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 14:59:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 14:59:59 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 14:59:59 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 15:00:00 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 15:00:01 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 15:00:01 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 15:00:02 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 15:00:03 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@234bfc8c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1be4a7e3, org.springframework.security.web.header.HeaderWriterFilter@34d5eac, org.springframework.security.web.authentication.logout.LogoutFilter@63243c8f, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@5f631ca0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@18bc1064, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@544e6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78829412, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5008559a, org.springframework.security.web.session.SessionManagementFilter@1adf387e, org.springframework.security.web.access.ExceptionTranslationFilter@69abeb14, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18d1d137]
+2022-10-12 15:00:03 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 15:00:03 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 15:00:04 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 15:00:04 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@41948c13]]
+2022-10-12 15:00:04 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 15:00:04 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 11.383 seconds (JVM running for 12.418)
+2022-10-12 15:01:02 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 15:01:02 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 15:01:02 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2022-10-12 15:01:03 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 15:03:23 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 15:03:23 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@41948c13]]
+2022-10-12 15:03:23 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 15:03:24 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 15:03:24 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-10-12 15:03:34 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 15:03:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 11352 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 15:03:34 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 15:03:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 15:03:36 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 95 ms. Found 0 JPA repository interfaces.
+2022-10-12 15:03:37 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@b887730' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 15:03:37 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 15:03:38 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 15:03:38 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 15:03:38 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 15:03:38 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 15:03:39 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 15:03:39 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4878 ms
+2022-10-12 15:03:39 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 15:03:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 15:03:39 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 15:03:40 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 15:03:40 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 15:03:41 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 15:03:41 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 15:03:43 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 15:03:43 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f4f6f89, org.springframework.security.web.context.SecurityContextPersistenceFilter@161c9468, org.springframework.security.web.header.HeaderWriterFilter@5020e5ab, org.springframework.security.web.authentication.logout.LogoutFilter@a1a72d4, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@3134153d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@77d58f3a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b32b678, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34d5eac, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c45191e, org.springframework.security.web.session.SessionManagementFilter@143fe09c, org.springframework.security.web.access.ExceptionTranslationFilter@47994b51, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@76b019c4]
+2022-10-12 15:03:44 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 15:03:44 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 15:03:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 15:03:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73230721]]
+2022-10-12 15:03:44 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 15:03:45 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 11.498 seconds (JVM running for 12.588)
+2022-10-12 15:04:03 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 15:04:03 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 15:04:03 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-10-12 15:04:43 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 15:11:46 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 15:11:46 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@73230721]]
+2022-10-12 15:11:46 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 15:11:47 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 15:11:47 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-10-12 19:12:10 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 19:12:10 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 17324 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 19:12:10 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 19:12:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 19:12:14 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107 ms. Found 0 JPA repository interfaces.
+2022-10-12 19:12:15 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@58fef7f7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 19:12:15 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 19:12:18 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 19:12:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 19:12:18 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 19:12:18 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 19:12:18 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 19:12:18 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8308 ms
+2022-10-12 19:12:19 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 19:12:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 19:12:19 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 19:12:19 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 19:12:20 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 19:12:21 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 19:12:21 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 19:12:22 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 19:12:23 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18bc1064, org.springframework.security.web.context.SecurityContextPersistenceFilter@1b6683c4, org.springframework.security.web.header.HeaderWriterFilter@41463c56, org.springframework.security.web.authentication.logout.LogoutFilter@293ecff6, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@338766de, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1cfb7450, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7db2b614, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72b53f27, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3cab07dd, org.springframework.security.web.session.SessionManagementFilter@629de8, org.springframework.security.web.access.ExceptionTranslationFilter@19f1f330, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ddc8fc]
+2022-10-12 19:12:24 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 19:12:24 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 19:12:25 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 19:12:25 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@125a8ab6]]
+2022-10-12 19:12:25 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 19:12:25 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 16.982 seconds (JVM running for 18.798)
+2022-10-12 19:13:23 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 19:36:57 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 19:36:57 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 19:36:57 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-10-12 19:43:23 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2022-10-12 20:13:23 [MessageBroker-2] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2022-10-12 20:43:23 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
+2022-10-12 20:50:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 20:50:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@125a8ab6]]
+2022-10-12 20:50:27 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 23:24:43 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 35348 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 23:24:43 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 23:24:43 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 23:24:47 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 23:24:47 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 0 JPA repository interfaces.
+2022-10-12 23:24:49 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@17fa1336' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 23:24:49 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 23:24:51 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 23:24:51 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 23:24:51 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 23:24:51 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 23:24:52 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 23:24:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8457 ms
+2022-10-12 23:24:52 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 23:24:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 23:24:53 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 23:24:54 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 23:24:54 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 23:24:56 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 23:24:56 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 23:24:59 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 23:25:01 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1cdad619, org.springframework.security.web.context.SecurityContextPersistenceFilter@52963839, org.springframework.security.web.header.HeaderWriterFilter@7c8f803d, org.springframework.security.web.authentication.logout.LogoutFilter@7120daa6, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@41184371, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@185bf6e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@399fd710, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51566ce0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@319058ce, org.springframework.security.web.session.SessionManagementFilter@4ac0d49, org.springframework.security.web.access.ExceptionTranslationFilter@60fe75f7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13018f00]
+2022-10-12 23:25:01 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 23:25:01 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 23:25:03 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 23:25:03 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@f8fe81e]]
+2022-10-12 23:25:03 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 23:25:03 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 22.105 seconds (JVM running for 23.778)
+2022-10-12 23:25:59 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 23:26:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 23:26:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@f8fe81e]]
+2022-10-12 23:26:55 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2022-10-12 23:26:56 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 23:26:56 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2022-10-12 23:27:05 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2022-10-12 23:27:05 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Starting SpringBootApiApplication using Java 1.8.0_332 on 小樊的战神 with PID 33032 (E:\SpringBoot\springbootadmin\target\classes started by Administrator in E:\SpringBoot\springbootadmin)
+2022-10-12 23:27:05 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - The following profiles are active: prod
+2022-10-12 23:27:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-12 23:27:07 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 0 JPA repository interfaces.
+2022-10-12 23:27:08 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@67e13bd0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 23:27:08 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-12 23:27:10 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2022-10-12 23:27:10 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2022-10-12 23:27:10 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-12 23:27:10 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+2022-10-12 23:27:10 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-12 23:27:10 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5368 ms
+2022-10-12 23:27:11 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-12 23:27:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-10-12 23:27:12 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-10-12 23:27:12 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2022-10-12 23:27:13 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-10-12 23:27:14 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-12 23:27:14 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-12 23:27:16 [main] INFO  cn.org.atool.fluent.mybatis.spring.MapperFactory - 
+
+      _____   _                          _       
+     |  ___| | |  _   _    ___   _ __   | |_     
+     | |_    | | | | | |  / _ \ | '_ \  | __|    
+     |  _|   | | | |_| | |  __/ | | | | | |_     
+  __ |_|     |_|  \__,_|  \___| |_|_|_|  \__|    
+ |  \/  |  _   _  | |__     __ _  | |_  (_)  ___ 
+ | |\/| | | | | | | '_ \   / _` | | __| | | / __|
+ | |  | | | |_| | | |_) | | (_| | | |_  | | \__ \
+ |_|  |_|  \__, | |_.__/   \__,_|  \__| |_| |___/
+           |___/                                 
+2022-10-12 23:27:17 [main] INFO  o.s.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@632b96b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@68de8522, org.springframework.security.web.header.HeaderWriterFilter@3879feec, org.springframework.security.web.authentication.logout.LogoutFilter@1238a074, com.xxbb.springbootapi.interceptor.JwtAuthTokenFilter@167381c7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@69abeb14, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50f13494, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bf1b528, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@544e6b, org.springframework.security.web.session.SessionManagementFilter@53917c92, org.springframework.security.web.access.ExceptionTranslationFilter@6f89ad03, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@161c9468]
+2022-10-12 23:27:17 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2022-10-12 23:27:17 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2022-10-12 23:27:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Starting...
+2022-10-12 23:27:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ca2a03f]]
+2022-10-12 23:27:19 [main] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Started.
+2022-10-12 23:27:19 [main] INFO  com.xxbb.springbootapi.SpringBootApiApplication - Started SpringBootApiApplication in 14.623 seconds (JVM running for 15.776)
+2022-10-12 23:27:45 [http-nio-8888-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-12 23:27:45 [http-nio-8888-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-10-12 23:27:45 [http-nio-8888-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-10-12 23:28:16 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2022-10-12 23:37:39 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2022-10-12 23:37:39 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ca2a03f]]
+2022-10-12 23:37:39 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.

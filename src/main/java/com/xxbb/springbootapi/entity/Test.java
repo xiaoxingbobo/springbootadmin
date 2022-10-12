@@ -40,4 +40,11 @@ public class Test extends Common {
     @ApiModelProperty(value = "是否删除",example = "0")
     private Integer isDeleted = super.isDeleted;
 
+    @ApiModelProperty(value = "收货地址")
+    private String address;
+    @ApiModelProperty(value = "收货人")
+    private String name;
+    @ApiModelProperty(value = "联系电话")
+    private String tel;
+
 }

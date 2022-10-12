@@ -1,5 +1,5 @@
 insert into authority (create_time, is_deleted, `name`, update_time, value)
-values (NOW(), 0, '所有权限', NOW(), 'all');
+values (NOW(), 0, '所有权限', NOW(), 'sys:all:all');
 insert into role(create_time, update_time, is_deleted, `name`)
 values (NOW(), NOW(), 0, '超级管理员');
 insert into role_authority(create_time, update_time, is_deleted, role_id, authority_id)

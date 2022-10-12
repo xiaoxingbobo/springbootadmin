@@ -71,6 +71,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
 
         //获取用户信息
         SecurityUserDetails userDetails = (SecurityUserDetails) (authenticate.getPrincipal());
+
         User user = userDetails.getUser();
         //获取用户权限
         //1.获取当前角色拥有的权限

@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("genRecord")
 @Api(tags = "GenRecord表")
 @RestController
-public class GenRecordController extends ApiController<GenRecord, GenRecordQuery, GenRecordUpdate, GenRecordMapper> {
+public class GenRecordController extends AuthApiController<GenRecord, GenRecordQuery, GenRecordUpdate, GenRecordMapper> {
 
 }
