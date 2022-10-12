@@ -43,10 +43,10 @@ com.xxbb.springbootapi.controller.AccountController#add(Account) mapped.
 2021-12-25 23:47:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2021-12-25 23:47:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2021-12-25 23:47:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2021-12-25 23:48:36 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-12-25 23:48:36 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

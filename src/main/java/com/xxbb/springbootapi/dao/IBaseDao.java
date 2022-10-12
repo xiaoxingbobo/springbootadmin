@@ -89,6 +89,8 @@ public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends
 
     PagedResult<K> list(PagedInputC<K> pagedInputC);
 
+    List<K> list(K entity);
+
     /**
      * 通过ids查询列表
      * @param ids

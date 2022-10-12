@@ -6,7 +6,6 @@ import cn.org.atool.fluent.mybatis.base.entity.IMapping;
 import cn.org.atool.fluent.mybatis.base.mapper.IMapper;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import cn.org.atool.fluent.mybatis.mapper.PrinterMapper;
-import com.xxbb.springbootapi.entity.Admin;
 import com.xxbb.springbootapi.wrapper.AdminQuery;
 import com.xxbb.springbootapi.wrapper.AdminUpdate;
 import java.util.List;

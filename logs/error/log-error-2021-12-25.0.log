@@ -8,7 +8,7 @@ Description:
 
 An attempt was made to call a method that does not exist. The attempt was made from the following location:
 
-    com.xxbb.springbootapi.util.swagger.Config.createRestApi(Config.java:23)
+    com.xxbb.springbootapi.utils.swagger.Config.createRestApi(Config.java:23)
 
 The following method did not exist:
 

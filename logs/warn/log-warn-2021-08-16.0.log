@@ -1,5 +1,5 @@
-2021-08-16 15:09:42 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
-java.lang.NoSuchMethodError: com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(Ljava/lang/Exception;)Lcom/xxbb/springbootapi/entity/JsonResult;
+2021-08-16 15:09:42 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
+java.lang.NoSuchMethodError: com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(Ljava/lang/Exception;)Lcom/xxbb/springbootapi/entity/JsonResult;
 	at com.zeroturnaround.jrebelbase.facade.s.throwNoSuchMethodError(SourceFile:197)
 	at com.zeroturnaround.jrebelbase.facade.s.checkMethodRemoved(SourceFile:218)
 	at java.lang.reflect.Method.invoke(Method.java:498)
@@ -68,7 +68,7 @@ java.lang.NoSuchMethodError: com.xxbb.springbootapi.interceptor.MyExceptionHandl
 2021-08-16 15:18:33 [http-nio-8080-exec-8] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
 2021-08-16 15:22:33 [http-nio-8080-exec-9] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
 2021-08-16 15:23:27 [http-nio-8080-exec-8] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation]
-2021-08-16 15:39:57 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-08-16 15:39:57 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -121,7 +121,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:09 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:09 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -174,7 +174,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:10 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:10 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -227,7 +227,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:11 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:11 [http-nio-8080-exec-3] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -280,7 +280,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:11 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:11 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -333,7 +333,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:31 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:31 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -386,7 +386,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:31 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:31 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -439,7 +439,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:51 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:51 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -492,7 +492,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:42:52 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:42:52 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -545,7 +545,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:45:23 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:45:23 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -598,7 +598,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:49:28 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:49:28 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -651,7 +651,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:49:36 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:49:36 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -704,7 +704,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:49:39 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:49:39 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -758,7 +758,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2021-08-16 15:49:39 [http-nio-8080-exec-9] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2021-08-16 15:50:12 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:50:12 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -811,7 +811,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:53:03 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:53:03 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -864,7 +864,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:53:23 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:53:23 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -917,7 +917,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:53:23 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:53:23 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -970,7 +970,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:53:24 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:53:24 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
@@ -1023,7 +1023,7 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-08-16 15:53:24 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
+2021-08-16 15:53:24 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(HttpServletRequest, Exception)
 org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acceptable representation
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:315)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)

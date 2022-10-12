@@ -12,10 +12,10 @@
 2021-09-24 11:39:59 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-09-24 11:41:56 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-09-24 12:18:43 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-24 12:18:57 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-09-24 12:18:57 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -77,10 +77,10 @@ java.lang.NullPointerException: null
 2021-09-24 12:48:56 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.xxbb.springbootapi.dao.impl.BaseDao<?, ?>' available: expected single matching bean but found 2: accountDao,userDao
 2021-09-24 12:49:18 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-09-24 12:49:59 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-24 12:50:10 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-09-24 12:50:10 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -135,10 +135,10 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2021-09-24 12:50:55 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-24 12:51:13 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-09-24 12:51:13 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -212,10 +212,10 @@ java.lang.NullPointerException: null
 2021-09-24 13:54:35 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.xxbb.springbootapi.dao.impl.BaseDao<?, ?>' available: expected single matching bean but found 2: accountDao,userDao
 2021-09-24 13:56:06 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'com.xxbb.springbootapi.dao.impl.BaseDao<?, ?>' available: expected single matching bean but found 2: accountDao,userDao
 2021-09-24 13:56:47 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-09-24 13:57:02 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-09-24 13:57:02 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -269,10 +269,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-09-24 13:57:44 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2021-09-24 13:57:44 [http-nio-8080-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:25)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

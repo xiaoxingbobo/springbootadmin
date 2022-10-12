@@ -1,7 +1,7 @@
 package com.xxbb.springbootapi.interceptor;
 
-import com.xxbb.springbootapi.entity.JsonResult;
-import com.xxbb.springbootapi.entity.JsonResultData;
+import com.xxbb.springbootapi.entity.dto.JsonResult;
+import com.xxbb.springbootapi.entity.dto.JsonResultData;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

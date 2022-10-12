@@ -5,7 +5,6 @@ import static com.xxbb.springbootapi.helper.AdminMapping.MAPPING;
 import cn.org.atool.fluent.mybatis.base.crud.IDefaultGetter;
 import cn.org.atool.fluent.mybatis.base.dao.BaseDao;
 import cn.org.atool.fluent.mybatis.base.mapper.IMapper;
-import com.xxbb.springbootapi.entity.Admin;
 import com.xxbb.springbootapi.mapper.AdminMapper;
 import com.xxbb.springbootapi.wrapper.AdminQuery;
 import com.xxbb.springbootapi.wrapper.AdminUpdate;

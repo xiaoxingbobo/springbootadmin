@@ -78,6 +78,11 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
     }
 
     @Override
+    public List<K> list(K entity) {
+        return dao.list(entity);
+    }
+
+    @Override
     public List<K> list(List<Integer> ids) {
         return dao.list(ids);
     }
@@ -96,10 +101,12 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
     public List<K> search(List<Search> searches) {
         return dao.search(searches);
     }
+
     @Override
     public PagedResult<K> searchPaged(PagedInputC<List<Search>> searches) {
         return dao.searchPaged(searches);
     }
+
     @Override
     public PagedResult<K> paged(PagedInput input) {
         return dao.paged(input);

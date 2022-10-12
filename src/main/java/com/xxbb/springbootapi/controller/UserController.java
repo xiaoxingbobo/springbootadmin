@@ -1,7 +1,7 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.JsonResult;
 import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.entity.dto.JsonResult;
 import com.xxbb.springbootapi.entity.dto.LoginInput;
 import com.xxbb.springbootapi.mapper.UserMapper;
 import com.xxbb.springbootapi.service.impl.UserService;
@@ -20,10 +20,9 @@ public class UserController extends ApiController<User, UserQuery, UserUpdate, U
     private UserService userService;
 
     @GetMapping("getUserInfo")
-    @ApiOperation(value = "获取当前登录者信息")
-    public User getUserInfo() {
-
-        return userService.getSiteOperator();
+    @ApiOperation(value = "获取当前用户信息")
+    public User getUser() {
+        return userService.getUserInfo().setPassword(null);
     }
 
 
@@ -32,6 +31,7 @@ public class UserController extends ApiController<User, UserQuery, UserUpdate, U
     public JsonResult login(@RequestBody LoginInput input) {
         return userService.login(input);
     }
+
     @GetMapping("logout")
     @ApiOperation(value = "注销")
     public JsonResult logout() {

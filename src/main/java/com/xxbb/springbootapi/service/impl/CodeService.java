@@ -1,7 +1,7 @@
 package com.xxbb.springbootapi.service.impl;
 
 import com.xxbb.springbootapi.service.ICodeGenerate;
-import com.xxbb.springbootapi.util.code.Generation;
+import com.xxbb.springbootapi.utils.code.Generation;
 import org.springframework.stereotype.Service;
 
 /**

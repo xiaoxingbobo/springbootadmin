@@ -47,6 +47,14 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
+   *  username : username
+   */
+  public static final FieldMapping<User> username = new FieldMapping<User>
+  	("username", "username", PRIMARY_ID, null, null, String.class, null)
+  	.sg((e, v) -> e.setUsername((String) v), User::getUsername);
+
+  /**
+   * 实体属性 : 数据库字段 映射
    *  age : age
    */
   public static final FieldMapping<User> age = new FieldMapping<User>
@@ -125,18 +133,10 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), User::getUpdateTime);
 
-  /**
-   * 实体属性 : 数据库字段 映射
-   *  username : username
-   */
-  public static final FieldMapping<User> username = new FieldMapping<User>
-  	("username", "username", null, null, null, String.class, null)
-  	.sg((e, v) -> e.setUsername((String) v), User::getUsername);
-
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime, username));
+  	.asList(id, username, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime));
 
   public static final UserMapping MAPPING = new UserMapping();
 

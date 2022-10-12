@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.JsonResult;
+import com.xxbb.springbootapi.entity.dto.JsonResult;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;

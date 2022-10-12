@@ -1,6 +1,5 @@
 package com.xxbb.springbootapi.wrapper;
 
-import static cn.org.atool.fluent.mybatis.If.notBlank;
 import static cn.org.atool.fluent.mybatis.segment.fragment.Fragments.fragment;
 import static com.xxbb.springbootapi.helper.EngineeringCostMapping.MAPPING;
 

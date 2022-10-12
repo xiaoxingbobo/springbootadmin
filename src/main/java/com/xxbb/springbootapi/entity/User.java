@@ -11,10 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -30,15 +27,18 @@ public class User extends Common implements Serializable {
     @Id
     @TableId
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
-    @ApiModelProperty(value = "主键",example = "0")
+    @Column(nullable = false)
+    @ApiModelProperty(value = "主键", example = "0")
     private Integer id = super.id;
-
+    @TableId
+    @Column(nullable = false)
     @ApiModelProperty("用户名")
     private String username;
     @ApiModelProperty("密码")
     private String password;
     @ApiModelProperty("邮箱")
     private String email;
+    @Column(nullable = false)
     @ApiModelProperty(value = "角色主键", example = "0")
     private Integer roleId;
 
@@ -49,14 +49,14 @@ public class User extends Common implements Serializable {
     @ApiModelProperty("修改时间")
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
-    @ApiModelProperty(value = "是否删除",example = "0")
+    @ApiModelProperty(value = "是否删除", example = "0")
     private Integer isDeleted = super.isDeleted;
     @ApiModelProperty("名称")
     private String name;
     @ApiModelProperty("昵称")
     private String nickname;
-    @ApiModelProperty(value = "年龄",example = "0")
+    @ApiModelProperty(value = "年龄", example = "0")
     private Integer age;
-    @ApiModelProperty(value = "性别",example = "0")
+    @ApiModelProperty(value = "性别", example = "0")
     private Short sex;
 }

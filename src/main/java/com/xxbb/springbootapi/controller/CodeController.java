@@ -1,10 +1,11 @@
 package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.service.impl.CodeService;
-import com.xxbb.springbootapi.util.ClassUtil;
+import com.xxbb.springbootapi.utils.ClassUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class CodeController {
      * @return
      */
     @PostMapping("generate")
+    @PreAuthorize("hasAuthority('sys:code:generate')")
     @ApiOperation(value = "单个实体生成")
     public Boolean Generate(String entityName,Boolean isCover){
         return codeService.Generate(entityName,isCover);

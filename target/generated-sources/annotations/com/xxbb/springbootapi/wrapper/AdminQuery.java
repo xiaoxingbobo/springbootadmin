@@ -1,9 +1,7 @@
 package com.xxbb.springbootapi.wrapper;
 
-import static cn.org.atool.fluent.mybatis.If.notBlank;
 import static cn.org.atool.fluent.mybatis.segment.fragment.Fragments.fragment;
 import static cn.org.atool.fluent.mybatis.utility.MybatisUtil.assertNotNull;
-import static cn.org.atool.fluent.mybatis.utility.StrConstant.EMPTY;
 import static com.xxbb.springbootapi.helper.AdminMapping.MAPPING;
 
 import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
@@ -13,7 +11,6 @@ import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.segment.fragment.BracketFrag;
 import cn.org.atool.fluent.mybatis.segment.fragment.IFragment;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
-import com.xxbb.springbootapi.entity.Admin;
 import com.xxbb.springbootapi.helper.AdminSegment;
 import java.util.Optional;
 

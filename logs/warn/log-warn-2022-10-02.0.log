@@ -228,10 +228,10 @@
 2022-10-02 17:11:19 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 17:11:19 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 17:11:19 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 17:11:38 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 17:11:38 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -289,10 +289,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 17:13:32 [http-nio-8099-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 17:13:32 [http-nio-8099-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -350,10 +350,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 17:14:22 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 17:14:22 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -427,10 +427,10 @@ java.lang.NullPointerException: null
 2022-10-02 17:15:26 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 17:15:26 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 17:15:26 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 17:15:37 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 17:15:37 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -488,10 +488,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 17:15:46 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 17:15:46 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -951,10 +951,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:37:04 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:37:04 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:37:04 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:38:39 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:38:39 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1028,10 +1028,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:39:53 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:39:53 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:39:53 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:39:56 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:39:56 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1089,10 +1089,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 18:40:02 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:40:02 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1166,10 +1166,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:40:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:40:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:40:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:40:48 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:40:48 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1227,10 +1227,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 18:41:58 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:41:58 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1288,10 +1288,10 @@ java.lang.NullPointerException: null
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:750)
-2022-10-02 18:42:18 [http-nio-8099-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:42:18 [http-nio-8099-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1365,10 +1365,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:43:07 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:43:07 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:43:07 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:44:14 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:44:14 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1442,10 +1442,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:45:30 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:45:30 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:45:30 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:45:45 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:45:45 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1521,10 +1521,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:49:37 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:49:37 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:49:37 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:53:16 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:53:16 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1598,10 +1598,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:53:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:53:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:53:43 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:54:01 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:54:01 [http-nio-8099-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1675,10 +1675,10 @@ java.lang.NullPointerException: null
 2022-10-02 18:54:35 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:54:35 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-10-02 18:54:35 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-10-02 18:54:53 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-10-02 18:54:53 [http-nio-8099-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.lang.String.contains(String.java:2133)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

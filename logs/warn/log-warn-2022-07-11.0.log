@@ -14,10 +14,10 @@
 2022-07-11 10:14:57 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-07-11 10:14:57 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-07-11 10:14:58 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-07-11 10:18:01 [http-nio-8099-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:18:01 [http-nio-8099-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NullPointerException: null
 	at java.base/java.lang.String.contains(String.java:2036)
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:24)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -123,9 +123,9 @@ java.lang.NullPointerException: null
 2022-07-11 10:47:23 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-07-11 10:47:23 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
 2022-07-11 10:47:23 [main] WARN  s.d.s.r.operation.OperationImplicitParameterReader - Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
-2022-07-11 10:47:40 [http-nio-8099-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:47:40 [http-nio-8099-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalException
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -184,9 +184,9 @@ java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalExceptio
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2022-07-11 10:48:18 [http-nio-8099-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:48:18 [http-nio-8099-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalException
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -245,9 +245,9 @@ java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalExceptio
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2022-07-11 10:49:47 [http-nio-8099-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:49:47 [http-nio-8099-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalException
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -306,9 +306,9 @@ java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalExceptio
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2022-07-11 10:49:49 [http-nio-8099-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:49:49 [http-nio-8099-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalException
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -367,9 +367,9 @@ java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalExceptio
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
-2022-07-11 10:49:55 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.MyExceptionHandler#exceptionHandler(Exception)
+2022-07-11 10:49:55 [http-nio-8099-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.xxbb.springbootapi.interceptor.GlobalExceptionHandler#exceptionHandler(Exception)
 java.lang.NoClassDefFoundError: com/xxbb/springbootapi/interceptor/LegalException
-	at com.xxbb.springbootapi.interceptor.MyExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
+	at com.xxbb.springbootapi.interceptor.GlobalExceptionHandler.exceptionHandler(MyExceptionHandler.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -67,6 +67,8 @@ public interface IBaseService<K extends Common, T extends BaseQuery<K, T>, V ext
      * */
     List<K> list();
 
+    List<K> list(K entity);
+
     List<K> list(List<Integer> ids);
 
     PagedResult<K> list(PagedInputC<K> input);

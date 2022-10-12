@@ -11,7 +11,6 @@ import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
 import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
-import com.xxbb.springbootapi.entity.Admin;
 import com.xxbb.springbootapi.mapper.AdminMapper;
 import com.xxbb.springbootapi.wrapper.AdminQuery;
 import com.xxbb.springbootapi.wrapper.AdminUpdate;
