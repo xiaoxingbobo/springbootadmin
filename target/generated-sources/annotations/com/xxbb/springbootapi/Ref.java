@@ -1,11 +1,6 @@
 package com.xxbb.springbootapi;
 
-import com.xxbb.springbootapi.helper.AuthorityMapping;
-import com.xxbb.springbootapi.helper.CommonMapping;
-import com.xxbb.springbootapi.helper.RoleAuthorityMapping;
-import com.xxbb.springbootapi.helper.RoleMapping;
-import com.xxbb.springbootapi.helper.TestMapping;
-import com.xxbb.springbootapi.helper.UserMapping;
+import com.xxbb.springbootapi.helper.GenRecordMapping;
 
 /**
  *
@@ -21,36 +16,11 @@ public interface Ref {
    * 所有Entity FieldMapping引用
    */
   interface Field {
-    final class Authority extends AuthorityMapping {
-    }
-
-    final class Common extends CommonMapping {
-    }
-
-    final class Role extends RoleMapping {
-    }
-
-    final class RoleAuthority extends RoleAuthorityMapping {
-    }
-
-    final class Test extends TestMapping {
-    }
-
-    final class User extends UserMapping {
+    final class GenRecord extends GenRecordMapping {
     }
   }
 
   interface Query {
-    AuthorityMapping authority = AuthorityMapping.MAPPING;
-
-    CommonMapping common = CommonMapping.MAPPING;
-
-    RoleMapping role = RoleMapping.MAPPING;
-
-    RoleAuthorityMapping roleAuthority = RoleAuthorityMapping.MAPPING;
-
-    TestMapping test = TestMapping.MAPPING;
-
-    UserMapping user = UserMapping.MAPPING;
+    GenRecordMapping genRecord = GenRecordMapping.MAPPING;
   }
 }

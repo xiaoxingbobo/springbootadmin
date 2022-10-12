@@ -1,6 +1,5 @@
 package com.xxbb.springbootapi.entity;
 
-
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
@@ -12,18 +11,22 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 代码生成记录
+ *
+ * @author
+ */
 
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
-@FluentMybatis
 @Data
+@FluentMybatis
 @Entity
-public class User extends Common implements Serializable {
+public class GenRecord extends Common{
     //公共属性
     @Id
     @TableId
@@ -41,23 +44,6 @@ public class User extends Common implements Serializable {
     @ApiModelProperty(value = "是否删除", example = "0")
     private Integer isDeleted = super.isDeleted;
     //自定义属性
-    @TableId
-    @Column(nullable = false)
-    @ApiModelProperty("用户名")
-    private String username;
-    @ApiModelProperty("密码")
-    private String password;
-    @ApiModelProperty("邮箱")
-    private String email;
-    @Column(nullable = false)
-    @ApiModelProperty(value = "角色主键", example = "0")
-    private Integer roleId;
-    @ApiModelProperty("名称")
-    private String name;
-    @ApiModelProperty("昵称")
-    private String nickname;
-    @ApiModelProperty(value = "年龄", example = "0")
-    private Integer age;
-    @ApiModelProperty(value = "性别", example = "0")
-    private Short sex;
+    @ApiModelProperty(value = "实体名称")
+    private String entityName;
 }

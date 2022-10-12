@@ -1214,3 +1214,6 @@ com.xxbb.springbootapi.interceptor.LegalException: null
 2022-10-12 11:14:00 [http-nio-8888-exec-9] ERROR c.x.s.interceptor.GlobalExceptionHandler - 发生异常！信息：java.lang.ClassCastException: com.xxbb.springbootapi.entity.User cannot be cast to com.xxbb.springbootapi.service.impl.SecurityUserDetails：com.xxbb.springbootapi.entity.User cannot be cast to com.xxbb.springbootapi.service.impl.SecurityUserDetails
 2022-10-12 11:18:10 [http-nio-8888-exec-3] ERROR c.x.s.interceptor.GlobalExceptionHandler - 发生异常！信息：java.lang.ClassCastException: com.xxbb.springbootapi.service.impl.SecurityUserDetails cannot be cast to com.xxbb.springbootapi.entity.User：com.xxbb.springbootapi.service.impl.SecurityUserDetails cannot be cast to com.xxbb.springbootapi.entity.User
 2022-10-12 11:27:19 [http-nio-8888-exec-9] ERROR c.x.s.interceptor.GlobalExceptionHandler - 发生异常！信息：java.lang.ArithmeticException: / by zero：/ by zero
+2022-10-12 12:26:24 [http-nio-8888-exec-2] ERROR c.x.s.interceptor.GlobalExceptionHandler - 自定义异常：超级管理员角色不允许删除
+2022-10-12 12:26:52 [http-nio-8888-exec-4] ERROR c.x.s.interceptor.GlobalExceptionHandler - 自定义异常：超级管理员角色权限不允许删除
+2022-10-12 13:11:42 [http-nio-8888-exec-5] ERROR c.x.s.interceptor.GlobalExceptionHandler - 发生异常！信息：org.springframework.security.access.AccessDeniedException: 不允许访问：不允许访问
