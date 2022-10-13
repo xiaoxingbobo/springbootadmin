@@ -27,7 +27,7 @@ public class CodeController {
      * @return
      */
     @PostMapping("generate")
-    @PreAuthorize("hasAuthority('superAdmin')")
+    @PreAuthorize("hasAuthority('sys:all:all')")
     @ApiOperation(value = "单个实体生成")
     public Boolean Generate(String entityName, Boolean isCover) {
 
@@ -36,7 +36,7 @@ public class CodeController {
 
     @GetMapping("classes")
     @ApiOperation(value = "可生成实体列表")
-    @PreAuthorize("hasAuthority('superAdmin')")
+    @PreAuthorize("hasAuthority('sys:all:all')")
     public List<String> getClasses() {
         List<String> classes = new ArrayList<>();
         for (Class<?> item : ClassUtil.getClasses("com.xxbb.springbootapi.entity")) {
@@ -47,13 +47,13 @@ public class CodeController {
 
     @GetMapping("undo/{id}")
     @ApiOperation(value = "撤销生成")
-    @PreAuthorize("hasAuthority('superAdmin')")
+    @PreAuthorize("hasAuthority('sys:all:all')")
     public boolean undoGen(@PathVariable("id") Integer id) {
         return codeService.delete(id);
     }
 
     @GetMapping("list")
-    @PreAuthorize("hasAuthority('superAdmin')")
+    @PreAuthorize("hasAuthority('sys:all:all')")
     @ApiOperation(value = "所有生成记录")
     public List<GenRecord> list() {
         return codeService.list();

@@ -29,5 +29,5 @@ export default {
   },
   put: <T = any>(option: any) => {
     return request({ method: 'put', ...option }) as unknown as T
-  },
+  }
 }
