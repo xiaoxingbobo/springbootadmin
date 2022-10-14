@@ -30,37 +30,38 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String token = httpServletRequest.getHeader("Authorization");
-        if (!StringUtils.hasText(token)) {
-            filterChain.doFilter(httpServletRequest, httpServletResponse);
-            return;
-        }
+        //token不为空
+        if (StringUtils.hasText(token)) {
+            try {
+                DecodedJWT jwt = JwtUtil.verifyToken(token);
+                Integer userId = jwt.getClaim("id").asInt();
+                String username = jwt.getClaim("username").asString();
+                Integer roleId = jwt.getClaim("roleId").asInt();
+                List<String> authority = jwt.getClaim("authority").asList(String.class);
+                String name = jwt.getClaim("name").asString();
+                //把token中的信息存入SecurityContext
+                User user = new User().setId(userId).setUsername(username).setRoleId(roleId).setName(name);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, authority.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
-        try {
-            DecodedJWT jwt = JwtUtil.verifyToken(token);
-            Integer userId = jwt.getClaim("id").asInt();
-            String username = jwt.getClaim("username").asString();
-            Integer roleId = jwt.getClaim("roleId").asInt();
-            List<String> authority = jwt.getClaim("authority").asList(String.class);
-            String name = jwt.getClaim("name").asString();
-            //存入SecurityContext
-            User user = new User().setId(userId).setUsername(username).setRoleId(roleId).setName(name);
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, authority.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-            //放行
-            filterChain.doFilter(httpServletRequest, httpServletResponse);
-
-        } catch (SignatureVerificationException exception) {
-            throw new LegalException("无效签名！");
-        } catch (TokenExpiredException exception) {
-            throw new LegalException("token过期！");
-        } catch (AlgorithmMismatchException exception) {
-            //记录ip
-            log.info("违规操作：" + IpUtil.getIp(httpServletRequest));
-            throw new LegalException("token算法不一致！请勿违规操作，否则后果自负！");
-        } catch (InvalidClaimException | IllegalAccessError exception) {
-            throw new LegalException("token无效！");
-        } catch (Exception e) {
-            throw new LegalException(e.getMessage());
+            } catch (SignatureVerificationException exception) {
+                throw new LegalException("无效签名！");
+            } catch (TokenExpiredException exception) {
+                //判断是否是登录请求
+                if (!httpServletRequest.getRequestURI().contains("login")) {
+                    throw new LegalException("token过期！");
+                }
+            } catch (AlgorithmMismatchException exception) {
+                //记录ip
+                log.info("违规操作：" + IpUtil.getIp(httpServletRequest));
+                throw new LegalException("token算法不一致！请勿违规操作，否则后果自负！");
+            } catch (InvalidClaimException | IllegalAccessError exception) {
+                throw new LegalException("token无效！");
+            } catch (Exception e) {
+                throw new LegalException(e.getMessage());
+            }
         }
+        //放行
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 }

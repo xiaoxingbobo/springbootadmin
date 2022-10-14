@@ -11,6 +11,7 @@ import com.xxbb.springbootapi.entity.dto.LoginInput;
 import com.xxbb.springbootapi.entity.dto.LoginResult;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.UserMapper;
+import com.xxbb.springbootapi.service.IRoleAuthorityService;
 import com.xxbb.springbootapi.service.IUserService;
 import com.xxbb.springbootapi.utils.jwt.JwtUtil;
 import com.xxbb.springbootapi.wrapper.UserQuery;
@@ -41,7 +42,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
     UserQuery query;
 
     @Autowired
-    private RoleAuthorityService roleAuthorityService;
+    private IRoleAuthorityService iRoleAuthorityService;
     @Autowired
     private AuthorityService authorityService;
     @Autowired
@@ -59,8 +60,14 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
     }
 
 
+    /**
+     * 登录
+     *
+     * @param input
+     * @return
+     */
     @Override
-    public JsonResult login(LoginInput input) {
+    public JsonResultData<LoginResult> login(LoginInput input) {
 
         //AuthenticationManager 进行身份验证
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(input.getUsername(), input.getPassword());
@@ -75,7 +82,8 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         User user = userDetails.getUser();
         //获取用户权限
         //1.获取当前角色拥有的权限
-        List<RoleAuthority> roleAuthorities = roleAuthorityService.dao.mapper.listEntity(roleAuthorityService.dao.mapper.query().where().roleId().eq(user.getRoleId()).end());
+        List<RoleAuthority> roleAuthorities =iRoleAuthorityService.list(new RoleAuthority().setRoleId(user.getRoleId()));
+//        List<RoleAuthority> roleAuthorities =roleAuthorityService.dao.mapper.listEntity(roleAuthorityService.dao.mapper.query().where().roleId().eq(user.getRoleId()).end());
         //2.获取当前角色拥有的权限的id列表
         List<Integer> roleAuthorityIdList = roleAuthorities.stream().map(RoleAuthority::getAuthorityId).collect(Collectors.toList());
         //3.查询包含在权限的id列表里面的权限,获取权限列表
@@ -91,7 +99,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         builder.withClaim("roleId", user.getRoleId());//用户角色id
         String token = JwtUtil.getToken(builder, 60 * 60 * 12);
         user.setPassword("想啥呢，这里不给你看");
-        return new JsonResultData<>().Success(new LoginResult().setToken(token).setUserInfo(user).setCaptcha(false).setRoutePath(appConfig.getAdminIndex()), "登录成功");
+        return new JsonResultData<LoginResult>().Success(new LoginResult().setToken(token).setUserInfo(user));
     }
 
     /**

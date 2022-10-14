@@ -173,6 +173,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
         StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputC.getSize()));
         return new PagedResult<K>().setTotal(pagedList.getTotal()).setPages(pagedList.getTotal()/ pagedInputC.getSize()+1).setCurrent(pagedInputC.getCurrent()).setSize(pagedInputC.getSize()).setData(pagedList.getData());
     }
+
     @Override
     public List<K> list(K entity) {
         return mapper.listEntity(mapper.query().where().eqByEntity(entity).end());

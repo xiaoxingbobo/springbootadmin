@@ -2,7 +2,9 @@ package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.entity.User;
 import com.xxbb.springbootapi.entity.dto.JsonResult;
+import com.xxbb.springbootapi.entity.dto.JsonResultData;
 import com.xxbb.springbootapi.entity.dto.LoginInput;
+import com.xxbb.springbootapi.entity.dto.LoginResult;
 import com.xxbb.springbootapi.mapper.UserMapper;
 import com.xxbb.springbootapi.service.impl.UserService;
 import com.xxbb.springbootapi.wrapper.UserQuery;
@@ -28,7 +30,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
 
     @PostMapping("login")
     @ApiOperation(value = "登录")
-    public JsonResult login(@RequestBody LoginInput input) {
+    public JsonResultData<LoginResult> login(@RequestBody LoginInput input) {
         return userService.login(input);
     }
 
