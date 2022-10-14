@@ -36,10 +36,6 @@ public interface UserSegment {
       return this.set(id);
     }
 
-    default R username() {
-      return this.set(username);
-    }
-
     default R age() {
       return this.set(age);
     }
@@ -79,6 +75,10 @@ public interface UserSegment {
     default R updateTime() {
       return this.set(updateTime);
     }
+
+    default R username() {
+      return this.set(username);
+    }
   }
 
   /**
@@ -100,10 +100,6 @@ public interface UserSegment {
 
     public Selector id(String _alias_) {
       return this.process(id, _alias_);
-    }
-
-    public Selector username(String _alias_) {
-      return this.process(username, _alias_);
     }
 
     public Selector age(String _alias_) {
@@ -145,6 +141,10 @@ public interface UserSegment {
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
     }
+
+    public Selector username(String _alias_) {
+      return this.process(username, _alias_);
+    }
   }
 
   /**
@@ -161,10 +161,6 @@ public interface UserSegment {
 
     public NumericWhere<W, UserQuery> id() {
       return this.set(id);
-    }
-
-    public StringWhere<W, UserQuery> username() {
-      return this.set(username);
     }
 
     public NumericWhere<W, UserQuery> age() {
@@ -205,6 +201,10 @@ public interface UserSegment {
 
     public ObjectWhere<W, UserQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public StringWhere<W, UserQuery> username() {
+      return this.set(username);
     }
   }
 

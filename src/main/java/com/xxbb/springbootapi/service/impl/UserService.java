@@ -2,6 +2,7 @@ package com.xxbb.springbootapi.service.impl;
 
 import com.auth0.jwt.JWTCreator;
 import com.xxbb.springbootapi.config.AppConfig;
+import com.xxbb.springbootapi.dao.impl.UserDao;
 import com.xxbb.springbootapi.entity.Authority;
 import com.xxbb.springbootapi.entity.RoleAuthority;
 import com.xxbb.springbootapi.entity.User;
@@ -22,7 +23,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -47,8 +48,10 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
     private AuthorityService authorityService;
     @Autowired
     private AuthenticationManager authenticationManager;
-//    @Autowired(required = false)
-//    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired(required = false)
+    private PasswordEncoder passwordEncoder;
+    @Autowired(required = false)
+    UserDao userDao;
     /**
      * 获取当前登录者信息
      *
@@ -125,13 +128,13 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         entity.setUpdateTime(new Date());
         entity.setIsDeleted(0);
 //        entity.setPassword(Pbkdf2Util.encryption(entity.getPassword()));//加密密码
-        entity.setPassword(new BCryptPasswordEncoder().encode(entity.getPassword()));//加密密码
+        entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
         //判断账号是否存在
         User user = mapper().findOne(mapper().query().where.username().eq(entity.getUsername()).end());
         if (user != null) {
             throw new LegalException("账号已存在");
         }
-        return dao.insert(entity) > 0;
+        return userDao.insert(entity)>0;
     }
 
     //删除

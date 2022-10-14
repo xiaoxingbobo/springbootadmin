@@ -41,9 +41,8 @@ public class User extends Common implements Serializable {
     @ApiModelProperty(value = "是否删除", example = "0")
     private Integer isDeleted = super.isDeleted;
     //自定义属性
-    @TableId
     @Column(nullable = false)
-    @ApiModelProperty("用户名")
+    @ApiModelProperty(value = "用户名",example = "")
     private String username;
     @ApiModelProperty("密码")
     private String password;
