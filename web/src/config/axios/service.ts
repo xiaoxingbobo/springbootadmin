@@ -49,6 +49,7 @@ service.interceptors.request.use(
     // 如果token存在，每个http header都加上token
     const token = wsCache.get('token') || ''
     if (token) {
+      // console.log(token)
       config.headers['Authorization'] = token
     }
 

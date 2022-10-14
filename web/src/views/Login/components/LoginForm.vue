@@ -130,7 +130,7 @@ const signIn = async () => {
         if (res) {
           // 登录成功,保存token
           wsCache.set('token', res.data.token)
-          wsCache.set(appStore.getUserInfo, res.data)
+          wsCache.set(appStore.getUserInfo, res.data.userInfo)
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
             getRole()

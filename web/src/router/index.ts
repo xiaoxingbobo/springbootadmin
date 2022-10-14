@@ -409,6 +409,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       }
     ]
   },
+  // 综合示例
   {
     path: '/example',
     component: Layout,
@@ -473,6 +474,30 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
           hidden: true,
           canTo: true,
           activeMenu: '/example/example-page'
+        }
+      }
+    ]
+  },
+  // 代码生成
+  {
+    path: '/code',
+    component: Layout,
+    redirect: '/code/code-dialog',
+    name: 'code',
+    meta: {
+      // title: t('router.example'),
+      title: '代码生成',
+      icon: 'ep:management',
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: 'code-dialog',
+        component: () => import('@/views/code/Dialog/ExampleDialog.vue'),
+        name: 'ExampleDialog',
+        meta: {
+          // title: t('router.exampleDialog')
+          title: '代码生成'
         }
       }
     ]

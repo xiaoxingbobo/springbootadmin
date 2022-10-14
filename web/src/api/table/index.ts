@@ -16,3 +16,8 @@ export const getTableDetApi = (id: string): Promise<IResponse<TableData>> => {
 export const delTableListApi = (ids: string[] | number[]): Promise<IResponse> => {
   return request.post({ url: '/example/delete', data: { ids } })
 }
+
+// 可生成实体列表
+export const Cangenerateentitylist = (ids: string[] | number[]): Promise<IResponse> => {
+  return request.get({ url: '/code/classes', data: { ids } })
+}
