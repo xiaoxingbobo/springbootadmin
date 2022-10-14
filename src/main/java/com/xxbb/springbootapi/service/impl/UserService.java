@@ -47,7 +47,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
     private AuthorityService authorityService;
     @Autowired
     private AuthenticationManager authenticationManager;
-//    @Autowired
+//    @Autowired(required = false)
 //    private BCryptPasswordEncoder bCryptPasswordEncoder;
     /**
      * 获取当前登录者信息
