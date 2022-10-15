@@ -482,7 +482,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
   {
     path: '/code',
     component: Layout,
-    redirect: '/code/code-dialog',
+    redirect: '/code/code-code',
     name: 'code',
     meta: {
       // title: t('router.example'),
@@ -492,12 +492,36 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     },
     children: [
       {
-        path: 'code-dialog',
+        path: 'code-code',
         component: () => import('@/views/code/Dialog/ExampleDialog.vue'),
-        name: 'ExampleDialog',
+        name: 'code-code',
         meta: {
           // title: t('router.exampleDialog')
           title: '代码生成'
+        }
+      }
+    ]
+  },
+  // 权限管理
+  {
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/code-dialog',
+    name: 'permission',
+    meta: {
+      // title: t('router.example'),
+      title: '权限管理',
+      icon: 'ep:management',
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: 'code-dialog',
+        component: () => import('@/views/Permission/Dialog/ExampleDialog.vue'),
+        name: 'permission-permission',
+        meta: {
+          // title: t('router.exampleDialog')
+          title: '权限管理'
         }
       }
     ]
