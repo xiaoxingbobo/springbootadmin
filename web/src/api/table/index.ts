@@ -31,3 +31,8 @@ export const Entitygenerationrecord = (ids: string[] | number[]): Promise<IRespo
 export const Singleentitygeneration = (data: any): Promise<IResponse> => {
   return request.post({ url: '/code/generate', data })
 }
+
+// 撤销实体生成
+export const RevokeEntity = (ids: number[]): Promise<IResponse> => {
+  return request.get({ url: `/code/undo/${ids}` })
+}

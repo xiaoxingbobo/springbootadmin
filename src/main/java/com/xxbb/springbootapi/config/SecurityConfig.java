@@ -25,6 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()//开启权限认证
                 //放行路径必须写在前面
                 .mvcMatchers("/user/login").permitAll()
+                .mvcMatchers("/ws.html").permitAll()
+                .mvcMatchers("/js/**").permitAll()
                 .mvcMatchers("/doc.html").permitAll()
                 .mvcMatchers("/swagger-resources/**").permitAll()
                 .mvcMatchers("/v2/api-docs/**").permitAll()
