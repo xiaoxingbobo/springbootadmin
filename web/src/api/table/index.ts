@@ -28,6 +28,6 @@ export const Entitygenerationrecord = (ids: string[] | number[]): Promise<IRespo
 }
 
 // 单个实体生成
-export const Singleentitygeneration = (data: string[] | number[]): Promise<IResponse> => {
-  return request.post({ url: '/code/generate', entityName: data, isCover: 1 })
+export const Singleentitygeneration = (data: any): Promise<IResponse> => {
+  return request.post({ url: '/code/generate', data })
 }

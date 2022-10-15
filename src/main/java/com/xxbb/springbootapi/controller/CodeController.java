@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.entity.GenRecord;
+import com.xxbb.springbootapi.entity.dto.CodeInput;
 import com.xxbb.springbootapi.service.impl.CodeService;
 import com.xxbb.springbootapi.utils.ClassUtil;
 import io.swagger.annotations.Api;
@@ -29,9 +30,8 @@ public class CodeController {
     @PostMapping("generate")
     @PreAuthorize("hasAuthority('sys:all:all')")
     @ApiOperation(value = "单个实体生成")
-    public Boolean Generate(String entityName, Boolean isCover) {
-
-        return codeService.generate(entityName, isCover);
+    public Boolean Generate(@RequestBody CodeInput codeInput) {
+        return codeService.generate(codeInput.getEntityName(),codeInput.getIsCover());
     }
 
     @GetMapping("classes")

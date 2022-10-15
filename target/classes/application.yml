@@ -10,8 +10,8 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springbootadmin?useSSL=false
     username: root
-#    password: YHXyhx1214+.
-    password: root
+    password: YHXyhx1214+.
+#    password: root
   servlet:
     multipart:
       max-request-size: 1000MB

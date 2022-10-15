@@ -85,7 +85,8 @@ const save = async () => {
   dialogVisible.value = false
   console.log(dinputvalue.value)
   // const dindata = toString(dinputvalue.value)
-  const res = await _Singleentitygeneration('sss')
+  // const res = await _Singleentitygeneration('sss')
+  const res = await _Singleentitygeneration(dinputvalue.value)
   console.log(res)
 }
 // select获得焦距
@@ -115,6 +116,13 @@ const selectfocus = () => {
             }}</span> -->
           </el-option>
         </el-select>
+      </el-form-item>
+
+      <el-form-item label="选择实体类">
+        <el-radio-group v-model="radio1" class="ml-4">
+          <el-radio label="1" size="large">Option 1</el-radio>
+          <el-radio label="2" size="large">Option 2</el-radio>
+        </el-radio-group>
       </el-form-item>
     </el-form>
 

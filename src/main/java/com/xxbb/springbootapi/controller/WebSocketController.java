@@ -1,7 +1,13 @@
 package com.xxbb.springbootapi.controller;
 
+import com.xxbb.springbootapi.dao.IBaseDao;
+import com.xxbb.springbootapi.entity.User;
 import com.xxbb.springbootapi.entity.dto.JsonResult;
+import com.xxbb.springbootapi.mapper.UserMapper;
+import com.xxbb.springbootapi.wrapper.UserQuery;
+import com.xxbb.springbootapi.wrapper.UserUpdate;
 import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -54,5 +60,10 @@ public class WebSocketController {
     public void one() {
         //注意为什么使用queue，主要目的是为了区分广播和队列的方式。实际采用topic，也没有关系。但是为了好理解
         messagingTemplate.convertAndSend("/queue/one", "服务器主动推送");
+    }
+
+    @Mapper
+    public static interface IUserDao extends IBaseDao<User, UserQuery, UserUpdate, UserMapper> {
+
     }
 }
