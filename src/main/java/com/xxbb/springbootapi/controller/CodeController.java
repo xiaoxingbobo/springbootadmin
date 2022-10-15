@@ -31,7 +31,7 @@ public class CodeController {
     @PreAuthorize("hasAuthority('sys:all:all')")
     @ApiOperation(value = "单个实体生成")
     public Boolean Generate(@RequestBody CodeInput codeInput) {
-        return codeService.generate(codeInput.getEntityName(),codeInput.getIsCover());
+        return codeService.generate(codeInput.getEntityName(), codeInput.getIsCover());
     }
 
     @GetMapping("classes")
@@ -39,7 +39,7 @@ public class CodeController {
     @PreAuthorize("hasAuthority('sys:all:all')")
     public List<String> getClasses() {
         List<String> classes = new ArrayList<>();
-        for (Class<?> item : ClassUtil.getClasses("com.xxbb.springbootapi.entity")) {
+        for (Class<?> item : ClassUtil.getClasses("com.xxbb.springbootapi.entity", false)) {//false不迭代，不获取子类
             classes.add(item.getName().substring(item.getName().lastIndexOf('.') + 1));
         }
         return classes;

@@ -26,6 +26,9 @@ public class CodeGen {
      */
     public static synchronized Boolean build(String entityName, Boolean isCover) {
         System.out.println("***代码生成***");
+        if (entityName.isEmpty()) {
+            return false;
+        }
         if (start(entityName, isCover)) {
             System.out.println("***生成完毕***");
             return true;
@@ -110,9 +113,12 @@ public class CodeGen {
     /**
      * 删除代码
      */
-    public static synchronized Boolean delete(String entityName){
+    public static synchronized Boolean delete(String entityName) {
         try {
             System.out.println("***删除代码***");
+            if (entityName.isEmpty()){
+                return false;
+            }
             if (deleteStart(entityName)) {
                 System.out.println("***删除完毕***");
                 return true;

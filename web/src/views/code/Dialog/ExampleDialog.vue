@@ -27,7 +27,7 @@ const columns = reactive<TableColumn[]>([
     label: '创建时间'
   },
   {
-    field: 'action',
+    field: '操作',
     label: 'action'
   }
 ])
@@ -108,7 +108,7 @@ const selectfocus = () => {
   <Dialog v-model="dialogVisible" title="生成实体类">
     <el-form>
       <el-form-item label="选择实体类">
-        <el-select v-model="dinputvalue" placeholder="Select" @focus="selectfocus">
+        <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
           <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
             <span style="float: left">{{ item }}</span>
             <!-- <span style="float: right; color: var(--el-text-color-secondary); font-size: 13px">{{
@@ -118,10 +118,10 @@ const selectfocus = () => {
         </el-select>
       </el-form-item>
 
-      <el-form-item label="选择实体类">
+      <el-form-item label="是否覆盖">
         <el-radio-group v-model="radio1" class="ml-4">
-          <el-radio label="1" size="large">Option 1</el-radio>
-          <el-radio label="2" size="large">Option 2</el-radio>
+          <el-radio label="1" size="large">是</el-radio>
+          <el-radio label="2" size="large">否</el-radio>
         </el-radio-group>
       </el-form-item>
     </el-form>
