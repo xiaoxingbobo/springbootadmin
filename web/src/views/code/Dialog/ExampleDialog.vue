@@ -1,284 +1,126 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { Search } from '@/components/Search'
-import { Dialog } from '@/components/Dialog'
-import { useI18n } from '@/hooks/web/useI18n'
-import { ElButton, ElTag } from 'element-plus'
+import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import { getTableListApi, saveTableApi, delTableListApi, Cangenerateentitylist } from '@/api/table'
-import { useTable } from '@/hooks/web/useTable'
-import { TableData } from '@/api/table/types'
-import { h, ref, unref, reactive } from 'vue'
+import { Entitygenerationrecord, Cangenerateentitylist, Singleentitygeneration } from '@/api/table'
+import { Dialog } from '@/components/Dialog'
+import { ElButton, ElTag, ElForm, ElFormItem, ElInput, ElSelect, ElOption } from 'element-plus'
 import Write from './components/Write.vue'
-import Detail from './components/Detail.vue'
-import { CrudSchema, useCrudSchemas } from '@/hooks/web/useCrudSchemas'
+import { values } from 'lodash'
 
-const { register, tableObject, methods } = useTable<TableData>({
-  getListApi: getTableListApi,
-  delListApi: delTableListApi,
-  response: {
-    list: 'list',
-    total: 'total'
-  }
-})
+// 是否显示弹窗
+const dialogVisible = ref(false)
 
-// 获取可生成实体列表
-let Generateablelist = ref('')
-const _Cangenerateentitylist = async () => {
-  const res = await Cangenerateentitylist()
-  // console.log(res)
-  Generateablelist.value = res.data
-  console.log(Generateablelist.value)
-}
-_Cangenerateentitylist()
-
-const { getList, setSearchParams } = methods
-
-getList()
-
-const { t } = useI18n()
-
-const crudSchemas = reactive<CrudSchema[]>([
+// 表头
+const columns = reactive<TableColumn[]>([
   {
     field: 'index',
-    label: t('tableDemo.index'),
-    type: 'index',
-    form: {
-      show: false
-    },
-    detail: {
-      show: false
-    }
+    label: '序号',
+    type: 'index'
   },
   {
-    field: 'title',
-    label: t('tableDemo.title'),
-    search: {
-      show: true
-    },
-    form: {
-      colProps: {
-        span: 24
-      }
-    },
-    detail: {
-      span: 24
-    }
+    field: 'entityName',
+    label: '已生成接口'
   },
   {
-    field: 'author',
-    label: t('tableDemo.author')
-  },
-  {
-    field: 'display_time',
-    label: t('tableDemo.displayTime'),
-    form: {
-      component: 'DatePicker',
-      componentProps: {
-        type: 'datetime',
-        valueFormat: 'YYYY-MM-DD HH:mm:ss'
-      }
-    }
-  },
-  {
-    field: 'importance',
-    label: t('tableDemo.importance'),
-    formatter: (_: Recordable, __: TableColumn, cellValue: number) => {
-      return h(
-        ElTag,
-        {
-          type: cellValue === 1 ? 'success' : cellValue === 2 ? 'warning' : 'danger'
-        },
-        () =>
-          cellValue === 1
-            ? t('tableDemo.important')
-            : cellValue === 2
-            ? t('tableDemo.good')
-            : t('tableDemo.commonly')
-      )
-    },
-    form: {
-      component: 'Select',
-      componentProps: {
-        style: {
-          width: '100%'
-        },
-        options: [
-          {
-            label: '重要',
-            value: 3
-          },
-          {
-            label: '良好',
-            value: 2
-          },
-          {
-            label: '一般',
-            value: 1
-          }
-        ]
-      }
-    }
-  },
-  {
-    field: 'pageviews',
-    label: t('tableDemo.pageviews'),
-    form: {
-      component: 'InputNumber',
-      value: 0
-    }
-  },
-  {
-    field: 'content',
-    label: t('exampleDemo.content'),
-    table: {
-      show: false
-    },
-    form: {
-      component: 'Editor',
-      colProps: {
-        span: 24
-      }
-    },
-    detail: {
-      span: 24
-    }
+    field: 'createTime',
+    label: '创建时间'
   },
   {
     field: 'action',
-    width: '260px',
-    label: t('tableDemo.action'),
-    form: {
-      show: false
-    },
-    detail: {
-      show: false
-    }
+    label: 'action'
   }
 ])
 
-const { allSchemas } = useCrudSchemas(crudSchemas)
+// 可生成记录数据
+let tabledata = ref('')
+// 可生成实体列表
+let keshengchenglist = ref('')
+// 选择实体类输入框的值
+const dinputvalue = ref('')
+// 选择框弹出的数据
+const cities = [
+  {
+    value: 'Beijing',
+    label: 'Beijing'
+  },
+  {
+    value: 'Shanghai',
+    label: 'Shanghai'
+  }
+]
 
-const dialogVisible = ref(false)
-
-const dialogTitle = ref('')
-
-const AddAction = () => {
-  dialogTitle.value = t('exampleDemo.add')
-  tableObject.currentRow = null
-  dialogVisible.value = true
-  actionType.value = ''
+// 实体生成记录
+const _Entitygenerationrecord = async () => {
+  const res = await Entitygenerationrecord()
+  // state.Tablelist = res.data
+  tabledata.value = res.data
+  // console.log(tabledata.value)
 }
-
-const delLoading = ref(false)
-
-const delData = async (row: TableData | null, multiple: boolean) => {
-  tableObject.currentRow = row
-  const { delList, getSelections } = methods
-  const selections = await getSelections()
-  delLoading.value = true
-  await delList(
-    multiple ? selections.map((v) => v.id) : [tableObject.currentRow?.id as string],
-    multiple
-  ).finally(() => {
-    delLoading.value = false
+// 可生成实体列表
+const _Cangenerateentitylist = async () => {
+  const res = await Cangenerateentitylist()
+  // console.log(res)
+  keshengchenglist.value = res.data
+  // console.log(keshengchenglist.value)
+}
+// 单个实体生成
+const _Singleentitygeneration = async (entityName) => {
+  await Singleentitygeneration({
+    entityName
   })
 }
 
-const actionType = ref('')
-
-const action = (row: TableData, type: string) => {
-  dialogTitle.value = t(type === 'edit' ? 'exampleDemo.edit' : 'exampleDemo.detail')
-  actionType.value = type
-  tableObject.currentRow = row
+onMounted(async () => {
+  await _Entitygenerationrecord()
+  // await _Cangenerateentitylist()
+})
+// 添加接口按钮
+const tianjiajiekoubtn = () => {
+  // console.log(111)
   dialogVisible.value = true
 }
-
-const writeRef = ref<ComponentRef<typeof Write>>()
-
-const loading = ref(false)
-
+// 弹窗的确定按钮
 const save = async () => {
-  const write = unref(writeRef)
-  console.log(111)
-  await write?.elFormRef?.validate(async (isValid) => {
-    if (isValid) {
-      loading.value = true
-      const data = (await write?.getFormData()) as TableData
-      const res = await saveTableApi(data)
-        .catch(() => {})
-        .finally(() => {
-          loading.value = false
-        })
-      if (res) {
-        dialogVisible.value = false
-        tableObject.currentPage = 1
-        getList()
-      }
-    }
-  })
+  dialogVisible.value = false
+  console.log(dinputvalue.value)
+  // const dindata = toString(dinputvalue.value)
+  const res = await _Singleentitygeneration('sss')
+  console.log(res)
+}
+// select获得焦距
+const selectfocus = () => {
+  // console.log(11111)
+  _Cangenerateentitylist()
 }
 </script>
 
 <template>
   <ContentWrap>
-    <Search :schema="allSchemas.searchSchema" @search="setSearchParams" @reset="setSearchParams" />
-
     <div class="mb-10px">
-      <ElButton type="primary" @click="AddAction">{{ t('exampleDemo.add') }}</ElButton>
-      <ElButton :loading="delLoading" type="danger" @click="delData(null, true)">
-        {{ t('exampleDemo.del') }}
-      </ElButton>
+      <ElButton type="primary" @click="tianjiajiekoubtn">添加接口</ElButton>
+      <ElButton :loading="delLoading" type="danger">删除</ElButton>
     </div>
-
-    <Table
-      v-model:pageSize="tableObject.pageSize"
-      v-model:currentPage="tableObject.currentPage"
-      :columns="allSchemas.tableColumns"
-      :data="Generateablelist"
-      :loading="tableObject.loading"
-      :pagination="{
-        total: tableObject.total
-      }"
-      @register="register"
-    >
-      <template #action="{ row }">
-        <ElButton type="primary" v-hasPermi="['example:dialog:edit']" @click="action(row, 'edit')">
-          {{ t('exampleDemo.edit') }}
-        </ElButton>
-        <ElButton
-          type="success"
-          v-hasPermi="['example:dialog:view']"
-          @click="action(row, 'detail')"
-        >
-          {{ t('exampleDemo.detail') }}
-        </ElButton>
-        <ElButton type="danger" v-hasPermi="['example:dialog:delete']" @click="delData(row, false)">
-          {{ t('exampleDemo.del') }}
-        </ElButton>
-      </template>
-    </Table>
+    <Table :columns="columns" :data="tabledata" />
   </ContentWrap>
-
-  <Dialog v-model="dialogVisible" :title="dialogTitle">
-    <Write
-      v-if="actionType !== 'detail'"
-      ref="writeRef"
-      :form-schema="allSchemas.formSchema"
-      :current-row="tableObject.currentRow"
-    />
-
-    <Detail
-      v-if="actionType === 'detail'"
-      :detail-schema="allSchemas.detailSchema"
-      :current-row="tableObject.currentRow"
-    />
+  <!-- 弹窗 -->
+  <Dialog v-model="dialogVisible" title="生成实体类">
+    <el-form>
+      <el-form-item label="选择实体类">
+        <el-select v-model="dinputvalue" placeholder="Select" @focus="selectfocus">
+          <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
+            <span style="float: left">{{ item }}</span>
+            <!-- <span style="float: right; color: var(--el-text-color-secondary); font-size: 13px">{{
+              item
+            }}</span> -->
+          </el-option>
+        </el-select>
+      </el-form-item>
+    </el-form>
 
     <template #footer>
-      <ElButton v-if="actionType !== 'detail'" type="primary" :loading="loading" @click="save">
-        {{ t('exampleDemo.save') }}
-      </ElButton>
-      <ElButton @click="dialogVisible = false">{{ t('dialogDemo.close') }}</ElButton>
+      <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton>
+      <el-button @click="dialogVisible = false">关闭</el-button>
     </template>
   </Dialog>
 </template>

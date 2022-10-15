@@ -21,3 +21,13 @@ export const delTableListApi = (ids: string[] | number[]): Promise<IResponse> =>
 export const Cangenerateentitylist = (ids: string[] | number[]): Promise<IResponse> => {
   return request.get({ url: '/code/classes', data: { ids } })
 }
+
+// 实体生成记录
+export const Entitygenerationrecord = (ids: string[] | number[]): Promise<IResponse> => {
+  return request.get({ url: '/code/list', data: { ids } })
+}
+
+// 单个实体生成
+export const Singleentitygeneration = (data: string[] | number[]): Promise<IResponse> => {
+  return request.post({ url: '/code/generate', entityName: data, isCover: 1 })
+}
