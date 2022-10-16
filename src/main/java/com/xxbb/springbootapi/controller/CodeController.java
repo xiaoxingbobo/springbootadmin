@@ -29,9 +29,9 @@ public class CodeController {
      */
     @PostMapping("generate")
     @PreAuthorize("hasAuthority('sys:all:all')")
-    @ApiOperation(value = "单个实体生成")
+    @ApiOperation(value = "接口代码生成")
     public Boolean Generate(@RequestBody CodeInput codeInput) {
-        return codeService.generate(codeInput.getEntityName(), codeInput.getIsCover());
+        return codeService.generate(codeInput);
     }
 
     @GetMapping("classes")

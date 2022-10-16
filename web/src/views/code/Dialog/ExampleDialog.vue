@@ -164,7 +164,7 @@ const action = async (row) => {
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" title="生成实体类" maxHeight="350px">
+  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="350px">
     <el-form>
       <el-form-item label="选择实体类">
         <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">

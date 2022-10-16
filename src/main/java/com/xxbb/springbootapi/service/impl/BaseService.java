@@ -12,11 +12,9 @@ import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 
 public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> implements IBaseService<K, T, V, E> {
@@ -56,6 +54,11 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
     @Override
     public boolean delete(int id) {
         return dao.delete(id) > 0;
+    }
+
+    @Override
+    public boolean delete(List<Integer> ids) {
+        return dao.delete(ids) > 0;
     }
 
     @Override

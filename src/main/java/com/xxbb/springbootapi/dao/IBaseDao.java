@@ -40,7 +40,7 @@ public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends
      * @param ids
      * @return
      */
-    int deleteBatch(List<Integer> ids);
+    int delete(List<Integer> ids);
 
     /*
      * 修改

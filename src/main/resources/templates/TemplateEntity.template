@@ -22,7 +22,7 @@ import java.util.Date;
 @Data
 @FluentMybatis
 @Entity
-public class Authority extends Common {
+public class {entityName} extends Common {
     //基础属性
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
@@ -37,10 +37,7 @@ public class Authority extends Common {
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
     @ApiModelProperty(value = "是否删除", example = "0")
-    //特有属性
     private Integer isDeleted = super.isDeleted;
-    @ApiModelProperty(value = "权限")
-    private String value;
-    @ApiModelProperty(value = "名称")
-    private String name;
+    //特有属性
+    {entityFields}
 }

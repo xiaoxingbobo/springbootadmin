@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/user/login").permitAll()
                 .mvcMatchers("/ws.html").permitAll()
                 .mvcMatchers("/js/**").permitAll()
+                .mvcMatchers("/dict/list").permitAll()
                 .mvcMatchers("/doc.html").permitAll()
                 .mvcMatchers("/swagger-resources/**").permitAll()
                 .mvcMatchers("/v2/api-docs/**").permitAll()

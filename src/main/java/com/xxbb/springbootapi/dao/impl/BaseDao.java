@@ -28,6 +28,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 添加
+     *
      * @param entity
      * @return
      */
@@ -42,6 +43,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 批量添加
+     *
      * @param list
      * @return
      */
@@ -64,11 +66,12 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 批量删除，通过多个主键
+     *
      * @param ids
      * @return
      */
     @Override
-    public int deleteBatch(List<Integer> ids) {
+    public int delete(List<Integer> ids) {
         return mapper.deleteByIds(Collections.singletonList(ids));
     }
 
@@ -107,6 +110,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 查询列表，传入多个搜索字段
+     *
      * @param searches
      * @return
      */
@@ -119,6 +123,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 查询列表，传入多个搜索字段，分页
+     *
      * @param pagedInputCondition
      * @return
      */
@@ -130,7 +135,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
         //分页
         int index = pagedInputCondition.getSize() * (pagedInputCondition.getCurrent() - 1);
         StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputCondition.getSize()));
-        return new PagedResult<K>().setPages(pagedList.getTotal()/ pagedInputCondition.getSize()+1).setCurrent(pagedInputCondition.getCurrent()).setSize(pagedInputCondition.getSize()).setData(pagedList.getData()).setTotal(pagedList.getTotal());
+        return new PagedResult<K>().setPages(pagedList.getTotal() / pagedInputCondition.getSize() + 1).setCurrent(pagedInputCondition.getCurrent()).setSize(pagedInputCondition.getSize()).setData(pagedList.getData()).setTotal(pagedList.getTotal());
     }
 
     /*
@@ -151,6 +156,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 查询列表，传入查询语句，自定义筛选条件
+     *
      * @param query
      * @return
      */
@@ -161,6 +167,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
 
     /**
      * 查询列表，传入实体类，通过实体类的属性筛选
+     *
      * @param pagedInputC
      * @return
      */
@@ -171,15 +178,17 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
         //分页
         int index = pagedInputC.getSize() * (pagedInputC.getCurrent() - 1);
         StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputC.getSize()));
-        return new PagedResult<K>().setTotal(pagedList.getTotal()).setPages(pagedList.getTotal()/ pagedInputC.getSize()+1).setCurrent(pagedInputC.getCurrent()).setSize(pagedInputC.getSize()).setData(pagedList.getData());
+        return new PagedResult<K>().setTotal(pagedList.getTotal()).setPages(pagedList.getTotal() / pagedInputC.getSize() + 1).setCurrent(pagedInputC.getCurrent()).setSize(pagedInputC.getSize()).setData(pagedList.getData());
     }
 
     @Override
     public List<K> list(K entity) {
-        return mapper.listEntity(mapper.query().where().eqByEntity(entity).end());
+        return mapper.listEntity(mapper.query().where().applyIf(entity != null, x -> x.eqByEntity(entity)).end());
     }
+
     /**
      * 查询列表，多个主键，通过主键筛选
+     *
      * @param ids
      * @return
      */
@@ -198,7 +207,7 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
         PagedResult<K> pagedResult = new PagedResult<>();
         int index = pagedInput.getSize() * (pagedInput.getCurrent() - 1);
         StdPagedList<K> pagedList = mapper.stdPagedEntity(mapper.query().limit(index, pagedInput.getSize()));
-        return pagedResult.setPages(pagedList.getTotal()/ pagedInput.getSize()+1).setCurrent(pagedInput.getCurrent()).setSize(pagedInput.getSize()).setTotal(pagedList.getTotal()).setData(pagedList.getData());
+        return pagedResult.setPages(pagedList.getTotal() / pagedInput.getSize() + 1).setCurrent(pagedInput.getCurrent()).setSize(pagedInput.getSize()).setTotal(pagedList.getTotal()).setData(pagedList.getData());
     }
 
 

@@ -47,6 +47,8 @@ public interface IBaseService<K extends Common, T extends BaseQuery<K, T>, V ext
      * */
     boolean delete(int id);
 
+    boolean delete(List<Integer> ids);
+
     /*
      * 修改
      * */

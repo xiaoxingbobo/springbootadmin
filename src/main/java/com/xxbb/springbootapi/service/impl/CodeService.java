@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.service.impl;
 
 import com.xxbb.springbootapi.entity.GenRecord;
+import com.xxbb.springbootapi.entity.dto.CodeInput;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.service.ICodeGenerate;
 import com.xxbb.springbootapi.utils.code.CodeGen;
@@ -20,12 +21,12 @@ public class CodeService implements ICodeGenerate {
     private GenRecordService genRecordService;
 
     @Override
-    public Boolean generate(String entityName, Boolean isCover) {
-        if (BASE_CLASS.contains(entityName)) {
-            throw new LegalException("内置基础实体类，不允许该操作");
+    public Boolean generate(CodeInput codeInput) {
+        if (BASE_CLASS.contains(codeInput.getEntityName())) {
+            throw new LegalException(codeInput.getEntityName()+"为内置基础实体类，不允许该操作");
         }
-        genRecordService.add(new GenRecord().setEntityName(entityName));
-        return CodeGen.build(entityName, isCover);//代码生成，参数：要生成代码的实体类名
+        genRecordService.add(new GenRecord().setEntityName(codeInput.getEntityName()));
+        return CodeGen.build(codeInput);//代码生成，参数：要生成代码的实体类名
     }
 
     @Override
@@ -42,5 +43,4 @@ public class CodeService implements ICodeGenerate {
     public List<GenRecord> list() {
         return genRecordService.list();
     }
-
 }

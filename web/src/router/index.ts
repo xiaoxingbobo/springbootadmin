@@ -487,7 +487,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     meta: {
       // title: t('router.example'),
       title: '代码生成',
-      icon: 'ep:management',
+      icon: 'ep:setting',
       alwaysShow: true
     },
     children: [
@@ -510,8 +510,8 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     name: 'permission',
     meta: {
       // title: t('router.example'),
-      title: '权限管理',
-      icon: 'ep:management',
+      title: '系统设置',
+      icon: 'ep:setting',
       alwaysShow: true
     },
     children: [
