@@ -45,8 +45,8 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
     public void initEntity(K entity) {
         if (entity.getId() == null) {
             entity.setCreateTime(new Date());
-            entity.setIsDeleted(0);
         }
+        entity.setIsDeleted(Boolean.FALSE);
         entity.setUpdateTime(new Date());
     }
 
@@ -59,6 +59,16 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
     @Override
     public boolean delete(List<Integer> ids) {
         return dao.delete(ids) > 0;
+    }
+
+    @Override
+    public boolean logicDelete(int id) {
+        return dao.logicDelete(id) > 0;
+    }
+
+    @Override
+    public boolean logicDelete(List<Integer> ids) {
+        return dao.logicDelete(ids) > 0;
     }
 
     @Override

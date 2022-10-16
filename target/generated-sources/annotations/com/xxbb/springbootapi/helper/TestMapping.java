@@ -47,11 +47,11 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  address : address
+   *  age : age
    */
-  public static final FieldMapping<Test> address = new FieldMapping<Test>
-  	("address", "address", null, null, null, String.class, null)
-  	.sg((e, v) -> e.setAddress((String) v), Test::getAddress);
+  public static final FieldMapping<Test> age = new FieldMapping<Test>
+  	("age", "age", null, null, null, Integer.class, null)
+  	.sg((e, v) -> e.setAge((Integer) v), Test::getAge);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -63,11 +63,19 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
+   *  email : email
+   */
+  public static final FieldMapping<Test> email = new FieldMapping<Test>
+  	("email", "email", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setEmail((String) v), Test::getEmail);
+
+  /**
+   * 实体属性 : 数据库字段 映射
    *  isDeleted : is_deleted
    */
   public static final FieldMapping<Test> isDeleted = new FieldMapping<Test>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), Test::getIsDeleted);
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), Test::getIsDeleted);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -79,11 +87,35 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  tel : tel
+   *  nickname : nickname
    */
-  public static final FieldMapping<Test> tel = new FieldMapping<Test>
-  	("tel", "tel", null, null, null, String.class, null)
-  	.sg((e, v) -> e.setTel((String) v), Test::getTel);
+  public static final FieldMapping<Test> nickname = new FieldMapping<Test>
+  	("nickname", "nickname", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setNickname((String) v), Test::getNickname);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  password : password
+   */
+  public static final FieldMapping<Test> password = new FieldMapping<Test>
+  	("password", "password", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setPassword((String) v), Test::getPassword);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  roleId : role_id
+   */
+  public static final FieldMapping<Test> roleId = new FieldMapping<Test>
+  	("roleId", "role_id", null, null, null, Integer.class, null)
+  	.sg((e, v) -> e.setRoleId((Integer) v), Test::getRoleId);
+
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  sex : sex
+   */
+  public static final FieldMapping<Test> sex = new FieldMapping<Test>
+  	("sex", "sex", null, null, null, Short.class, null)
+  	.sg((e, v) -> e.setSex((Short) v), Test::getSex);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -93,10 +125,18 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), Test::getUpdateTime);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  username : username
+   */
+  public static final FieldMapping<Test> username = new FieldMapping<Test>
+  	("username", "username", null, null, null, String.class, null)
+  	.sg((e, v) -> e.setUsername((String) v), Test::getUsername);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, address, createTime, isDeleted, name, tel, updateTime));
+  	.asList(id, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime, username));
 
   public static final TestMapping MAPPING = new TestMapping();
 
@@ -105,6 +145,7 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 

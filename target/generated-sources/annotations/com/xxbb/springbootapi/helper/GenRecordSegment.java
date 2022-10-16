@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
@@ -44,12 +45,12 @@ public interface GenRecordSegment {
       return this.set(entityName);
     }
 
-    default R isDeleted() {
-      return this.set(isDeleted);
-    }
-
     default R updateTime() {
       return this.set(updateTime);
+    }
+
+    default R isDeleted() {
+      return this.set(isDeleted);
     }
   }
 
@@ -82,12 +83,12 @@ public interface GenRecordSegment {
       return this.process(entityName, _alias_);
     }
 
-    public Selector isDeleted(String _alias_) {
-      return this.process(isDeleted, _alias_);
-    }
-
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
+    }
+
+    public Selector isDeleted(String _alias_) {
+      return this.process(isDeleted, _alias_);
     }
   }
 
@@ -115,12 +116,12 @@ public interface GenRecordSegment {
       return this.set(entityName);
     }
 
-    public NumericWhere<W, GenRecordQuery> isDeleted() {
-      return this.set(isDeleted);
-    }
-
     public ObjectWhere<W, GenRecordQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public BooleanWhere<W, GenRecordQuery> isDeleted() {
+      return this.set(isDeleted);
     }
   }
 

@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
@@ -175,7 +176,7 @@ public interface UserSegment {
       return this.set(email);
     }
 
-    public NumericWhere<W, UserQuery> isDeleted() {
+    public BooleanWhere<W, UserQuery> isDeleted() {
       return this.set(isDeleted);
     }
 

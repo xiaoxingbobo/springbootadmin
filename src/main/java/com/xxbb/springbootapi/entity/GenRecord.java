@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
@@ -26,7 +27,7 @@ import java.util.Date;
 @Data
 @FluentMybatis
 @Entity
-public class GenRecord extends Common{
+public class GenRecord extends Common {
     //公共属性
     @Id
     @TableId
@@ -40,9 +41,13 @@ public class GenRecord extends Common{
     @TableField(insert = "now()", update = "now()")
     @ApiModelProperty("修改时间")
     private Date updateTime = super.updateTime;
-    @TableField(insert = "0")
+    @TableField(
+            value = "is_deleted",
+            insert = "0"
+    )
+    @LogicDelete
     @ApiModelProperty(value = "是否删除", example = "0")
-    private Integer isDeleted = super.isDeleted;
+    private Boolean isDeleted = super.isDeleted;
     //自定义属性
     @ApiModelProperty(value = "实体名称")
     private String entityName;

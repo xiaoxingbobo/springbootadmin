@@ -82,8 +82,8 @@ public class RoleAuthorityResultMapping extends AMapping<RoleAuthorityResult, Ro
    *  isDeleted : is_deleted
    */
   public static final FieldMapping<RoleAuthorityResult> isDeleted = new FieldMapping<RoleAuthorityResult>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), RoleAuthorityResult::getIsDeleted);
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), RoleAuthorityResult::getIsDeleted);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -113,6 +113,7 @@ public class RoleAuthorityResultMapping extends AMapping<RoleAuthorityResult, Ro
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 

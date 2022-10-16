@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +38,8 @@ public class Role extends Common{
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
     @ApiModelProperty(value = "是否删除",example = "0")
-    private Integer isDeleted = super.isDeleted;
+    @LogicDelete
+    private Boolean isDeleted = super.isDeleted;
     @ApiModelProperty("角色名称")
     private String name;
 }

@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
@@ -40,10 +41,6 @@ public interface AuthoritySegment {
       return this.set(createTime);
     }
 
-    default R isDeleted() {
-      return this.set(isDeleted);
-    }
-
     default R name() {
       return this.set(name);
     }
@@ -54,6 +51,10 @@ public interface AuthoritySegment {
 
     default R value() {
       return this.set(value);
+    }
+
+    default R isDeleted() {
+      return this.set(isDeleted);
     }
   }
 
@@ -82,10 +83,6 @@ public interface AuthoritySegment {
       return this.process(createTime, _alias_);
     }
 
-    public Selector isDeleted(String _alias_) {
-      return this.process(isDeleted, _alias_);
-    }
-
     public Selector name(String _alias_) {
       return this.process(name, _alias_);
     }
@@ -96,6 +93,10 @@ public interface AuthoritySegment {
 
     public Selector value(String _alias_) {
       return this.process(value, _alias_);
+    }
+
+    public Selector isDeleted(String _alias_) {
+      return this.process(isDeleted, _alias_);
     }
   }
 
@@ -119,10 +120,6 @@ public interface AuthoritySegment {
       return this.set(createTime);
     }
 
-    public NumericWhere<W, AuthorityQuery> isDeleted() {
-      return this.set(isDeleted);
-    }
-
     public StringWhere<W, AuthorityQuery> name() {
       return this.set(name);
     }
@@ -133,6 +130,10 @@ public interface AuthoritySegment {
 
     public StringWhere<W, AuthorityQuery> value() {
       return this.set(value);
+    }
+
+    public BooleanWhere<W, AuthorityQuery> isDeleted() {
+      return this.set(isDeleted);
     }
   }
 

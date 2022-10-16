@@ -55,14 +55,6 @@ public class RoleMapping extends AMapping<Role, RoleQuery, RoleUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<Role> isDeleted = new FieldMapping<Role>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), Role::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  name : name
    */
   public static final FieldMapping<Role> name = new FieldMapping<Role>
@@ -77,10 +69,18 @@ public class RoleMapping extends AMapping<Role, RoleQuery, RoleUpdate> {
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), Role::getUpdateTime);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<Role> isDeleted = new FieldMapping<Role>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), Role::getIsDeleted);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, createTime, isDeleted, name, updateTime));
+  	.asList(id, createTime, name, updateTime, isDeleted));
 
   public static final RoleMapping MAPPING = new RoleMapping();
 
@@ -89,6 +89,7 @@ public class RoleMapping extends AMapping<Role, RoleQuery, RoleUpdate> {
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 

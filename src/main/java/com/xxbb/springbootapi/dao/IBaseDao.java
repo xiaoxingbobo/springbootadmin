@@ -42,6 +42,10 @@ public interface IBaseDao<K extends Common, T extends BaseQuery<K, T>, V extends
      */
     int delete(List<Integer> ids);
 
+    int logicDelete(int id);
+
+    int logicDelete(List<Integer> ids);
+
     /*
      * 修改
      * */

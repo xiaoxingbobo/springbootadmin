@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import cn.org.atool.fluent.mybatis.base.RichEntity;
@@ -20,6 +21,9 @@ import java.util.Date;
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 @FluentMybatis
+//@Tables(tables={
+//        @Table(value = {"tableName"}, logicDeleted = "is_deleted")
+//})
 public class Common extends RichEntity implements Serializable {
     @TableId
     @Id
@@ -30,7 +34,11 @@ public class Common extends RichEntity implements Serializable {
     protected Date createTime;
     @TableField(insert = "now()", update = "now()")
     protected Date updateTime;
-    @TableField(insert = "0")
+    @TableField(
+            value = "is_deleted",
+            insert = "0"
+    )
+    @LogicDelete
     @ApiModelProperty(value = "是否删除", example = "0")
-    protected Integer isDeleted;
+    protected Boolean isDeleted = Boolean.FALSE;
 }
