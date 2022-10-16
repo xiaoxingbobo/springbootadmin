@@ -74,8 +74,8 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
    *  isDeleted : is_deleted
    */
   public static final FieldMapping<User> isDeleted = new FieldMapping<User>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), User::getIsDeleted);
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), User::getIsDeleted);
 
   /**
    * 实体属性 : 数据库字段 映射
@@ -145,6 +145,7 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 

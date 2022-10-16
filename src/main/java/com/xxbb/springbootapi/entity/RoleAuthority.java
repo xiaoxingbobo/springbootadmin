@@ -37,8 +37,7 @@ public class RoleAuthority extends Common{
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
     @ApiModelProperty(value = "是否删除",example = "0")
-    private Integer isDeleted = super.isDeleted;
-
+    private Boolean isDeleted = super.isDeleted;
     @ApiModelProperty(value = "角色")
     private Integer roleId;
     @ApiModelProperty(value = "权限")

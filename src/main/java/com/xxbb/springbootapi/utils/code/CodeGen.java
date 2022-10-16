@@ -32,7 +32,7 @@ public class CodeGen {
         if (codeInput.getEntityName().isEmpty()) {
             return false;
         }
-        if (!codeInput.getEntityFields().isEmpty()) {
+        if (codeInput.getEntityFields() != null) {
             buildEntity(codeInput.getEntityFields(), codeInput.getEntityName(), codeInput.getIsCover());
         }
         if (start(codeInput.getEntityName(), codeInput.getIsCover())) {

@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
@@ -36,12 +37,16 @@ public interface TestSegment {
       return this.set(id);
     }
 
-    default R address() {
-      return this.set(address);
+    default R age() {
+      return this.set(age);
     }
 
     default R createTime() {
       return this.set(createTime);
+    }
+
+    default R email() {
+      return this.set(email);
     }
 
     default R isDeleted() {
@@ -52,12 +57,28 @@ public interface TestSegment {
       return this.set(name);
     }
 
-    default R tel() {
-      return this.set(tel);
+    default R nickname() {
+      return this.set(nickname);
+    }
+
+    default R password() {
+      return this.set(password);
+    }
+
+    default R roleId() {
+      return this.set(roleId);
+    }
+
+    default R sex() {
+      return this.set(sex);
     }
 
     default R updateTime() {
       return this.set(updateTime);
+    }
+
+    default R username() {
+      return this.set(username);
     }
   }
 
@@ -82,12 +103,16 @@ public interface TestSegment {
       return this.process(id, _alias_);
     }
 
-    public Selector address(String _alias_) {
-      return this.process(address, _alias_);
+    public Selector age(String _alias_) {
+      return this.process(age, _alias_);
     }
 
     public Selector createTime(String _alias_) {
       return this.process(createTime, _alias_);
+    }
+
+    public Selector email(String _alias_) {
+      return this.process(email, _alias_);
     }
 
     public Selector isDeleted(String _alias_) {
@@ -98,12 +123,28 @@ public interface TestSegment {
       return this.process(name, _alias_);
     }
 
-    public Selector tel(String _alias_) {
-      return this.process(tel, _alias_);
+    public Selector nickname(String _alias_) {
+      return this.process(nickname, _alias_);
+    }
+
+    public Selector password(String _alias_) {
+      return this.process(password, _alias_);
+    }
+
+    public Selector roleId(String _alias_) {
+      return this.process(roleId, _alias_);
+    }
+
+    public Selector sex(String _alias_) {
+      return this.process(sex, _alias_);
     }
 
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
+    }
+
+    public Selector username(String _alias_) {
+      return this.process(username, _alias_);
     }
   }
 
@@ -123,15 +164,19 @@ public interface TestSegment {
       return this.set(id);
     }
 
-    public StringWhere<W, TestQuery> address() {
-      return this.set(address);
+    public NumericWhere<W, TestQuery> age() {
+      return this.set(age);
     }
 
     public ObjectWhere<W, TestQuery> createTime() {
       return this.set(createTime);
     }
 
-    public NumericWhere<W, TestQuery> isDeleted() {
+    public StringWhere<W, TestQuery> email() {
+      return this.set(email);
+    }
+
+    public BooleanWhere<W, TestQuery> isDeleted() {
       return this.set(isDeleted);
     }
 
@@ -139,12 +184,28 @@ public interface TestSegment {
       return this.set(name);
     }
 
-    public StringWhere<W, TestQuery> tel() {
-      return this.set(tel);
+    public StringWhere<W, TestQuery> nickname() {
+      return this.set(nickname);
+    }
+
+    public StringWhere<W, TestQuery> password() {
+      return this.set(password);
+    }
+
+    public NumericWhere<W, TestQuery> roleId() {
+      return this.set(roleId);
+    }
+
+    public NumericWhere<W, TestQuery> sex() {
+      return this.set(sex);
     }
 
     public ObjectWhere<W, TestQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public StringWhere<W, TestQuery> username() {
+      return this.set(username);
     }
   }
 

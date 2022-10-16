@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
@@ -147,7 +148,7 @@ public interface RoleAuthorityResultSegment {
       return this.set(createTime);
     }
 
-    public NumericWhere<W, RoleAuthorityResultQuery> isDeleted() {
+    public BooleanWhere<W, RoleAuthorityResultQuery> isDeleted() {
       return this.set(isDeleted);
     }
 

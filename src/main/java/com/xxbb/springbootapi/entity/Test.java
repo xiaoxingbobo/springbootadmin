@@ -1,6 +1,5 @@
 package com.xxbb.springbootapi.entity;
 
-
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
@@ -11,10 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @EqualsAndHashCode(callSuper = true)
@@ -25,10 +21,12 @@ import java.util.Date;
 @FluentMybatis
 @Entity
 public class Test extends Common {
+    //公共属性
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
     @TableId
-    @ApiModelProperty(value = "主键",example = "0")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
+    @Column(nullable = false)
+    @ApiModelProperty(value = "主键", example = "0")
     private Integer id = super.id;
     @ApiModelProperty("创建时间")
     @TableField(insert = "now()", update = "now()")
@@ -37,14 +35,25 @@ public class Test extends Common {
     @ApiModelProperty("修改时间")
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
-    @ApiModelProperty(value = "是否删除",example = "0")
-    private Integer isDeleted = super.isDeleted;
-
-    @ApiModelProperty(value = "收货地址")
-    private String address;
-    @ApiModelProperty(value = "收货人")
+    @ApiModelProperty(value = "是否删除", example = "0")
+    private Boolean isDeleted = super.isDeleted;
+    //自定义属性
+    @Column(nullable = false)
+    @ApiModelProperty(value = "用户名",example = "")
+    private String username;
+    @ApiModelProperty("密码")
+    private String password;
+    @ApiModelProperty("邮箱")
+    private String email;
+    @Column(nullable = false)
+    @ApiModelProperty(value = "角色主键", example = "0")
+    private Integer roleId;
+    @ApiModelProperty("名称")
     private String name;
-    @ApiModelProperty(value = "联系电话")
-    private String tel;
-
+    @ApiModelProperty("昵称")
+    private String nickname;
+    @ApiModelProperty(value = "年龄", example = "0")
+    private Integer age;
+    @ApiModelProperty(value = "性别", example = "0")
+    private Short sex;
 }

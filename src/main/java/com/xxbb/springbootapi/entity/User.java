@@ -39,7 +39,7 @@ public class User extends Common implements Serializable {
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
     @ApiModelProperty(value = "是否删除", example = "0")
-    private Integer isDeleted = super.isDeleted;
+    private Boolean isDeleted = super.isDeleted;
     //自定义属性
     @Column(nullable = false)
     @ApiModelProperty(value = "用户名",example = "")

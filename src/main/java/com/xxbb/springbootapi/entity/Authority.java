@@ -1,6 +1,7 @@
 package com.xxbb.springbootapi.entity;
 
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
+import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,6 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,10 +37,12 @@ public class Authority extends Common {
     @TableField(insert = "now()", update = "now()")
     @ApiModelProperty("修改时间")
     private Date updateTime = super.updateTime;
-    @TableField(insert = "0")
-    @ApiModelProperty(value = "是否删除", example = "0")
+
     //特有属性
-    private Integer isDeleted = super.isDeleted;
+    @TableField(insert = "0")
+    @LogicDelete
+    @ApiModelProperty(value = "是否删除", example = "0")
+    private Boolean isDeleted = super.isDeleted;
     @ApiModelProperty(value = "权限")
     private String value;
     @ApiModelProperty(value = "名称")

@@ -75,6 +75,161 @@ public class BaseDao<K extends Common, T extends BaseQuery<K, T>, V extends Base
         return mapper.deleteByIds(Collections.singletonList(ids));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * 逻辑删除
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int logicDelete(int id) {
+        return mapper.logicDeleteById(id);
+    }
+
+    /**
+     * 逻辑删除，通过多个主键
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public int logicDelete(List<Integer> ids) {
+        return mapper.logicDeleteByIds(ids);
+    }
+
     /**
      * 根据主键更新
      *

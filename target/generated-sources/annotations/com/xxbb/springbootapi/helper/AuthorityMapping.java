@@ -55,14 +55,6 @@ public class AuthorityMapping extends AMapping<Authority, AuthorityQuery, Author
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<Authority> isDeleted = new FieldMapping<Authority>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), Authority::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  name : name
    */
   public static final FieldMapping<Authority> name = new FieldMapping<Authority>
@@ -85,10 +77,18 @@ public class AuthorityMapping extends AMapping<Authority, AuthorityQuery, Author
   	("value", "value", null, null, null, String.class, null)
   	.sg((e, v) -> e.setValue((String) v), Authority::getValue);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<Authority> isDeleted = new FieldMapping<Authority>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), Authority::getIsDeleted);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, createTime, isDeleted, name, updateTime, value));
+  	.asList(id, createTime, name, updateTime, value, isDeleted));
 
   public static final AuthorityMapping MAPPING = new AuthorityMapping();
 
@@ -97,6 +97,7 @@ public class AuthorityMapping extends AMapping<Authority, AuthorityQuery, Author
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 

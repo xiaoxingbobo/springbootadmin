@@ -15,6 +15,7 @@ import cn.org.atool.fluent.mybatis.segment.SelectorBase;
 import cn.org.atool.fluent.mybatis.segment.UpdateApply;
 import cn.org.atool.fluent.mybatis.segment.UpdateBase;
 import cn.org.atool.fluent.mybatis.segment.WhereBase;
+import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import com.xxbb.springbootapi.wrapper.CommonQuery;
@@ -39,12 +40,12 @@ public interface CommonSegment {
       return this.set(createTime);
     }
 
-    default R isDeleted() {
-      return this.set(isDeleted);
-    }
-
     default R updateTime() {
       return this.set(updateTime);
+    }
+
+    default R isDeleted() {
+      return this.set(isDeleted);
     }
   }
 
@@ -73,12 +74,12 @@ public interface CommonSegment {
       return this.process(createTime, _alias_);
     }
 
-    public Selector isDeleted(String _alias_) {
-      return this.process(isDeleted, _alias_);
-    }
-
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
+    }
+
+    public Selector isDeleted(String _alias_) {
+      return this.process(isDeleted, _alias_);
     }
   }
 
@@ -102,12 +103,12 @@ public interface CommonSegment {
       return this.set(createTime);
     }
 
-    public NumericWhere<W, CommonQuery> isDeleted() {
-      return this.set(isDeleted);
-    }
-
     public ObjectWhere<W, CommonQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public BooleanWhere<W, CommonQuery> isDeleted() {
+      return this.set(isDeleted);
     }
   }
 

@@ -26,7 +26,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -52,6 +51,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
     private PasswordEncoder passwordEncoder;
     @Autowired(required = false)
     UserDao userDao;
+
     /**
      * 获取当前登录者信息
      *
@@ -85,7 +85,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         User user = userDetails.getUser();
         //获取用户权限
         //1.获取当前角色拥有的权限
-        List<RoleAuthority> roleAuthorities =iRoleAuthorityService.list(new RoleAuthority().setRoleId(user.getRoleId()));
+        List<RoleAuthority> roleAuthorities = iRoleAuthorityService.list(new RoleAuthority().setRoleId(user.getRoleId()));
 //        List<RoleAuthority> roleAuthorities =roleAuthorityService.dao.mapper.listEntity(roleAuthorityService.dao.mapper.query().where().roleId().eq(user.getRoleId()).end());
         //2.获取当前角色拥有的权限的id列表
         List<Integer> roleAuthorityIdList = roleAuthorities.stream().map(RoleAuthority::getAuthorityId).collect(Collectors.toList());
@@ -118,23 +118,21 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
 
     /**
      * 添加
+     *
      * @param entity
      * @return
      */
     @Override
     public boolean add(User entity) {
         entity.setId(null);//置空用户上传的id
-        entity.setCreateTime(new Date());
-        entity.setUpdateTime(new Date());
-        entity.setIsDeleted(0);
-//        entity.setPassword(Pbkdf2Util.encryption(entity.getPassword()));//加密密码
+        initEntity(entity);
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
         //判断账号是否存在
         User user = mapper().findOne(mapper().query().where.username().eq(entity.getUsername()).end());
         if (user != null) {
             throw new LegalException("账号已存在");
         }
-        return userDao.insert(entity)>0;
+        return userDao.insert(entity) > 0;
     }
 
     //删除

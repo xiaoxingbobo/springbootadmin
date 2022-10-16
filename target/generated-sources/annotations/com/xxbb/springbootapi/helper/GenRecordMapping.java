@@ -63,24 +63,24 @@ public class GenRecordMapping extends AMapping<GenRecord, GenRecordQuery, GenRec
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<GenRecord> isDeleted = new FieldMapping<GenRecord>
-  	("isDeleted", "is_deleted", null, "0", null, Integer.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Integer) v), GenRecord::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  updateTime : update_time
    */
   public static final FieldMapping<GenRecord> updateTime = new FieldMapping<GenRecord>
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), GenRecord::getUpdateTime);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<GenRecord> isDeleted = new FieldMapping<GenRecord>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), GenRecord::getIsDeleted);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, createTime, entityName, isDeleted, updateTime));
+  	.asList(id, createTime, entityName, updateTime, isDeleted));
 
   public static final GenRecordMapping MAPPING = new GenRecordMapping();
 
@@ -89,6 +89,7 @@ public class GenRecordMapping extends AMapping<GenRecord, GenRecordQuery, GenRec
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
     super.uniqueFields.put(PRIMARY_ID, id);
+    super.uniqueFields.put(LOGIC_DELETED, isDeleted);
     super.Ref_Keys.unmodified();
   }
 
