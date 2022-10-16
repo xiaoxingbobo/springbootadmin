@@ -49,7 +49,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
             } catch (TokenExpiredException exception) {
                 //判断是否是登录请求
                 if (!httpServletRequest.getRequestURI().contains("login")) {
-                    throw new LegalException("token过期！");
+                    throw new LegalException("token已过期！请重新登录");
                 }
             } catch (AlgorithmMismatchException exception) {
                 //记录ip
