@@ -24,3 +24,8 @@ export const DeletePermissions = (id: number[]): Promise<IResponse> => {
 export const EditPermissions = (data: string[]): Promise<IResponse> => {
   return request.put({ url: '/authority', data })
 }
+
+// 查询一条
+export const GetPermissionById = (id: string[]): Promise<IResponse> => {
+  return request.get({ url: `/authority/${id}` })
+}

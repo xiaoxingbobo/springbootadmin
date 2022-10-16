@@ -2,7 +2,13 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import { PermissionList, addPermission, DeletePermissions, EditPermissions } from '@/api/permission'
+import {
+  PermissionList,
+  addPermission,
+  DeletePermissions,
+  EditPermissions,
+  GetPermissionById
+} from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -17,6 +23,7 @@ import {
   ElMessage,
   ElMessageBox
 } from 'element-plus'
+import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
 
@@ -64,16 +71,24 @@ let tabledata = ref('')
 
 // 可生成实体列表
 let keshengchenglist = ref('')
-// 权限名name
-const namejurisdiction = ref('')
-// 权限点value
-const valuejurisdiction = ref('')
+
+const numberForm = reactive({
+  namejurisdiction: '',
+  valuejurisdiction: ''
+})
+// // 权限名name
+// const namejurisdiction = ref('')
+// // 权限点value
+// const valuejurisdiction = ref('')
+
 // 是否覆盖
 const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加权限')
 // 点击编辑，id存放
 const editactionid = ref('')
+// 表单的实例
+const diaLogForm = ref<FormInstance>()
 // 权限列表
 const _PermissionList = async () => {
   const res = await PermissionList()
@@ -101,7 +116,13 @@ const _EditPermissions = async (name, value, id) => {
     id: id
   })
 }
-
+// 通过id查询一条权限
+const _GetPermissionById = async (id) => {
+  const res = await GetPermissionById(id)
+  // console.log(res)
+  numberForm.namejurisdiction = res.data.name
+  numberForm.valuejurisdiction = res.data.value
+}
 onMounted(async () => {
   await _PermissionList()
   // await _Cangenerateentitylist()
@@ -113,32 +134,53 @@ const tianjiajiekoubtn = () => {
   dialogVisible.value = true
 }
 // 弹窗的确定按钮
-const save = async () => {
-  if (dialogTitle.value === '添加权限') {
-    try {
-      await _addPermission(namejurisdiction.value, valuejurisdiction.value)
-      ElMessage({
-        message: '添加权限成功!',
-        type: 'success'
-      })
-    } catch (error) {
-      ElMessage.error(error)
+const save = (formEl: FormInstance | undefined) => {
+  console.log(formEl)
+  if (!formEl) return
+  formEl.validate(async (valid) => {
+    if (valid) {
+      // 通过验证
+      if (dialogTitle.value === '添加权限') {
+        try {
+          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
+          ElMessage({
+            message: '添加权限成功!',
+            type: 'success'
+          })
+        } catch (error) {
+          ElMessage.error(error)
+        }
+      } else {
+        // 编辑权限
+        try {
+          await _EditPermissions(
+            numberForm.namejurisdiction,
+            numberForm.valuejurisdiction,
+            editactionid.value
+          )
+          ElMessage({
+            message: '编辑权限成功!',
+            type: 'success'
+          })
+        } catch (error) {
+          ElMessage.error(error)
+        }
+      }
+      // console.log(dinputvalue.value)
+      // dialogVisible.value = false
+      close()
+      _PermissionList() // 跟新列表数据
+    } else {
+      // 表单不通过验证
+      return false
     }
-  } else {
-    // 编辑权限
-    try {
-      await _EditPermissions(namejurisdiction.value, valuejurisdiction.value, editactionid.value)
-      ElMessage({
-        message: '编辑权限成功!',
-        type: 'success'
-      })
-    } catch (error) {
-      ElMessage.error(error)
-    }
-  }
-  // console.log(dinputvalue.value)
+  })
+}
+// 关闭按钮
+const close = () => {
   dialogVisible.value = false
-  _PermissionList() // 跟新列表数据
+  // 重置表单
+  ;(numberForm.namejurisdiction = ''), (numberForm.valuejurisdiction = '')
 }
 // 删除按钮
 const deleteaction = async (row) => {
@@ -164,11 +206,16 @@ const deleteaction = async (row) => {
   _PermissionList() // 跟新列表数据
 }
 // 编辑按钮
-const editaction = (row) => {
-  dialogTitle.value = '编辑权限'
-  dialogVisible.value = true
-  // console.log(row.id)
-  editactionid.value = row.id
+const editaction = async (row) => {
+  try {
+    await _GetPermissionById(row.id)
+    dialogTitle.value = '编辑权限'
+    dialogVisible.value = true
+    // console.log(row.id)
+    editactionid.value = row.id
+  } catch (error) {
+    console.log(reeor)
+  }
 }
 </script>
 
@@ -187,18 +234,26 @@ const editaction = (row) => {
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="250px">
-    <el-form label-width="100px">
-      <el-form-item label="权限名">
-        <el-input v-model="namejurisdiction" style="width: 400px" />
+    <el-form label-width="100px" ref="diaLogForm" :model="numberForm">
+      <el-form-item
+        label="权限名"
+        prop="namejurisdiction"
+        :rules="[{ required: true, message: '权限名不能为空！' }]"
+      >
+        <el-input v-model="numberForm.namejurisdiction" style="width: 400px" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="权限点">
-        <el-input v-model="valuejurisdiction" style="width: 400px" />
+      <el-form-item
+        prop="valuejurisdiction"
+        label="权限点"
+        :rules="[{ required: true, message: '权限点不能为空！' }]"
+      >
+        <el-input v-model="numberForm.valuejurisdiction" style="width: 400px" autocomplete="off" />
       </el-form-item>
     </el-form>
 
     <template #footer>
-      <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton>
-      <el-button @click="dialogVisible = false">关闭</el-button>
+      <ElButton type="primary" :loading="loading" @click="save(diaLogForm)"> 确定 </ElButton>
+      <el-button @click="close">关闭</el-button>
     </template>
   </Dialog>
 </template>
