@@ -6,7 +6,8 @@ import {
   Entitygenerationrecord,
   Cangenerateentitylist,
   Singleentitygeneration,
-  RevokeEntity
+  RevokeEntity,
+  ParameterPermission
 } from '@/api/table'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -20,8 +21,13 @@ import {
   ElRadioGroup,
   ElRadio,
   ElMessage,
-  ElMessageBox
+  ElMessageBox,
+  ElTabs,
+  ElTabPane,
+  ElRow,
+  ElCol
 } from 'element-plus'
+import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
 
@@ -70,6 +76,98 @@ const dinputvalue = ref('')
 // 是否覆盖
 const isCover = ref('true')
 
+// 动态添加删除表单开始------
+const formRef = ref<FormInstance>()
+const dynamicValidateForm = reactive<{
+  domains: DomainItem[]
+  entityFields: {
+    description: string
+    fieldType: string
+    filedName: string
+  }
+}>({
+  // 不可增删的数据绑定
+  entityFields: {
+    description: '',
+    fieldType: '',
+    filedName: ''
+  },
+  // 动态增删的数据
+  domains: [
+    {
+      key: 1,
+      description: '',
+      fieldType: '',
+      filedName: ''
+    }
+  ],
+  email: ''
+})
+
+interface DomainItem {
+  key: number
+  description: string
+  fieldType: string
+  filedName: string
+}
+
+const removeDomain = (item: DomainItem) => {
+  const index = dynamicValidateForm.domains.indexOf(item)
+  if (index !== -1) {
+    dynamicValidateForm.domains.splice(index, 1)
+  }
+}
+
+// 添加新选项按钮
+const addDomain = () => {
+  dynamicValidateForm.domains.push({
+    key: Date.now(),
+    description: '',
+    fieldType: '',
+    filedName: ''
+  })
+}
+// 动态提交代码生成函数
+const _ParameterPermission = async (data: any, entityName, isCover) => {
+  const res = await ParameterPermission({
+    entityFields: data,
+    entityName: entityName,
+    isCover: isCover
+  })
+  console.log(res)
+}
+
+// 动态增删点击确定按钮
+const submitForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.validate((valid) => {
+    if (valid) {
+      // 表单通过验证
+      // console.log(dynamicValidateForm.domains)
+      try {
+        const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
+        // console.log(dataList)
+        _ParameterPermission(dataList, dinputvalue.value, isCover.value)
+        ElMessage.success('操作成功！')
+        closeDialog() // 关闭弹窗
+        _Entitygenerationrecord() // 跟新列表数据
+      } catch (error) {
+        console.log(error)
+      }
+    } else {
+      console.log('error submit!')
+      return false
+    }
+  })
+}
+
+// 重置按钮
+const resetForm = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.resetFields()
+}
+// ------动态添加删除表单结束
+
 // 实体生成记录
 const _Entitygenerationrecord = async () => {
   const res = await Entitygenerationrecord()
@@ -105,6 +203,7 @@ const tianjiajiekoubtn = () => {
   // console.log(111)
   dialogVisible.value = true
 }
+
 // 弹窗的确定按钮
 const save = async () => {
   dialogVisible.value = false
@@ -149,6 +248,27 @@ const action = async (row) => {
 
   _Entitygenerationrecord() // 跟新列表数据
 }
+
+// 关闭弹窗 重置表单数据
+const closeDialog = () => {
+  dialogVisible.value = false
+  // 重置表单数据
+  dynamicValidateForm.entityFields = [
+    {
+      description: '',
+      fieldType: '',
+      filedName: ''
+    }
+  ]
+  dynamicValidateForm.domains = [
+    {
+      key: 1,
+      description: '',
+      fieldType: '',
+      filedName: ''
+    }
+  ]
+}
 </script>
 
 <template>
@@ -164,27 +284,130 @@ const action = async (row) => {
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="350px">
-    <el-form>
-      <el-form-item label="选择实体类">
-        <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
-          <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
-            <span style="float: left">{{ item }}</span>
-          </el-option>
-        </el-select>
-      </el-form-item>
+  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="450px">
+    <el-tabs type="border-card">
+      <!-- 左边 -->
+      <el-tab-pane label="生成接口">
+        <el-form>
+          <el-form-item label="选择实体类">
+            <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
+              <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
+                <span style="float: left">{{ item }}</span>
+              </el-option>
+            </el-select>
+          </el-form-item>
 
-      <el-form-item label="是否覆盖">
-        <el-radio-group v-model="isCover" class="ml-4">
-          <el-radio label="true" size="large">是</el-radio>
-          <el-radio label="false" size="large">否</el-radio>
-        </el-radio-group>
-      </el-form-item>
-    </el-form>
+          <el-form-item label="是否覆盖">
+            <el-radio-group v-model="isCover" class="ml-4">
+              <el-radio label="true" size="large">是</el-radio>
+              <el-radio label="false" size="large">否</el-radio>
+            </el-radio-group>
+          </el-form-item>
+        </el-form>
+        <el-row class="row-bg" justify="center" style="margin-top: 50px">
+          <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton>
+          <el-button @click="closeDialog">关闭</el-button>
+        </el-row>
+      </el-tab-pane>
+      <!-- 右边 -->
+      <el-tab-pane label="生成实体加接口">
+        <el-form>
+          <el-form-item label="选择实体类">
+            <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
+              <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
+                <span style="float: left">{{ item }}</span>
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="是否覆盖">
+            <el-radio-group v-model="isCover" class="ml-4">
+              <el-radio label="true" size="large">是</el-radio>
+              <el-radio label="false" size="large">否</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <hr />
+        </el-form>
+
+        <!-- 动态添加删除 -->
+        <el-form ref="formRef" :model="dynamicValidateForm" class="demo-dynamic">
+          <el-form-item>
+            <el-button @click="addDomain">添加字段</el-button>
+          </el-form-item>
+          <el-form-item
+            prop="entityFields.description"
+            label="实体1"
+            :rules="[
+              {
+                required: true,
+                message: '该选项不能为空！',
+                trigger: 'blur'
+              }
+            ]"
+          >
+            <!-- <el-input v-model="dynamicValidateForm.email" /> -->
+            <el-row :gutter="5">
+              <el-col :span="8"
+                ><el-input
+                  placeholder="描述"
+                  v-model="dynamicValidateForm.entityFields.description"
+              /></el-col>
+              <el-col :span="8"
+                ><el-input
+                  placeholder="实体类型"
+                  v-model="dynamicValidateForm.entityFields.fieldType"
+              /></el-col>
+              <el-col :span="8"
+                ><el-input
+                  placeholder="实体名字"
+                  v-model="dynamicValidateForm.entityFields.filedName"
+              /></el-col>
+            </el-row>
+          </el-form-item>
+          <el-form-item
+            v-for="(domain, index) in dynamicValidateForm.domains"
+            :key="domain.key"
+            :prop="'domains.' + index + '.description'"
+            :label="'实体' + (index + 2)"
+            :rules="[
+              {
+                required: true,
+                message: '该选项不能为空！',
+                trigger: 'blur'
+              }
+            ]"
+          >
+            <el-row :gutter="5">
+              <el-col :span="8"
+                ><el-input placeholder="描述" v-model="domain.description"
+              /></el-col>
+              <el-col :span="7"
+                ><el-input placeholder="实体类型" v-model="domain.fieldType"
+              /></el-col>
+              <el-col :span="7"
+                ><el-input placeholder="实体名字" v-model="domain.filedName"
+              /></el-col>
+              <el-col :span="2">
+                <el-button
+                  class="mt-2"
+                  style="height: 35px; margin-top: -2px"
+                  @click.prevent="removeDomain(domain)"
+                  >移除</el-button
+                >
+              </el-col>
+            </el-row>
+          </el-form-item>
+          <el-row class="row-bg" justify="center" style="margin-top: 50px">
+            <el-button type="primary" @click="submitForm(formRef)">确定</el-button>
+            <!-- <el-button @click="resetForm(formRef)">重置</el-button> -->
+            <el-button @click="closeDialog">关闭</el-button>
+          </el-row>
+        </el-form>
+      </el-tab-pane>
+    </el-tabs>
 
     <template #footer>
-      <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton>
-      <el-button @click="dialogVisible = false">关闭</el-button>
+      <!-- <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton> -->
+      <el-button @click="closeDialog">关闭</el-button>
     </template>
   </Dialog>
 </template>
