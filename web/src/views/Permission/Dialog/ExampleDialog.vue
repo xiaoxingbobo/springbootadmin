@@ -2,7 +2,7 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import { PermissionList, addPermission, DeletePermissions } from '@/api/permission'
+import { PermissionList, addPermission, DeletePermissions, EditPermissions } from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -65,10 +65,15 @@ let tabledata = ref('')
 // 可生成实体列表
 let keshengchenglist = ref('')
 // 权限名name
-const namevalue = ref('')
+const namejurisdiction = ref('')
+// 权限点value
+const valuejurisdiction = ref('')
 // 是否覆盖
 const isCover = ref('true')
-
+// 弹窗标题
+const dialogTitle = ref('添加权限')
+// 点击编辑，id存放
+const editactionid = ref('')
 // 权限列表
 const _PermissionList = async () => {
   const res = await PermissionList()
@@ -78,15 +83,23 @@ const _PermissionList = async () => {
 }
 
 // 添加权限
-const _addPermission = async (data) => {
+const _addPermission = async (name, value) => {
   await addPermission({
-    name: data
-    // value: data.value
+    name: name,
+    value: value
   })
 }
 // 删除权限
 const _DeletePermissions = async (id) => {
   await DeletePermissions(id)
+}
+// 编辑权限
+const _EditPermissions = async (name, value, id) => {
+  await EditPermissions({
+    name: name,
+    value: value,
+    id: id
+  })
 }
 
 onMounted(async () => {
@@ -95,22 +108,36 @@ onMounted(async () => {
 })
 // 添加接口按钮
 const tianjiajiekoubtn = () => {
+  dialogTitle.value = '添加权限'
   // console.log(111)
   dialogVisible.value = true
 }
 // 弹窗的确定按钮
 const save = async () => {
-  dialogVisible.value = false
-  // console.log(dinputvalue.value)
-  try {
-    await _addPermission(namevalue.value)
-    ElMessage({
-      message: '添加权限成功!',
-      type: 'success'
-    })
-  } catch (error) {
-    ElMessage.error(error)
+  if (dialogTitle.value === '添加权限') {
+    try {
+      await _addPermission(namejurisdiction.value, valuejurisdiction.value)
+      ElMessage({
+        message: '添加权限成功!',
+        type: 'success'
+      })
+    } catch (error) {
+      ElMessage.error(error)
+    }
+  } else {
+    // 编辑权限
+    try {
+      await _EditPermissions(namejurisdiction.value, valuejurisdiction.value, editactionid.value)
+      ElMessage({
+        message: '编辑权限成功!',
+        type: 'success'
+      })
+    } catch (error) {
+      ElMessage.error(error)
+    }
   }
+  // console.log(dinputvalue.value)
+  dialogVisible.value = false
   _PermissionList() // 跟新列表数据
 }
 // 删除按钮
@@ -136,6 +163,13 @@ const deleteaction = async (row) => {
   }
   _PermissionList() // 跟新列表数据
 }
+// 编辑按钮
+const editaction = (row) => {
+  dialogTitle.value = '编辑权限'
+  dialogVisible.value = true
+  // console.log(row.id)
+  editactionid.value = row.id
+}
 </script>
 
 <template>
@@ -147,19 +181,19 @@ const deleteaction = async (row) => {
     <Table :columns="columns" :data="tabledata" pageSize="3">
       <template #action="{ row }">
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
-        <ElButton type="primary" :loading="delLoading" @click="action(row)"> 编辑 </ElButton>
+        <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
       </template>
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" title="添加权限" maxHeight="350px">
-    <el-form>
+  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="250px">
+    <el-form label-width="100px">
       <el-form-item label="权限名">
-        <el-input v-model="namevalue" />
+        <el-input v-model="namejurisdiction" style="width: 400px" />
       </el-form-item>
-      <!-- <el-form-item label="权限点">
-        <el-input />
-      </el-form-item> -->
+      <el-form-item label="权限点">
+        <el-input v-model="valuejurisdiction" style="width: 400px" />
+      </el-form-item>
     </el-form>
 
     <template #footer>
