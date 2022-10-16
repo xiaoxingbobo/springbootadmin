@@ -75,6 +75,8 @@ let keshengchenglist = ref('')
 const dinputvalue = ref('')
 // 是否覆盖
 const isCover = ref('true')
+// tabs标签索引
+let evalue = ref('')
 
 // 动态添加删除表单开始------
 const formRef = ref<FormInstance>()
@@ -129,37 +131,43 @@ const addDomain = () => {
 }
 // 动态提交代码生成函数
 const _ParameterPermission = async (data: any, entityName, isCover) => {
-  const res = await ParameterPermission({
+  await ParameterPermission({
     entityFields: data,
     entityName: entityName,
     isCover: isCover
   })
-  console.log(res)
+}
+
+// tabs标签事件
+const tabClick = (e) => {
+  console.log(e.index)
+  // console.log(w)
+  evalue.value = e.index
 }
 
 // 动态增删点击确定按钮
-const submitForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.validate((valid) => {
-    if (valid) {
-      // 表单通过验证
-      // console.log(dynamicValidateForm.domains)
-      try {
-        const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
-        // console.log(dataList)
-        _ParameterPermission(dataList, dinputvalue.value, isCover.value)
-        ElMessage.success('操作成功！')
-        closeDialog() // 关闭弹窗
-        _Entitygenerationrecord() // 跟新列表数据
-      } catch (error) {
-        console.log(error)
-      }
-    } else {
-      console.log('error submit!')
-      return false
-    }
-  })
-}
+// const submitForm = (formEl: FormInstance | undefined) => {
+//   if (!formEl) return
+//   formEl.validate((valid) => {
+//     if (valid) {
+//       // 表单通过验证
+//       // console.log(dynamicValidateForm.domains)
+//       try {
+//         const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
+//         // console.log(dataList)
+//         _ParameterPermission(dataList, dinputvalue.value, isCover.value)
+//         ElMessage.success('操作成功！')
+//         closeDialog() // 关闭弹窗
+//         _Entitygenerationrecord() // 跟新列表数据
+//       } catch (error) {
+//         console.log(error)
+//       }
+//     } else {
+//       console.log('error submit!')
+//       return false
+//     }
+//   })
+// }
 
 // 重置按钮
 const resetForm = (formEl: FormInstance | undefined) => {
@@ -205,25 +213,54 @@ const tianjiajiekoubtn = () => {
 }
 
 // 弹窗的确定按钮
-const save = async () => {
-  dialogVisible.value = false
-  // console.log(dinputvalue.value)
-  try {
-    await _Singleentitygeneration(dinputvalue.value, isCover.value)
-    ElMessage({
-      message: '生成接口成功!',
-      type: 'success'
+const save = async (formEl: FormInstance | undefined) => {
+  if (evalue.value === '1') {
+    // 带参数
+    console.log('带参数')
+    if (!formEl) return
+    formEl.validate((valid) => {
+      if (valid) {
+        // 表单通过验证
+        // console.log(dynamicValidateForm.domains)
+        try {
+          const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
+          // console.log(dataList)
+          _ParameterPermission(dataList, dinputvalue.value, isCover.value)
+          ElMessage.success('操作成功！')
+          closeDialog() // 关闭弹窗
+          _Entitygenerationrecord() // 跟新列表数据
+        } catch (error) {
+          console.log(error)
+        }
+      } else {
+        console.log('error submit!')
+        return false
+      }
     })
-  } catch (error) {
-    ElMessage.error(error)
+  } else {
+    // 不带参数
+    // console.log('不带参数')
+    try {
+      await _Singleentitygeneration(dinputvalue.value, isCover.value)
+      ElMessage({
+        message: '生成接口成功!',
+        type: 'success'
+      })
+      dialogVisible.value = false // 关闭弹窗
+      _Entitygenerationrecord() // 跟新列表数据
+    } catch (error) {
+      ElMessage.error(error)
+    }
   }
-  _Entitygenerationrecord() // 跟新列表数据
+  // console.log(dinputvalue.value)
 }
+
 // select获得焦距
 const selectfocus = () => {
   // console.log(11111)
   _Cangenerateentitylist()
 }
+
 // 删除按钮
 const action = async (row) => {
   console.log(row.id)
@@ -275,7 +312,7 @@ const closeDialog = () => {
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">生成接口</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
+      <!-- <ElButton :loading="delLoading" type="danger">删除</ElButton> -->
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
@@ -284,8 +321,8 @@ const closeDialog = () => {
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="450px">
-    <el-tabs type="border-card">
+  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="350px">
+    <el-tabs type="border-card" @tab-click="tabClick">
       <!-- 左边 -->
       <el-tab-pane label="生成接口">
         <el-form>
@@ -304,10 +341,6 @@ const closeDialog = () => {
             </el-radio-group>
           </el-form-item>
         </el-form>
-        <el-row class="row-bg" justify="center" style="margin-top: 50px">
-          <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton>
-          <el-button @click="closeDialog">关闭</el-button>
-        </el-row>
       </el-tab-pane>
       <!-- 右边 -->
       <el-tab-pane label="生成实体加接口">
@@ -396,17 +429,12 @@ const closeDialog = () => {
               </el-col>
             </el-row>
           </el-form-item>
-          <el-row class="row-bg" justify="center" style="margin-top: 50px">
-            <el-button type="primary" @click="submitForm(formRef)">确定</el-button>
-            <!-- <el-button @click="resetForm(formRef)">重置</el-button> -->
-            <el-button @click="closeDialog">关闭</el-button>
-          </el-row>
         </el-form>
       </el-tab-pane>
     </el-tabs>
 
     <template #footer>
-      <!-- <ElButton type="primary" :loading="loading" @click="save"> 确定 </ElButton> -->
+      <ElButton type="primary" :loading="loading" @click="save(formRef)"> 确定 </ElButton>
       <el-button @click="closeDialog">关闭</el-button>
     </template>
   </Dialog>

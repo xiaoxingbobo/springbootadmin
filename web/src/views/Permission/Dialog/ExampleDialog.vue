@@ -287,7 +287,7 @@ const editaction = async (row) => {
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加权限</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
+      <!-- <ElButton :loading="delLoading" type="danger">删除</ElButton> -->
     </div>
     <Table :columns="columns" :data="tabledata" pageSize="3">
       <template #action="{ row }">
@@ -297,95 +297,34 @@ const editaction = async (row) => {
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="400px" style="width: 30%">
-    <el-tabs type="border-card">
-      <!-- 左边 -->
-      <el-tab-pane label="simple">
-        <el-form ref="diaLogForm" :model="numberForm">
-          <el-form-item
-            label="权限名"
-            prop="namejurisdiction"
-            :rules="[{ required: true, message: '权限名不能为空！' }]"
-          >
-            <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
-          </el-form-item>
-          <el-form-item
-            prop="valuejurisdiction"
-            label="权限点"
-            :rules="[{ required: true, message: '权限点不能为空！' }]"
-          >
-            <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
-          </el-form-item>
-        </el-form>
-        <el-row class="row-bg" justify="center" style="margin-top: 50px">
-          <el-col>
-            <ElButton
-              type="primary"
-              style="margin-left: 38%"
-              :loading="loading"
-              @click="save(diaLogForm)"
-            >
-              确定
-            </ElButton>
-            <el-button @click="close">关闭</el-button>
-          </el-col>
-        </el-row>
-      </el-tab-pane>
-      <!-- 右边 -->
-      <el-tab-pane label="entityFields">
-        <el-form ref="diaLogForm" :model="numberForm">
-          <el-form-item
-            label="权限名"
-            prop="namejurisdiction"
-            :rules="[{ required: true, message: '权限名不能为空！' }]"
-          >
-            <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
-          </el-form-item>
-          <el-form-item
-            prop="valuejurisdiction"
-            label="权限点"
-            :rules="[{ required: true, message: '权限点不能为空！' }]"
-          >
-            <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
-          </el-form-item>
-
-          <!-- 详情参数 -->
-          <el-form-item
-            prop="entityFields.description"
-            label="描述"
-            :rules="[{ required: true, message: '权限点不能为空！' }]"
-          >
-            <el-input v-model="numberForm.entityFields.description" autocomplete="off" />
-          </el-form-item>
-          <el-form-item
-            prop="entityFields.fieldType"
-            label="文件类型"
-            :rules="[{ required: true, message: '权限点不能为空！' }]"
-          >
-            <el-input v-model="numberForm.entityFields.fieldType" autocomplete="off" />
-          </el-form-item>
-          <el-form-item
-            prop="entityFields.filedName"
-            label="文件名字"
-            :rules="[{ required: true, message: '权限点不能为空！' }]"
-          >
-            <el-input v-model="numberForm.entityFields.filedName" autocomplete="off" />
-          </el-form-item>
-        </el-form>
-        <el-row class="row-bg" justify="center" style="margin-top: 50px">
-          <el-col>
-            <ElButton
-              type="primary"
-              style="margin-left: 38%"
-              :loading="loading"
-              @click="RightSave(diaLogForm)"
-            >
-              确定
-            </ElButton>
-            <el-button @click="close">关闭</el-button>
-          </el-col>
-        </el-row>
-      </el-tab-pane>
-    </el-tabs>
+  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">
+    <!-- 左边 -->
+    <el-form ref="diaLogForm" :model="numberForm">
+      <el-form-item
+        label="权限名"
+        prop="namejurisdiction"
+        :rules="[{ required: true, message: '权限名不能为空！' }]"
+      >
+        <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
+      </el-form-item>
+      <el-form-item
+        prop="valuejurisdiction"
+        label="权限点"
+        :rules="[{ required: true, message: '权限点不能为空！' }]"
+      >
+        <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <ElButton
+        type="primary"
+        style="margin-left: 38%"
+        :loading="loading"
+        @click="save(diaLogForm)"
+      >
+        确定
+      </ElButton>
+      <el-button @click="close">关闭</el-button>
+    </template>
   </Dialog>
 </template>
