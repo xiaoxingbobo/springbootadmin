@@ -124,7 +124,6 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
      */
     @Override
     public boolean add(User entity) {
-        entity.setId(null);//置空用户上传的id
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
         //判断账号是否存在
         User user = mapper().findOne(mapper().query().where.username().eq(entity.getUsername()).end());

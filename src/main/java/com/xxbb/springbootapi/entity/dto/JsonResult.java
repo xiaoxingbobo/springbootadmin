@@ -22,10 +22,21 @@ public class JsonResult implements Serializable {
     @ApiModelProperty("响应码：2空值，1成功，0失败，-1异常，-2未知，-3未登录")
     private Integer code;
 
+
     public JsonResult(Integer code, String msg, Boolean state) {
         this.code = code;
         this.message = msg;
         this.state = state;
+    }
+
+    /**
+     * 空值
+     */
+    public JsonResult Null(String message) {
+        this.state = false;
+        this.message = message;
+        this.code = 2;
+        return this;
     }
 
     /*
@@ -85,15 +96,6 @@ public class JsonResult implements Serializable {
         return this;
     }
 
-    /**
-     * 空值
-     */
-    public JsonResult Null(String message) {
-        this.state = false;
-        this.message = message;
-        this.code = 2;
-        return this;
-    }
 
     /**
      * 未知
@@ -121,10 +123,28 @@ public class JsonResult implements Serializable {
         this.code = -3;
         return this;
     }
+
     public JsonResult Unauthorized(String message) {
         this.state = false;
         this.message = message;
         this.code = -3;
+        return this;
+    }
+
+    /**
+     * 未找到
+     */
+    public JsonResult NotFound() {
+        this.state = Boolean.FALSE;
+        this.message = "404！你请求的对象不在家";
+        this.code = -4;
+        return this;
+    }
+
+    public JsonResult UnFound(String message) {
+        this.state = Boolean.FALSE;
+        this.message = message;
+        this.code = -4;
         return this;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 
 @Slf4j
@@ -21,6 +22,8 @@ public class GlobalExceptionHandler {
             return new JsonResult().Error(e.getMessage());
         } else if (e instanceof AccessDeniedException) {
             return new JsonResult().Unauthorized();
+        } else if (e instanceof NoHandlerFoundException) {
+            return new JsonResult().NotFound();
         }
         log.error("发生未知异常！信息：" + e + "，" + e.getMessage());
         if (e.toString().contains(e.getMessage()))
