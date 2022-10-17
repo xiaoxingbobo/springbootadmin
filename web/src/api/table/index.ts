@@ -17,6 +17,7 @@ export const delTableListApi = (ids: string[] | number[]): Promise<IResponse> =>
   return request.post({ url: '/example/delete', data: { ids } })
 }
 
+// 代码生成接口
 // 可生成实体列表
 export const Cangenerateentitylist = (ids: string[] | number[]): Promise<IResponse> => {
   return request.get({ url: '/code/classes', data: { ids } })
@@ -35,4 +36,9 @@ export const Singleentitygeneration = (data: any): Promise<IResponse> => {
 // 撤销实体生成
 export const RevokeEntity = (ids: number[]): Promise<IResponse> => {
   return request.get({ url: `/code/undo/${ids}` })
+}
+
+// 添加权限-带详情参数
+export const ParameterPermission = (data: string[]): Promise<IResponse> => {
+  return request.post({ url: '/code/generate', data })
 }

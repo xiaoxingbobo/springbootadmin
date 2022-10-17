@@ -29,3 +29,8 @@ export const EditPermissions = (data: string[]): Promise<IResponse> => {
 export const GetPermissionById = (id: string[]): Promise<IResponse> => {
   return request.get({ url: `/authority/${id}` })
 }
+
+// 添加权限-带详情参数
+export const ParameterPermission = (data: string[]): Promise<IResponse> => {
+  return request.post({ url: '/authority', data })
+}

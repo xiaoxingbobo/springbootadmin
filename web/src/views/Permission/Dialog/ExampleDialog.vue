@@ -7,7 +7,8 @@ import {
   addPermission,
   DeletePermissions,
   EditPermissions,
-  GetPermissionById
+  GetPermissionById,
+  ParameterPermission
 } from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -21,7 +22,11 @@ import {
   ElRadioGroup,
   ElRadio,
   ElMessage,
-  ElMessageBox
+  ElMessageBox,
+  ElTabs,
+  ElTabPane,
+  ElRow,
+  ElCol
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
@@ -71,16 +76,17 @@ let tabledata = ref('')
 
 // 可生成实体列表
 let keshengchenglist = ref('')
-
+// 添加权限的输入数据
 const numberForm = reactive({
   namejurisdiction: '',
-  valuejurisdiction: ''
+  valuejurisdiction: '',
+  // 带详情参数添加权限list数据
+  entityFields: {
+    description: '',
+    fieldType: 'BOOLEAN',
+    filedName: ''
+  }
 })
-// // 权限名name
-// const namejurisdiction = ref('')
-// // 权限点value
-// const valuejurisdiction = ref('')
-
 // 是否覆盖
 const isCover = ref('true')
 // 弹窗标题
@@ -89,6 +95,13 @@ const dialogTitle = ref('添加权限')
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
+// 带详情参数添加权限list数据
+// const entityFields = reactive({
+//   description: '',
+//   fieldType: '',
+//   filedName: ''
+// })
+
 // 权限列表
 const _PermissionList = async () => {
   const res = await PermissionList()
@@ -100,6 +113,14 @@ const _PermissionList = async () => {
 // 添加权限
 const _addPermission = async (name, value) => {
   await addPermission({
+    name: name,
+    value: value
+  })
+}
+// 添加权限-带详情参数
+const _ParameterPermission = async (entityFields, name, value) => {
+  await ParameterPermission({
+    entityFields: entityFields,
     name: name,
     value: value
   })
@@ -133,9 +154,10 @@ const tianjiajiekoubtn = () => {
   // console.log(111)
   dialogVisible.value = true
 }
-// 弹窗的确定按钮
+
+// 弹窗的left的确定按钮
 const save = (formEl: FormInstance | undefined) => {
-  console.log(formEl)
+  // console.log(formEl)
   if (!formEl) return
   formEl.validate(async (valid) => {
     if (valid) {
@@ -168,6 +190,48 @@ const save = (formEl: FormInstance | undefined) => {
       }
       // console.log(dinputvalue.value)
       // dialogVisible.value = false
+      close()
+      _PermissionList() // 跟新列表数据
+    } else {
+      // 表单不通过验证
+      return false
+    }
+  })
+}
+
+// 弹窗的right的确定按钮
+const RightSave = (formEl: FormInstance | undefined) => {
+  console.log(formEl)
+  if (!formEl) return
+  formEl.validate(async (valid) => {
+    if (valid) {
+      // 通过验证
+      if (dialogTitle.value === '添加权限') {
+        try {
+          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
+          ElMessage({
+            message: '添加权限成功!',
+            type: 'success'
+          })
+        } catch (error) {
+          ElMessage.error(error)
+        }
+      } else {
+        // 编辑权限
+        try {
+          await _EditPermissions(
+            numberForm.namejurisdiction,
+            numberForm.valuejurisdiction,
+            editactionid.value
+          )
+          ElMessage({
+            message: '编辑权限成功!',
+            type: 'success'
+          })
+        } catch (error) {
+          ElMessage.error(error)
+        }
+      }
       close()
       _PermissionList() // 跟新列表数据
     } else {
@@ -223,7 +287,7 @@ const editaction = async (row) => {
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加权限</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
+      <!-- <ElButton :loading="delLoading" type="danger">删除</ElButton> -->
     </div>
     <Table :columns="columns" :data="tabledata" pageSize="3">
       <template #action="{ row }">
@@ -233,26 +297,33 @@ const editaction = async (row) => {
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="250px">
-    <el-form label-width="100px" ref="diaLogForm" :model="numberForm">
+  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">
+    <!-- 左边 -->
+    <el-form ref="diaLogForm" :model="numberForm">
       <el-form-item
         label="权限名"
         prop="namejurisdiction"
         :rules="[{ required: true, message: '权限名不能为空！' }]"
       >
-        <el-input v-model="numberForm.namejurisdiction" style="width: 400px" autocomplete="off" />
+        <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
       </el-form-item>
       <el-form-item
         prop="valuejurisdiction"
         label="权限点"
         :rules="[{ required: true, message: '权限点不能为空！' }]"
       >
-        <el-input v-model="numberForm.valuejurisdiction" style="width: 400px" autocomplete="off" />
+        <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
       </el-form-item>
     </el-form>
-
     <template #footer>
-      <ElButton type="primary" :loading="loading" @click="save(diaLogForm)"> 确定 </ElButton>
+      <ElButton
+        type="primary"
+        style="margin-left: 38%"
+        :loading="loading"
+        @click="save(diaLogForm)"
+      >
+        确定
+      </ElButton>
       <el-button @click="close">关闭</el-button>
     </template>
   </Dialog>
