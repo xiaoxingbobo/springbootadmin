@@ -24,7 +24,7 @@ import java.util.Date;
 @Data
 @FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
-public class Test extends Common {
+public class People extends Common {
     //基础属性
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
@@ -45,8 +45,4 @@ public class Test extends Common {
     
     @ApiModelProperty(value = "名称")
     private String name;
-    @ApiModelProperty(value = "性别")
-    private Integer sex;
-    @ApiModelProperty(value = "年龄")
-    private Integer age;
 }

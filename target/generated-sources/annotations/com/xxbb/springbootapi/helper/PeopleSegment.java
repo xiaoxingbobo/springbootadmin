@@ -1,7 +1,7 @@
 package com.xxbb.springbootapi.helper;
 
 import static cn.org.atool.fluent.mybatis.utility.MybatisUtil.assertNotNull;
-import static com.xxbb.springbootapi.helper.TestMapping.*;
+import static com.xxbb.springbootapi.helper.PeopleMapping.*;
 
 import cn.org.atool.fluent.mybatis.base.crud.IWrapper;
 import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
@@ -19,26 +19,22 @@ import cn.org.atool.fluent.mybatis.segment.where.BooleanWhere;
 import cn.org.atool.fluent.mybatis.segment.where.NumericWhere;
 import cn.org.atool.fluent.mybatis.segment.where.ObjectWhere;
 import cn.org.atool.fluent.mybatis.segment.where.StringWhere;
-import com.xxbb.springbootapi.wrapper.TestQuery;
-import com.xxbb.springbootapi.wrapper.TestUpdate;
+import com.xxbb.springbootapi.wrapper.PeopleQuery;
+import com.xxbb.springbootapi.wrapper.PeopleUpdate;
 
 /**
  *
- * TestSegment
+ * PeopleSegment
  *
  * @author powered by FluentMybatis
  */
 @SuppressWarnings({"unused", "rawtypes", "unchecked"})
-public interface TestSegment {
+public interface PeopleSegment {
   interface ASegment<R> {
     R set(FieldMapping fieldMapping);
 
     default R id() {
       return this.set(id);
-    }
-
-    default R age() {
-      return this.set(age);
     }
 
     default R createTime() {
@@ -47,10 +43,6 @@ public interface TestSegment {
 
     default R name() {
       return this.set(name);
-    }
-
-    default R sex() {
-      return this.set(sex);
     }
 
     default R updateTime() {
@@ -65,8 +57,8 @@ public interface TestSegment {
   /**
    * select字段设置
    */
-  final class Selector extends SelectorBase<Selector, TestQuery> implements ASegment<Selector> {
-    public Selector(TestQuery query) {
+  final class Selector extends SelectorBase<Selector, PeopleQuery> implements ASegment<Selector> {
+    public Selector(PeopleQuery query) {
       super(query);
     }
 
@@ -83,20 +75,12 @@ public interface TestSegment {
       return this.process(id, _alias_);
     }
 
-    public Selector age(String _alias_) {
-      return this.process(age, _alias_);
-    }
-
     public Selector createTime(String _alias_) {
       return this.process(createTime, _alias_);
     }
 
     public Selector name(String _alias_) {
       return this.process(name, _alias_);
-    }
-
-    public Selector sex(String _alias_) {
-      return this.process(sex, _alias_);
     }
 
     public Selector updateTime(String _alias_) {
@@ -111,7 +95,7 @@ public interface TestSegment {
   /**
    * query/update where条件设置
    */
-  abstract class EntityWhere<W extends WhereBase<W, U, TestQuery>, U extends IWrapper<?, U, TestQuery>> extends WhereBase<W, U, TestQuery> {
+  abstract class EntityWhere<W extends WhereBase<W, U, PeopleQuery>, U extends IWrapper<?, U, PeopleQuery>> extends WhereBase<W, U, PeopleQuery> {
     public EntityWhere(U wrapper) {
       super(wrapper);
     }
@@ -120,31 +104,23 @@ public interface TestSegment {
       super(wrapper, where);
     }
 
-    public NumericWhere<W, TestQuery> id() {
+    public NumericWhere<W, PeopleQuery> id() {
       return this.set(id);
     }
 
-    public NumericWhere<W, TestQuery> age() {
-      return this.set(age);
-    }
-
-    public ObjectWhere<W, TestQuery> createTime() {
+    public ObjectWhere<W, PeopleQuery> createTime() {
       return this.set(createTime);
     }
 
-    public StringWhere<W, TestQuery> name() {
+    public StringWhere<W, PeopleQuery> name() {
       return this.set(name);
     }
 
-    public NumericWhere<W, TestQuery> sex() {
-      return this.set(sex);
-    }
-
-    public ObjectWhere<W, TestQuery> updateTime() {
+    public ObjectWhere<W, PeopleQuery> updateTime() {
       return this.set(updateTime);
     }
 
-    public BooleanWhere<W, TestQuery> isDeleted() {
+    public BooleanWhere<W, PeopleQuery> isDeleted() {
       return this.set(isDeleted);
     }
   }
@@ -152,44 +128,44 @@ public interface TestSegment {
   /**
    * query where条件设置
    */
-  class QueryWhere extends EntityWhere<QueryWhere, TestQuery> {
-    public QueryWhere(TestQuery query) {
+  class QueryWhere extends EntityWhere<QueryWhere, PeopleQuery> {
+    public QueryWhere(PeopleQuery query) {
       super(query);
     }
 
-    private QueryWhere(TestQuery query, QueryWhere where) {
+    private QueryWhere(PeopleQuery query, QueryWhere where) {
       super(query, where);
     }
 
     @Override
     protected QueryWhere buildOr(QueryWhere and) {
-      return new QueryWhere((TestQuery) this.wrapper, and);
+      return new QueryWhere((PeopleQuery) this.wrapper, and);
     }
   }
 
   /**
    * update where条件设置
    */
-  class UpdateWhere extends EntityWhere<UpdateWhere, TestUpdate> {
-    public UpdateWhere(TestUpdate updater) {
+  class UpdateWhere extends EntityWhere<UpdateWhere, PeopleUpdate> {
+    public UpdateWhere(PeopleUpdate updater) {
       super(updater);
     }
 
-    private UpdateWhere(TestUpdate updater, UpdateWhere where) {
+    private UpdateWhere(PeopleUpdate updater, UpdateWhere where) {
       super(updater, where);
     }
 
     @Override
     protected UpdateWhere buildOr(UpdateWhere and) {
-      return new UpdateWhere((TestUpdate) this.wrapper, and);
+      return new UpdateWhere((PeopleUpdate) this.wrapper, and);
     }
   }
 
   /**
    * 分组设置
    */
-  final class GroupBy extends GroupByBase<GroupBy, TestQuery> implements ASegment<GroupBy> {
-    public GroupBy(TestQuery query) {
+  final class GroupBy extends GroupByBase<GroupBy, PeopleQuery> implements ASegment<GroupBy> {
+    public GroupBy(PeopleQuery query) {
       super(query);
     }
   }
@@ -197,8 +173,8 @@ public interface TestSegment {
   /**
    * 分组Having条件设置
    */
-  final class Having extends HavingBase<Having, TestQuery> implements ASegment<HavingOperator<Having>> {
-    public Having(TestQuery query) {
+  final class Having extends HavingBase<Having, PeopleQuery> implements ASegment<HavingOperator<Having>> {
+    public Having(PeopleQuery query) {
       super(query);
     }
 
@@ -215,8 +191,8 @@ public interface TestSegment {
   /**
    * Query OrderBy设置
    */
-  final class QueryOrderBy extends OrderByBase<QueryOrderBy, TestQuery> implements ASegment<OrderByApply<QueryOrderBy, TestQuery>> {
-    public QueryOrderBy(TestQuery query) {
+  final class QueryOrderBy extends OrderByBase<QueryOrderBy, PeopleQuery> implements ASegment<OrderByApply<QueryOrderBy, PeopleQuery>> {
+    public QueryOrderBy(PeopleQuery query) {
       super(query);
     }
   }
@@ -224,8 +200,8 @@ public interface TestSegment {
   /**
    * Update OrderBy设置
    */
-  final class UpdateOrderBy extends OrderByBase<UpdateOrderBy, TestUpdate> implements ASegment<OrderByApply<UpdateOrderBy, TestUpdate>> {
-    public UpdateOrderBy(TestUpdate updater) {
+  final class UpdateOrderBy extends OrderByBase<UpdateOrderBy, PeopleUpdate> implements ASegment<OrderByApply<UpdateOrderBy, PeopleUpdate>> {
+    public UpdateOrderBy(PeopleUpdate updater) {
       super(updater);
     }
   }
@@ -233,8 +209,8 @@ public interface TestSegment {
   /**
    * Update set 设置
    */
-  final class UpdateSetter extends UpdateBase<UpdateSetter, TestUpdate> implements ASegment<UpdateApply<UpdateSetter, TestUpdate>> {
-    public UpdateSetter(TestUpdate updater) {
+  final class UpdateSetter extends UpdateBase<UpdateSetter, PeopleUpdate> implements ASegment<UpdateApply<UpdateSetter, PeopleUpdate>> {
+    public UpdateSetter(PeopleUpdate updater) {
       super(updater);
     }
   }

@@ -20,3 +20,4 @@ bin-release/
 *.class
 *.log
 *.log
+*.class

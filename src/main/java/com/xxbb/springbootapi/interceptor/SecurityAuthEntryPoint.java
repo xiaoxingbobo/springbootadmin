@@ -1,5 +1,6 @@
 package com.xxbb.springbootapi.interceptor;
 
+import cn.hutool.json.JSONUtil;
 import com.xxbb.springbootapi.entity.dto.JsonResult;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -18,7 +19,7 @@ public class SecurityAuthEntryPoint implements AuthenticationEntryPoint {
         //返回json形式的未登录信息
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("application/json");
-        httpServletResponse.getWriter().println(new JsonResult().Unauthorized());
+        httpServletResponse.getWriter().println(JSONUtil.parse(new JsonResult().Unauthorized()));
         httpServletResponse.getWriter().flush();
     }
 }

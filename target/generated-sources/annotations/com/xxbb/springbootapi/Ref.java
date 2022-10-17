@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi;
 
-import com.xxbb.springbootapi.helper.DoopMapping;
+import com.xxbb.springbootapi.helper.PeopleMapping;
 
 /**
  *
@@ -16,11 +16,11 @@ public interface Ref {
    * 所有Entity FieldMapping引用
    */
   interface Field {
-    final class Doop extends DoopMapping {
+    final class People extends PeopleMapping {
     }
   }
 
   interface Query {
-    DoopMapping doop = DoopMapping.MAPPING;
+    PeopleMapping people = PeopleMapping.MAPPING;
   }
 }

@@ -12,10 +12,10 @@ import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
 import com.xxbb.springbootapi.config.IFMConfig;
-import com.xxbb.springbootapi.entity.Test;
-import com.xxbb.springbootapi.mapper.TestMapper;
-import com.xxbb.springbootapi.wrapper.TestQuery;
-import com.xxbb.springbootapi.wrapper.TestUpdate;
+import com.xxbb.springbootapi.entity.People;
+import com.xxbb.springbootapi.mapper.PeopleMapper;
+import com.xxbb.springbootapi.wrapper.PeopleQuery;
+import com.xxbb.springbootapi.wrapper.PeopleUpdate;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
@@ -23,85 +23,69 @@ import java.util.List;
 
 /**
  *
- * TestMapping: Entity帮助类
+ * PeopleMapping: Entity帮助类
  *
  * @author powered by FluentMybatis
  */
-public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
+public class PeopleMapping extends AMapping<People, PeopleQuery, PeopleUpdate> {
   /**
    * 表名称
    */
-  public static final String TABLE_NAME = "test";
+  public static final String TABLE_NAME = "people";
 
   /**
    * Entity名称
    */
-  public static final String ENTITY_NAME = "Test";
+  public static final String ENTITY_NAME = "People";
 
   /**
    * 实体属性 : 数据库字段 映射
    *  id : id
    */
-  public static final FieldMapping<Test> id = new FieldMapping<Test>
+  public static final FieldMapping<People> id = new FieldMapping<People>
   	("id", "id", PRIMARY_ID, null, null, Integer.class, null)
-  	.sg((e, v) -> e.setId((Integer) v), Test::getId);
-
-  /**
-   * 实体属性 : 数据库字段 映射
-   *  age : age
-   */
-  public static final FieldMapping<Test> age = new FieldMapping<Test>
-  	("age", "age", null, null, null, Integer.class, null)
-  	.sg((e, v) -> e.setAge((Integer) v), Test::getAge);
+  	.sg((e, v) -> e.setId((Integer) v), People::getId);
 
   /**
    * 实体属性 : 数据库字段 映射
    *  createTime : create_time
    */
-  public static final FieldMapping<Test> createTime = new FieldMapping<Test>
+  public static final FieldMapping<People> createTime = new FieldMapping<People>
   	("createTime", "create_time", null, "now()", "now()", Date.class, null)
-  	.sg((e, v) -> e.setCreateTime((Date) v), Test::getCreateTime);
+  	.sg((e, v) -> e.setCreateTime((Date) v), People::getCreateTime);
 
   /**
    * 实体属性 : 数据库字段 映射
    *  name : name
    */
-  public static final FieldMapping<Test> name = new FieldMapping<Test>
+  public static final FieldMapping<People> name = new FieldMapping<People>
   	("name", "name", null, null, null, String.class, null)
-  	.sg((e, v) -> e.setName((String) v), Test::getName);
-
-  /**
-   * 实体属性 : 数据库字段 映射
-   *  sex : sex
-   */
-  public static final FieldMapping<Test> sex = new FieldMapping<Test>
-  	("sex", "sex", null, null, null, Integer.class, null)
-  	.sg((e, v) -> e.setSex((Integer) v), Test::getSex);
+  	.sg((e, v) -> e.setName((String) v), People::getName);
 
   /**
    * 实体属性 : 数据库字段 映射
    *  updateTime : update_time
    */
-  public static final FieldMapping<Test> updateTime = new FieldMapping<Test>
+  public static final FieldMapping<People> updateTime = new FieldMapping<People>
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
-  	.sg((e, v) -> e.setUpdateTime((Date) v), Test::getUpdateTime);
+  	.sg((e, v) -> e.setUpdateTime((Date) v), People::getUpdateTime);
 
   /**
    * 实体属性 : 数据库字段 映射
    *  isDeleted : is_deleted
    */
-  public static final FieldMapping<Test> isDeleted = new FieldMapping<Test>
+  public static final FieldMapping<People> isDeleted = new FieldMapping<People>
   	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Boolean) v), Test::getIsDeleted);
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), People::getIsDeleted);
 
   public static final IFMConfig DEFAULT_SETTER = new IFMConfig(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, age, createTime, name, sex, updateTime, isDeleted));
+  	.asList(id, createTime, name, updateTime, isDeleted));
 
-  public static final TestMapping MAPPING = new TestMapping();
+  public static final PeopleMapping MAPPING = new PeopleMapping();
 
-  protected TestMapping() {
+  protected PeopleMapping() {
     super(DbType.MYSQL);
     super.tableName = TABLE_NAME;
     super.tableId = new TableId("id", "id", true, "", false);
@@ -112,17 +96,17 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
 
   @Override
   public Class entityClass() {
-    return Test.class;
+    return People.class;
   }
 
   @Override
   public Class mapperClass() {
-    return TestMapper.class;
+    return PeopleMapper.class;
   }
 
   @Override
   public <E extends IEntity> E newEntity() {
-    return (E) new Test();
+    return (E) new People();
   }
 
   @Override
@@ -136,14 +120,14 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
   }
 
   @Override
-  protected final TestQuery query(boolean defaults, StringSupplier table, StringSupplier alias,
+  protected final PeopleQuery query(boolean defaults, StringSupplier table, StringSupplier alias,
       Parameters shared) {
-    return new TestQuery(defaults, fragment(table), alias, shared);
+    return new PeopleQuery(defaults, fragment(table), alias, shared);
   }
 
   @Override
-  protected final TestUpdate updater(boolean defaults, StringSupplier table, StringSupplier alias,
+  protected final PeopleUpdate updater(boolean defaults, StringSupplier table, StringSupplier alias,
       Parameters shared) {
-    return new TestUpdate(defaults, fragment(table), alias, shared);
+    return new PeopleUpdate(defaults, fragment(table), alias, shared);
   }
 }
