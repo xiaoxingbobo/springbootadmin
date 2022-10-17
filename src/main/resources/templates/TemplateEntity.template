@@ -2,7 +2,9 @@ package com.xxbb.springbootapi.entity;
 
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
+import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
+import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +40,7 @@ public class {entityName} extends Common {
     @TableField(insert = "0")
     @LogicDelete//逻辑删除
     @ApiModelProperty(value = "是否删除", example = "0")
-    private Integer isDeleted = super.isDeleted;
+    private Boolean isDeleted = super.isDeleted;
     //特有属性
     {entityFields}
 }

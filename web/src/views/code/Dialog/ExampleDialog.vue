@@ -77,6 +77,49 @@ const dinputvalue = ref('')
 const isCover = ref('true')
 // tabs标签索引
 let evalue = ref('')
+// 字段枚举
+const fileTypeList = ref([
+  {
+    key: 1,
+    value: 'BIGDECIMAL',
+    name: 'BigDecimal'
+  },
+  {
+    key: 2,
+    value: 'BOOLEAN',
+    name: 'Boolean'
+  },
+  {
+    key: 3,
+    value: 'DATETIME',
+    name: 'Datetime'
+  },
+  {
+    key: 4,
+    value: 'DOUBLE',
+    name: 'Double'
+  },
+  {
+    key: 5,
+    value: 'FLOAT',
+    name: 'Float'
+  },
+  {
+    key: 6,
+    value: 'INTEGER',
+    name: 'Integer'
+  },
+  {
+    key: 7,
+    value: 'LONG',
+    name: 'Long'
+  },
+  {
+    key: 8,
+    value: 'STRING',
+    name: 'String'
+  }
+])
 
 // 动态添加删除表单开始------
 const formRef = ref<FormInstance>()
@@ -345,12 +388,13 @@ const closeDialog = () => {
       <!-- 右边 -->
       <el-tab-pane label="生成实体加接口">
         <el-form>
-          <el-form-item label="选择实体类">
-            <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
+          <el-form-item label="实体类名">
+            <!-- <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
               <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
                 <span style="float: left">{{ item }}</span>
               </el-option>
-            </el-select>
+            </el-select> -->
+            <el-input placeholder="请输入实体类名" v-model="dinputvalue" />
           </el-form-item>
           <el-form-item label="是否覆盖">
             <el-radio-group v-model="isCover" class="ml-4">
@@ -358,17 +402,16 @@ const closeDialog = () => {
               <el-radio label="false" size="large">否</el-radio>
             </el-radio-group>
           </el-form-item>
-          <hr />
         </el-form>
 
         <!-- 动态添加删除 -->
         <el-form ref="formRef" :model="dynamicValidateForm" class="demo-dynamic">
           <el-form-item>
-            <el-button @click="addDomain">添加字段</el-button>
+            <el-button @click="addDomain" type="primary">添加字段</el-button>
           </el-form-item>
           <el-form-item
             prop="entityFields.description"
-            label="实体1"
+            label="字段1"
             :rules="[
               {
                 required: true,
@@ -381,18 +424,34 @@ const closeDialog = () => {
             <el-row :gutter="5">
               <el-col :span="8"
                 ><el-input
-                  placeholder="描述"
-                  v-model="dynamicValidateForm.entityFields.description"
-              /></el-col>
-              <el-col :span="8"
-                ><el-input
-                  placeholder="实体类型"
-                  v-model="dynamicValidateForm.entityFields.fieldType"
-              /></el-col>
-              <el-col :span="8"
-                ><el-input
-                  placeholder="实体名字"
+                  placeholder="字段名"
                   v-model="dynamicValidateForm.entityFields.filedName"
+              /></el-col>
+              <!-- <el-col :span="8"
+                ><el-input
+                  placeholder="字段类型"
+                  v-model="dynamicValidateForm.entityFields.fieldType"
+              /></el-col> -->
+
+              <el-col :span="8">
+                <el-select
+                  v-model="dynamicValidateForm.entityFields.fieldType"
+                  placeholder="字段类型"
+                >
+                  <el-option
+                    :label="item.name"
+                    v-for="(item, index) in fileTypeList"
+                    :key="index"
+                    :value="item.value"
+                  >
+                    <span style="float: left">{{ item.name }}</span>
+                  </el-option>
+                </el-select>
+              </el-col>
+              <el-col :span="8"
+                ><el-input
+                  placeholder="字段说明"
+                  v-model="dynamicValidateForm.entityFields.description"
               /></el-col>
             </el-row>
           </el-form-item>
@@ -400,7 +459,7 @@ const closeDialog = () => {
             v-for="(domain, index) in dynamicValidateForm.domains"
             :key="domain.key"
             :prop="'domains.' + index + '.description'"
-            :label="'实体' + (index + 2)"
+            :label="'字段' + (index + 2)"
             :rules="[
               {
                 required: true,
@@ -410,21 +469,36 @@ const closeDialog = () => {
             ]"
           >
             <el-row :gutter="5">
+              <el-col :span="7"
+                ><el-input placeholder="字段名" v-model="domain.filedName"
+              /></el-col>
+
+              <!-- <el-col :span="7"
+                ><el-input placeholder="字段类型" v-model="domain.fieldType"
+              /></el-col> -->
+
+              <el-col :span="7">
+                <el-select v-model="domain.fieldType" placeholder="字段类型">
+                  <el-option
+                    :label="item.name"
+                    v-for="item in fileTypeList"
+                    :key="item.key"
+                    :value="item.value"
+                  >
+                    <span style="float: left">{{ item.name }}</span>
+                  </el-option>
+                </el-select>
+              </el-col>
               <el-col :span="8"
-                ><el-input placeholder="描述" v-model="domain.description"
+                ><el-input placeholder="字段说明" v-model="domain.description"
               /></el-col>
-              <el-col :span="7"
-                ><el-input placeholder="实体类型" v-model="domain.fieldType"
-              /></el-col>
-              <el-col :span="7"
-                ><el-input placeholder="实体名字" v-model="domain.filedName"
-              /></el-col>
+
               <el-col :span="2">
                 <el-button
                   class="mt-2"
                   style="height: 35px; margin-top: -2px"
                   @click.prevent="removeDomain(domain)"
-                  >移除</el-button
+                  >-</el-button
                 >
               </el-col>
             </el-row>

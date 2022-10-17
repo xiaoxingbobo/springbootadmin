@@ -24,7 +24,7 @@ import java.util.Date;
 @Data
 @FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
-public class {entityName} extends Common {
+public class Doop extends Common {
     //基础属性
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
@@ -42,5 +42,7 @@ public class {entityName} extends Common {
     @ApiModelProperty(value = "是否删除", example = "0")
     private Boolean isDeleted = super.isDeleted;
     //特有属性
-    {entityFields}
+    
+    @ApiModelProperty(value = "ss")
+    private String qww;
 }
