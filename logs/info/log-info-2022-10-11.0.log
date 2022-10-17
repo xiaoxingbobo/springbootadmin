@@ -485,7 +485,7 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2022-10-11 11:18:06 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-10-11 11:18:06 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-10-11 11:18:06 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2022-10-11 11:18:18 [http-nio-8888-exec-3] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
+2022-10-11 11:18:18 [http-nio-8888-exec-3] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
 2022-10-11 11:19:06 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-11 11:19:06 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@65a2e14e]]
 2022-10-11 11:19:06 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
@@ -531,10 +531,10 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2022-10-11 11:20:08 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-10-11 11:20:08 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-10-11 11:20:08 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2022-10-11 11:20:18 [http-nio-8888-exec-2] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
+2022-10-11 11:20:18 [http-nio-8888-exec-2] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
 2022-10-11 11:20:21 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
-2022-10-11 11:23:31 [http-nio-8888-exec-6] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
-2022-10-11 11:23:45 [http-nio-8888-exec-9] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
+2022-10-11 11:23:31 [http-nio-8888-exec-6] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
+2022-10-11 11:23:45 [http-nio-8888-exec-9] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
 2022-10-11 11:31:44 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-11 11:31:44 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@48b9773b]]
 2022-10-11 11:31:44 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.
@@ -783,7 +783,7 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2022-10-11 13:51:15 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-10-11 13:51:15 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-10-11 13:51:15 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2022-10-11 13:51:15 [http-nio-8888-exec-1] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
+2022-10-11 13:51:15 [http-nio-8888-exec-1] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
 2022-10-11 13:51:27 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
 2022-10-11 13:53:06 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-11 13:53:06 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2f9236d8]]
@@ -830,8 +830,8 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2022-10-11 13:54:08 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-10-11 13:54:08 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-10-11 13:54:08 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
-2022-10-11 13:54:09 [http-nio-8888-exec-1] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
-2022-10-11 13:54:15 [http-nio-8888-exec-4] INFO  com.xxbb.springbootapi.interceptor.AuthFailHdl - 登录失败
+2022-10-11 13:54:09 [http-nio-8888-exec-1] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
+2022-10-11 13:54:15 [http-nio-8888-exec-4] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthFailHdl - 登录失败
 2022-10-11 13:54:21 [MessageBroker-1] INFO  o.s.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
 2022-10-11 13:55:41 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-11 13:55:41 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@e1c91cd]]
@@ -877,7 +877,7 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 2022-10-11 13:57:38 [http-nio-8888-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-10-11 13:57:38 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2022-10-11 13:57:38 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2022-10-11 13:57:54 [http-nio-8888-exec-8] INFO  com.xxbb.springbootapi.interceptor.AuthSuccHdl - 登录成功
+2022-10-11 13:57:54 [http-nio-8888-exec-8] INFO  com.xxbb.springbootapi.interceptor.SecurityAuthSuccHdl - 登录成功
 2022-10-11 14:00:36 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopping...
 2022-10-11 14:00:36 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3050d479]]
 2022-10-11 14:00:36 [SpringApplicationShutdownHook] INFO  o.s.m.simp.broker.SimpleBrokerMessageHandler - Stopped.

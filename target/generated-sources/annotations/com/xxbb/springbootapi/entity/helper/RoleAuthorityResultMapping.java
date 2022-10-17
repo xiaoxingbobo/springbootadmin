@@ -79,14 +79,6 @@ public class RoleAuthorityResultMapping extends AMapping<RoleAuthorityResult, Ro
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<RoleAuthorityResult> isDeleted = new FieldMapping<RoleAuthorityResult>
-  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Boolean) v), RoleAuthorityResult::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  roleId : role_id
    */
   public static final FieldMapping<RoleAuthorityResult> roleId = new FieldMapping<RoleAuthorityResult>
@@ -101,10 +93,18 @@ public class RoleAuthorityResultMapping extends AMapping<RoleAuthorityResult, Ro
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), RoleAuthorityResult::getUpdateTime);
 
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<RoleAuthorityResult> isDeleted = new FieldMapping<RoleAuthorityResult>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), RoleAuthorityResult::getIsDeleted);
+
   public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, authorityId, authorityName, authorityValue, createTime, isDeleted, roleId, updateTime));
+  	.asList(id, authorityId, authorityName, authorityValue, createTime, roleId, updateTime, isDeleted));
 
   public static final RoleAuthorityResultMapping MAPPING = new RoleAuthorityResultMapping();
 

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class FMConfig {
+public class FactoryConfig {
     //FM配置
     @Bean
     public MapperFactory mapperFactory() {

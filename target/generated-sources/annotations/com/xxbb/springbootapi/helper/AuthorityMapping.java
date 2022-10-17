@@ -11,6 +11,7 @@ import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
 import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
+import com.xxbb.springbootapi.config.IFMConfig;
 import com.xxbb.springbootapi.entity.Authority;
 import com.xxbb.springbootapi.mapper.AuthorityMapper;
 import com.xxbb.springbootapi.wrapper.AuthorityQuery;
@@ -85,7 +86,7 @@ public class AuthorityMapping extends AMapping<Authority, AuthorityQuery, Author
   	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
   	.sg((e, v) -> e.setIsDeleted((Boolean) v), Authority::getIsDeleted);
 
-  public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
+  public static final IFMConfig DEFAULT_SETTER = new IFMConfig(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
   	.asList(id, createTime, name, updateTime, value, isDeleted));

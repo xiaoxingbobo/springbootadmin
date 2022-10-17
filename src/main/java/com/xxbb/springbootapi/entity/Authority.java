@@ -4,6 +4,7 @@ import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
+import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ import java.util.Date;
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 @Data
-@FluentMybatis
+@FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
 public class Authority extends Common {
     //基础属性
@@ -39,9 +40,9 @@ public class Authority extends Common {
     private Date updateTime = super.updateTime;
 
     //特有属性
-    @TableField(insert = "0")
-    @LogicDelete
     @ApiModelProperty(value = "是否删除", example = "0")
+    @LogicDelete
+    @TableField(value = "is_deleted", insert = "0")
     private Boolean isDeleted = super.isDeleted;
     @ApiModelProperty(value = "权限")
     private String value;

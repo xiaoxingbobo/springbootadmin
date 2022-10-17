@@ -11076,7 +11076,7 @@ javafx.fxml.LoadException: token为空,请重新登录
 	at java.lang.Thread.run(Thread.java:750)
 2022-10-11 18:10:18 [http-nio-8888-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [token为空,请重新登录] with root cause
 javax.servlet.ServletException: token为空,请重新登录
-	at com.xxbb.springbootapi.interceptor.AuthEntryPoint.commence(AuthEntryPoint.java:14)
+	at com.xxbb.springbootapi.interceptor.SecurityAuthEntryPoint.commence(AuthEntryPoint.java:14)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.sendStartAuthentication(ExceptionTranslationFilter.java:213)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleAccessDeniedException(ExceptionTranslationFilter.java:192)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleSpringSecurityException(ExceptionTranslationFilter.java:173)
@@ -11147,7 +11147,7 @@ javax.servlet.ServletException: token为空,请重新登录
 	at java.lang.Thread.run(Thread.java:750)
 2022-10-11 18:10:20 [http-nio-8888-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [token为空,请重新登录] with root cause
 javax.servlet.ServletException: token为空,请重新登录
-	at com.xxbb.springbootapi.interceptor.AuthEntryPoint.commence(AuthEntryPoint.java:14)
+	at com.xxbb.springbootapi.interceptor.SecurityAuthEntryPoint.commence(AuthEntryPoint.java:14)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.sendStartAuthentication(ExceptionTranslationFilter.java:213)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleAccessDeniedException(ExceptionTranslationFilter.java:192)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleSpringSecurityException(ExceptionTranslationFilter.java:173)
@@ -11218,7 +11218,7 @@ javax.servlet.ServletException: token为空,请重新登录
 	at java.lang.Thread.run(Thread.java:750)
 2022-10-11 18:11:41 [http-nio-8888-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 java.lang.RuntimeException: token为空,请重新登录
-	at com.xxbb.springbootapi.interceptor.AuthEntryPoint.commence(AuthEntryPoint.java:14)
+	at com.xxbb.springbootapi.interceptor.SecurityAuthEntryPoint.commence(AuthEntryPoint.java:14)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.sendStartAuthentication(ExceptionTranslationFilter.java:213)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleAccessDeniedException(ExceptionTranslationFilter.java:192)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleSpringSecurityException(ExceptionTranslationFilter.java:173)
@@ -11289,7 +11289,7 @@ java.lang.RuntimeException: token为空,请重新登录
 	at java.lang.Thread.run(Thread.java:750)
 2022-10-11 18:15:03 [http-nio-8888-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
 java.lang.RuntimeException: token为空,请重新登录
-	at com.xxbb.springbootapi.interceptor.AuthEntryPoint.commence(AuthEntryPoint.java:14)
+	at com.xxbb.springbootapi.interceptor.SecurityAuthEntryPoint.commence(AuthEntryPoint.java:14)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.sendStartAuthentication(ExceptionTranslationFilter.java:213)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleAccessDeniedException(ExceptionTranslationFilter.java:192)
 	at org.springframework.security.web.access.ExceptionTranslationFilter.handleSpringSecurityException(ExceptionTranslationFilter.java:173)

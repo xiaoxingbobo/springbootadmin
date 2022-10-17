@@ -13,7 +13,6 @@ import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -28,7 +27,6 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
 
     @Override
     public boolean add(K entity) {
-        initEntity(entity);
         return dao.insert(entity) > 0;
     }
 
@@ -37,18 +35,6 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
         return dao.insert(list) > 0;
     }
 
-    /**
-     * 初始化实体
-     *
-     * @param entity
-     */
-    public void initEntity(K entity) {
-        if (entity.getId() == null) {
-            entity.setCreateTime(new Date());
-        }
-        entity.setIsDeleted(Boolean.FALSE);
-        entity.setUpdateTime(new Date());
-    }
 
 
     @Override
@@ -73,7 +59,6 @@ public abstract class BaseService<K extends Common, T extends BaseQuery<K, T>, V
 
     @Override
     public boolean update(K entity) {
-        initEntity(entity);
         return dao.update(entity) > 0;
     }
 

@@ -13,7 +13,7 @@ import java.io.IOException;
  * 登录成功时，自定义的返回结果
  */
 @Slf4j
-public class AuthSuccHdl implements AuthenticationSuccessHandler {
+public class SecurityAuthSuccHdl implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         log.info("登录成功");

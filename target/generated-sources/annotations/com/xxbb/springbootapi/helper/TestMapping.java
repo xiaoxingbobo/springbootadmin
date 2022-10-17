@@ -11,6 +11,7 @@ import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
 import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
+import com.xxbb.springbootapi.config.IFMConfig;
 import com.xxbb.springbootapi.entity.Test;
 import com.xxbb.springbootapi.mapper.TestMapper;
 import com.xxbb.springbootapi.wrapper.TestQuery;
@@ -133,7 +134,7 @@ public class TestMapping extends AMapping<Test, TestQuery, TestUpdate> {
   	("username", "username", null, null, null, String.class, null)
   	.sg((e, v) -> e.setUsername((String) v), Test::getUsername);
 
-  public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
+  public static final IFMConfig DEFAULT_SETTER = new IFMConfig(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
   	.asList(id, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime, username));

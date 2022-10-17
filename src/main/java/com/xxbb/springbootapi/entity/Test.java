@@ -3,6 +3,7 @@ package com.xxbb.springbootapi.entity;
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
+import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ import java.util.Date;
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 @Data
-@FluentMybatis
+@FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
 public class Test extends Common {
     //公共属性

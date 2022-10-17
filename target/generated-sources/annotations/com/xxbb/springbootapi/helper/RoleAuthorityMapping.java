@@ -11,6 +11,7 @@ import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
 import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
+import com.xxbb.springbootapi.config.IFMConfig;
 import com.xxbb.springbootapi.entity.RoleAuthority;
 import com.xxbb.springbootapi.mapper.RoleAuthorityMapper;
 import com.xxbb.springbootapi.wrapper.RoleAuthorityQuery;
@@ -63,14 +64,6 @@ public class RoleAuthorityMapping extends AMapping<RoleAuthority, RoleAuthorityQ
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<RoleAuthority> isDeleted = new FieldMapping<RoleAuthority>
-  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Boolean) v), RoleAuthority::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  roleId : role_id
    */
   public static final FieldMapping<RoleAuthority> roleId = new FieldMapping<RoleAuthority>
@@ -85,10 +78,18 @@ public class RoleAuthorityMapping extends AMapping<RoleAuthority, RoleAuthorityQ
   	("updateTime", "update_time", null, "now()", "now()", Date.class, null)
   	.sg((e, v) -> e.setUpdateTime((Date) v), RoleAuthority::getUpdateTime);
 
-  public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<RoleAuthority> isDeleted = new FieldMapping<RoleAuthority>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), RoleAuthority::getIsDeleted);
+
+  public static final IFMConfig DEFAULT_SETTER = new IFMConfig(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, authorityId, createTime, isDeleted, roleId, updateTime));
+  	.asList(id, authorityId, createTime, roleId, updateTime, isDeleted));
 
   public static final RoleAuthorityMapping MAPPING = new RoleAuthorityMapping();
 

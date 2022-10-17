@@ -19,7 +19,7 @@ public class JsonResult implements Serializable {
     private Boolean state;
     @ApiModelProperty("响应信息")
     private String message;
-    @ApiModelProperty("响应码：2空值，1成功，0失败，-1异常，-2未知，-3未授权")
+    @ApiModelProperty("响应码：2空值，1成功，0失败，-1异常，-2未知，-3未登录")
     private Integer code;
 
     public JsonResult(Integer code, String msg, Boolean state) {
@@ -27,6 +27,7 @@ public class JsonResult implements Serializable {
         this.message = msg;
         this.state = state;
     }
+
     /*
      * 成功
      * */
@@ -36,12 +37,14 @@ public class JsonResult implements Serializable {
         this.code = 1;
         return this;
     }
+
     public JsonResult Success(String message) {
         this.code = 1;
         this.message = message;
         this.state = true;
         return this;
     }
+
     /**
      * 失败
      */
@@ -51,6 +54,7 @@ public class JsonResult implements Serializable {
         this.code = 0;
         return this;
     }
+
     /**
      * 失败
      */
@@ -80,6 +84,7 @@ public class JsonResult implements Serializable {
         this.code = -1;
         return this;
     }
+
     /**
      * 空值
      */
@@ -89,6 +94,7 @@ public class JsonResult implements Serializable {
         this.code = 2;
         return this;
     }
+
     /**
      * 未知
      */
@@ -98,10 +104,27 @@ public class JsonResult implements Serializable {
         this.code = -2;
         return this;
     }
+
     public JsonResult Unknown(String message) {
         this.state = false;
         this.message = message;
         this.code = -2;
+        return this;
+    }
+
+    /**
+     * 未授权
+     */
+    public JsonResult Unauthorized() {
+        this.state = false;
+        this.message = "未授权";
+        this.code = -3;
+        return this;
+    }
+    public JsonResult Unauthorized(String message) {
+        this.state = false;
+        this.message = message;
+        this.code = -3;
         return this;
     }
 }

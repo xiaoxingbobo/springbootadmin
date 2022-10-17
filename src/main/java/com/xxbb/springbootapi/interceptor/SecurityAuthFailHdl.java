@@ -13,7 +13,7 @@ import java.io.IOException;
  * 登录失败时，自定义的返回结果
  */
 @Slf4j
-public class AuthFailHdl implements AuthenticationFailureHandler {
+public class SecurityAuthFailHdl implements AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
       log.info("登录失败");

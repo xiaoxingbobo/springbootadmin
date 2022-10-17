@@ -11,6 +11,7 @@ import cn.org.atool.fluent.mybatis.base.model.FieldMapping;
 import cn.org.atool.fluent.mybatis.functions.StringSupplier;
 import cn.org.atool.fluent.mybatis.metadata.DbType;
 import cn.org.atool.fluent.mybatis.segment.model.Parameters;
+import com.xxbb.springbootapi.config.IFMConfig;
 import com.xxbb.springbootapi.entity.User;
 import com.xxbb.springbootapi.mapper.UserMapper;
 import com.xxbb.springbootapi.wrapper.UserQuery;
@@ -71,14 +72,6 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
 
   /**
    * 实体属性 : 数据库字段 映射
-   *  isDeleted : is_deleted
-   */
-  public static final FieldMapping<User> isDeleted = new FieldMapping<User>
-  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
-  	.sg((e, v) -> e.setIsDeleted((Boolean) v), User::getIsDeleted);
-
-  /**
-   * 实体属性 : 数据库字段 映射
    *  name : name
    */
   public static final FieldMapping<User> name = new FieldMapping<User>
@@ -133,10 +126,18 @@ public class UserMapping extends AMapping<User, UserQuery, UserUpdate> {
   	("username", "username", null, null, null, String.class, null)
   	.sg((e, v) -> e.setUsername((String) v), User::getUsername);
 
-  public static final IDefaultSetter DEFAULT_SETTER = new IDefaultSetter(){};
+  /**
+   * 实体属性 : 数据库字段 映射
+   *  isDeleted : is_deleted
+   */
+  public static final FieldMapping<User> isDeleted = new FieldMapping<User>
+  	("isDeleted", "is_deleted", LOGIC_DELETED, "0", null, Boolean.class, null)
+  	.sg((e, v) -> e.setIsDeleted((Boolean) v), User::getIsDeleted);
+
+  public static final IFMConfig DEFAULT_SETTER = new IFMConfig(){};
 
   public static final List<FieldMapping> ALL_FIELD_MAPPING = Collections.unmodifiableList(Arrays
-  	.asList(id, age, createTime, email, isDeleted, name, nickname, password, roleId, sex, updateTime, username));
+  	.asList(id, age, createTime, email, name, nickname, password, roleId, sex, updateTime, username, isDeleted));
 
   public static final UserMapping MAPPING = new UserMapping();
 

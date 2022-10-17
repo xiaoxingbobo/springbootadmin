@@ -44,16 +44,16 @@ public interface RoleAuthoritySegment {
       return this.set(createTime);
     }
 
-    default R isDeleted() {
-      return this.set(isDeleted);
-    }
-
     default R roleId() {
       return this.set(roleId);
     }
 
     default R updateTime() {
       return this.set(updateTime);
+    }
+
+    default R isDeleted() {
+      return this.set(isDeleted);
     }
   }
 
@@ -86,16 +86,16 @@ public interface RoleAuthoritySegment {
       return this.process(createTime, _alias_);
     }
 
-    public Selector isDeleted(String _alias_) {
-      return this.process(isDeleted, _alias_);
-    }
-
     public Selector roleId(String _alias_) {
       return this.process(roleId, _alias_);
     }
 
     public Selector updateTime(String _alias_) {
       return this.process(updateTime, _alias_);
+    }
+
+    public Selector isDeleted(String _alias_) {
+      return this.process(isDeleted, _alias_);
     }
   }
 
@@ -123,16 +123,16 @@ public interface RoleAuthoritySegment {
       return this.set(createTime);
     }
 
-    public BooleanWhere<W, RoleAuthorityQuery> isDeleted() {
-      return this.set(isDeleted);
-    }
-
     public NumericWhere<W, RoleAuthorityQuery> roleId() {
       return this.set(roleId);
     }
 
     public ObjectWhere<W, RoleAuthorityQuery> updateTime() {
       return this.set(updateTime);
+    }
+
+    public BooleanWhere<W, RoleAuthorityQuery> isDeleted() {
+      return this.set(isDeleted);
     }
   }
 

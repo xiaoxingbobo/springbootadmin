@@ -35,8 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/favicon.icon").permitAll()
                 .mvcMatchers("/user/logout").permitAll()
                 .anyRequest().authenticated()
-                .and().formLogin().successHandler(new AuthSuccHdl()) //登录成功处理
-                .failureHandler(new AuthFailHdl()) //登录失败处理
+                .and().formLogin().successHandler(new SecurityAuthSuccHdl()) //登录成功处理
+                .failureHandler(new SecurityAuthFailHdl()) //登录失败处理
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()//不通过session获取securityContext
                 .logout().logoutSuccessHandler(new LogoutSuccHdl()) //登出成功处理
 
@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and().csrf() //启用跨域
 //                .and()
                 .addFilterBefore(jwtAuthTokenFilter, UsernamePasswordAuthenticationFilter.class)//添加jwt过滤器
-                .exceptionHandling().authenticationEntryPoint(new AuthEntryPoint());//屏蔽默认登陆页面
+                .exceptionHandling().authenticationEntryPoint(new SecurityAuthEntryPoint());//屏蔽默认登陆页面
 
 
     ;}

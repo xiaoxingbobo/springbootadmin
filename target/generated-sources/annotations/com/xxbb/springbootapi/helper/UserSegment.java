@@ -49,10 +49,6 @@ public interface UserSegment {
       return this.set(email);
     }
 
-    default R isDeleted() {
-      return this.set(isDeleted);
-    }
-
     default R name() {
       return this.set(name);
     }
@@ -79,6 +75,10 @@ public interface UserSegment {
 
     default R username() {
       return this.set(username);
+    }
+
+    default R isDeleted() {
+      return this.set(isDeleted);
     }
   }
 
@@ -115,10 +115,6 @@ public interface UserSegment {
       return this.process(email, _alias_);
     }
 
-    public Selector isDeleted(String _alias_) {
-      return this.process(isDeleted, _alias_);
-    }
-
     public Selector name(String _alias_) {
       return this.process(name, _alias_);
     }
@@ -145,6 +141,10 @@ public interface UserSegment {
 
     public Selector username(String _alias_) {
       return this.process(username, _alias_);
+    }
+
+    public Selector isDeleted(String _alias_) {
+      return this.process(isDeleted, _alias_);
     }
   }
 
@@ -176,10 +176,6 @@ public interface UserSegment {
       return this.set(email);
     }
 
-    public BooleanWhere<W, UserQuery> isDeleted() {
-      return this.set(isDeleted);
-    }
-
     public StringWhere<W, UserQuery> name() {
       return this.set(name);
     }
@@ -206,6 +202,10 @@ public interface UserSegment {
 
     public StringWhere<W, UserQuery> username() {
       return this.set(username);
+    }
+
+    public BooleanWhere<W, UserQuery> isDeleted() {
+      return this.set(isDeleted);
     }
   }
 

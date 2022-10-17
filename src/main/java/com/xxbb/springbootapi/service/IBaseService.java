@@ -22,13 +22,6 @@ public interface IBaseService<K extends Common, T extends BaseQuery<K, T>, V ext
 
     E mapper();
 
-    /**
-     * 初始化实体
-     *
-     * @param entity
-     */
-    void initEntity(K entity);
-
     /*
      * 增加
      * */
