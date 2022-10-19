@@ -118,6 +118,11 @@ const fileTypeList = ref([
     key: 8,
     value: 'STRING',
     name: 'String'
+  },
+  {
+    key: 9,
+    value: 'SHORT',
+    name: 'Short'
   }
 ])
 

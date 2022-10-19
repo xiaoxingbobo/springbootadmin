@@ -7,15 +7,14 @@ public enum FieldTypeEnum {
     LONG("Long"),
     DOUBLE("Double"),
     FLOAT("Float"),
+    SHORT("Short"),
     BOOLEAN("Boolean"),
     DATETIME("Date"),
     BIGDECIMAL("BigDecimal");
-    private String code;
-
+    private final String code;
     FieldTypeEnum(String code) {
         this.code = code;
     }
-
     public String getCode() {
         return code;
     }
