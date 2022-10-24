@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpringBootApi.iml" filepath="$PROJECT_DIR$/SpringBootApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dam.iml" filepath="$PROJECT_DIR$/dam.iml" />
     </modules>
   </component>
 </project>

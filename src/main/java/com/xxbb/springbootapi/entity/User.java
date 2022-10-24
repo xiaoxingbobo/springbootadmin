@@ -5,6 +5,7 @@ import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -35,9 +36,11 @@ public class User extends Common implements Serializable {
     private Integer id = super.id;
     @ApiModelProperty("创建时间")
     @TableField(insert = "now()", update = "now()")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime = super.createTime;
     @TableField(insert = "now()", update = "now()")
     @ApiModelProperty("修改时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime = super.updateTime;
     @TableField(insert = "0")
     @LogicDelete

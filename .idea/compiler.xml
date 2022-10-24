@@ -7,16 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringBootApi" />
+        <module name="dam" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dam" target="1.8" />
       <module name="SpringBootApi" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringBootApi" options="-parameters" />
+      <module name="dam" options="-parameters" />
     </option>
   </component>
 </project>

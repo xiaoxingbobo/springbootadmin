@@ -5,6 +5,7 @@ import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import cn.org.atool.fluent.mybatis.base.RichEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -29,8 +30,10 @@ public class Common extends RichEntity implements Serializable {
     @ApiModelProperty(value = "主键", example = "0")
     protected Integer id;
     @TableField(insert = "now()", update = "now()")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     protected Date createTime;
     @TableField(insert = "now()", update = "now()")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     protected Date updateTime;
     @TableField(insert = "0")
     @LogicDelete
