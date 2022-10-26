@@ -2,38 +2,86 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Spring Boot+WebSocket+广播式</title>
+    <title>WebSocket即时通讯</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 </head>
 <body onload="disconnect()">
 <noscript><h2 style="color: #ff0000">貌似你的浏览器不支持websocket</h2></noscript>
-<div>
-    <div>
-        <button id="connect" onclick="connect();">连接</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
+
+<div class="container">
+    <h1>WebSocket即时通讯</h1>
+    <div class="row">
+        <div class="col-sm-5">
+
+            <!-- Content here -->
+            <div class="row mb-3">
+                <di class=" col-auto">
+                    <label class="col-form-label">名称：</label></di>
+                <div class="col-auto">
+                    <input type="text" name="name" id="name" maxlength="10" required class="form-control"/>
+                </div>
+                <div class="col-auto">
+                    <button id="connect" onclick="connect();" type="button" class="btn btn-success">连接</button>
+                    <button id="disconnect" disabled="disabled" onclick="disconnect();" type="button"
+                            class="btn btn-danger">
+                        断开
+                    </button>
+                </div>
+            </div>
+            <div id="conversationDiv">
+                <div class="mb-3 row">
+                    <div class="col-sm-12">
+                        <!--                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">-->
+                        <textarea rows="5" required class="form-control" id="content"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-10">
+                        <button onclick="sendMessage();" type="button" class="btn btn-info">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7" id="messageBox">
+            <div id="response" style="height: 600px;width: 100%;overflow-y: scroll;overflow-x:hidden;"
+                 class="rounded border border-info"></div>
+            <div class="mt-1">
+                <button onclick="clearList()" class="btn btn-danger" type="button">清空</button>
+            </div>
+
+        </div>
     </div>
-    <div id="conversationDiv">
-        <label>输入你的名字</label><input type="text" id="name"/>
-        <button id="sendName" onclick="sendName();">发送</button>
-        <p id="response"></p>
-    </div>
+
+
 </div>
+
 <script type="text/javascript" src="https://lib.baomitu.com/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/sockjs.min.js"></script>
 <script src="./js/stomp.min.js"></script>
 <script type="text/javascript">
-    var stompClient = null;
+    let stompClient = null;
 
     function setConnected(connected) {
         document.getElementById('connect').disabled = connected;
         document.getElementById('disconnect').disabled = !connected;
         document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-        $('#response').html();
+        document.getElementById('messageBox').style.visibility = connected ? 'visible' : 'hidden';
+        $("#name").attr("readonly", connected)
+
     }
 
+    /**
+     * 连接
+     */
     function connect() {
+        if ($("#name").val().length === 0) {
+            alert("名称必填！");
+            return;
+        }
         // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
-        var socket = new SockJS('/ws');
+        const socket = new SockJS('/ws');
         // 使用 STOMP 子协议的 WebSocket 客户端
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
@@ -48,6 +96,9 @@
     }
 
 
+    /**
+     * 断开连接
+     */
     function disconnect() {
         // 断开连接
         if (stompClient != null) {
@@ -57,18 +108,39 @@
         console.log("Disconnected");
     }
 
-    function sendName() {
+    /**
+     * 发送消息事件
+     */
+    function sendMessage() {
         // 向服务端发送消息
-        var name = $('#name').val();
+        let content = $('#content').val();
+        let name = $('#name').val();
         // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
-        stompClient.send("/app/broadcast", {}, JSON.stringify({'message': name}));
+        stompClient.send("/app/broadcast", {}, JSON.stringify({'message': content, 'name': name}));
     }
 
-    function showResponse(message) {
+    /**
+     * 展示返回的信息
+     * @param message
+     */
+    function showResponse(re) {
         // 接收返回的消息
-        var response = $("#response");
-        response.append("<p>"+message+"</p>");
+        let response = $("#response");
+        let message = JSON.parse(re);
+        if (message.name === $("#name").val()) {
+            response.append("<div class='m-1'><div style='text-align: right'><div >" + message.name + "</div><div style='font-size:0.8rem;color:gray'>" + message.createTime + "</div></div><div style='color: white' class='p-1 bg-info border rounded'>" + message.message + "</div></div>");
+        } else {
+            response.append("<div class='m-1'><div class=''><div>" + message.name + "</div><div style='font-size:0.8rem;color:gray'>" + message.createTime + "</div></div><div style='color: white' class='p-1 bg-success border rounded'>" + message.message + "</div></div>");
+        }
+        response.scrollTop(response[0].scrollHeight);
+    }
+
+    function clearList() {
+        $("#response").html(null);
     }
 </script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"-->
+<!--        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"-->
+<!--        crossorigin="anonymous"></script>-->
 </body>
 </html>

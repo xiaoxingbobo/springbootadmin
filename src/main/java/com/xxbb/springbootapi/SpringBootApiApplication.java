@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
+/**
+ * @author xiaoxingbobo
+ */
 @Slf4j
 @SpringBootApplication
 public class SpringBootApiApplication {

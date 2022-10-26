@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 9999
 spring:
 #  security:
 #    user:
@@ -8,10 +8,10 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springbootadmin?useSSL=false
+    url: jdbc:mysql://gz-cynosdbmysql-grp-i0g3xbeh.sql.tencentcdb.com:29932/springbootadmin?useSSL=false
     username: root
 #    password: YHXyhx1214+.
-    password: root
+    password: XdF@927114
   servlet:
     multipart:
       max-request-size: 1000MB

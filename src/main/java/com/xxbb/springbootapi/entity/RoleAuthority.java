@@ -32,20 +32,25 @@ public class RoleAuthority extends Common{
     @TableId
     @ApiModelProperty(value = "主键",example = "0")
     private Integer id = super.id;
+
     @ApiModelProperty("创建时间")
     @TableField(insert = "now()", update = "now()")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime = super.createTime;
+
     @TableField(insert = "now()", update = "now()")
     @ApiModelProperty("修改时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime = super.updateTime;
+
     @TableField(insert = "0")
     @LogicDelete
     @ApiModelProperty(value = "是否删除",example = "0")
     private Boolean isDeleted = super.isDeleted;
+
     @ApiModelProperty(value = "角色")
     private Integer roleId;
+
     @ApiModelProperty(value = "权限")
     private Integer authorityId;
 

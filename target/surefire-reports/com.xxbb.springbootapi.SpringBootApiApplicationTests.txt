@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.xxbb.springbootapi.SpringBootApiApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 14.337 s <<< FAILURE! - in com.xxbb.springbootapi.SpringBootApiApplicationTests
-generate  Time elapsed: 0.039 s  <<< ERROR!
-java.lang.RuntimeException: Get Connection error:com.mysql.cj.jdbc.Driver
-	at com.xxbb.springbootapi.SpringBootApiApplicationTests.generate(SpringBootApiApplicationTests.java:22)
-Caused by: java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
-	at com.xxbb.springbootapi.SpringBootApiApplicationTests.generate(SpringBootApiApplicationTests.java:22)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.651 s - in com.xxbb.springbootapi.SpringBootApiApplicationTests

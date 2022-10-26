@@ -48,9 +48,13 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "搜索")
     public List<K> select(@RequestBody List<Search> searches) {
-        if (searches.size() == 1) return service.search(searches.get(0));
-        else if (searches.size() > 1) return service.search(searches);
-        else return service.list();
+        if (searches.size() == 1) {
+            return service.search(searches.get(0));
+        } else if (searches.size() > 1) {
+            return service.search(searches);
+        } else {
+            return service.list();
+        }
     }
 
     @GetMapping("/{id}")

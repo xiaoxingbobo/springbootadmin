@@ -26,6 +26,7 @@ E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\controller\Ro
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\dao\IAuthorityDao.java
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\config\FactoryConfig.java
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\config\SecurityConfig.java
+E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\entity\dto\SocketDto.java
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\service\impl\DoopService.java
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\entity\dto\Search.java
 E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\dao\impl\RoleAuthorityDao.java

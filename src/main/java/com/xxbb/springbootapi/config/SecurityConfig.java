@@ -34,6 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/webjars/**").permitAll()
                 .mvcMatchers("/favicon.icon").permitAll()
                 .mvcMatchers("/user/logout").permitAll()
+                .mvcMatchers("/ws/**").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().successHandler(new SecurityAuthSuccHdl()) //登录成功处理
                 .failureHandler(new SecurityAuthFailHdl()) //登录失败处理

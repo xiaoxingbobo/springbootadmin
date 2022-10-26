@@ -2,7 +2,7 @@ package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.dao.IBaseDao;
 import com.xxbb.springbootapi.entity.User;
-import com.xxbb.springbootapi.entity.dto.JsonResult;
+import com.xxbb.springbootapi.entity.dto.SocketDto;
 import com.xxbb.springbootapi.mapper.UserMapper;
 import com.xxbb.springbootapi.wrapper.UserQuery;
 import com.xxbb.springbootapi.wrapper.UserUpdate;
@@ -16,6 +16,8 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 @RestController
 @Api(tags = "WebSocket及时通讯")
@@ -33,9 +35,10 @@ public class WebSocketController {
      */
     @MessageMapping("/broadcast")
     @SendTo("/topic/broadcast")
-    public String broadcast(JsonResult requestMsg) {
+    public SocketDto broadcast(SocketDto dto) {
         //这里是有return，如果不写@SendTo默认和/topic/broadcast一样
-        return "server:" + requestMsg.getMessage();
+        dto.setCreateTime(new Date());
+        return dto;
     }
 
     /**

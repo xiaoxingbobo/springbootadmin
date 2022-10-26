@@ -6,7 +6,6 @@ import com.xxbb.springbootapi.entity.dto.JsonResultData;
 import com.xxbb.springbootapi.service.impl.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import javafx.fxml.LoadException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,9 @@ public class FileController {
         //通过路径数组合成路径
         String pt = "";
         for (String item : dir) {
-            if (!item.isEmpty()) pt += "/" + item;
+            if (!item.isEmpty()) {
+                pt += "/" + item;
+            }
         }
         String uploadPath = appConfig.getUploadPath(); //D:/upload
         File f = new File(uploadPath);
@@ -68,7 +69,7 @@ public class FileController {
         String realPath = appConfig.getUploadPath();
         //判断是否是文件
         if (!new File(realPath + fileName).isFile()) {
-            throw new LoadException("暂不支持下载文件夹或者当前文件不存在！请勿进行修改代码操作，已记录您本次请求！");
+//            throw new LoadException("暂不支持下载文件夹或者当前文件不存在！请勿进行修改代码操作，已记录您本次请求！");
         }
         //获取文件名
         FileInputStream fileInputStream = new FileInputStream(realPath + fileName);
