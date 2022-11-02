@@ -131,26 +131,20 @@ _PaginationQuery()
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
         <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
       </template>
-      <template #append>
-        <el-row justify="end">
-          <el-col>
-            <el-pagination
-              v-model:currentPage="currentPage"
-              v-model:page-size="pageSize"
-              :page-sizes="[10, 50, 100, 400]"
-              :small="small"
-              :disabled="disabled"
-              :background="background"
-              layout="total, sizes, prev, pager, next, jumper"
-              :total="total"
-              page-size="Paginationdata.size"
-              @size-change="handleSizeChange"
-              @current-change="handleCurrentChange"
-            />
-          </el-col>
-        </el-row>
-      </template>
     </Table>
+    <el-pagination
+      v-model:currentPage="currentPage"
+      v-model:page-size="pageSize"
+      :page-sizes="[10, 50, 100, 400]"
+      :small="small"
+      :disabled="disabled"
+      :background="background"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      page-size="Paginationdata.size"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">
