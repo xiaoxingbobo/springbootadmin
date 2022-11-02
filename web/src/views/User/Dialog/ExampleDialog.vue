@@ -2,7 +2,7 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import { PaginationQuery } from '@/api/user'
+import { PaginationQuery, addUser } from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -38,12 +38,24 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'name',
-    label: '权限名'
+    field: 'username',
+    label: '用户名'
   },
   {
-    field: 'value',
-    label: 'value'
+    field: 'nickname',
+    label: '昵称'
+  },
+  {
+    field: 'name',
+    label: '角色'
+  },
+  {
+    field: 'age',
+    label: '年龄'
+  },
+  {
+    field: 'sex',
+    label: '性别'
   },
   {
     field: 'createTime',
@@ -72,11 +84,22 @@ let tabledata = ref('')
 // 是否覆盖
 const isCover = ref('true')
 // 弹窗标题
-const dialogTitle = ref('添加权限')
+const dialogTitle = ref('添加用户')
 // 点击编辑，id存放
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
+// 添加用户参数
+const addUserdata = reactive({
+  age: 18,
+  email: '',
+  name: '',
+  nickname: '',
+  password: '123456',
+  roleId: 0,
+  sex: 0,
+  username: 'xingyue888'
+})
 
 // 表格分页
 let total = ref(0)
@@ -118,12 +141,34 @@ const disabled = ref(false)
 // 每页显示数目
 let _PageSize = ref(2)
 _PaginationQuery()
+
+// 添加用户按钮
+const tianjiajiekoubtn = () => {
+  // dialogTitle.value = '添加用户'
+  console.log(111)
+  dialogVisible.value = true
+}
+// 添加用户函数
+const _addUser = async () => {
+  const res = await addUser(addUserdata)
+  console.log(res)
+}
+
+// 关闭弹窗
+const close = () => {
+  dialogVisible.value = false
+}
+// 点击保存按钮
+const save = async () => {
+  const res = await addUser(addUserdata)
+  console.log(res)
+}
 </script>
 
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn">添加权限</ElButton>
+      <ElButton type="primary" @click="tianjiajiekoubtn">添加用户</ElButton>
       <ElButton :loading="delLoading" type="danger">删除</ElButton>
     </div>
     <Table :columns="columns" :data="tabledata">
@@ -147,31 +192,47 @@ _PaginationQuery()
     />
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">
-    <!-- 左边 -->
-    <el-form ref="diaLogForm" :model="numberForm">
+  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 40%">
+    <!-- 表单 -->
+    <el-form ref="diaLogForm" :model="addUserdata">
       <el-form-item
-        label="权限名"
-        prop="namejurisdiction"
-        :rules="[{ required: true, message: '权限名不能为空！' }]"
+        label="用户名"
+        prop="username"
+        :rules="[{ required: true, message: '用户名不能为空！' }]"
       >
-        <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
+        <el-input v-model="addUserdata.username" autocomplete="off" />
       </el-form-item>
       <el-form-item
-        prop="valuejurisdiction"
-        label="权限点"
-        :rules="[{ required: true, message: '权限点不能为空！' }]"
+        label="密码"
+        prop="password"
+        :rules="[{ required: true, message: '密码不能为空！' }]"
       >
-        <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
+        <el-input v-model="addUserdata.password" autocomplete="off" />
+      </el-form-item>
+      <el-form-item
+        label="角色"
+        prop="roleId"
+        :rules="[{ required: true, message: '请选择角色！' }]"
+      >
+        <el-input v-model="addUserdata.roleId" autocomplete="off" />
+      </el-form-item>
+      <el-form-item
+        label="昵称"
+        prop="nickname"
+        :rules="[{ required: true, message: '请输入昵称！' }]"
+      >
+        <el-input v-model="addUserdata.nickname" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="年龄" prop="age">
+        <el-input v-model="addUserdata.age" autocomplete="off" /> </el-form-item
+      ><el-form-item label="email" prop="email">
+        <el-input v-model="addUserdata.email" autocomplete="off" /> </el-form-item
+      ><el-form-item label="性别" prop="sex">
+        <el-input v-model="addUserdata.sex" autocomplete="off" />
       </el-form-item>
     </el-form>
     <template #footer>
-      <ElButton
-        type="primary"
-        style="margin-left: 38%"
-        :loading="loading"
-        @click="save(diaLogForm)"
-      >
+      <ElButton type="primary" style="margin-left: 38%" :loading="loading" @click="save">
         确定
       </ElButton>
       <el-button @click="close">关闭</el-button>

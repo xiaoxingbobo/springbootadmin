@@ -3,12 +3,12 @@ export type TableData = {
   size: number | string
 }
 export type userData = {
-  age: string | number
-  email: number | string
-  name: number | string
-  nickname: number | string
+  age?: string | number
+  email?: number | string
+  name?: number | string
+  nickname?: number | string
   password: any
   roleId: number
-  sex: string
+  sex?: number
   username: number | string
 }
