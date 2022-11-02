@@ -2,14 +2,7 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import {
-  PermissionList,
-  addPermission,
-  DeletePermissions,
-  EditPermissions,
-  GetPermissionById,
-  ParameterPermission
-} from '@/api/permission'
+import { PaginationQuery } from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -32,6 +25,7 @@ import {
 import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
+import { number } from 'vue-types'
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -72,22 +66,9 @@ const columns = reactive<TableColumn[]>([
   }
 ])
 
-//  权限列表数据
+//  user列表数据
 let tabledata = ref('')
 
-// 可生成实体列表
-let keshengchenglist = ref('')
-// 添加权限的输入数据
-const numberForm = reactive({
-  namejurisdiction: '',
-  valuejurisdiction: '',
-  // 带详情参数添加权限list数据
-  entityFields: {
-    description: '',
-    fieldType: 'BOOLEAN',
-    filedName: ''
-  }
-})
 // 是否覆盖
 const isCover = ref('true')
 // 弹窗标题
@@ -96,192 +77,47 @@ const dialogTitle = ref('添加权限')
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
-// 带详情参数添加权限list数据
-// const entityFields = reactive({
-//   description: '',
-//   fieldType: '',
-//   filedName: ''
-// })
 
-// 权限列表
-const _PermissionList = async () => {
-  const res = await PermissionList()
-  // state.Tablelist = res.data
+// 表格分页
+let total = ref(0)
+// 分页数据
+let Paginationdata: {
+  current: number
+  size: number
+} = {
+  // 当前页
+  current: 1,
+  // 每页条数
+  size: 10
+}
+
+// 分页查询函数
+const _PaginationQuery = async () => {
+  const { data: res } = await PaginationQuery(Paginationdata)
   tabledata.value = res.data
-  // console.log(res)
+  total.value = res.total
+  console.log(total.value)
+}
+// 修改每页显示多少条数
+const handleSizeChange = (val: number) => {
+  Paginationdata.size = val
+  // console.log(Paginationdata.size)
+  _PaginationQuery() // 跟新列表
+}
+// 切换到某页
+const handleCurrentChange = (val: number) => {
+  Paginationdata.current = val
+  _PaginationQuery() // 跟新列表
 }
 
-// 添加权限
-const _addPermission = async (name, value) => {
-  await addPermission({
-    name: name,
-    value: value
-  })
-}
-// 添加权限-带详情参数
-const _ParameterPermission = async (entityFields, name, value) => {
-  await ParameterPermission({
-    entityFields: entityFields,
-    name: name,
-    value: value
-  })
-}
-// 删除权限
-const _DeletePermissions = async (id) => {
-  await DeletePermissions(id)
-}
-// 编辑权限
-const _EditPermissions = async (name, value, id) => {
-  await EditPermissions({
-    name: name,
-    value: value,
-    id: id
-  })
-}
-// 通过id查询一条权限
-const _GetPermissionById = async (id) => {
-  const res = await GetPermissionById(id)
-  // console.log(res)
-  numberForm.namejurisdiction = res.data.name
-  numberForm.valuejurisdiction = res.data.value
-}
-onMounted(async () => {
-  await _PermissionList()
-  // await _Cangenerateentitylist()
-})
-// 添加接口按钮
-const tianjiajiekoubtn = () => {
-  dialogTitle.value = '添加权限'
-  // console.log(111)
-  dialogVisible.value = true
-}
-
-// 弹窗的left的确定按钮
-const save = (formEl: FormInstance | undefined) => {
-  // console.log(formEl)
-  if (!formEl) return
-  formEl.validate(async (valid) => {
-    if (valid) {
-      // 通过验证
-      if (dialogTitle.value === '添加权限') {
-        try {
-          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
-          ElMessage({
-            message: '添加权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      } else {
-        // 编辑权限
-        try {
-          await _EditPermissions(
-            numberForm.namejurisdiction,
-            numberForm.valuejurisdiction,
-            editactionid.value
-          )
-          ElMessage({
-            message: '编辑权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      }
-      // console.log(dinputvalue.value)
-      // dialogVisible.value = false
-      close()
-      _PermissionList() // 跟新列表数据
-    } else {
-      // 表单不通过验证
-      return false
-    }
-  })
-}
-
-// 弹窗的right的确定按钮
-const RightSave = (formEl: FormInstance | undefined) => {
-  console.log(formEl)
-  if (!formEl) return
-  formEl.validate(async (valid) => {
-    if (valid) {
-      // 通过验证
-      if (dialogTitle.value === '添加权限') {
-        try {
-          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
-          ElMessage({
-            message: '添加权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      } else {
-        // 编辑权限
-        try {
-          await _EditPermissions(
-            numberForm.namejurisdiction,
-            numberForm.valuejurisdiction,
-            editactionid.value
-          )
-          ElMessage({
-            message: '编辑权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      }
-      close()
-      _PermissionList() // 跟新列表数据
-    } else {
-      // 表单不通过验证
-      return false
-    }
-  })
-}
-// 关闭按钮
-const close = () => {
-  dialogVisible.value = false
-  // 重置表单
-  ;(numberForm.namejurisdiction = ''), (numberForm.valuejurisdiction = '')
-}
-// 删除按钮
-const deleteaction = async (row) => {
-  console.log(row.id)
-  try {
-    const res = await ElMessageBox.confirm('确定要删除此权限吗?', '提示', {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
-      type: 'warning'
-    })
-    console.log(res)
-    // 点击了确定
-    if (res === 'confirm') {
-      await _DeletePermissions(row.id)
-      ElMessage({
-        message: '操作成功!',
-        type: 'success'
-      })
-    }
-  } catch (error) {
-    ElMessage.error(error)
-  }
-  _PermissionList() // 跟新列表数据
-}
-// 编辑按钮
-const editaction = async (row) => {
-  try {
-    await _GetPermissionById(row.id)
-    dialogTitle.value = '编辑权限'
-    dialogVisible.value = true
-    // console.log(row.id)
-    editactionid.value = row.id
-  } catch (error) {
-    console.log(reeor)
-  }
-}
+const currentPage = ref(1)
+const pageSize = ref(10)
+const small = ref(false)
+const background = ref(false)
+const disabled = ref(false)
+// 每页显示数目
+let _PageSize = ref(2)
+_PaginationQuery()
 </script>
 
 <template>
@@ -296,9 +132,21 @@ const editaction = async (row) => {
         <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
       </template>
       <template #append>
-        <el-row justify="center">
-          <el-col :span="6">
-            <el-pagination background layout="prev, pager, next" :total="50" />
+        <el-row justify="end">
+          <el-col>
+            <el-pagination
+              v-model:currentPage="currentPage"
+              v-model:page-size="pageSize"
+              :page-sizes="[10, 50, 100, 400]"
+              :small="small"
+              :disabled="disabled"
+              :background="background"
+              layout="total, sizes, prev, pager, next, jumper"
+              :total="total"
+              page-size="Paginationdata.size"
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+            />
           </el-col>
         </el-row>
       </template>
