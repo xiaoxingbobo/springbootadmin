@@ -8,23 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/SpringBootApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/SpringBootApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Authority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Common.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/RoleAuthority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/RoleAuthority.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/RoleAuthorityResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/RoleAuthorityResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/enums/FieldTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/enums/FieldTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ws.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/ws.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/ws.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/ws.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springbootadmin-1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/springbootadmin-1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/springbootadmin-1.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/springbootadmin-1.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xxbb.springbootapi.SpringBootApiApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.xxbb.springbootapi.SpringBootApiApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.xxbb.springbootapi.SpringBootApiApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.xxbb.springbootapi.SpringBootApiApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +106,9 @@
       <workItem from="1667178712436" duration="1862000" />
       <workItem from="1667205117083" duration="1617000" />
       <workItem from="1667314884062" duration="1321000" />
-      <workItem from="1667362624406" duration="1320000" />
+      <workItem from="1667362624406" duration="1649000" />
+      <workItem from="1667364481773" duration="291000" />
+      <workItem from="1667364843792" duration="636000" />
     </task>
     <servers />
   </component>
