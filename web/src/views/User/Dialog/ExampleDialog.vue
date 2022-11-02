@@ -2,7 +2,7 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
-import { PaginationQuery, addUser } from '@/api/user'
+import { PaginationQuery, addUser, byIddeleteUser, putUser, byIdgetUser } from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -62,10 +62,6 @@ const columns = reactive<TableColumn[]>([
     label: '创建时间'
   },
   {
-    field: 'id',
-    label: 'id'
-  },
-  {
     field: 'action',
     width: '160px',
     label: '操作',
@@ -93,12 +89,13 @@ const diaLogForm = ref<FormInstance>()
 const addUserdata = reactive({
   age: 18,
   email: '',
+  id: 0,
   name: '',
   nickname: '',
-  password: '123456',
+  password: '',
   roleId: 0,
   sex: 0,
-  username: 'xingyue888'
+  username: ''
 })
 
 // 表格分页
@@ -140,28 +137,99 @@ const background = ref(false)
 const disabled = ref(false)
 // 每页显示数目
 let _PageSize = ref(2)
-_PaginationQuery()
+_PaginationQuery() // 刷新列表
 
 // 添加用户按钮
 const tianjiajiekoubtn = () => {
-  // dialogTitle.value = '添加用户'
-  console.log(111)
+  dialogTitle.value = '添加用户'
+  // console.log(111)
   dialogVisible.value = true
 }
+// 编辑用户按钮
+const editaction = async (row) => {
+  dialogTitle.value = '编辑用户'
+  // console.log(row.id)
+  editactionid.value = row.id
+  dialogVisible.value = true
+  const { data: res } = await byIdgetUser(row.id)
+  addUserdata.age = res.age
+  addUserdata.username = res.username
+  addUserdata.email = res.email
+  addUserdata.roleId = res.roleId
+  addUserdata.nickname = res.nickname
+  addUserdata.sex = res.sex
+}
 // 添加用户函数
-const _addUser = async () => {
-  const res = await addUser(addUserdata)
-  console.log(res)
+const _addUser = async (data) => {
+  const res = await addUser(data)
+  // console.log(res)
+}
+// 删除用户按钮
+const deleteaction = async (row) => {
+  try {
+    const res = await ElMessageBox.confirm('确定要删除此用户吗？该操作将不可恢复！', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    })
+    // 点击了确定
+    if (res === 'confirm') {
+      const res = await byIddeleteUser(row.id)
+      ElMessage({
+        message: res.message,
+        type: 'success'
+      })
+    }
+  } catch (error) {
+    ElMessage.error(error)
+  }
+  _PaginationQuery() // 跟新列表
 }
 
 // 关闭弹窗
-const close = () => {
+const close = (formEl: FormInstance | undefined) => {
   dialogVisible.value = false
+  // 重置表单
+  if (!formEl) return
+  formEl.resetFields()
 }
 // 点击保存按钮
-const save = async () => {
-  const res = await addUser(addUserdata)
-  console.log(res)
+const save = (formEl: FormInstance | undefined) => {
+  if (!formEl) return
+  formEl.validate(async (valid) => {
+    if (valid) {
+      // 表单验证通过
+      if (dialogTitle.value === '添加用户') {
+        try {
+          await _addUser(addUserdata)
+          ElMessage({
+            message: '添加用户成功!',
+            type: 'success'
+          })
+        } catch (error) {
+          ElMessage.error(error)
+        }
+      } else {
+        // 编辑
+        console.log('点击了编辑的按钮')
+        try {
+          addUserdata.id = editactionid.value
+          // console.log(addUserdata.id)
+          await putUser(addUserdata)
+          ElMessage({
+            message: '操作成功!',
+            type: 'success'
+          })
+        } catch (error) {}
+      }
+
+      // 关闭弹窗  刷新列表
+      close()
+      _PaginationQuery() // 刷新列表
+    } else {
+      return false
+    }
+  })
 }
 </script>
 
@@ -192,7 +260,12 @@ const save = async () => {
     />
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 40%">
+  <Dialog
+    v-model="dialogVisible"
+    :title="dialogTitle"
+    maxHeight="60%"
+    style="width: 40%; max-width: 600px"
+  >
     <!-- 表单 -->
     <el-form ref="diaLogForm" :model="addUserdata">
       <el-form-item
@@ -232,10 +305,15 @@ const save = async () => {
       </el-form-item>
     </el-form>
     <template #footer>
-      <ElButton type="primary" style="margin-left: 38%" :loading="loading" @click="save">
+      <ElButton
+        type="primary"
+        style="margin-left: 38%"
+        :loading="loading"
+        @click="save(diaLogForm)"
+      >
         确定
       </ElButton>
-      <el-button @click="close">关闭</el-button>
+      <el-button @click="close(diaLogForm)">关闭</el-button>
     </template>
   </Dialog>
 </template>

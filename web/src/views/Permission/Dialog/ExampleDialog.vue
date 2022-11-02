@@ -156,7 +156,7 @@ const tianjiajiekoubtn = () => {
   dialogVisible.value = true
 }
 
-// 弹窗的left的确定按钮
+// 弹窗的确定按钮
 const save = (formEl: FormInstance | undefined) => {
   // console.log(formEl)
   if (!formEl) return
@@ -200,47 +200,6 @@ const save = (formEl: FormInstance | undefined) => {
   })
 }
 
-// 弹窗的right的确定按钮
-const RightSave = (formEl: FormInstance | undefined) => {
-  console.log(formEl)
-  if (!formEl) return
-  formEl.validate(async (valid) => {
-    if (valid) {
-      // 通过验证
-      if (dialogTitle.value === '添加权限') {
-        try {
-          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
-          ElMessage({
-            message: '添加权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      } else {
-        // 编辑权限
-        try {
-          await _EditPermissions(
-            numberForm.namejurisdiction,
-            numberForm.valuejurisdiction,
-            editactionid.value
-          )
-          ElMessage({
-            message: '编辑权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      }
-      close()
-      _PermissionList() // 跟新列表数据
-    } else {
-      // 表单不通过验证
-      return false
-    }
-  })
-}
 // 关闭按钮
 const close = () => {
   dialogVisible.value = false

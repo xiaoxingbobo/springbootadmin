@@ -5,6 +5,7 @@ export type TableData = {
 export type userData = {
   age?: string | number
   email?: number | string
+  id?: number
   name?: number | string
   nickname?: number | string
   password: any
