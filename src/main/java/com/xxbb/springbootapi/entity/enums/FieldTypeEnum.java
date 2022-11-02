@@ -1,5 +1,9 @@
 package com.xxbb.springbootapi.entity.enums;
 
+/**
+ * @author Administrator
+ */
+
 //java基本包装类型
 public enum FieldTypeEnum {
     STRING("String"),

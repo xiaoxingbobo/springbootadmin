@@ -11,13 +11,14 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 
+/**
+ * @author Administrator
+ */
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 @Data
-@FluentMybatis
-@Entity
 public class RoleAuthorityResult extends RoleAuthority {
     @ApiModelProperty(value = "权限值")
     private String authorityValue;

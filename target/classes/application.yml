@@ -1,17 +1,17 @@
 server:
   port: 9999
 spring:
-#  security:
-#    user:
-#      name: user #配置调试security的账号密码
-#      password: 123
+  #  security:
+  #    user:
+  #      name: user #配置调试security的账号密码
+  #      password: 123
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://gz-cynosdbmysql-grp-i0g3xbeh.sql.tencentcdb.com:29932/springbootadmin?useSSL=false
+    url: jdbc:mysql://localhost:3306/springbootadmin?useSSL=false
     username: root
-#    password: YHXyhx1214+.
-    password: XdF@927114
+    #    password: YHXyhx1214+.
+    password: root
   servlet:
     multipart:
       max-request-size: 1000MB
@@ -22,12 +22,13 @@ spring:
     view:
       suffix: .jsp #访问jsp页面1
       prefix: / #访问jsp页面2
-#    servlet:
-#      path: /api #访问接口
+  #    servlet:
+  #      path: /api #访问接口
   jpa:
     hibernate:
       ddl-auto: update #实体类自动生成数据库，更新状态，不会删除数据
     defer-datasource-initialization: true #1.自动初始化数据库
+    open-in-view: false #视图关闭
   sql: #初始化数据库
     init:
       schema-locations: classpath:sql/data.sql  #2.初始化数据库，DDL语句在resources/sql/schema.sql

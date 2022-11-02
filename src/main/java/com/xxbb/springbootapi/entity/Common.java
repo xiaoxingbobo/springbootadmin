@@ -18,12 +18,16 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * The type Common.
+ * @author Administrator
+ */
 @Data
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
 @FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
-public class Common extends RichEntity implements Serializable {
+public  class Common extends RichEntity implements Serializable {
     @TableId
     @Id
     @GeneratedValue

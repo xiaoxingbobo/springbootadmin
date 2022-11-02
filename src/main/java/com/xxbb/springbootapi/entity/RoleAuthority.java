@@ -13,12 +13,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * @author Administrator
+ */
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
@@ -32,20 +32,17 @@ public class RoleAuthority extends Common{
     @TableId
     @ApiModelProperty(value = "主键",example = "0")
     private Integer id = super.id;
-
     @ApiModelProperty("创建时间")
-    @TableField(insert = "now()", update = "now()")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @TableField(insert = "now()", update = "now()")
     private Date createTime = super.createTime;
-
     @TableField(insert = "now()", update = "now()")
     @ApiModelProperty("修改时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime = super.updateTime;
-
     @TableField(insert = "0")
-    @LogicDelete
     @ApiModelProperty(value = "是否删除",example = "0")
+    @LogicDelete
     private Boolean isDeleted = super.isDeleted;
 
     @ApiModelProperty(value = "角色")

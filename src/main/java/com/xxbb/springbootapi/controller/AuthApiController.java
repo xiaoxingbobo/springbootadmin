@@ -18,11 +18,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController{
+/**
+ * The type Auth api controller.
+ *
+ * @param <K> the type parameter
+ * @param <T> the type parameter
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ */
+public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController {
     @Autowired(required = false)
     private BaseService<K, T, V, E> service;
 
 
+    /**
+     * Create boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
     @PostMapping
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
@@ -30,6 +44,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.add(entity);
     }
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "删除")
@@ -37,6 +57,25 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.delete(id);
     }
 
+    /**
+     * 批量删除
+     *
+     * @param ids
+     * @return
+     */
+    @DeleteMapping("/batch")
+    @PreAuthorize("hasAnyAuthority('sys:all:all')")
+    @ApiOperation(value = "批量删除")
+    public Boolean delete(@RequestBody List<Integer> ids) {
+        return service.delete(ids);
+    }
+
+    /**
+     * Update boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
     @PutMapping
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
@@ -44,6 +83,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.update(entity);
     }
 
+    /**
+     * Select list.
+     *
+     * @param searches the searches
+     * @return the list
+     */
     @PostMapping("/searches")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "搜索")
@@ -57,6 +102,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         }
     }
 
+    /**
+     * Find k.
+     *
+     * @param id the id
+     * @return the k
+     */
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
     @ApiOperation(value = "查询一条")
@@ -64,6 +115,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return (K) service.find(id);
     }
 
+    /**
+     * Select list.
+     *
+     * @param limit the limit
+     * @return the list
+     */
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
@@ -72,6 +129,11 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.list(limit);
     }
 
+    /**
+     * Select list.
+     *
+     * @return the list
+     */
     @GetMapping
     @ApiOperation(value = "查询所有")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
@@ -79,6 +141,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.list();
     }
 
+    /**
+     * Select paged result.
+     *
+     * @param input the input
+     * @return the paged result
+     */
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
@@ -86,6 +154,13 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.list(input);
     }
 
+    /**
+     * Paged paged result.
+     *
+     * @param current the current
+     * @param size    the size
+     * @return the paged result
+     */
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")
@@ -94,6 +169,12 @@ public class AuthApiController<K extends Common, T extends BaseQuery<K, T>, V ex
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
+    /**
+     * Search paged result.
+     *
+     * @param pagedInput the paged input
+     * @return the paged result
+     */
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
     @PreAuthorize("hasAnyAuthority('sys:all:all')")

@@ -18,29 +18,68 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+/**
+ * The type Api controller.
+ *
+ * @param <K> the type parameter
+ * @param <T> the type parameter
+ * @param <V> the type parameter
+ * @param <E> the type parameter
+ * @author xiaoxingbobo
+ */
 public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController {
     @Autowired(required = false)
     private BaseService<K, T, V, E> service;
 
 
+    /**
+     * Create boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
     @PostMapping
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
     public Boolean create(@RequestBody K entity) {
         return service.add(entity);
     }
 
+    /**
+     * Delete boolean.
+     *
+     * @param id the id
+     * @return the boolean
+     */
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
     }
 
+    @DeleteMapping("/batch")
+    @ApiOperation(value = "批量删除")
+    public Boolean delete(@RequestBody List<Integer> ids) {
+        return service.delete(ids);
+    }
+
+    /**
+     * Update boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
     @PutMapping
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
     public Boolean update(@RequestBody K entity) {
         return service.update(entity);
     }
 
+    /**
+     * Select list.
+     *
+     * @param searches the searches
+     * @return the list
+     */
     @PostMapping("/searches")
     @ApiOperation(value = "搜索")
     public List<K> select(@RequestBody List<Search> searches) {
@@ -53,37 +92,73 @@ public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extend
         }
     }
 
+    /**
+     * Find k.
+     *
+     * @param id the id
+     * @return the k
+     */
     @GetMapping("/{id}")
     @ApiOperation(value = "查询一条")
     public K find(@PathVariable("id") int id) {
         return (K) service.find(id);
     }
 
+    /**
+     * Select list.
+     *
+     * @param limit the limit
+     * @return the list
+     */
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
+    @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10", dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     public List<K> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
+    /**
+     * Select list.
+     *
+     * @return the list
+     */
     @GetMapping
     @ApiOperation(value = "查询所有")
     public List<K> select() {
         return service.list();
     }
 
+    /**
+     * Select paged result.
+     *
+     * @param input the input
+     * @return the paged result
+     */
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
     public PagedResult<K> select(@RequestBody PagedInputC<K> input) {
         return service.list(input);
     }
 
+    /**
+     * Paged paged result.
+     *
+     * @param current the current
+     * @param size    the size
+     * @return the paged result
+     */
     @ApiOperation(value = "分页查询")
-    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
+    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1", dataType = "int", paramType = "path", dataTypeClass = Integer.class), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10", dataType = "int", paramType = "path", dataTypeClass = Integer.class)})
     public PagedResult<K> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
+    /**
+     * Search paged result.
+     *
+     * @param pagedInput the paged input
+     * @return the paged result
+     */
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
     public PagedResult<K> search(@RequestBody PagedInputC<List<Search>> pagedInput) {

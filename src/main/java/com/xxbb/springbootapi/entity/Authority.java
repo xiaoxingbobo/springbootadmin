@@ -19,6 +19,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
+/**
+ * The type Authority.
+ */
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
