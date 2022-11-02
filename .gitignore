@@ -4,7 +4,7 @@ bin-release/
 [Oo]bj/
 [Bb]in/
 target/
-
+node_modules/
 
 # Other files and folders
 .settings/
@@ -19,3 +19,4 @@ target/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 *.log
+*.mp4

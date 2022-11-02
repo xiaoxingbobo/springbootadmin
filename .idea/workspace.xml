@@ -10,6 +10,84 @@
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ITestDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/TestDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ITestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/TestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/Ref.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/AuthorityBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/AuthorityBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/CommonBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/CommonBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/DoopBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/DoopBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/GenRecordBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/GenRecordBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/PeoperBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/PeoperBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/PeopleBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/PeopleBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/RoleAuthorityBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/RoleAuthorityBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/RoleBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/RoleBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/TestBaseDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/UserBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/dao/base/UserBaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/Ref.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/dao/base/RoleAuthorityResultBaseDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/helper/RoleAuthorityResultMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/helper/RoleAuthorityResultSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/mapper/RoleAuthorityResultMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/wrapper/RoleAuthorityResultQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/entity/wrapper/RoleAuthorityResultUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/AuthorityMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/AuthorityMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/AuthoritySegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/AuthoritySegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/CommonMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/CommonMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/CommonSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/CommonSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/DoopMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/DoopMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/DoopSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/DoopSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/GenRecordMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/GenRecordMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/GenRecordSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/GenRecordSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeoperMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeoperMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeoperSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeoperSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeopleMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeopleMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeopleSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/PeopleSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleAuthorityMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleAuthorityMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleAuthoritySegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleAuthoritySegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/RoleSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/TestMapping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/TestSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/UserMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/UserMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/UserSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/helper/UserSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/AuthorityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/AuthorityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/CommonMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/CommonMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/DoopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/DoopMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/GenRecordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/GenRecordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/PeoperMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/PeoperMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/PeopleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/PeopleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/RoleAuthorityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/RoleAuthorityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/TestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/AuthorityQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/AuthorityQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/AuthorityUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/AuthorityUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/CommonQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/CommonQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/CommonUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/CommonUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/DoopQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/DoopQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/DoopUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/DoopUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/GenRecordQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/GenRecordQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/GenRecordUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/GenRecordUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeoperQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeoperQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeoperUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeoperUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeopleQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeopleQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeopleUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/PeopleUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleAuthorityQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleAuthorityQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleAuthorityUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleAuthorityUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/RoleUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/TestQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/TestUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/UserQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/UserUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/wrapper/UserUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +110,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -44,39 +121,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b4835d7cae286c6e29d5308fb64835c0&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RunManager">
     <configuration name="SpringBootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springbootadmin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.SpringBootApiApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.xxbb.springbootapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.SpringBootApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,10 +177,15 @@
       <workItem from="1667362624406" duration="1649000" />
       <workItem from="1667364481773" duration="291000" />
       <workItem from="1667364843792" duration="636000" />
+      <workItem from="1667371242710" duration="734000" />
+      <workItem from="1667381597732" duration="395000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

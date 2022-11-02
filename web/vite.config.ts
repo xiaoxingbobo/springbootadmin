@@ -119,7 +119,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       proxy: {
         // 选项写法
         '/api': {
-          target: 'http://localhost:8888',
+          target: 'http://localhost:9999',
           // target: 'http://damapi.xiaoxingbobo.top',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, '')

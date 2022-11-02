@@ -25,7 +25,8 @@ import {
   ElTabs,
   ElTabPane,
   ElRow,
-  ElCol
+  ElCol,
+  ElPagination
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
@@ -365,6 +366,13 @@ const closeDialog = () => {
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
         <ElButton type="danger" :loading="delLoading" @click="action(row)"> 撤销 </ElButton>
+      </template>
+      <template #append>
+        <el-row justify="center">
+          <el-col :span="6">
+            <el-pagination background layout="prev, pager, next" :total="50" />
+          </el-col>
+        </el-row>
       </template>
     </Table>
   </ContentWrap>

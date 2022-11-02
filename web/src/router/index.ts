@@ -516,12 +516,21 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     },
     children: [
       {
-        path: 'code-dialog',
+        path: 'permission',
         component: () => import('@/views/Permission/Dialog/ExampleDialog.vue'),
-        name: 'permission-permission',
+        name: 'permission',
         meta: {
           // title: t('router.exampleDialog')
           title: '权限管理'
+        }
+      },
+      {
+        path: 'user',
+        component: () => import('@/views/User/Dialog/ExampleDialog.vue'),
+        name: 'user',
+        meta: {
+          // title: t('router.exampleDialog')
+          title: '用户管理'
         }
       }
     ]

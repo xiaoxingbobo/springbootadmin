@@ -8,7 +8,6 @@ import com.xxbb.springbootapi.helper.PeoperMapping;
 import com.xxbb.springbootapi.helper.PeopleMapping;
 import com.xxbb.springbootapi.helper.RoleAuthorityMapping;
 import com.xxbb.springbootapi.helper.RoleMapping;
-import com.xxbb.springbootapi.helper.TestMapping;
 import com.xxbb.springbootapi.helper.UserMapping;
 
 /**
@@ -49,9 +48,6 @@ public interface Ref {
     final class RoleAuthority extends RoleAuthorityMapping {
     }
 
-    final class Test extends TestMapping {
-    }
-
     final class User extends UserMapping {
     }
   }
@@ -72,8 +68,6 @@ public interface Ref {
     RoleMapping role = RoleMapping.MAPPING;
 
     RoleAuthorityMapping roleAuthority = RoleAuthorityMapping.MAPPING;
-
-    TestMapping test = TestMapping.MAPPING;
 
     UserMapping user = UserMapping.MAPPING;
   }
