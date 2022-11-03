@@ -12,6 +12,7 @@ import { useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router'
 import { UserType } from '@/api/login/types'
 import { useValidator } from '@/hooks/web/useValidator'
+import { time } from 'echarts'
 
 const { required } = useValidator()
 
@@ -128,9 +129,9 @@ const signIn = async () => {
         const res = await loginApi(formData)
 
         if (res) {
-          // 登录成功,保存token
-          wsCache.set('token', res.data.token)
-          wsCache.set(appStore.getUserInfo, res.data.userInfo)
+          // 登录成功,保存token  6小时自动清除
+          wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
+          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 })
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
             getRole()
