@@ -502,7 +502,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       }
     ]
   },
-  // 权限管理
+  // 系统设置
   {
     path: '/permission',
     component: Layout,
@@ -531,6 +531,15 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         meta: {
           // title: t('router.exampleDialog')
           title: '用户管理'
+        }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/Role/Dialog/ExampleDialog.vue'),
+        name: 'role',
+        meta: {
+          // title: t('router.exampleDialog')
+          title: '角色管理'
         }
       }
     ]
