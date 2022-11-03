@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { h, ref, unref, reactive, onMounted } from 'vue'
+import { h, ref, unref, reactive, onMounted, toRefs } from 'vue'
 import { Table } from '@/components/Table'
-import { PaginationQuery, addUser, byIddeleteUser, putUser, byIdgetUser } from '@/api/user'
+import { PaginationQuery, addUser, byIddeleteUser, putUser, byIdgetUser, getRole } from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -93,11 +93,10 @@ const addUserdata = reactive({
   name: '',
   nickname: '',
   password: '',
-  roleId: 0,
+  roleId: null,
   sex: 0,
   username: ''
 })
-
 // 表格分页
 let total = ref(0)
 // 分页数据
@@ -110,13 +109,28 @@ let Paginationdata: {
   // 每页条数
   size: 10
 }
-
+//  全部角色信息数据
+let RoleList = ref('')
+// 选择角色信息获得焦点
+const selectFocus = async () => {
+  const res = await getRole()
+  RoleList.value = res.data
+  // console.log(res.data)
+}
 // 分页查询函数
 const _PaginationQuery = async () => {
   const { data: res } = await PaginationQuery(Paginationdata)
-  tabledata.value = res.data
+  let newreslist = res.data
+  newreslist.forEach((e) => {
+    if (e.sex === 0) {
+      e.sex = '男'
+    } else {
+      e.sex = '女'
+    }
+  })
+  tabledata.value = newreslist
   total.value = res.total
-  console.log(total.value)
+  // console.log(total.value)
 }
 // 修改每页显示多少条数
 const handleSizeChange = (val: number) => {
@@ -192,6 +206,13 @@ const close = (formEl: FormInstance | undefined) => {
   // 重置表单
   if (!formEl) return
   formEl.resetFields()
+  addUserdata.age = 18
+  addUserdata.username = ''
+  addUserdata.password = ''
+  addUserdata.email = ''
+  addUserdata.roleId = null
+  addUserdata.nickname = ''
+  addUserdata.sex = 0
 }
 // 点击保存按钮
 const save = (formEl: FormInstance | undefined) => {
@@ -287,7 +308,15 @@ const save = (formEl: FormInstance | undefined) => {
         prop="roleId"
         :rules="[{ required: true, message: '请选择角色！' }]"
       >
-        <el-input v-model="addUserdata.roleId" autocomplete="off" />
+        <!-- <el-input v-model="addUserdata.roleId" autocomplete="off" /> -->
+        <el-select v-model="addUserdata.roleId" placeholder="请选择角色" @focus="selectFocus">
+          <el-option v-for="item in RoleList" :key="item.id" :label="item.name" :value="item.id">
+            <span style="float: left">{{ item.name }}</span>
+            <!-- <span style="float: right; color: var(--el-text-color-secondary); font-size: 13px">{{
+              item.id
+            }}</span> -->
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item
         label="昵称"
@@ -299,10 +328,12 @@ const save = (formEl: FormInstance | undefined) => {
       <el-form-item label="年龄" prop="age">
         <el-input v-model="addUserdata.age" autocomplete="off" /> </el-form-item
       ><el-form-item label="email" prop="email">
-        <el-input v-model="addUserdata.email" autocomplete="off" /> </el-form-item
-      ><el-form-item label="性别" prop="sex">
-        <el-input v-model="addUserdata.sex" autocomplete="off" />
+        <el-input v-model="addUserdata.email" autocomplete="off" />
       </el-form-item>
+      <el-radio-group v-model="addUserdata.sex">
+        <el-radio :label="0">男</el-radio>
+        <el-radio :label="1">女</el-radio>
+      </el-radio-group>
     </el-form>
     <template #footer>
       <ElButton

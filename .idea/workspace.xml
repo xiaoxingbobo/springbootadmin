@@ -9,7 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/JwtAuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/JwtAuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/User/Dialog/ExampleDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/User/Dialog/ExampleDialog.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,17 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
@@ -91,6 +103,7 @@
       <workItem from="1667371242710" duration="734000" />
       <workItem from="1667381597732" duration="1108000" />
       <workItem from="1667434262658" duration="1021000" />
+      <workItem from="1667440839985" duration="2003000" />
     </task>
     <servers />
   </component>

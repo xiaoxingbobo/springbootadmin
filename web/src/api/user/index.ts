@@ -23,3 +23,8 @@ export const putUser = (data: Partial<userData>): Promise<IResponse> => {
 export const byIdgetUser = (id: number): Promise<IResponse> => {
   return request.get({ url: `/user/${id}` })
 }
+
+// 查询所有角色信息
+export const getRole = () => {
+  return request.get({ url: '/Roles' })
+}
