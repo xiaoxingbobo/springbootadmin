@@ -49,6 +49,8 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
             } catch (TokenExpiredException exception) {
                 //判断是否是登录请求
                 if (!httpServletRequest.getRequestURI().contains("login")) {
+                    //移除权限
+                    httpServletRequest.removeAttribute("Authorization");
                     throw new LegalException("token已过期！请重新登录");
                 }
             } catch (AlgorithmMismatchException exception) {
