@@ -41,6 +41,7 @@ const loginOut = () => {
 const toDocument = () => {
   window.open('https://element-plus-admin-doc.cn/')
 }
+const userInfo = wsCache.get('userInfo') || ''
 </script>
 
 <template>
@@ -51,7 +52,9 @@ const toDocument = () => {
         alt=""
         class="w-[calc(var(--logo-height)-25px)] rounded-[50%]"
       />
-      <span class="<lg:hidden text-14px pl-[5px] text-[var(--top-header-text-color)]">Archer</span>
+      <span class="<lg:hidden text-14px pl-[5px] text-[var(--top-header-text-color)]">{{
+        userInfo.name
+      }}</span>
     </div>
     <template #dropdown>
       <ElDropdownMenu>

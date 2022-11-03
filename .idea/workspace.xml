@@ -60,13 +60,13 @@
   <component name="RunManager">
     <configuration name="SpringBootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springbootadmin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.SpringBootApiApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.xxbb.springbootapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.SpringBootApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
