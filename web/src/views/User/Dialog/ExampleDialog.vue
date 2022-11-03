@@ -46,10 +46,6 @@ const columns = reactive<TableColumn[]>([
     label: '昵称'
   },
   {
-    field: 'name',
-    label: '角色'
-  },
-  {
     field: 'age',
     label: '年龄'
   },
@@ -288,7 +284,7 @@ const save = (formEl: FormInstance | undefined) => {
     style="width: 40%; max-width: 600px"
   >
     <!-- 表单 -->
-    <el-form ref="diaLogForm" :model="addUserdata">
+    <el-form ref="diaLogForm" :model="addUserdata" label-width="65px">
       <el-form-item
         label="用户名"
         prop="username"
