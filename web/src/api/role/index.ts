@@ -32,3 +32,8 @@ export const getRole = () => {
 export const getAuthority = () => {
   return request.get({ url: '/authority' })
 }
+
+// 批量添加权限给角色，添加到RoleAuthoritys
+export const batchRoleAuthoritys = (data: any): Promise<IResponse> => {
+  return request.post({ url: '/RoleAuthoritys/batch', data })
+}

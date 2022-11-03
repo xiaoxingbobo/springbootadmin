@@ -9,7 +9,8 @@ import {
   putUser,
   byIdgetUser,
   getRole,
-  getAuthority
+  getAuthority,
+  batchRoleAuthoritys
 } from '@/api/role'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -74,7 +75,7 @@ let tabledata = ref('')
 const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加角色')
-// 点击编辑，id存放
+// 点击编辑，点击分配权限的 id 存放
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
@@ -87,6 +88,8 @@ const checked1 = ref(true)
 const checked2 = ref(false)
 // 所有权限列表数据
 let jurisdictionList = ref('')
+// 批量添加参数
+let batchParameter: any[] = []
 // 表格分页
 let total = ref(0)
 // 分页数据
@@ -205,6 +208,17 @@ const deleteaction = async (row) => {
   _PaginationQuery() // 跟新列表
 }
 
+//
+// list=
+// const isTrue = (id) => {
+//   list.array.forEach((element) => {
+//     if (element.authorId == id) {
+//       return true
+//     }
+//   })
+//   return false
+// }
+
 // 关闭弹窗
 const close = (formEl: FormInstance | undefined) => {
   dialogVisible.value = false
@@ -215,42 +229,67 @@ const close = (formEl: FormInstance | undefined) => {
   Assign.value = false // 还原是否是分配权限
 }
 // 点击保存按钮
-const save = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.validate(async (valid) => {
-    if (valid) {
-      // 表单验证通过
-      if (dialogTitle.value === '添加角色') {
-        try {
-          await _addUser(addUserdata)
-          ElMessage({
-            message: '添加角色成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
+const save = async (formEl: FormInstance | undefined) => {
+  if (Assign.value === false) {
+    // 添加和编辑
+    if (!formEl) return
+    formEl.validate(async (valid) => {
+      if (valid) {
+        // 表单验证通过
+        if (dialogTitle.value === '添加角色') {
+          try {
+            await _addUser(addUserdata)
+            ElMessage({
+              message: '添加角色成功!',
+              type: 'success'
+            })
+          } catch (error) {
+            ElMessage.error(error)
+          }
+        } else {
+          // 编辑
+          try {
+            addUserdata.id = editactionid.value
+            // console.log(addUserdata.id)
+            await putUser(addUserdata)
+            ElMessage({
+              message: '操作成功!',
+              type: 'success'
+            })
+          } catch (error) {}
         }
-      } else {
-        // 编辑
-        console.log('点击了编辑的按钮')
-        try {
-          addUserdata.id = editactionid.value
-          // console.log(addUserdata.id)
-          await putUser(addUserdata)
-          ElMessage({
-            message: '操作成功!',
-            type: 'success'
-          })
-        } catch (error) {}
-      }
 
-      // 关闭弹窗  刷新列表
-      close()
-      _PaginationQuery() // 刷新列表
-    } else {
-      return false
-    }
-  })
+        // 关闭弹窗  刷新列表
+        close()
+        _PaginationQuery() // 刷新列表
+      } else {
+        return false
+      }
+    })
+  } else {
+    // 分配权限
+    jurisdictionList.value.forEach((e) => {
+      if (e.state) {
+        batchParameter.push({
+          authorityId: e.id,
+          roleId: editactionid.value
+        })
+      }
+    })
+    try {
+      const res = await batchRoleAuthoritys(batchParameter)
+      if (res.state) {
+        ElMessage({
+          message: res.message,
+          type: 'success'
+        })
+      }
+    } catch (error) {}
+    // 关闭弹窗  刷新列表
+    close()
+    batchParameter = []
+    _PaginationQuery() // 刷新列表
+  }
 }
 </script>
 
@@ -297,9 +336,11 @@ const save = (formEl: FormInstance | undefined) => {
           v-for="item in jurisdictionList"
           :key="item.id"
           v-model="item.state"
-          :label="item.name"
+          :label="item.value"
           size="large"
-        />
+          value
+          >{{ item.name }}</el-checkbox
+        >
       </el-form-item>
     </el-form>
     <!-- 添加编辑表单 -->

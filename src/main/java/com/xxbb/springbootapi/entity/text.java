@@ -4,6 +4,7 @@ import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

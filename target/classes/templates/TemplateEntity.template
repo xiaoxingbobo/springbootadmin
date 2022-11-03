@@ -3,6 +3,7 @@ package com.xxbb.springbootapi.entity;
 import cn.org.atool.fluent.mybatis.annotation.FluentMybatis;
 import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.LogicDelete;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import com.xxbb.springbootapi.config.IFMConfig;
 import io.swagger.annotations.ApiModelProperty;

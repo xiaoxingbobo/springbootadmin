@@ -9,6 +9,7 @@ import com.xxbb.springbootapi.helper.PeopleMapping;
 import com.xxbb.springbootapi.helper.RoleAuthorityMapping;
 import com.xxbb.springbootapi.helper.RoleMapping;
 import com.xxbb.springbootapi.helper.UserMapping;
+import com.xxbb.springbootapi.helper.textMapping;
 
 /**
  *
@@ -50,6 +51,9 @@ public interface Ref {
 
     final class User extends UserMapping {
     }
+
+    final class text extends textMapping {
+    }
   }
 
   interface Query {
@@ -70,5 +74,7 @@ public interface Ref {
     RoleAuthorityMapping roleAuthority = RoleAuthorityMapping.MAPPING;
 
     UserMapping user = UserMapping.MAPPING;
+
+    textMapping text = textMapping.MAPPING;
   }
 }

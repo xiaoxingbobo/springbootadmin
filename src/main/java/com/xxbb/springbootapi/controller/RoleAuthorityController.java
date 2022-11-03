@@ -32,4 +32,17 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     public List<RoleAuthorityResult> listJoin(@RequestBody RoleAuthority entity) {
         return service.listJoin(entity);
     }
+
+    /**
+     * Create boolean.
+     *
+     * @param entity the entity
+     * @return the boolean
+     */
+    @PostMapping("batch")
+    @PreAuthorize("hasAnyAuthority('sys:all:all')")
+    @ApiOperation(value = "批量添加", notes = "id，创建时间，修改时间无需提交")
+    public Boolean createBatch(@RequestBody List<RoleAuthority> entities) {
+        return service.add(entities);
+    }
 }
