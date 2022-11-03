@@ -1,21 +1,5 @@
 import request from '@/config/axios'
-import type { TableData } from './types'
-
-export const getTableListApi = (params: any): Promise<IResponse> => {
-  return request.get({ url: '/example/list', params })
-}
-
-export const saveTableApi = (data: Partial<TableData>): Promise<IResponse> => {
-  return request.post({ url: '/example/save', data })
-}
-
-export const getTableDetApi = (id: string): Promise<IResponse<TableData>> => {
-  return request.get({ url: '/example/detail', params: { id } })
-}
-
-export const delTableListApi = (ids: string[] | number[]): Promise<IResponse> => {
-  return request.post({ url: '/example/delete', data: { ids } })
-}
+import type { currentDate } from './types'
 
 // 代码生成接口
 // 可生成实体列表
@@ -42,3 +26,8 @@ export const RevokeEntity = (ids: number[]): Promise<IResponse> => {
 export const ParameterPermission = (data: string[]): Promise<IResponse> => {
   return request.post({ url: '/code/generate', data })
 }
+
+// 分页查询
+// export const PaginationQuery = (data: Partial<currentDate>): Promise<IResponse> => {
+//   return request.get({ url: `/user/paged/${data.current}/${data.size}` })
+// }

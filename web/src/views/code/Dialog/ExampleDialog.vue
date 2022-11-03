@@ -127,6 +127,54 @@ const fileTypeList = ref([
   }
 ])
 
+// 表格分页
+let total = ref(0)
+// 分页数据
+let Paginationdata: {
+  current: number
+  size: number
+} = {
+  // 当前页
+  current: 1,
+  // 每页条数
+  size: 10
+}
+//  全部角色信息数据
+let RoleList = ref('')
+// 选择角色信息获得焦点
+const selectFocus = async () => {
+  const res = await getRole()
+  RoleList.value = res.data
+  // console.log(res.data)
+}
+// 分页查询函数
+const _PaginationQuery = async () => {
+  const { data: res } = await PaginationQuery(Paginationdata)
+  let newreslist = res.data
+  tabledata.value = newreslist
+  total.value = res.total
+  // console.log(total.value)
+}
+// 修改每页显示多少条数
+const handleSizeChange = (val: number) => {
+  Paginationdata.size = val
+  // console.log(Paginationdata.size)
+  _PaginationQuery() // 跟新列表
+}
+// 切换到某页
+const handleCurrentChange = (val: number) => {
+  Paginationdata.current = val
+  _PaginationQuery() // 跟新列表
+}
+
+const currentPage = ref(1)
+const pageSize = ref(10)
+const small = ref(false)
+const background = ref(false)
+const disabled = ref(false)
+// 每页显示数目
+let _PageSize = ref(10)
+
 // 动态添加删除表单开始------
 const formRef = ref<FormInstance>()
 const dynamicValidateForm = reactive<{
@@ -367,14 +415,20 @@ const closeDialog = () => {
       <template #action="{ row }">
         <ElButton type="danger" :loading="delLoading" @click="action(row)"> 撤销 </ElButton>
       </template>
-      <template #append>
-        <el-row justify="center">
-          <el-col :span="6">
-            <el-pagination background layout="prev, pager, next" :total="50" />
-          </el-col>
-        </el-row>
-      </template>
     </Table>
+    <el-pagination
+      v-model:currentPage="currentPage"
+      v-model:page-size="pageSize"
+      :page-sizes="[10, 50, 100, 400]"
+      :small="small"
+      :disabled="disabled"
+      :background="background"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      page-size="Paginationdata.size"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog v-model="dialogVisible" title="生成接口" maxHeight="350px">

@@ -8,7 +8,8 @@ import {
   DeletePermissions,
   EditPermissions,
   GetPermissionById,
-  ParameterPermission
+  ParameterPermission,
+  PaginationQuery
 } from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -96,20 +97,45 @@ const dialogTitle = ref('添加权限')
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
-// 带详情参数添加权限list数据
-// const entityFields = reactive({
-//   description: '',
-//   fieldType: '',
-//   filedName: ''
-// })
 
-// 权限列表
-const _PermissionList = async () => {
-  const res = await PermissionList()
-  // state.Tablelist = res.data
-  tabledata.value = res.data
-  // console.log(res)
+// 表格分页
+let total = ref(0)
+// 分页数据
+let Paginationdata: {
+  current: number
+  size: number
+} = {
+  // 当前页
+  current: 1,
+  // 每页条数
+  size: 10
 }
+// 分页查询函数
+const _PaginationQuery = async () => {
+  const { data: res } = await PaginationQuery(Paginationdata)
+  console.log(res)
+  tabledata.value = res.data
+  total.value = res.total
+}
+// 修改每页显示多少条数
+const handleSizeChange = (val: number) => {
+  Paginationdata.size = val
+  // console.log(Paginationdata.size)
+  _PaginationQuery() // 跟新列表
+}
+// 切换到某页
+const handleCurrentChange = (val: number) => {
+  Paginationdata.current = val
+  _PaginationQuery() // 跟新列表
+}
+
+const currentPage = ref(1)
+const pageSize = ref(10)
+const small = ref(false)
+const background = ref(false)
+const disabled = ref(false)
+// 每页显示数目
+let _PageSize = ref(10)
 
 // 添加权限
 const _addPermission = async (name, value) => {
@@ -146,8 +172,7 @@ const _GetPermissionById = async (id) => {
   numberForm.valuejurisdiction = res.data.value
 }
 onMounted(async () => {
-  await _PermissionList()
-  // await _Cangenerateentitylist()
+  await _PaginationQuery() // 跟新列表
 })
 // 添加接口按钮
 const tianjiajiekoubtn = () => {
@@ -192,7 +217,7 @@ const save = (formEl: FormInstance | undefined) => {
       // console.log(dinputvalue.value)
       // dialogVisible.value = false
       close()
-      _PermissionList() // 跟新列表数据
+      _PaginationQuery() // 跟新列表
     } else {
       // 表单不通过验证
       return false
@@ -227,7 +252,7 @@ const deleteaction = async (row) => {
   } catch (error) {
     ElMessage.error(error)
   }
-  _PermissionList() // 跟新列表数据
+  _PaginationQuery() // 跟新列表
 }
 // 编辑按钮
 const editaction = async (row) => {
@@ -254,14 +279,20 @@ const editaction = async (row) => {
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
         <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
       </template>
-      <template #append>
-        <el-row justify="center">
-          <el-col :span="6">
-            <el-pagination background layout="prev, pager, next" :total="50" />
-          </el-col>
-        </el-row>
-      </template>
     </Table>
+    <el-pagination
+      v-model:currentPage="currentPage"
+      v-model:page-size="pageSize"
+      :page-sizes="[10, 50, 100, 400]"
+      :small="small"
+      :disabled="disabled"
+      :background="background"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+      page-size="Paginationdata.size"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">

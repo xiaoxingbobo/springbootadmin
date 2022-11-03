@@ -7,3 +7,7 @@ export type TableData = {
   display_time: string
   pageviews: number
 }
+export type currentDate = {
+  current: number | string
+  size: number | string
+}

@@ -146,7 +146,7 @@ const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
 // 每页显示数目
-let _PageSize = ref(2)
+let _PageSize = ref(10)
 _PaginationQuery() // 刷新列表
 
 // 添加用户按钮
