@@ -10,7 +10,8 @@ import {
   byIdgetUser,
   getRole,
   getAuthority,
-  batchRoleAuthoritys
+  batchRoleAuthoritys,
+  RoleAuthoritysPaged
 } from '@/api/role'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -90,6 +91,16 @@ const checked2 = ref(false)
 let jurisdictionList = ref('')
 // 批量添加参数
 let batchParameter: any[] = []
+// 角色权限表分页筛选数据
+let RoleAuthoritysPagedList = ref('')
+// 角色权限表分页筛选参数
+let RoleParameter = ref({
+  condition: {
+    roleId: 1
+  },
+  current: 1,
+  size: 9999
+})
 // 表格分页
 let total = ref(0)
 // 分页数据
@@ -168,7 +179,7 @@ const AssignPermissions = async (row) => {
   Assign.value = true // 显示分配权限表单
   dialogTitle.value = '分配角色'
   // console.log(row.id)
-  editactionid.value = row.id
+  editactionid.value = row.id // 当前项id
   dialogVisible.value = true // 是否显示弹窗
   // 请求权限列表
   const res = await getAuthority()
@@ -176,10 +187,25 @@ const AssignPermissions = async (row) => {
   // 给权限加一个state选中状态
   RoleResList.forEach((e) => {
     e.state = false
-    // console.log(e)
   })
   jurisdictionList.value = RoleResList
   // console.log(RoleResList)
+  // 设置请求角色权限分页筛选的id参数
+  RoleParameter.value.condition.roleId = row.id
+  // console.log(RoleParameter.value)
+  // // 请求角色权限表分页筛选
+  const { data: res2 } = await RoleAuthoritysPaged(RoleParameter.value)
+  // console.log(res2.data)
+  const PagedresList = res2.data
+  PagedresList.forEach((e) => {
+    // console.log(e.authorityId)
+    jurisdictionList.value.forEach((e2) => {
+      console.log(e2)
+      if (e.authorityId === e2.id) {
+        e2.state = true
+      }
+    })
+  })
 }
 // 添加角色函数
 const _addUser = async (data) => {
@@ -268,6 +294,7 @@ const save = async (formEl: FormInstance | undefined) => {
     })
   } else {
     // 分配权限
+    // 给角色分配权限参数赋值
     jurisdictionList.value.forEach((e) => {
       if (e.state) {
         batchParameter.push({

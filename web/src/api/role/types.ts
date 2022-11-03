@@ -13,3 +13,8 @@ export type userData = {
   sex?: number
   username: number | string
 }
+export type RoleAuthorityspaged = {
+  condition: any
+  current: number
+  size: number
+}

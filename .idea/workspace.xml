@@ -8,12 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateEntity.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateEntity.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/xxbb/springbootapi/Ref.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/role/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/Role/Dialog/ExampleDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Role/Dialog/ExampleDialog.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +103,7 @@
       <workItem from="1667371242710" duration="734000" />
       <workItem from="1667381597732" duration="1108000" />
       <workItem from="1667434262658" duration="1021000" />
-      <workItem from="1667440839985" duration="3747000" />
+      <workItem from="1667440839985" duration="3758000" />
     </task>
     <servers />
   </component>

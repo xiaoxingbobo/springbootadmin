@@ -1,5 +1,5 @@
 import request from '@/config/axios'
-import type { TableData, userData } from './types'
+import type { TableData, userData, RoleAuthorityspaged } from './types'
 
 // 分页查询
 export const PaginationQuery = (data: Partial<TableData>): Promise<IResponse> => {
@@ -36,4 +36,9 @@ export const getAuthority = () => {
 // 批量添加权限给角色，添加到RoleAuthoritys
 export const batchRoleAuthoritys = (data: any): Promise<IResponse> => {
   return request.post({ url: '/RoleAuthoritys/batch', data })
+}
+
+// 分页筛选角色权限表
+export const RoleAuthoritysPaged = (data: RoleAuthorityspaged): Promise<IResponse> => {
+  return request.post({ url: '/RoleAuthoritys/paged', data })
 }
