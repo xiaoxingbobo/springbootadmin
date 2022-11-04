@@ -177,7 +177,7 @@ const editaction = async (row) => {
 const Assign = ref(false)
 const AssignPermissions = async (row) => {
   Assign.value = true // 显示分配权限表单
-  dialogTitle.value = '分配角色'
+  dialogTitle.value = '分配权限'
   // console.log(row.id)
   editactionid.value = row.id // 当前项id
   dialogVisible.value = true // 是否显示弹窗
@@ -200,7 +200,7 @@ const AssignPermissions = async (row) => {
   PagedresList.forEach((e) => {
     // console.log(e.authorityId)
     jurisdictionList.value.forEach((e2) => {
-      console.log(e2)
+      // console.log(e2)
       if (e.authorityId === e2.id) {
         e2.state = true
       }
@@ -233,17 +233,6 @@ const deleteaction = async (row) => {
   }
   _PaginationQuery() // 跟新列表
 }
-
-//
-// list=
-// const isTrue = (id) => {
-//   list.array.forEach((element) => {
-//     if (element.authorId == id) {
-//       return true
-//     }
-//   })
-//   return false
-// }
 
 // 关闭弹窗
 const close = (formEl: FormInstance | undefined) => {
