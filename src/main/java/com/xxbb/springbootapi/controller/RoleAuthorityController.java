@@ -10,10 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,10 +36,10 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      * @param entity the entity
      * @return the boolean
      */
-    @PostMapping("batch")
-    @PreAuthorize("hasAnyAuthority('sys:all:all')")
-    @ApiOperation(value = "批量添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean createBatch(@RequestBody List<RoleAuthority> entities) {
-        return service.add(entities);
+    @PutMapping ("batch")
+    @PreAuthorize("hasAnyAuthority('sys:all:all','sys:role:updateBatch')")
+    @ApiOperation(value = "批量修改", notes = "id，创建时间，修改时间无需提交")
+    public Boolean updateBatch(@RequestBody List<RoleAuthority> entities) {
+        return service.updateBatch(entities);
     }
 }

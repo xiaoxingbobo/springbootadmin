@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface IRoleAuthorityService extends IBaseService<RoleAuthority, RoleAuthorityQuery, RoleAuthorityUpdate, RoleAuthorityMapper> {
     List<RoleAuthorityResult> listJoin(RoleAuthority entity);
+
+    Boolean updateBatch(List<RoleAuthority> entities);
 }

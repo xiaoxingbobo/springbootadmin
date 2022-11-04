@@ -11,6 +11,7 @@ import com.xxbb.springbootapi.wrapper.RoleAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.RoleAuthorityUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,6 +22,8 @@ public class RoleAuthorityService extends BaseService<RoleAuthority, RoleAuthori
 
     @Autowired
     private AuthorityService authorityService;
+    @Autowired
+    private RoleAuthorityService service;
 
     @Override
     public boolean delete(int id) {
@@ -56,5 +59,24 @@ public class RoleAuthorityService extends BaseService<RoleAuthority, RoleAuthori
 //            });
 //        });
         return roleAuthorityResultList;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean updateBatch(List<RoleAuthority> entities) {
+        Integer roleId = entities.get(0).getRoleId();
+        //删除原有权限
+        mapper().delete(mapper().query().where.roleId().eq(roleId).end());
+        //查询是否包含超级管理员权限
+        List<RoleAuthority> adminRoleAuth = entities.stream().filter(roleAuthority -> roleAuthority.getAuthorityId() == 1 && roleAuthority.getRoleId() == 1).collect(Collectors.toList());
+        //添加超级管理员权限
+        if (adminRoleAuth.size()==0) {
+            RoleAuthority roleAuthority = new RoleAuthority();
+            roleAuthority.setRoleId(1);
+            roleAuthority.setAuthorityId(1);
+            entities.add(roleAuthority);
+        }
+        //添加新权限
+        return service.add(entities);
     }
 }

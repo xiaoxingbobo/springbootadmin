@@ -35,7 +35,7 @@ export const getAuthority = () => {
 
 // 批量添加权限给角色，添加到RoleAuthoritys
 export const batchRoleAuthoritys = (data: any): Promise<IResponse> => {
-  return request.post({ url: '/RoleAuthoritys/batch', data })
+  return request.put({ url: '/RoleAuthoritys/batch', data })
 }
 
 // 分页筛选角色权限表

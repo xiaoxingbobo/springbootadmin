@@ -7,6 +7,7 @@ import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbb.springbootapi.config.IFMConfig;
+import com.xxbb.springbootapi.entity.enums.SexEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
