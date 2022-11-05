@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.xxbb.springbootapi.SpringBootApiApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.522 s - in com.xxbb.springbootapi.SpringBootApiApplicationTests
