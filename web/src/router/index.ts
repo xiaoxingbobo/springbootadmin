@@ -493,7 +493,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     children: [
       {
         path: 'code-code',
-        component: () => import('@/views/code/Dialog/ExampleDialog.vue'),
+        component: () => import('@/views/code/index.vue'),
         name: 'code-code',
         meta: {
           // title: t('router.exampleDialog')
@@ -504,10 +504,10 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
   },
   // 系统设置
   {
-    path: '/permission',
+    path: '/system',
     component: Layout,
-    redirect: '/permission/code-dialog',
-    name: 'permission',
+    redirect: '/system/permission',
+    name: 'system',
     meta: {
       // title: t('router.example'),
       title: '系统设置',
@@ -517,7 +517,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     children: [
       {
         path: 'permission',
-        component: () => import('@/views/Permission/Dialog/ExampleDialog.vue'),
+        component: () => import('@/views/System/Permission/index.vue'),
         name: 'permission',
         meta: {
           // title: t('router.exampleDialog')
@@ -526,7 +526,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       },
       {
         path: 'user',
-        component: () => import('@/views/User/Dialog/ExampleDialog.vue'),
+        component: () => import('@/views/System/User/index.vue'),
         name: 'user',
         meta: {
           // title: t('router.exampleDialog')
@@ -535,7 +535,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       },
       {
         path: 'role',
-        component: () => import('@/views/Role/Dialog/ExampleDialog.vue'),
+        component: () => import('@/views/System/Role/index.vue'),
         name: 'role',
         meta: {
           // title: t('router.exampleDialog')
@@ -581,35 +581,6 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       }
     ]
   }
-  // {
-  //   path: '/authorization',
-  //   component: Layout,
-  //   redirect: '/authorization/user',
-  //   name: 'Authorization',
-  //   meta: {
-  //     title: t('router.authorization'),
-  //     icon: 'eos-icons:role-binding',
-  //     alwaysShow: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'user',
-  //       component: () => import('@/views/Authorization/User.vue'),
-  //       name: 'User',
-  //       meta: {
-  //         title: t('router.user')
-  //       }
-  //     },
-  //     {
-  //       path: 'role',
-  //       component: () => import('@/views/Authorization/Role.vue'),
-  //       name: 'Role',
-  //       meta: {
-  //         title: t('router.role')
-  //       }
-  //     }
-  //   ]
-  // }
 ]
 
 const router = createRouter({

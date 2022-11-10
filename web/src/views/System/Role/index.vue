@@ -343,7 +343,7 @@ const save = async (formEl: FormInstance | undefined) => {
     v-model="dialogVisible"
     :title="dialogTitle"
     maxHeight="60%"
-    style="width: 40%; max-width: 600px"
+    style="width: 40%; min-width: 375px; max-width: 600px"
   >
     <!-- 分配权限表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" v-if="Assign" label-width="80px">
