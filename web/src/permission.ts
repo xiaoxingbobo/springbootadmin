@@ -39,6 +39,7 @@ router.beforeEach(async (to, from, next) => {
         // 获取所有字典
         const res = await getDictApi()
         if (res) {
+          // 获取到字典存到store
           dictStore.setDictObj(res.data)
           dictStore.setIsSetDict(true)
         }
@@ -50,6 +51,7 @@ router.beforeEach(async (to, from, next) => {
 
       // 是否使用动态路由
       if (appStore.getDynamicRouter) {
+        // 判断角色
         userInfo.role === 'admin'
           ? await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
           : await permissionStore.generateRoutes('test', roleRouters as string[])

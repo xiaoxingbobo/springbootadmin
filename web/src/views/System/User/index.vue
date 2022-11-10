@@ -356,6 +356,7 @@ const inputBlur = async () => {
       <el-row :gutter="20">
         <el-col :span="7">
           <el-input
+            prefix="ID"
             v-model="inputId"
             class="w-50 m-2"
             size="small"

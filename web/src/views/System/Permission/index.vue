@@ -295,7 +295,6 @@ const editaction = async (row) => {
     />
   </ContentWrap>
   <!-- 弹窗 -->
-  min-width:375px
   <Dialog
     v-model="dialogVisible"
     :title="dialogTitle"
