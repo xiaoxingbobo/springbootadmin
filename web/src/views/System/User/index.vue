@@ -50,6 +50,10 @@ const columns = reactive<TableColumn[]>([
     label: '用户名'
   },
   {
+    field: 'name',
+    label: 'name'
+  },
+  {
     field: 'nickname',
     label: '昵称'
   },
@@ -258,7 +262,7 @@ const save = (formEl: FormInstance | undefined) => {
 }
 
 // 搜索功能
-const inputId = ref(null)
+const inputUsername = ref(null)
 const inputName = ref(null)
 const inputAge = ref(null)
 // 筛选的参数
@@ -290,10 +294,10 @@ const _pagedsearches = async (data) => {
 // 点击查询按钮
 const inputBlur = async () => {
   // if(dataSearchesArr.value.)
-  if (inputId.value) {
+  if (inputUsername.value) {
     dataSearchesArr.value.condition[0] = {
-      field: 'id',
-      keyword: inputId.value
+      field: 'username',
+      keyword: inputUsername.value
     }
   }
   if (inputName.value) {
@@ -357,30 +361,36 @@ const inputBlur = async () => {
         <el-col :span="7">
           <el-input
             prefix="ID"
-            v-model="inputId"
+            v-model="inputUsername"
             class="w-50 m-2"
             size="small"
-            placeholder="ID"
+            placeholder="username"
             :prefix-icon="Search"
-          />
+          >
+            <template #prepend>用户名</template></el-input
+          >
         </el-col>
         <el-col :span="7">
           <el-input
             v-model="inputName"
             class="w-50 m-2"
             size="small"
-            placeholder="用户名"
+            placeholder="name"
             :prefix-icon="Search"
-          />
+          >
+            <template #prepend>name</template></el-input
+          >
         </el-col>
         <el-col :span="7">
           <el-input
             v-model="inputAge"
             class="w-50 m-2"
             size="small"
-            placeholder="年龄"
+            placeholder="age"
             :prefix-icon="Search"
-          />
+          >
+            <template #prepend>年龄</template></el-input
+          >
         </el-col>
         <el-col :span="3" class="conseachbyn">
           <el-button size="small" @click="inputBlur">查询</el-button>
