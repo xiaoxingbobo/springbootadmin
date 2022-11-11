@@ -8,9 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/store/modules/permission.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/store/modules/permission.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="C:\Users\85839\Desktop\xiaoyaun\springbootadmin\web\node_modules\typescript\lib" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
