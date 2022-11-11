@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 
-import { AxiosRequestHeaders, AxiosResponseHeaders } from 'axios'
+// import { AxiosRequestHeaders, AxiosResponseHeaders } from 'axios'
 
 import { useCache } from '@/hooks/web/useCache'
 

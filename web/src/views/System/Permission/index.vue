@@ -295,7 +295,12 @@ const editaction = async (row) => {
     />
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" :title="dialogTitle" maxHeight="200px" style="width: 30%">
+  <Dialog
+    v-model="dialogVisible"
+    :title="dialogTitle"
+    maxHeight="200px"
+    style="width: 30%; min-width: 375px; max-width: 600px"
+  >
     <!-- 左边 -->
     <el-form ref="diaLogForm" :model="numberForm">
       <el-form-item

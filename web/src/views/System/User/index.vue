@@ -2,7 +2,15 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { h, ref, unref, reactive, onMounted, toRefs } from 'vue'
 import { Table } from '@/components/Table'
-import { PaginationQuery, addUser, byIddeleteUser, putUser, byIdgetUser, getRole } from '@/api/user'
+import {
+  PaginationQuery,
+  addUser,
+  byIddeleteUser,
+  putUser,
+  byIdgetUser,
+  getRole,
+  pagedSearches
+} from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -40,6 +48,10 @@ const columns = reactive<TableColumn[]>([
   {
     field: 'username',
     label: '用户名'
+  },
+  {
+    field: 'name',
+    label: 'name'
   },
   {
     field: 'nickname',
@@ -248,6 +260,94 @@ const save = (formEl: FormInstance | undefined) => {
     }
   })
 }
+
+// 搜索功能
+const inputUsername = ref(null)
+const inputName = ref(null)
+const inputAge = ref(null)
+// 筛选的参数
+const dataSearchesArr = ref({
+  condition: [],
+  current: 1, // 页码
+  size: 999 // 返回多少条数
+})
+
+// 筛选搜索函数
+const _pagedsearches = async (data) => {
+  const resseach = await pagedSearches(data)
+  console.log(resseach)
+  if (resseach.data.length !== 0) {
+    // 查询到数据
+    let newreslist2 = resseach.data.data
+    newreslist2.forEach((e) => {
+      if (e.sex === 0) {
+        e.sex = '男'
+      } else {
+        e.sex = '女'
+      }
+    })
+    tabledata.value = newreslist2
+    total.value = resseach.data.total
+  }
+}
+
+// 点击查询按钮
+const inputBlur = async () => {
+  // if(dataSearchesArr.value.)
+  if (inputUsername.value) {
+    dataSearchesArr.value.condition[0] = {
+      field: 'username',
+      keyword: inputUsername.value
+    }
+  }
+  if (inputName.value) {
+    if (dataSearchesArr.value.condition[0] == null) {
+      dataSearchesArr.value.condition[0] = {
+        field: 'name',
+        keyword: inputName.value
+      }
+    } else {
+      dataSearchesArr.value.condition[1] = {
+        field: 'name',
+        keyword: inputName.value
+      }
+    }
+  }
+  if (inputAge.value) {
+    if (dataSearchesArr.value.condition[0] == null) {
+      dataSearchesArr.value.condition[0] = {
+        field: 'age',
+        keyword: inputAge.value
+      }
+    } else if (dataSearchesArr.value.condition[1] == null) {
+      dataSearchesArr.value.condition[1] = {
+        field: 'age',
+        keyword: inputAge.value
+      }
+    } else {
+      dataSearchesArr.value.condition[2] = {
+        field: 'age',
+        keyword: inputAge.value
+      }
+    }
+  }
+  if (dataSearchesArr.value.condition.length === 0) {
+    _PaginationQuery() //跟新列表
+    ElMessage({
+      message: '你好像没有输入数据！',
+      type: 'error'
+    })
+    return
+  }
+  // 发起请求
+  _pagedsearches(dataSearchesArr.value)
+  ElMessage({
+    message: '请求成功！',
+    type: 'success'
+  })
+  dataSearchesArr.value.condition = []
+  console.log(dataSearchesArr.value.condition)
+}
 </script>
 
 <template>
@@ -255,6 +355,47 @@ const save = (formEl: FormInstance | undefined) => {
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加用户</ElButton>
       <ElButton :loading="delLoading" type="danger">删除</ElButton>
+    </div>
+    <div class="mb-10px">
+      <el-row :gutter="20">
+        <el-col :span="7">
+          <el-input
+            prefix="ID"
+            v-model="inputUsername"
+            class="w-50 m-2"
+            size="small"
+            placeholder="username"
+            :prefix-icon="Search"
+          >
+            <template #prepend>用户名</template></el-input
+          >
+        </el-col>
+        <el-col :span="7">
+          <el-input
+            v-model="inputName"
+            class="w-50 m-2"
+            size="small"
+            placeholder="name"
+            :prefix-icon="Search"
+          >
+            <template #prepend>name</template></el-input
+          >
+        </el-col>
+        <el-col :span="7">
+          <el-input
+            v-model="inputAge"
+            class="w-50 m-2"
+            size="small"
+            placeholder="age"
+            :prefix-icon="Search"
+          >
+            <template #prepend>年龄</template></el-input
+          >
+        </el-col>
+        <el-col :span="3" class="conseachbyn">
+          <el-button size="small" @click="inputBlur">查询</el-button>
+        </el-col>
+      </el-row>
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
@@ -281,7 +422,7 @@ const save = (formEl: FormInstance | undefined) => {
     v-model="dialogVisible"
     :title="dialogTitle"
     maxHeight="60%"
-    style="width: 40%; max-width: 600px"
+    style="width: 40%; min-width: 375px; max-width: 600px"
   >
     <!-- 表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" label-width="65px">
@@ -344,3 +485,9 @@ const save = (formEl: FormInstance | undefined) => {
     </template>
   </Dialog>
 </template>
+<style scoped>
+.conseachbyn {
+  display: flex;
+  align-items: center;
+}
+</style>

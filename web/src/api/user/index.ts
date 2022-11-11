@@ -6,6 +6,11 @@ export const PaginationQuery = (data: Partial<TableData>): Promise<IResponse> =>
   return request.get({ url: `/user/paged/${data.current}/${data.size}` })
 }
 
+// 分页搜索
+export const pagedSearches = (data: any): Promise<IResponse> => {
+  return request.post({ url: '/user/paged/searches', data })
+}
+
 // 添加用户
 export const addUser = (data: Partial<userData>): Promise<IResponse> => {
   return request.post({ url: '/user', data })

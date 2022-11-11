@@ -26,6 +26,7 @@
     "p": "plop"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
     "@iconify/iconify": "^3.0.0",
     "@vueuse/core": "^9.2.0",
     "@wangeditor/editor": "^5.1.18",

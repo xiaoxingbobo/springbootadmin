@@ -431,7 +431,12 @@ const closeDialog = () => {
     />
   </ContentWrap>
   <!-- 弹窗 -->
-  <Dialog v-model="dialogVisible" title="生成接口" maxHeight="350px">
+  <Dialog
+    v-model="dialogVisible"
+    title="生成接口"
+    maxHeight="350px"
+    style="width: 40%; min-width: 375px; max-width: 600px"
+  >
     <el-tabs type="border-card" @tab-click="tabClick">
       <!-- 左边 -->
       <el-tab-pane label="生成接口">

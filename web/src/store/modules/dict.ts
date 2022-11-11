@@ -9,7 +9,7 @@ export interface DictState {
 export const useDictStore = defineStore({
   id: 'dict',
   state: (): DictState => ({
-    isSetDict: false,
+    isSetDict: false, // 为true表示已获到字典
     dictObj: {}
   }),
   persist: {

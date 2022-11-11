@@ -28,6 +28,6 @@ export const ParameterPermission = (data: string[]): Promise<IResponse> => {
 }
 
 // 分页查询
-// export const PaginationQuery = (data: Partial<currentDate>): Promise<IResponse> => {
-//   return request.get({ url: `/user/paged/${data.current}/${data.size}` })
-// }
+export const PaginationQuery = (data: Partial<currentDate>): Promise<IResponse> => {
+  return request.get({ url: `/user/paged/${data.current}/${data.size}` })
+}
