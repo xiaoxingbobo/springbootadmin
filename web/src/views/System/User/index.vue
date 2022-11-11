@@ -357,45 +357,55 @@ const inputBlur = async () => {
       <ElButton :loading="delLoading" type="danger">删除</ElButton>
     </div>
     <div class="mb-10px">
-      <el-row :gutter="20">
-        <el-col :span="7">
+      <el-form :inline="true" label-width="55px" size="large">
+        <el-form-item label="用户名">
           <el-input
-            prefix="ID"
+            style="width: 230px"
             v-model="inputUsername"
             class="w-50 m-2"
             size="small"
             placeholder="username"
-            :prefix-icon="Search"
-          >
-            <template #prepend>用户名</template></el-input
-          >
-        </el-col>
-        <el-col :span="7">
+          />
+        </el-form-item>
+        <el-form-item label="name">
           <el-input
+            style="width: 230px"
             v-model="inputName"
             class="w-50 m-2"
             size="small"
             placeholder="name"
-            :prefix-icon="Search"
-          >
-            <template #prepend>name</template></el-input
-          >
-        </el-col>
-        <el-col :span="7">
+          />
+        </el-form-item>
+        <el-form-item label="年龄">
           <el-input
+            style="width: 230px"
             v-model="inputAge"
             class="w-50 m-2"
             size="small"
             placeholder="age"
-            :prefix-icon="Search"
+          />
+        </el-form-item>
+        <el-form-item>
+          <el-button size="small" type="primary" @click="inputBlur"
+            ><svg
+              t="1668148758475"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="5802"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M869.2 856.9L734.6 722.3c0.6-0.6 1.3-1.2 1.9-1.9 31.6-31.6 56.4-68.4 73.8-109.4 18-42.4 27.1-87.5 27.1-134s-9.1-91.5-27.1-134c-17.3-41-42.2-77.8-73.8-109.4-31.6-31.6-68.4-56.4-109.4-73.8-42.4-18-87.5-27.1-134-27.1s-91.5 9.1-134 27.1c-41 17.3-77.8 42.2-109.4 73.8S193.3 302 175.9 343c-18 42.4-27.1 87.5-27.1 134s9.1 91.5 27.1 134c17.3 41 42.2 77.8 73.8 109.4s68.4 56.4 109.4 73.8c42.4 18 87.5 27.1 134 27.1s91.5-9.1 134-27.1c27.8-11.8 53.7-27 77.4-45.4l136.4 136.4c3.9 3.9 9 5.9 14.1 5.9s10.2-2 14.1-5.9c7.9-7.8 7.9-20.4 0.1-28.3z m-376.1-75.6c-167.7 0-304.2-136.5-304.2-304.2s136.5-304.2 304.2-304.2 304.2 136.5 304.2 304.2-136.4 304.2-304.2 304.2z"
+                p-id="5803"
+                fill="#ffffff"
+              /></svg
+            >查询</el-button
           >
-            <template #prepend>年龄</template></el-input
-          >
-        </el-col>
-        <el-col :span="3" class="conseachbyn">
-          <el-button size="small" @click="inputBlur">查询</el-button>
-        </el-col>
-      </el-row>
+        </el-form-item>
+      </el-form>
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
@@ -410,6 +420,7 @@ const inputBlur = async () => {
       :small="small"
       :disabled="disabled"
       :background="background"
+      style="margin-top: 20px"
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"
       page-size="Paginationdata.size"
@@ -485,9 +496,4 @@ const inputBlur = async () => {
     </template>
   </Dialog>
 </template>
-<style scoped>
-.conseachbyn {
-  display: flex;
-  align-items: center;
-}
-</style>
+<style scoped></style>

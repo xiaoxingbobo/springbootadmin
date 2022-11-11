@@ -287,6 +287,7 @@ const editaction = async (row) => {
       :small="small"
       :disabled="disabled"
       :background="background"
+      style="margin-top: 20px"
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"
       page-size="Paginationdata.size"

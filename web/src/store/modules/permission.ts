@@ -3,13 +3,18 @@ import { asyncRouterMap, constantRouterMap } from '@/router'
 import { generateRoutesFn1, generateRoutesFn2, flatMultiLevelRoutes } from '@/utils/routerHelper'
 import { store } from '../index'
 import { cloneDeep } from 'lodash-es'
+import { useCache } from '@/hooks/web/useCache'
+
+const { wsCache } = useCache('localStorage')
 
 export interface PermissionState {
   routers: AppRouteRecordRaw[]
   addRouters: AppRouteRecordRaw[]
   isAddRouters: boolean
   menuTabRouters: AppRouteRecordRaw[]
-  _myasyncRouterMap: AppRouteRecordRaw[]
+  _myasyncRouterMap: any[]
+  _userInfo: any[]
+  _roleAuthority: any[]
 }
 
 export const usePermissionStore = defineStore({
@@ -19,7 +24,9 @@ export const usePermissionStore = defineStore({
     addRouters: [],
     isAddRouters: false, // true 页面空白
     menuTabRouters: [],
-    _myasyncRouterMap: [] // 自己定义用来存修改后的动态路由表
+    _myasyncRouterMap: asyncRouterMap, // 自己定义用来存修改后的动态路由表
+    _userInfo: wsCache.get('userInfo'), // 拿到存到本地的用户信息
+    _roleAuthority: wsCache.get('roleAuthority') // 拿到存到本地的用户权限信息
   }),
   persist: {
     enabled: true
@@ -79,14 +86,17 @@ export const usePermissionStore = defineStore({
 
     // 根据角色拥有的权限，筛选权限对应的路由
     filterRoutes(_myasyncRouterMap: AppRouteRecordRaw[]): void {
-      this._myasyncRouterMap = asyncRouterMap
-      console.log(this._myasyncRouterMap)
+      // this.demoarr = wsCache.get('userInfo')
+      // this.demoarr = myuserInfo1
+      // 把筛选好的路由表存到state
+      // this._myasyncRouterMap = asyncRouterMap
     },
     generateRoutes(_myasyncRouterMap?: AppCustomRouteRecordRaw[] | string[]): Promise<unknown> {
       return new Promise<void>((resolve) => {
         let routerMap: AppRouteRecordRaw[] = []
-        // 直接读取静态路由表
-        routerMap = cloneDeep(asyncRouterMap)
+
+        // 读取筛选好的动态路由表
+        routerMap = cloneDeep(this._myasyncRouterMap)
 
         // 动态路由，404一定要放到最后面
         this.addRouters = routerMap.concat([

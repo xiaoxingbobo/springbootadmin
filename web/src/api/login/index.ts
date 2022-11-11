@@ -29,3 +29,5 @@ export const getAdminRoleApi = (
 export const getTestRoleApi = (params: RoleParams): Promise<IResponse<string[]>> => {
   return request.get({ url: '/role/list', params })
 }
+
+// 获取角色信息

@@ -106,6 +106,8 @@ const iconColor = '#999'
 
 const redirect = ref<string>('')
 
+const userInfo = ref(null) // 当前登录的用户信息
+
 watch(
   () => currentRoute.value,
   (route: RouteLocationNormalizedLoaded) => {
@@ -132,18 +134,23 @@ const signIn = async () => {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
           wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 })
+          wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 })
+          userInfo.value = res.data.userInfo // 保存当前登录的用户信息
+          // console.log(userInfo.value)
+          getRoleUserInfo()
+
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
             // getRole()  // 获取角色信息
             // push({ path: redirect.value || permissionStore.addRouters[0].path })
-            location.reload() // 跳转后刷新页面，不然页面不会出来
+            // location.reload() // 跳转后刷新页面，不然页面不会出来
           } else {
             await permissionStore.generateRoutes('none').catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
               addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
             })
             permissionStore.setIsAddRouters(true)
-            push({ path: redirect.value || permissionStore.addRouters[0].path })
+            // push({ path: redirect.value || permissionStore.addRouters[0].path })
           }
         }
       } finally {
@@ -151,6 +158,14 @@ const signIn = async () => {
       }
     }
   })
+}
+
+// 获取角色信息
+const getRoleUserInfo = () => {
+  const myuserInfo1 = wsCache.get('roleAuthority')
+  // console.log(myuserInfo1)
+  const res2 = permissionStore._roleAuthority
+  console.log(myuserInfo1)
 }
 
 // 获取角色信息
@@ -197,10 +212,12 @@ const toRegister = () => {
     class="dark:(border-1 border-[var(--el-border-color)] border-solid)"
     @register="register"
   >
+    <!-- 标题  登录 -->
     <template #title>
       <h2 class="text-2xl font-bold text-center w-[100%]">{{ t('login.login') }}</h2>
     </template>
 
+    <!-- 记住我和忘记密码 -->
     <template #tool>
       <div class="flex justify-between items-center w-[100%]">
         <ElCheckbox v-model="remember" :label="t('login.remember')" size="small" />
@@ -208,6 +225,7 @@ const toRegister = () => {
       </div>
     </template>
 
+    <!-- 登录，注册按钮 -->
     <template #login>
       <div class="w-[100%]">
         <ElButton :loading="loading" type="primary" class="w-[100%]" @click="signIn">
@@ -221,6 +239,7 @@ const toRegister = () => {
       </div>
     </template>
 
+    <!-- 其他登录方式 -->
     <template #otherIcon>
       <div class="flex justify-between w-[100%]">
         <Icon
