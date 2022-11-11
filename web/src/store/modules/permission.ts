@@ -81,10 +81,11 @@ export const usePermissionStore = defineStore({
     generateRoutes(_myasyncRouterMap?: AppCustomRouteRecordRaw[] | string[]): Promise<unknown> {
       return new Promise<void>((resolve) => {
         let routerMap: AppRouteRecordRaw[] = []
-
+        const asyncRouterMap1 = asyncRouterMap // 复制的全部路由
         const asyncRouterMap2 = ref([]) // 定义筛选后的路由列表
         // 用全部的路由与用户权限做对比，筛选出应有的路由
-        asyncRouterMap.forEach((e1) => {
+        // 遍历全部路由
+        asyncRouterMap1.forEach((e1) => {
           // e1是全部路由
           this._roleAuthority.forEach((e2) => {
             // e2是全部权限列表

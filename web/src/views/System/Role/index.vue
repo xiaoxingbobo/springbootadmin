@@ -318,7 +318,7 @@ const save = async (formEl: FormInstance | undefined) => {
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
         <ElButton type="primary" :loading="delLoading" @click="AssignPermissions(row)">
-          分配权限
+          授权
         </ElButton>
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
         <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
