@@ -4,16 +4,15 @@ import com.auth0.jwt.JWTCreator;
 import com.xxbb.springbootapi.config.AppConfig;
 import com.xxbb.springbootapi.dao.impl.UserDao;
 import com.xxbb.springbootapi.entity.Authority;
+import com.xxbb.springbootapi.entity.Role;
 import com.xxbb.springbootapi.entity.RoleAuthority;
 import com.xxbb.springbootapi.entity.User;
-import com.xxbb.springbootapi.entity.dto.JsonResult;
-import com.xxbb.springbootapi.entity.dto.JsonResultData;
-import com.xxbb.springbootapi.entity.dto.LoginInput;
-import com.xxbb.springbootapi.entity.dto.LoginResult;
+import com.xxbb.springbootapi.entity.dto.*;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.UserMapper;
 import com.xxbb.springbootapi.service.IRoleAuthorityService;
 import com.xxbb.springbootapi.service.IUserService;
+import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.utils.jwt.JwtUtil;
 import com.xxbb.springbootapi.wrapper.UserQuery;
 import com.xxbb.springbootapi.wrapper.UserUpdate;
@@ -43,6 +42,8 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
 
     @Autowired
     private IRoleAuthorityService iRoleAuthorityService;
+    @Autowired
+    private RoleService roleService;
     @Autowired
     private AuthorityService authorityService;
     @Autowired
@@ -84,15 +85,26 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
 
         User user = userDetails.getUser();
         //获取用户权限
+        Role role= roleService.find(user.getRoleId());
         //1.获取当前角色拥有的权限
         List<RoleAuthority> roleAuthorities = iRoleAuthorityService.list(new RoleAuthority().setRoleId(user.getRoleId()));
 //        List<RoleAuthority> roleAuthorities =roleAuthorityService.dao.mapper.listEntity(roleAuthorityService.dao.mapper.query().where().roleId().eq(user.getRoleId()).end());
+        //获取用户角色信息
+        RoleAuthority roleAuthority = iRoleAuthorityService.find(user.getRoleId());
         //2.获取当前角色拥有的权限的id列表
         List<Integer> roleAuthorityIdList = roleAuthorities.stream().map(RoleAuthority::getAuthorityId).collect(Collectors.toList());
         //3.查询包含在权限的id列表里面的权限,获取权限列表
         List<Authority> authorities = authorityService.mapper().listEntity(authorityService.mapper().query().where().id().in(roleAuthorityIdList).end());
         //4.获取权限列表里面的权限值，获取列表
         List<String> authorityList = authorities.stream().map(Authority::getValue).collect(Collectors.toList());
+        //5.构建用户角色权限信息
+        List<RoleAuthorityResult> roleAuthorityResultList = OrikaUtil.converts(roleAuthorities, RoleAuthorityResult.class);
+        roleAuthorityResultList.forEach(roleAuthorityResult -> {
+            Authority auth = authorities.stream().filter(authority -> authority.getId().equals(roleAuthorityResult.getAuthorityId())).findFirst().orElse(null);
+            roleAuthorityResult.setAuthorityName(auth != null ? auth.getName() : null);
+            roleAuthorityResult.setAuthorityValue(auth != null ? auth.getValue() : null);
+            roleAuthorityResult.setRoleName(role.getName());
+        });
         //生成token
         JWTCreator.Builder builder = JwtUtil.createBuilder();
         builder.withClaim("id", user.getId());//用户id
@@ -102,7 +114,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         builder.withClaim("roleId", user.getRoleId());//用户角色id
         String token = JwtUtil.getToken(builder, 60 * 60 * 12);
         user.setPassword("想啥呢，这里不给你看");
-        return new JsonResultData<LoginResult>().Success(new LoginResult().setToken(token).setUserInfo(user));
+        return new JsonResultData<LoginResult>().Success(new LoginResult().setToken(token).setUserInfo(user).setRoleAuthority(roleAuthorityResultList));
     }
 
     /**
