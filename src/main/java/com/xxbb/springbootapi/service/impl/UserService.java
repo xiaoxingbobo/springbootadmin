@@ -144,6 +144,11 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         }
         return userDao.insert(entity) > 0;
     }
+    @Override
+    public boolean update(User entity) {
+        entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
+        return userDao.update(entity) > 0;
+    }
 
     //删除
     @Override

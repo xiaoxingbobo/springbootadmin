@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.entity.dto;
 
-import com.xxbb.springbootapi.entity.enums.FieldTypeEnum;
+import com.xxbb.springbootapi.entity.dto.enums.FieldTypeEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;

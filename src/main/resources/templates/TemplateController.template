@@ -12,5 +12,69 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "{entityName}表")
 @RestController
 public class {entityName}Controller extends ApiController<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:add')")
+    public Boolean create(Authority entity) {
+        return super.create(entity);
+    }
 
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:delete')")
+    public Boolean delete(int id) {
+        return super.delete(id);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:update')")
+    public Boolean delete(List<Integer> ids) {
+        return super.delete(ids);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:update')")
+    public Boolean update(Authority entity) {
+        return super.update(entity);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public List<Authority> select(List<Search> searches) {
+        return super.select(searches);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public Authority find(int id) {
+        return super.find(id);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public List<Authority> select(int limit) {
+        return super.select(limit);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public List<Authority> select() {
+        return super.select();
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public PagedResult<Authority> select(PagedInputC<Authority> input) {
+        return super.select(input);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public PagedResult<Authority> paged(int current, int size) {
+        return super.paged(current, size);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyAuthority('sys:{entityNameLowCase}:select')")
+    public PagedResult<Authority> search(PagedInputC<List<Search>> pagedInput) {
+        return super.search(pagedInput);
+    }
 }

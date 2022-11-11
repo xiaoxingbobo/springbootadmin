@@ -54,4 +54,6 @@ public class Authority extends Common {
     private String value;
     @ApiModelProperty(value = "名称")
     private String name;
+    @ApiModelProperty(value = "上级权限Id")
+    private Integer parentId;
 }

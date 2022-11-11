@@ -1,4 +1,4 @@
-package com.xxbb.springbootapi.entity.enums;
+package com.xxbb.springbootapi.entity.dto.enums;
 
 /**
  * @author Administrator
