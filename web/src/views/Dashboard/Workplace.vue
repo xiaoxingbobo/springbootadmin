@@ -28,84 +28,89 @@ let totalSate = reactive<WorkplaceTotal>({
   todo: 0
 })
 
-const getCount = async () => {
-  const res = await getCountApi().catch(() => {})
-  if (res) {
-    totalSate = Object.assign(totalSate, res.data)
-  }
-}
+// 获取统计数
+// const getCount = async () => {
+//   const res = await getCountApi().catch(() => {})
+//   if (res) {
+//     totalSate = Object.assign(totalSate, res.data)
+//   }
+// }
 
+// 获取项目数
 let projects = reactive<Project[]>([])
 
 // 获取项目数
-const getProject = async () => {
-  const res = await getProjectApi().catch(() => {})
-  if (res) {
-    projects = Object.assign(projects, res.data)
-  }
-}
+// const getProject = async () => {
+//   const res = await getProjectApi().catch(() => {})
+//   if (res) {
+//     projects = Object.assign(projects, res.data)
+//   }
+// }
 
 // 获取动态
 let dynamics = reactive<Dynamic[]>([])
 
-const getDynamic = async () => {
-  const res = await getDynamicApi().catch(() => {})
-  if (res) {
-    dynamics = Object.assign(dynamics, res.data)
-  }
-}
+// 获取动态
+// const getDynamic = async () => {
+//   const res = await getDynamicApi().catch(() => {})
+//   if (res) {
+//     dynamics = Object.assign(dynamics, res.data)
+//   }
+// }
 
 // 获取团队
 let team = reactive<Team[]>([])
 
-const getTeam = async () => {
-  const res = await getTeamApi().catch(() => {})
-  if (res) {
-    team = Object.assign(team, res.data)
-  }
-}
+// 获取团队
+// const getTeam = async () => {
+//   const res = await getTeamApi().catch(() => {})
+//   if (res) {
+//     team = Object.assign(team, res.data)
+//   }
+// }
 
 // 获取指数
 let radarOptionData = reactive<EChartsOption>(radarOption) as EChartsOption
 
-const getRadar = async () => {
-  const res = await getRadarApi().catch(() => {})
-  if (res) {
-    set(
-      radarOptionData,
-      'radar.indicator',
-      res.data.map((v) => {
-        return {
-          name: t(v.name),
-          max: v.max
-        }
-      })
-    )
-    set(radarOptionData, 'series', [
-      {
-        name: `xxx${t('workplace.index')}`,
-        type: 'radar',
-        data: [
-          {
-            value: res.data.map((v) => v.personal),
-            name: t('workplace.personal')
-          },
-          {
-            value: res.data.map((v) => v.team),
-            name: t('workplace.team')
-          }
-        ]
-      }
-    ])
-  }
-}
+// 获取指数
+// const getRadar = async () => {
+//   const res = await getRadarApi().catch(() => {})
+//   if (res) {
+//     set(
+//       radarOptionData,
+//       'radar.indicator',
+//       res.data.map((v) => {
+//         return {
+//           name: t(v.name),
+//           max: v.max
+//         }
+//       })
+//     )
+//     set(radarOptionData, 'series', [
+//       {
+//         name: `xxx${t('workplace.index')}`,
+//         type: 'radar',
+//         data: [
+//           {
+//             value: res.data.map((v) => v.personal),
+//             name: t('workplace.personal')
+//           },
+//           {
+//             value: res.data.map((v) => v.team),
+//             name: t('workplace.team')
+//           }
+//         ]
+//       }
+//     ])
+//   }
+// }
 
-const getAllApi = async () => {
-  await Promise.all([getCount(), getProject(), getDynamic(), getTeam(), getRadar()])
-  loading.value = false
-}
+// const getAllApi = async () => {
+//   await Promise.all([getCount(), getProject(), getDynamic(), getTeam(), getRadar()])
+//   loading.value = false
+// }
 
-getAllApi()
+// getAllApi()
 
 const { t } = useI18n()
 </script>

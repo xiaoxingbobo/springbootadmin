@@ -22,16 +22,16 @@ let totalState = reactive<AnalysisTotalTypes>({
   shoppings: 0
 })
 
-const getCount = async () => {
-  const res = await getCountApi()
-    .catch(() => {})
-    .finally(() => {
-      loading.value = false
-    })
-  totalState = Object.assign(totalState, res?.data || {})
-}
+// const getCount = async () => {
+//   const res = await getCountApi()
+//     .catch(() => {})
+//     .finally(() => {
+//       loading.value = false
+//     })
+//   totalState = Object.assign(totalState, res?.data || {})
+// }
 
-getCount()
+// getCount()
 </script>
 
 <template>
