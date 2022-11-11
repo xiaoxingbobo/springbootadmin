@@ -31,12 +31,14 @@ import {
   ElRow,
   ElCol,
   ElPagination,
-  ElCheckbox
+  ElCheckbox,
+  ElTree
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
 import { number } from 'vue-types'
+import type Node from 'element-plus/es/components/tree/src/model/node'
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -307,6 +309,71 @@ const save = async (formEl: FormInstance | undefined) => {
     _PaginationQuery() // 刷新列表
   }
 }
+
+// 树形显示分配权限
+let count = 1
+
+interface Tree {
+  name: string
+}
+
+const props = {
+  label: 'name',
+  children: 'zones'
+}
+const data44 = [
+  {
+    id: 1,
+    label: 'Level one 1',
+    children: [
+      {
+        id: 4,
+        label: 'Level two 1-1',
+        children: [
+          {
+            id: 9,
+            label: 'Level three 1-1-1'
+          },
+          {
+            id: 10,
+            label: 'Level three 1-1-2'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    label: 'Level one 2',
+    children: [
+      {
+        id: 5,
+        label: 'Level two 2-1'
+      },
+      {
+        id: 6,
+        label: 'Level two 2-2'
+      }
+    ]
+  },
+  {
+    id: 3,
+    label: 'Level one 3',
+    children: [
+      {
+        id: 7,
+        label: 'Level two 3-1'
+      },
+      {
+        id: 8,
+        label: 'Level two 3-2'
+      }
+    ]
+  }
+]
+const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean) => {
+  console.log(data, checked, indeterminate)
+}
 </script>
 
 <template>
@@ -359,6 +426,7 @@ const save = async (formEl: FormInstance | undefined) => {
           >{{ item.name }}</el-checkbox
         >
       </el-form-item>
+      <el-tree :data="data44" node-key="id" lazy show-checkbox @check-change="handleCheckChange" />
     </el-form>
     <!-- 添加编辑表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" v-else label-width="65px">

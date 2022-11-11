@@ -57,6 +57,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="ts.external.directory.path" value="C:\Users\85839\Desktop\xiaoyaun\springbootadmin\web\node_modules\typescript\lib" />
   </component>
@@ -145,6 +148,7 @@
       <workItem from="1667954800754" duration="92000" />
       <workItem from="1668144510956" duration="1743000" />
       <workItem from="1668162055876" duration="5837000" />
+      <workItem from="1668180633874" duration="638000" />
     </task>
     <servers />
   </component>
