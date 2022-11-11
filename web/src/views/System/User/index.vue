@@ -34,6 +34,9 @@ import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
 import { number } from 'vue-types'
+import { useCache } from '@/hooks/web/useCache'
+
+const { wsCache } = useCache('localStorage')
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -348,6 +351,10 @@ const inputBlur = async () => {
   dataSearchesArr.value.condition = []
   console.log(dataSearchesArr.value.condition)
 }
+
+// 请求路由列表
+const res8 = wsCache.get('screenRouters')
+console.log(res8)
 </script>
 
 <template>

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 import { asyncRouterMap, constantRouterMap } from '@/router'
 import { generateRoutesFn1, generateRoutesFn2, flatMultiLevelRoutes } from '@/utils/routerHelper'
 import { store } from '../index'
@@ -12,8 +13,7 @@ export interface PermissionState {
   addRouters: AppRouteRecordRaw[]
   isAddRouters: boolean
   menuTabRouters: AppRouteRecordRaw[]
-  _myasyncRouterMap: any[]
-  _userInfo: any[]
+  // _userInfo: any[]
   _roleAuthority: any[]
 }
 
@@ -24,9 +24,8 @@ export const usePermissionStore = defineStore({
     addRouters: [],
     isAddRouters: false, // true 页面空白
     menuTabRouters: [],
-    _myasyncRouterMap: asyncRouterMap, // 自己定义用来存修改后的动态路由表
-    _userInfo: wsCache.get('userInfo'), // 拿到存到本地的用户信息
-    _roleAuthority: wsCache.get('roleAuthority') // 拿到存到本地的用户权限信息
+    // _userInfo: wsCache.get('userInfo'), // 拿到存到本地的用户信息
+    _roleAuthority: wsCache.get('roleAuthority') // 拿到存到本地的用户权限列表
   }),
   persist: {
     enabled: true
@@ -43,10 +42,6 @@ export const usePermissionStore = defineStore({
     },
     getMenuTabRouters(): AppRouteRecordRaw[] {
       return this.menuTabRouters
-    },
-    // 修改  自己定义用来存修改后的动态路由表
-    getmyasyncRouterMap(): AppRouteRecordRaw[] {
-      return this._myasyncRouterMap
     }
   },
   actions: {
@@ -83,20 +78,45 @@ export const usePermissionStore = defineStore({
     //     resolve()
     //   })
     // },
-
-    // 根据角色拥有的权限，筛选权限对应的路由
-    filterRoutes(_myasyncRouterMap: AppRouteRecordRaw[]): void {
-      // this.demoarr = wsCache.get('userInfo')
-      // this.demoarr = myuserInfo1
-      // 把筛选好的路由表存到state
-      // this._myasyncRouterMap = asyncRouterMap
-    },
     generateRoutes(_myasyncRouterMap?: AppCustomRouteRecordRaw[] | string[]): Promise<unknown> {
       return new Promise<void>((resolve) => {
         let routerMap: AppRouteRecordRaw[] = []
 
-        // 读取筛选好的动态路由表
-        routerMap = cloneDeep(this._myasyncRouterMap)
+        const asyncRouterMap2 = ref([]) // 定义筛选后的路由列表
+        // 用全部的路由与用户权限做对比，筛选出应有的路由
+        asyncRouterMap.forEach((e1) => {
+          // e1是全部路由
+          this._roleAuthority.forEach((e2) => {
+            // e2是全部权限列表
+            // 一级菜单路由，如果权限名与路由name对应
+            if (e1.name === e2.authorityValue) {
+              // asyncRouterMap2.value.push(e1)
+              // 如果该路由有子路由
+              if (e1.children) {
+                // 遍历子路由
+                e1.children.forEach((e3) => {
+                  // 子路由
+                  // if (e3.name !== e2.authorityValue) {
+                  //   e3.meta.hidden = true
+                  // }
+                  this._roleAuthority.forEach((e4) => {
+                    // 如果子路由有权限,让他显示,默认隐藏了的
+                    if (e3.name == e4.authorityValue) {
+                      e3.meta.hidden = false // 让他不隐藏
+                    }
+                    // 判断不等，不准确！
+                    // if (e3.name !== e4.authorityValue) {
+                    //   console.log(e3.name)
+                    // }
+                  })
+                })
+              }
+              asyncRouterMap2.value.push(e1)
+            }
+          })
+        })
+        // routerMap = cloneDeep(asyncRouterMap)
+        routerMap = cloneDeep(asyncRouterMap2.value)
 
         // 动态路由，404一定要放到最后面
         this.addRouters = routerMap.concat([

@@ -89,6 +89,8 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
   }
 ]
 
+// export const myscreenRouters: AppRouteRecordRaw[] = wsCache.get('screenRouters')
+
 // 动态路由列表
 export const asyncRouterMap: AppRouteRecordRaw[] = [
   // 文档
@@ -100,10 +102,11 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     children: [
       {
         path: 'https://element-plus-admin-doc.cn/',
-        name: 'DocumentLink',
+        name: 'ExternalLink',
         meta: {
           title: t('router.document'),
-          icon: 'clarity:document-solid'
+          icon: 'clarity:document-solid',
+          hidden: true // 菜单中不显示
         }
       }
     ]
@@ -124,10 +127,11 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'code',
         component: () => import('@/views/code/index.vue'),
-        name: 'code',
+        name: 'Code',
         meta: {
           // title: t('router.exampleDialog')
-          title: '代码生成'
+          title: '代码生成',
+          hidden: true // 菜单中不显示
         }
       }
     ]
@@ -151,7 +155,8 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         name: 'permission',
         meta: {
           // title: t('router.exampleDialog')
-          title: '权限管理'
+          title: '权限管理',
+          hidden: true // 菜单中不显示
         }
       },
       {
@@ -160,7 +165,8 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         name: 'user',
         meta: {
           // title: t('router.exampleDialog')
-          title: '用户管理'
+          title: '用户管理',
+          hidden: true // 菜单中不显示
         }
       },
       {
@@ -169,7 +175,8 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         name: 'role',
         meta: {
           // title: t('router.exampleDialog')
-          title: '角色管理'
+          title: '角色管理',
+          hidden: true // 菜单中不显示
         }
       }
     ]

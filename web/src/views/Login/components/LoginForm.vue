@@ -133,24 +133,23 @@ const signIn = async () => {
         if (res) {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
-          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 })
-          wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 })
+          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 }) // 存当前用户的信息
+          wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 }) // 当前用户拥有的权限列表
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
-          // console.log(userInfo.value)
-          getRoleUserInfo()
+          // getRoleUserInfo()
 
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
             // getRole()  // 获取角色信息
             // push({ path: redirect.value || permissionStore.addRouters[0].path })
-            // location.reload() // 跳转后刷新页面，不然页面不会出来
+            location.reload() // 跳转后刷新页面，不然页面不会出来
           } else {
             await permissionStore.generateRoutes('none').catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
               addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
             })
             permissionStore.setIsAddRouters(true)
-            // push({ path: redirect.value || permissionStore.addRouters[0].path })
+            push({ path: redirect.value || permissionStore.addRouters[0].path })
           }
         }
       } finally {
@@ -161,40 +160,26 @@ const signIn = async () => {
 }
 
 // 获取角色信息
-const getRoleUserInfo = () => {
-  const myuserInfo1 = wsCache.get('roleAuthority')
-  // console.log(myuserInfo1)
-  const res2 = permissionStore._roleAuthority
-  console.log(myuserInfo1)
-}
-
-// 获取角色信息
-const getRole = async () => {
-  const { getFormData } = methods
-  const formData = await getFormData<UserType>()
-  const params = {
-    roleName: formData.username
-  }
-  // admin - 模拟后端过滤菜单
-  // test - 模拟前端过滤菜单
-  const res =
-    formData.username === 'admin' ? await getAdminRoleApi(params) : await getTestRoleApi(params)
-  if (res) {
-    const { wsCache } = useCache()
-    const routers = res.data || []
-    wsCache.set('roleRouters', routers)
-
-    formData.username === 'admin'
-      ? await permissionStore.generateRoutes('admin', routers).catch(() => {})
-      : await permissionStore.generateRoutes('test', routers).catch(() => {})
-
-    permissionStore.getAddRouters.forEach((route) => {
-      addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
-    })
-    permissionStore.setIsAddRouters(true)
-    push({ path: redirect.value || permissionStore.addRouters[0].path })
-  }
-}
+// const getRoleUserInfo = async () => {
+//   // 权限列表
+//   // const myuserInfo1 = wsCache.get('roleAuthority')
+//   // console.log(myuserInfo1)
+//   const res3router = ref([]) // 筛选后的路由
+//   // 路由表
+//   const res2 = permissionStore._myasyncRouterMap
+//   res2.forEach((e) => {
+//     // console.log(e.name)
+//     myuserInfo1.forEach((e2) => {
+//       // console.log(e2.authorityValue)
+//       if (e.name === e2.authorityValue) {
+//         // console.log(e)
+//         res3router.value.push(e)
+//       }
+//     })
+//   })
+//   console.log(res3router.value)
+//   await wsCache.set('screenRouters', res3router.value, { exp: 60 * 60 * 6 })
+// }
 
 // 去注册页面
 const toRegister = () => {
