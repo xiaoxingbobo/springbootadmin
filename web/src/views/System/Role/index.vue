@@ -39,7 +39,7 @@ import Write from './components/Write.vue'
 import { values } from 'lodash'
 import { number } from 'vue-types'
 import type Node from 'element-plus/es/components/tree/src/model/node'
-
+import { tranListToTreeData } from '@/utils/tree'
 // 是否显示弹窗
 const dialogVisible = ref(false)
 
@@ -190,7 +190,10 @@ const AssignPermissions = async (row) => {
   RoleResList.forEach((e) => {
     e.state = false
   })
-  jurisdictionList.value = RoleResList
+  // 把数组修改为树形
+  const RoleResList2 = tranListToTreeData(RoleResList, 0)
+  console.log(RoleResList2)
+  jurisdictionList.value = RoleResList2
   // console.log(RoleResList)
   // 设置请求角色权限分页筛选的id参数
   RoleParameter.value.condition.roleId = row.id
@@ -317,60 +320,11 @@ interface Tree {
   name: string
 }
 
-const props = {
-  label: 'name',
-  children: 'zones'
+// 树形的显示
+const defaultProps = {
+  children: 'children',
+  label: 'name'
 }
-const data44 = [
-  {
-    id: 1,
-    label: 'Level one 1',
-    children: [
-      {
-        id: 4,
-        label: 'Level two 1-1',
-        children: [
-          {
-            id: 9,
-            label: 'Level three 1-1-1'
-          },
-          {
-            id: 10,
-            label: 'Level three 1-1-2'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 2,
-    label: 'Level one 2',
-    children: [
-      {
-        id: 5,
-        label: 'Level two 2-1'
-      },
-      {
-        id: 6,
-        label: 'Level two 2-2'
-      }
-    ]
-  },
-  {
-    id: 3,
-    label: 'Level one 3',
-    children: [
-      {
-        id: 7,
-        label: 'Level two 3-1'
-      },
-      {
-        id: 8,
-        label: 'Level two 3-2'
-      }
-    ]
-  }
-]
 const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean) => {
   console.log(data, checked, indeterminate)
 }
@@ -416,7 +370,7 @@ const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean)
     <!-- 分配权限表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" v-if="Assign" label-width="80px">
       <el-form-item label="分配权限" prop="name">
-        <el-checkbox
+        <!-- <el-checkbox
           v-for="item in jurisdictionList"
           :key="item.id"
           v-model="item.state"
@@ -424,9 +378,9 @@ const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean)
           size="large"
           value
           >{{ item.name }}</el-checkbox
-        >
+        > -->
+        <el-tree :data="jurisdictionList" show-checkbox node-key="id" :props="defaultProps" />
       </el-form-item>
-      <el-tree :data="data44" node-key="id" lazy show-checkbox @check-change="handleCheckChange" />
     </el-form>
     <!-- 添加编辑表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" v-else label-width="65px">

@@ -45,39 +45,6 @@ export const usePermissionStore = defineStore({
     }
   },
   actions: {
-    // generateRoutes(
-    //   type: 'admin' | 'test' | 'none',
-    //   routers?: AppCustomRouteRecordRaw[] | string[]
-    // ): Promise<unknown> {
-    //   return new Promise<void>((resolve) => {
-    //     let routerMap: AppRouteRecordRaw[] = []
-    //     if (type === 'admin') {
-    //       // 模拟后端过滤菜单
-    //       routerMap = generateRoutesFn2(routers as AppCustomRouteRecordRaw[])
-    //     } else if (type === 'test') {
-    //       // 模拟前端过滤菜单
-    //       routerMap = generateRoutesFn1(cloneDeep(asyncRouterMap), routers as string[])
-    //     } else {
-    //       // 直接读取静态路由表
-    //       routerMap = cloneDeep(asyncRouterMap)
-    //     }
-    //     // 动态路由，404一定要放到最后面
-    //     this.addRouters = routerMap.concat([
-    //       {
-    //         path: '/:path(.*)*',
-    //         redirect: '/404',
-    //         name: '404Page',
-    //         meta: {
-    //           hidden: true,
-    //           breadcrumb: false
-    //         }
-    //       }
-    //     ])
-    //     // 渲染菜单的所有路由
-    //     this.routers = cloneDeep(constantRouterMap).concat(routerMap)
-    //     resolve()
-    //   })
-    // },
     generateRoutes(_myasyncRouterMap?: AppCustomRouteRecordRaw[] | string[]): Promise<unknown> {
       return new Promise<void>((resolve) => {
         let routerMap: AppRouteRecordRaw[] = []
@@ -137,17 +104,15 @@ export const usePermissionStore = defineStore({
           })
         })
         // 判断是否有全部权限(超级管理)
+        console.log(wsCache.get('userInfo').roleId)
         const isAllSys = ref(false) // true 为有全部权限
-        this._roleAuthority.forEach((myele) => {
-          if (myele.authorityValue !== 'sys:all:all') {
-            // 给筛选后的路由
-            // console.log('没权限')
-            routerMap = cloneDeep(asyncRouterMap2.value)
-          } else {
-            // console.log('有权限')
-            isAllSys.value = true // 让是否有全部权限为true
-          }
-        })
+        if (wsCache.get('userInfo').roleId === 1) {
+          // 角色id为1，就有所有权限
+          isAllSys.value = true // 让是否有全部权限为true
+        } else {
+          // console.log('有权限')
+          isAllSys.value = true // 让是否有全部权限为true
+        }
 
         if (isAllSys.value) {
           // 有全部权限
@@ -156,7 +121,7 @@ export const usePermissionStore = defineStore({
         } else {
           routerMap = cloneDeep(asyncRouterMap2.value)
         }
-        console.log(this._roleAuthority) // 当前角色权限列表
+        // console.log(this._roleAuthority) // 当前角色权限列表
         // routerMap = cloneDeep(asyncRouterMap)
         // routerMap = cloneDeep(asyncRouterMap2.value)
 
