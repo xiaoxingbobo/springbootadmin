@@ -32,7 +32,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:add','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
     public Boolean create(@RequestBody RoleAuthority entity) {
         return service.add(entity);
@@ -46,7 +46,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:delete','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -60,7 +60,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:delete','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -74,7 +74,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:update','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
     public Boolean update(@RequestBody RoleAuthority entity) {
         return service.update(entity);
@@ -88,7 +88,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "搜索")
     public List<RoleAuthority> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
@@ -108,7 +108,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "查询一条")
     public RoleAuthority find(@PathVariable("id") int id) {
         return (RoleAuthority) service.find(id);
@@ -123,7 +123,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
     public List<RoleAuthority> select(@PathVariable("limit") int limit) {
         return service.list(limit);
@@ -137,7 +137,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     public List<RoleAuthority> select() {
         return service.list();
     }
@@ -151,7 +151,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     public PagedResult<RoleAuthority> select(@RequestBody PagedInputC<RoleAuthority> input) {
         return service.list(input);
     }
@@ -166,7 +166,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
     public PagedResult<RoleAuthority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
@@ -181,7 +181,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     public PagedResult<RoleAuthority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
@@ -192,7 +192,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      * @return
      */
     @PostMapping("/listJoin")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "连接查询列表", notes = "id，创建时间，修改时间无需提交")
     public List<RoleAuthorityResult> listJoin(@RequestBody RoleAuthority entity) {
         return service.listJoin(entity);
@@ -205,7 +205,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
      * @return the boolean
      */
     @PutMapping ("batch")
-    @PreAuthorize("hasAnyAuthority('sys:roleAuthority:update','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_roleAuthority_add')")
     @ApiOperation(value = "批量修改", notes = "id，创建时间，修改时间无需提交")
     public Boolean updateBatch(@RequestBody List<RoleAuthority> entities) {
         return service.updateBatch(entities);

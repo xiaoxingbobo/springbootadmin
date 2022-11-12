@@ -33,7 +33,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('sys:authority:add','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
     public Boolean create(@RequestBody Authority entity) {
         return service.add(entity);
@@ -47,7 +47,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('sys:authority:delete','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -61,7 +61,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("hasAnyAuthority('sys:authority:delete','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -75,7 +75,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @PutMapping
-    @PreAuthorize("hasAnyAuthority('sys:authority:update','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
     public Boolean update(@RequestBody Authority entity) {
         return service.update(entity);
@@ -89,7 +89,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "搜索")
     public List<Authority> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
@@ -109,7 +109,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiOperation(value = "查询一条")
     public Authority find(@PathVariable("id") int id) {
         return (Authority) service.find(id);
@@ -124,7 +124,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
     public List<Authority> select(@PathVariable("limit") int limit) {
         return service.list(limit);
@@ -138,7 +138,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     public List<Authority> select() {
         return service.list();
     }
@@ -152,7 +152,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     public PagedResult<Authority> select(@RequestBody PagedInputC<Authority> input) {
         return service.list(input);
     }
@@ -167,7 +167,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
     public PagedResult<Authority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
@@ -182,7 +182,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("hasAnyAuthority('sys:authority:select','sys:all:all')")
+    @PreAuthorize("@auth.hasAuth('sys_authority_add')")
     public PagedResult<Authority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }

@@ -20,3 +20,4 @@ node_modules/
 # information for Eclipse / Flash Builder.
 *.log
 *.mp4
+.idea/workspace.xml

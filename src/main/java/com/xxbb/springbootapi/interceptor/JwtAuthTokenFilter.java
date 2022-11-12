@@ -39,6 +39,9 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
                 Integer roleId = jwt.getClaim("roleId").asInt();
                 List<String> authority = jwt.getClaim("authority").asList(String.class);
                 String name = jwt.getClaim("name").asString();
+                if(roleId==1){
+                    authority.add("ROLE_ADMIN");
+                }
                 //把token中的信息存入SecurityContext
                 User user = new User().setId(userId).setUsername(username).setRoleId(roleId).setName(name);
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, authority.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
