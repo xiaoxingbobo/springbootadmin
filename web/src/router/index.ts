@@ -116,7 +116,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     path: '/code',
     component: Layout,
     redirect: '/code/code',
-    name: 'sys:code',
+    name: 'sys_code',
     meta: {
       // title: t('router.example'),
       title: '代码生成',
@@ -127,7 +127,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'code',
         component: () => import('@/views/code/index.vue'),
-        name: 'sys:code:code',
+        name: 'sys_code_select',
         meta: {
           // title: t('router.exampleDialog')
           title: '代码生成',
@@ -141,7 +141,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     path: '/system',
     component: Layout,
     redirect: '/system/permission',
-    name: 'sys.system',
+    name: 'sys_system',
     meta: {
       // title: t('router.example'),
       title: '系统设置',
@@ -152,7 +152,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'permission',
         component: () => import('@/views/System/Permission/index.vue'),
-        name: 'sys:system:permission',
+        name: 'sys_authority_select',
         meta: {
           // title: t('router.exampleDialog')
           title: '权限管理',
@@ -162,7 +162,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'user',
         component: () => import('@/views/System/User/index.vue'),
-        name: 'sys:system:user',
+        name: 'sys_user_select',
         meta: {
           // title: t('router.exampleDialog')
           title: '用户管理',
@@ -172,7 +172,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       {
         path: 'role',
         component: () => import('@/views/System/Role/index.vue'),
-        name: 'sys:system:role',
+        name: 'sys_role_select',
         meta: {
           // title: t('router.exampleDialog')
           title: '角色管理',

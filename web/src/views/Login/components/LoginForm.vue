@@ -142,7 +142,7 @@ const signIn = async () => {
           if (appStore.getDynamicRouter) {
             // getRole()  // 获取角色信息
             // push({ path: redirect.value || permissionStore.addRouters[0].path })
-            location.reload() // 跳转后刷新页面，不然页面不会出来
+            // location.reload() // 跳转后刷新页面，不然页面不会出来
           } else {
             await permissionStore.generateRoutes('none').catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
