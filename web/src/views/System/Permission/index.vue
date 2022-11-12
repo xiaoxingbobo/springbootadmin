@@ -82,6 +82,7 @@ let keshengchenglist = ref('')
 const numberForm = reactive({
   namejurisdiction: '',
   valuejurisdiction: '',
+  parentIdjurisdiction: 0,
   // 带详情参数添加权限list数据
   entityFields: {
     description: '',
@@ -138,9 +139,10 @@ const disabled = ref(false)
 let _PageSize = ref(10)
 
 // 添加权限
-const _addPermission = async (name, value) => {
+const _addPermission = async (name, value, parentId) => {
   await addPermission({
     name: name,
+    parentId: parentId,
     value: value
   })
 }
@@ -157,10 +159,11 @@ const _DeletePermissions = async (id) => {
   await DeletePermissions(id)
 }
 // 编辑权限
-const _EditPermissions = async (name, value, id) => {
+const _EditPermissions = async (name, value, parentId, id) => {
   await EditPermissions({
     name: name,
     value: value,
+    parentId: parentId,
     id: id
   })
 }
@@ -170,6 +173,7 @@ const _GetPermissionById = async (id) => {
   // console.log(res)
   numberForm.namejurisdiction = res.data.name
   numberForm.valuejurisdiction = res.data.value
+  numberForm.parentIdjurisdiction = res.data.parentId
 }
 onMounted(async () => {
   await _PaginationQuery() // 跟新列表
@@ -190,7 +194,11 @@ const save = (formEl: FormInstance | undefined) => {
       // 通过验证
       if (dialogTitle.value === '添加权限') {
         try {
-          await _addPermission(numberForm.namejurisdiction, numberForm.valuejurisdiction)
+          await _addPermission(
+            numberForm.namejurisdiction,
+            numberForm.valuejurisdiction,
+            numberForm.parentIdjurisdiction
+          )
           ElMessage({
             message: '添加权限成功!',
             type: 'success'
@@ -204,6 +212,7 @@ const save = (formEl: FormInstance | undefined) => {
           await _EditPermissions(
             numberForm.namejurisdiction,
             numberForm.valuejurisdiction,
+            numberForm.parentIdjurisdiction,
             editactionid.value
           )
           ElMessage({
@@ -313,10 +322,13 @@ const editaction = async (row) => {
       </el-form-item>
       <el-form-item
         prop="valuejurisdiction"
-        label="权限点"
+        label="权限值"
         :rules="[{ required: true, message: '权限点不能为空！' }]"
       >
         <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
+      </el-form-item>
+      <el-form-item prop="valuejurisdiction" label="上级权限">
+        <el-input v-model="numberForm.parentIdjurisdiction" autocomplete="off" />
       </el-form-item>
     </el-form>
     <template #footer>
