@@ -120,7 +120,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     meta: {
       // title: t('router.example'),
       title: '代码生成',
-      icon: 'ep:setting',
+      icon: 'vaadin:code',
       alwaysShow: true
     },
     children: [

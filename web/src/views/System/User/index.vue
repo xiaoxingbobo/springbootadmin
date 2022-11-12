@@ -361,56 +361,27 @@ console.log(res8)
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加用户</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
+      <ElButton :loading="delLoading" type="danger">
+        <Icon icon="fluent:delete-28-regular" />删除
+      </ElButton>
     </div>
     <div class="mb-10px">
-      <el-form :inline="true" label-width="55px" size="large">
+      <el-form :inline="true" label-width="55px">
         <el-form-item label="用户名">
-          <el-input
-            style="width: 230px"
-            v-model="inputUsername"
-            class="w-50 m-2"
-            size="small"
-            placeholder="username"
-          />
+          <el-input style="width: 230px" v-model="inputUsername" placeholder="username" />
         </el-form-item>
         <el-form-item label="name">
-          <el-input
-            style="width: 230px"
-            v-model="inputName"
-            class="w-50 m-2"
-            size="small"
-            placeholder="name"
-          />
+          <el-input style="width: 230px" v-model="inputName" placeholder="name" />
         </el-form-item>
         <el-form-item label="年龄">
-          <el-input
-            style="width: 230px"
-            v-model="inputAge"
-            class="w-50 m-2"
-            size="small"
-            placeholder="age"
-          />
+          <el-input style="width: 230px" v-model="inputAge" placeholder="age" />
         </el-form-item>
         <el-form-item>
-          <el-button size="small" type="primary" @click="inputBlur"
-            ><svg
-              t="1668148758475"
-              class="icon"
-              viewBox="0 0 1024 1024"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="5802"
-              width="16"
-              height="16"
-            >
-              <path
-                d="M869.2 856.9L734.6 722.3c0.6-0.6 1.3-1.2 1.9-1.9 31.6-31.6 56.4-68.4 73.8-109.4 18-42.4 27.1-87.5 27.1-134s-9.1-91.5-27.1-134c-17.3-41-42.2-77.8-73.8-109.4-31.6-31.6-68.4-56.4-109.4-73.8-42.4-18-87.5-27.1-134-27.1s-91.5 9.1-134 27.1c-41 17.3-77.8 42.2-109.4 73.8S193.3 302 175.9 343c-18 42.4-27.1 87.5-27.1 134s9.1 91.5 27.1 134c17.3 41 42.2 77.8 73.8 109.4s68.4 56.4 109.4 73.8c42.4 18 87.5 27.1 134 27.1s91.5-9.1 134-27.1c27.8-11.8 53.7-27 77.4-45.4l136.4 136.4c3.9 3.9 9 5.9 14.1 5.9s10.2-2 14.1-5.9c7.9-7.8 7.9-20.4 0.1-28.3z m-376.1-75.6c-167.7 0-304.2-136.5-304.2-304.2s136.5-304.2 304.2-304.2 304.2 136.5 304.2 304.2-136.4 304.2-304.2 304.2z"
-                p-id="5803"
-                fill="#ffffff"
-              /></svg
-            >查询</el-button
-          >
+          <!-- <el-button type="primary" @click="inputBlur">
+            <Icon icon="bi:search" />
+            查询
+          </el-button> -->
+          <ElButton type="primary" @click="inputBlur"><Icon icon="bi:search" /> 查询</ElButton>
         </el-form-item>
       </el-form>
     </div>
@@ -481,8 +452,9 @@ console.log(res8)
         <el-input v-model="addUserdata.nickname" autocomplete="off" />
       </el-form-item>
       <el-form-item label="年龄" prop="age">
-        <el-input v-model="addUserdata.age" autocomplete="off" /> </el-form-item
-      ><el-form-item label="email" prop="email">
+        <el-input v-model="addUserdata.age" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="email" prop="email">
         <el-input v-model="addUserdata.email" autocomplete="off" />
       </el-form-item>
       <el-radio-group v-model="addUserdata.sex">
