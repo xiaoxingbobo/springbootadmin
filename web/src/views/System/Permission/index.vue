@@ -138,7 +138,6 @@ const treenodeClick = (e) => {
   numberForm.parentIdjurisdiction = e.id
 }
 // 修改每页显示多少条数
-
 const handleSizeChange = (val: number) => {
   Paginationdata.size = val
   // console.log(Paginationdata.size)
@@ -204,7 +203,8 @@ const _GetPermissionById = async (id) => {
   })
 }
 onMounted(async () => {
-  await _PaginationQuery() // 跟新列表
+  // await _PaginationQuery() // 跟新列表
+  _PermissionList() // 跟新列表
 })
 // 添加接口按钮
 const tianjiajiekoubtn = () => {
@@ -254,7 +254,8 @@ const save = (formEl: FormInstance | undefined) => {
       // console.log(dinputvalue.value)
       dialogVisible.value = false
       close()
-      _PaginationQuery() // 跟新列表
+      // _PaginationQuery() // 跟新列表
+      _PermissionList() // 跟新列表
     } else {
       // 表单不通过验证
       return false
@@ -291,7 +292,8 @@ const deleteaction = async (row) => {
   } catch (error) {
     ElMessage.error(error)
   }
-  _PaginationQuery() // 跟新列表
+  // _PaginationQuery() // 跟新列表
+  _PermissionList() // 跟新列表
 }
 // 编辑按钮
 const editaction = async (row) => {
