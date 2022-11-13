@@ -200,9 +200,6 @@ const deleteaction = async (row) => {
 // 关闭弹窗
 const close = (formEl: FormInstance | undefined = undefined) => {
   dialogVisible.value = false
-  // 重置表单
-  if (!formEl) return
-  formEl.resetFields()
   addUserdata.age = 18
   addUserdata.username = ''
   addUserdata.password = ''
@@ -210,6 +207,9 @@ const close = (formEl: FormInstance | undefined = undefined) => {
   addUserdata.roleId = null
   addUserdata.nickname = ''
   addUserdata.sex = 0
+  // 重置表单
+  if (!formEl) return
+  formEl.resetFields()
 }
 // 点击保存按钮
 const save = (formEl: FormInstance | undefined) => {
@@ -339,13 +339,20 @@ const inputBlur = async () => {
 
 // 请求路由列表
 const res8 = wsCache.get('screenRouters')
-console.log(res8)
+// console.log(res8)
+// 重置搜索的输入框,点击重置按钮
+const inputBtnReset = () => {
+  inputUsername.value = null
+  inputName.value = null
+  inputAge.value = null
+  _PaginationQuery() //跟新列表
+}
 </script>
 
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn">添加用户</ElButton>
+      <ElButton type="primary" @click="tianjiajiekoubtn"> 添加用户</ElButton>
       <ElButton :loading="delLoading" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
@@ -367,6 +374,7 @@ console.log(res8)
             查询
           </el-button> -->
           <ElButton type="primary" @click="inputBlur"> <Icon icon="bi:search" /> 查询 </ElButton>
+          <ElButton type="primary" @click="inputBtnReset"> <Icon icon="bx:reset" /> 重置 </ElButton>
         </el-form-item>
       </el-form>
     </div>
@@ -396,6 +404,7 @@ console.log(res8)
     v-model="dialogVisible"
     :title="dialogTitle"
     maxHeight="60%"
+    @closed="close"
     style="width: 40%; min-width: 375px; max-width: 600px"
   >
     <!-- 表单 -->

@@ -28,11 +28,16 @@ import {
   ElTabPane,
   ElRow,
   ElCol,
-  ElPagination
+  ElPagination,
+  ElTree,
+  ElTreeSelect,
+  ElTable,
+  ElTableColumn
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import Write from './components/Write.vue'
 import { values } from 'lodash'
+import { tranListToTreeData } from '@/utils/tree'
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -57,10 +62,6 @@ const columns = reactive<TableColumn[]>([
     label: '创建时间'
   },
   {
-    field: 'id',
-    label: 'id'
-  },
-  {
     field: 'action',
     width: '160px',
     label: '操作',
@@ -75,6 +76,10 @@ const columns = reactive<TableColumn[]>([
 
 //  权限列表数据
 let tabledata = ref('')
+// 树形权限列表数据
+let treetabledata = ref([])
+// 全部权限列表数据
+let allTabledata = ref([])
 
 // 可生成实体列表
 let keshengchenglist = ref('')
@@ -99,6 +104,10 @@ const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
 
+// 树形上级id选择
+// 当前选择的树形权限的上级id
+const treeparentId = ref(null)
+
 // 表格分页
 let total = ref(0)
 // 分页数据
@@ -114,11 +123,22 @@ let Paginationdata: {
 // 分页查询函数
 const _PaginationQuery = async () => {
   const { data: res } = await PaginationQuery(Paginationdata)
-  console.log(res)
   tabledata.value = res.data
   total.value = res.total
 }
+// 查询全部权限列表-转化成树形
+const _PermissionList = async () => {
+  const { data: treeres } = await PermissionList()
+  allTabledata.value = treeres
+  treetabledata.value = tranListToTreeData(treeres, 0) // 将数组转化成树形
+}
+_PermissionList()
+// 点击树形的节点
+const treenodeClick = (e) => {
+  numberForm.parentIdjurisdiction = e.id
+}
 // 修改每页显示多少条数
+
 const handleSizeChange = (val: number) => {
   Paginationdata.size = val
   // console.log(Paginationdata.size)
@@ -171,9 +191,17 @@ const _EditPermissions = async (name, value, parentId, id) => {
 const _GetPermissionById = async (id) => {
   const res = await GetPermissionById(id)
   // console.log(res)
+  // 给编辑的输入框赋值
   numberForm.namejurisdiction = res.data.name
   numberForm.valuejurisdiction = res.data.value
   numberForm.parentIdjurisdiction = res.data.parentId
+  // 通过父id，遍历所有权限，父id=id,就找出父权限的名字
+  allTabledata.value.forEach((elall) => {
+    if (res.data.parentId === elall.id) {
+      // console.log(elall.name)
+      treeparentId.value = elall.name // 上级权限名字
+    }
+  })
 }
 onMounted(async () => {
   await _PaginationQuery() // 跟新列表
@@ -224,7 +252,7 @@ const save = (formEl: FormInstance | undefined) => {
         }
       }
       // console.log(dinputvalue.value)
-      // dialogVisible.value = false
+      dialogVisible.value = false
       close()
       _PaginationQuery() // 跟新列表
     } else {
@@ -236,6 +264,7 @@ const save = (formEl: FormInstance | undefined) => {
 
 // 关闭按钮
 const close = () => {
+  treeparentId.value = null
   dialogVisible.value = false
   // 重置表单
   ;(numberForm.namejurisdiction = ''), (numberForm.valuejurisdiction = '')
@@ -243,6 +272,7 @@ const close = () => {
 // 删除按钮
 const deleteaction = async (row) => {
   console.log(row.id)
+  // console.log(index)
   try {
     const res = await ElMessageBox.confirm('确定要删除此权限吗?', '提示', {
       confirmButtonText: '确定',
@@ -281,15 +311,36 @@ const editaction = async (row) => {
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加权限</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
     </div>
-    <Table :columns="columns" :data="tabledata">
+    <!-- <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
         <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
       </template>
-    </Table>
-    <el-pagination
+    </Table> -->
+    <!-- 树形table -->
+    <el-table
+      :data="treetabledata"
+      style="width: 100%; margin-bottom: 20px"
+      row-key="id"
+      border
+      default-expand-all
+    >
+      <el-table-column prop="name" label="名称" sortable />
+      <el-table-column prop="value" label="权限值" sortable />
+      <el-table-column prop="createTime" label="创建时间" sortable />
+      <el-table-column label="操作" width="250">
+        <template #default="scope">
+          <ElButton type="danger" :loading="delLoading" @click="deleteaction(scope.row)">
+            删除
+          </ElButton>
+          <ElButton type="primary" :loading="delLoading" @click="editaction(scope.row)">
+            编辑
+          </ElButton>
+        </template>
+      </el-table-column>
+    </el-table>
+    <!-- <el-pagination
       v-model:currentPage="currentPage"
       v-model:page-size="pageSize"
       :page-sizes="[10, 50, 100, 400]"
@@ -302,7 +353,7 @@ const editaction = async (row) => {
       page-size="Paginationdata.size"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-    />
+    /> -->
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog
@@ -310,6 +361,7 @@ const editaction = async (row) => {
     :title="dialogTitle"
     maxHeight="200px"
     style="width: 30%; min-width: 375px; max-width: 600px"
+    @closed="close"
   >
     <!-- 左边 -->
     <el-form ref="diaLogForm" :model="numberForm">
@@ -328,7 +380,16 @@ const editaction = async (row) => {
         <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
       </el-form-item>
       <el-form-item prop="valuejurisdiction" label="上级权限">
-        <el-input v-model="numberForm.parentIdjurisdiction" autocomplete="off" />
+        <!-- <el-input v-model="numberForm.parentIdjurisdiction" autocomplete="off" /> -->
+        <el-tree-select
+          v-model="treeparentId"
+          :data="treetabledata"
+          check-strictly
+          value-key="name"
+          :render-after-expand="false"
+          placeholder="请选择角色"
+          @node-click="treenodeClick"
+        />
       </el-form-item>
     </el-form>
     <template #footer>

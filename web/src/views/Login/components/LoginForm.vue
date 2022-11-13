@@ -2,7 +2,7 @@
 import { reactive, ref, unref, watch } from 'vue'
 import { Form } from '@/components/Form'
 import { useI18n } from '@/hooks/web/useI18n'
-import { ElButton, ElCheckbox, ElLink } from 'element-plus'
+import { ElButton, ElCheckbox, ElLink, ElMessage, ElMessageBox } from 'element-plus'
 import { useForm } from '@/hooks/web/useForm'
 import { loginApi } from '@/api/login'
 import { useCache } from '@/hooks/web/useCache'
@@ -128,10 +128,10 @@ const signIn = async () => {
 
       try {
         const res = await loginApi(formData)
-        // interface resultData = {
-        //   userInfo: any
-        //   roleAuthority: any
-        // }
+        ElMessage({
+          message: '登录成功！',
+          type: 'success'
+        })
         if (res) {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
@@ -140,7 +140,10 @@ const signIn = async () => {
           wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 }) // 当前用户拥有的权限列表
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
           // getRoleUserInfo()
-
+          ElMessage({
+            message: '登录成功',
+            type: 'success'
+          })
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
             // getRole()  // 获取角色信息

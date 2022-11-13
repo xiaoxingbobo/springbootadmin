@@ -49,7 +49,7 @@ export const usePermissionStore = defineStore({
       return new Promise<void>((resolve) => {
         let routerMap: AppRouteRecordRaw[] = []
         const asyncRouterMap1 = asyncRouterMap // 复制的全部路由
-        const asyncRouterMap2 = ref([]) // 定义筛选后的路由列表
+        const asyncRouterMap2: any = [] // 定义筛选后的路由列表
 
         // 让子路由显示的函数，isAll为当要显示所有组路由时候传true
         const _modifychildren = (fun, isAll?) => {
@@ -61,7 +61,7 @@ export const usePermissionStore = defineStore({
               if (echildren.children) {
                 echildren.children.forEach((echildren2) => {
                   echildren2.meta.hidden = false
-                  console.log('修改了子路由')
+                  // console.log('修改了子路由')
                   // _modifychildren(echildren)
                   _modifychildren(echildren.children)
                 })
@@ -70,6 +70,7 @@ export const usePermissionStore = defineStore({
           } else {
             // 否则只显示有权限的子路由
             // 遍历当前路由
+            // console.log(this._roleAuthority)
             fun.forEach((echildren) => {
               // 遍历权限列表
               this._roleAuthority.forEach((enoAll) => {
@@ -99,19 +100,20 @@ export const usePermissionStore = defineStore({
               if (e1.children) {
                 _modifychildren(e1.children)
               }
-              asyncRouterMap2.value.push(e1)
+              asyncRouterMap2.push(e1)
+              // console.log(asyncRouterMap2)
             }
           })
         })
         // 判断是否有全部权限(超级管理)
-        console.log(wsCache.get('userInfo').roleId)
+        // console.log(wsCache.get('userInfo'))
         const isAllSys = ref(false) // true 为有全部权限
         if (wsCache.get('userInfo').roleId === 1) {
           // 角色id为1，就有所有权限
           isAllSys.value = true // 让是否有全部权限为true
         } else {
-          // console.log('有权限')
-          isAllSys.value = true // 让是否有全部权限为true
+          // console.log('无全部权限')
+          isAllSys.value = false // 让是否有全部权限为true
         }
 
         if (isAllSys.value) {
@@ -119,7 +121,7 @@ export const usePermissionStore = defineStore({
           _modifychildren(asyncRouterMap, true) // 调用函数让子路由显示
           routerMap = cloneDeep(asyncRouterMap) // 直接给全部路由
         } else {
-          routerMap = cloneDeep(asyncRouterMap2.value)
+          routerMap = cloneDeep(asyncRouterMap2)
         }
         // console.log(this._roleAuthority) // 当前角色权限列表
         // routerMap = cloneDeep(asyncRouterMap)

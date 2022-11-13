@@ -9,6 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +61,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RebelAgentSelection">
@@ -148,6 +153,8 @@
       <workItem from="1668162055876" duration="5837000" />
       <workItem from="1668222637143" duration="3012000" />
       <workItem from="1668225730888" duration="3184000" />
+      <workItem from="1668265552043" duration="663000" />
+      <workItem from="1668324529588" duration="803000" />
     </task>
     <servers />
   </component>

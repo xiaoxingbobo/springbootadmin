@@ -50,7 +50,10 @@ service.interceptors.request.use(
     const token = wsCache.get('token') || ''
     if (token) {
       // console.log(token)
-      config.headers['Authorization'] = token
+      if (config && config.headers) {
+        // 多一步判断
+        config.headers['Authorization'] = token
+      }
     }
 
     return config

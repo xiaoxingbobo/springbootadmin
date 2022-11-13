@@ -82,6 +82,8 @@ const dialogTitle = ref('添加角色')
 const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
+const permTree = ref() // eltree树形
+
 // 添加角色参数
 const addUserdata = reactive({
   name: ''
@@ -89,6 +91,8 @@ const addUserdata = reactive({
 // 分配权限
 const checked1 = ref(true)
 const checked2 = ref(false)
+// 分配权限复选框最新的权限id列表
+const newtcheckedIdLIst = ref()
 // 所有权限列表数据
 let jurisdictionList = ref('')
 // 批量添加参数
@@ -167,6 +171,7 @@ const tianjiajiekoubtn = () => {
 }
 // 编辑角色按钮
 const editaction = async (row) => {
+  Assign.value = false
   dialogTitle.value = '编辑角色'
   // console.log(row.id)
   editactionid.value = row.id
@@ -174,7 +179,9 @@ const editaction = async (row) => {
   const { data: res } = await byIdgetUser(row.id)
   addUserdata.name = res.name
 }
-
+// 角色拥有的权限列表id列表，用于树形显示
+let tcheckedIdLIst = ref([])
+// let tcheckedIdLIst = []
 // 分配权限按钮
 const Assign = ref(false)
 const AssignPermissions = async (row) => {
@@ -186,31 +193,37 @@ const AssignPermissions = async (row) => {
   // 请求权限列表
   const res = await getAuthority()
   const RoleResList = res.data
+  // console.log(RoleResList)
   // 给权限加一个state选中状态
   RoleResList.forEach((e) => {
     e.state = false
   })
-  // 把数组修改为树形
-  const RoleResList2 = tranListToTreeData(RoleResList, 0)
-  console.log(RoleResList2)
-  jurisdictionList.value = RoleResList2
-  // console.log(RoleResList)
+
   // 设置请求角色权限分页筛选的id参数
   RoleParameter.value.condition.roleId = row.id
   // console.log(RoleParameter.value)
   // // 请求角色权限表分页筛选
   const { data: res2 } = await RoleAuthoritysPaged(RoleParameter.value)
   // console.log(res2.data)
-  const PagedresList = res2.data
+  const PagedresList = res2.data // 当前角色的角色权限列表
+  // console.log(PagedresList)
   PagedresList.forEach((e) => {
-    // console.log(e.authorityId)
-    jurisdictionList.value.forEach((e2) => {
-      // console.log(e2)
-      if (e.authorityId === e2.id) {
-        e2.state = true
-      }
-    })
+    // console.log(e.authorityId) // 角色拥有的权限列表id
+    tcheckedIdLIst.value.push(e.authorityId)
+    // console.log(tcheckedIdLIst.value)
+    // jurisdictionList.value.forEach((e2) => {
+    //   // console.log(e2)
+    //   if (e.authorityId === e2.id) {
+    //     e2.state = true
+    //   }
+    // })
   })
+
+  // 把数组修改为树形
+  const RoleResList2 = tranListToTreeData(RoleResList, 0)
+  // console.log(RoleResList2)
+  jurisdictionList.value = RoleResList2
+  // console.log(RoleResList)
 }
 // 添加角色函数
 const _addUser = async (data) => {
@@ -240,13 +253,21 @@ const deleteaction = async (row) => {
 }
 
 // 关闭弹窗
-const close = (formEl: FormInstance | undefined) => {
+const dclose = (formEl: FormInstance | undefined) => {
+  Assign.value = false // 还原是否是分配权限
+  tcheckedIdLIst.value = [] // 重置树形的选中项
   dialogVisible.value = false
   // 重置表单
   if (!formEl) return
   formEl.resetFields()
   addUserdata.name = ''
-  Assign.value = false // 还原是否是分配权限
+}
+
+// 点击复选框后的事件
+const demonodeclick = () => {
+  // 点击复选框后最新选中的权限id列表
+  newtcheckedIdLIst.value = permTree.value.getCheckedKeys()
+  console.log(newtcheckedIdLIst.value)
 }
 // 点击保存按钮
 const save = async (formEl: FormInstance | undefined) => {
@@ -280,23 +301,33 @@ const save = async (formEl: FormInstance | undefined) => {
         }
 
         // 关闭弹窗  刷新列表
-        close()
+        dclose()
         _PaginationQuery() // 刷新列表
       } else {
         return false
       }
     })
   } else {
-    // 分配权限
+    // 确定分配权限
     // 给角色分配权限参数赋值
-    jurisdictionList.value.forEach((e) => {
-      if (e.state) {
+    // 判断有没有点击复选框
+    if (newtcheckedIdLIst.value) {
+      // console.log(newtcheckedIdLIst.value)
+      newtcheckedIdLIst.value.forEach((element) => {
         batchParameter.push({
-          authorityId: e.id,
-          roleId: editactionid.value
+          authorityId: element,
+          roleId: editactionid.value // 角色id
         })
-      }
-    })
+      })
+      console.log(batchParameter)
+    } else {
+      ElMessage({
+        message: '数据没有变更!',
+        type: 'error'
+      })
+      dclose()
+    }
+
     try {
       const res = await batchRoleAuthoritys(batchParameter)
       if (res.state) {
@@ -305,9 +336,11 @@ const save = async (formEl: FormInstance | undefined) => {
           type: 'success'
         })
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
     // 关闭弹窗  刷新列表
-    close()
+    dclose()
     batchParameter = []
     _PaginationQuery() // 刷新列表
   }
@@ -325,16 +358,15 @@ const defaultProps = {
   children: 'children',
   label: 'name'
 }
-const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean) => {
-  console.log(data, checked, indeterminate)
-}
 </script>
 
 <template>
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" @click="tianjiajiekoubtn">添加角色</ElButton>
-      <ElButton :loading="delLoading" type="danger">删除</ElButton>
+      <ElButton :loading="delLoading" type="danger">
+        <Icon icon="fluent:delete-28-regular" />删除</ElButton
+      >
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
@@ -366,20 +398,22 @@ const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean)
     :title="dialogTitle"
     maxHeight="60%"
     style="width: 40%; min-width: 375px; max-width: 600px"
+    @closed="dclose"
   >
     <!-- 分配权限表单 -->
     <el-form ref="diaLogForm" :model="addUserdata" v-if="Assign" label-width="80px">
       <el-form-item label="分配权限" prop="name">
-        <!-- <el-checkbox
-          v-for="item in jurisdictionList"
-          :key="item.id"
-          v-model="item.state"
-          :label="item.value"
-          size="large"
-          value
-          >{{ item.name }}</el-checkbox
-        > -->
-        <el-tree :data="jurisdictionList" show-checkbox node-key="id" :props="defaultProps" />
+        <el-tree
+          ref="permTree"
+          :data="jurisdictionList"
+          default-expand-all
+          show-checkbox
+          check-strictly
+          node-key="id"
+          :default-checked-keys="tcheckedIdLIst"
+          :props="defaultProps"
+          @check="demonodeclick"
+        />
       </el-form-item>
     </el-form>
     <!-- 添加编辑表单 -->
@@ -401,7 +435,7 @@ const handleCheckChange = (data: Tree, checked: boolean, indeterminate: boolean)
       >
         确定
       </ElButton>
-      <el-button @click="close(diaLogForm)">关闭</el-button>
+      <el-button @click="dclose(diaLogForm)">关闭</el-button>
     </template>
   </Dialog>
 </template>
