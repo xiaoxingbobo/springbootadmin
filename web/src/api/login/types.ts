@@ -10,4 +10,6 @@ export type UserType = {
   roleId: string
   permissions: string | string[]
   token: string
+  userInfo: any
+  roleAuthority: any
 }

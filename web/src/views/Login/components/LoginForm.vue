@@ -4,7 +4,7 @@ import { Form } from '@/components/Form'
 import { useI18n } from '@/hooks/web/useI18n'
 import { ElButton, ElCheckbox, ElLink } from 'element-plus'
 import { useForm } from '@/hooks/web/useForm'
-import { loginApi, getTestRoleApi, getAdminRoleApi } from '@/api/login'
+import { loginApi } from '@/api/login'
 import { useCache } from '@/hooks/web/useCache'
 import { useAppStore } from '@/store/modules/app'
 import { usePermissionStore } from '@/store/modules/permission'
@@ -12,7 +12,6 @@ import { useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router'
 import { UserType } from '@/api/login/types'
 import { useValidator } from '@/hooks/web/useValidator'
-import { time } from 'echarts'
 
 const { required } = useValidator()
 
@@ -129,7 +128,10 @@ const signIn = async () => {
 
       try {
         const res = await loginApi(formData)
-
+        // interface resultData = {
+        //   userInfo: any
+        //   roleAuthority: any
+        // }
         if (res) {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
@@ -145,7 +147,7 @@ const signIn = async () => {
             // push({ path: redirect.value || permissionStore.addRouters[0].path })
             location.reload() // 跳转后刷新页面，不然页面不会出来
           } else {
-            await permissionStore.generateRoutes('none').catch(() => {})
+            await permissionStore.generateRoutes().catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
               addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
             })
@@ -159,28 +161,6 @@ const signIn = async () => {
     }
   })
 }
-
-// 获取角色信息
-// const getRoleUserInfo = async () => {
-//   // 权限列表
-//   // const myuserInfo1 = wsCache.get('roleAuthority')
-//   // console.log(myuserInfo1)
-//   const res3router = ref([]) // 筛选后的路由
-//   // 路由表
-//   const res2 = permissionStore._myasyncRouterMap
-//   res2.forEach((e) => {
-//     // console.log(e.name)
-//     myuserInfo1.forEach((e2) => {
-//       // console.log(e2.authorityValue)
-//       if (e.name === e2.authorityValue) {
-//         // console.log(e)
-//         res3router.value.push(e)
-//       }
-//     })
-//   })
-//   console.log(res3router.value)
-//   await wsCache.set('screenRouters', res3router.value, { exp: 60 * 60 * 6 })
-// }
 
 // 去注册页面
 const toRegister = () => {

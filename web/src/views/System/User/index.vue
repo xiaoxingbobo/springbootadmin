@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { h, ref, unref, reactive, onMounted, toRefs } from 'vue'
+import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
 import {
   PaginationQuery,
@@ -14,7 +14,6 @@ import {
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
-  ElTag,
   ElForm,
   ElFormItem,
   ElInput,
@@ -24,16 +23,9 @@ import {
   ElRadio,
   ElMessage,
   ElMessageBox,
-  ElTabs,
-  ElTabPane,
-  ElRow,
-  ElCol,
   ElPagination
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
-import Write from './components/Write.vue'
-import { values } from 'lodash'
-import { number } from 'vue-types'
 import { useCache } from '@/hooks/web/useCache'
 
 const { wsCache } = useCache('localStorage')
@@ -87,9 +79,6 @@ const columns = reactive<TableColumn[]>([
 
 //  user列表数据
 let tabledata = ref('')
-
-// 是否覆盖
-const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加用户')
 // 点击编辑，id存放
@@ -126,7 +115,6 @@ let RoleList = ref('')
 const selectFocus = async () => {
   const res = await getRole()
   RoleList.value = res.data
-  // console.log(res.data)
 }
 // 分页查询函数
 const _PaginationQuery = async () => {
@@ -160,8 +148,6 @@ const pageSize = ref(10)
 const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
-// 每页显示数目
-let _PageSize = ref(10)
 _PaginationQuery() // 刷新列表
 
 // 添加用户按钮
@@ -186,7 +172,7 @@ const editaction = async (row) => {
 }
 // 添加用户函数
 const _addUser = async (data) => {
-  const res = await addUser(data)
+  await addUser(data)
   // console.log(res)
 }
 // 删除用户按钮
@@ -212,7 +198,7 @@ const deleteaction = async (row) => {
 }
 
 // 关闭弹窗
-const close = (formEl: FormInstance | undefined) => {
+const close = (formEl: FormInstance | undefined = undefined) => {
   dialogVisible.value = false
   // 重置表单
   if (!formEl) return
@@ -246,7 +232,6 @@ const save = (formEl: FormInstance | undefined) => {
         console.log('点击了编辑的按钮')
         try {
           addUserdata.id = editactionid.value
-          // console.log(addUserdata.id)
           await putUser(addUserdata)
           ElMessage({
             message: '操作成功!',
@@ -381,7 +366,7 @@ console.log(res8)
             <Icon icon="bi:search" />
             查询
           </el-button> -->
-          <ElButton type="primary" @click="inputBlur"><Icon icon="bi:search" /> 查询</ElButton>
+          <ElButton type="primary" @click="inputBlur"> <Icon icon="bi:search" /> 查询 </ElButton>
         </el-form-item>
       </el-form>
     </div>
