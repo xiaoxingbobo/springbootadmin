@@ -352,7 +352,7 @@ const inputBtnReset = () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn"> 添加用户</ElButton>
+      <ElButton type="success" @click="tianjiajiekoubtn"> 添加用户</ElButton>
       <ElButton :loading="delLoading" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
@@ -369,10 +369,6 @@ const inputBtnReset = () => {
           <el-input style="width: 230px" v-model="inputAge" placeholder="age" />
         </el-form-item>
         <el-form-item>
-          <!-- <el-button type="primary" @click="inputBlur">
-            <Icon icon="bi:search" />
-            查询
-          </el-button> -->
           <ElButton type="primary" @click="inputBlur"> <Icon icon="bi:search" /> 查询 </ElButton>
           <ElButton type="primary" @click="inputBtnReset"> <Icon icon="bx:reset" /> 重置 </ElButton>
         </el-form-item>
@@ -428,13 +424,9 @@ const inputBtnReset = () => {
         prop="roleId"
         :rules="[{ required: true, message: '请选择角色！' }]"
       >
-        <!-- <el-input v-model="addUserdata.roleId" autocomplete="off" /> -->
         <el-select v-model="addUserdata.roleId" placeholder="请选择角色" @focus="selectFocus">
           <el-option v-for="item in RoleList" :key="item.id" :label="item.name" :value="item.id">
             <span style="float: left">{{ item.name }}</span>
-            <!-- <span style="float: right; color: var(--el-text-color-secondary); font-size: 13px">{{
-              item.id
-            }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
@@ -451,10 +443,12 @@ const inputBtnReset = () => {
       <el-form-item label="email" prop="email">
         <el-input v-model="addUserdata.email" autocomplete="off" />
       </el-form-item>
-      <el-radio-group v-model="addUserdata.sex">
-        <el-radio :label="0">男</el-radio>
-        <el-radio :label="1">女</el-radio>
-      </el-radio-group>
+      <el-form-item label="性别">
+        <el-radio-group v-model="addUserdata.sex">
+          <el-radio :label="0">男</el-radio>
+          <el-radio :label="1">女</el-radio>
+        </el-radio-group>
+      </el-form-item>
     </el-form>
     <template #footer>
       <ElButton

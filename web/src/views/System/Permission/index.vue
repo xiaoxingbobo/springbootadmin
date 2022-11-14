@@ -100,7 +100,7 @@ const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加权限')
 // 点击编辑，id存放
-const editactionid = ref('')
+const editactionid = ref(0)
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
 
@@ -209,7 +209,6 @@ onMounted(async () => {
 // 添加接口按钮
 const tianjiajiekoubtn = () => {
   dialogTitle.value = '添加权限'
-  // console.log(111)
   dialogVisible.value = true
 }
 
@@ -265,10 +264,14 @@ const save = (formEl: FormInstance | undefined) => {
 
 // 关闭按钮
 const close = () => {
+  // 重置数据
   treeparentId.value = null
   dialogVisible.value = false
+  editactionid.value = 0
   // 重置表单
-  ;(numberForm.namejurisdiction = ''), (numberForm.valuejurisdiction = '')
+  ;(numberForm.namejurisdiction = ''),
+    (numberForm.valuejurisdiction = ''),
+    (numberForm.parentIdjurisdiction = 0)
 }
 // 删除按钮
 const deleteaction = async (row) => {
@@ -312,7 +315,7 @@ const editaction = async (row) => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn">添加权限</ElButton>
+      <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton>
     </div>
     <!-- <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
@@ -321,13 +324,7 @@ const editaction = async (row) => {
       </template>
     </Table> -->
     <!-- 树形table -->
-    <el-table
-      :data="treetabledata"
-      style="width: 100%; margin-bottom: 20px"
-      row-key="id"
-      border
-      default-expand-all
-    >
+    <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
       <el-table-column prop="name" label="名称" sortable />
       <el-table-column prop="value" label="权限值" sortable />
       <el-table-column prop="createTime" label="创建时间" sortable />
@@ -377,12 +374,11 @@ const editaction = async (row) => {
       <el-form-item
         prop="valuejurisdiction"
         label="权限值"
-        :rules="[{ required: true, message: '权限点不能为空！' }]"
+        :rules="[{ required: true, message: '权限值不能为空！' }]"
       >
         <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
       </el-form-item>
-      <el-form-item prop="valuejurisdiction" label="上级权限">
-        <!-- <el-input v-model="numberForm.parentIdjurisdiction" autocomplete="off" /> -->
+      <el-form-item prop="treeparentId" label="上级权限">
         <el-tree-select
           v-model="treeparentId"
           :data="treetabledata"

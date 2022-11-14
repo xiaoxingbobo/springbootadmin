@@ -363,14 +363,14 @@ const defaultProps = {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn">添加角色</ElButton>
+      <ElButton type="success" @click="tianjiajiekoubtn">添加角色</ElButton>
       <ElButton :loading="delLoading" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除</ElButton
       >
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton type="primary" :loading="delLoading" @click="AssignPermissions(row)">
+        <ElButton type="success" :loading="delLoading" @click="AssignPermissions(row)">
           授权
         </ElButton>
         <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
