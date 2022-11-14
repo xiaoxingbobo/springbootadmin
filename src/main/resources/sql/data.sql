@@ -21,7 +21,7 @@ insert into authority (create_time, is_deleted, `name`, update_time, value, icon
 
 values (NOW(), 0, 'setting', NOW(), 'sys:system:setting', 'ep:setting', 'Layout', '/setting', '系统设置', 0,
         'ROUTER');
---权限管理
+--权限管理5
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
@@ -32,25 +32,25 @@ values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', null,
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:view', null, null, null, '权限管理-增加', 4,
+values (NOW(), 0, null, NOW(), 'sys:authority:view', null, null, null, '权限管理-增加', 5,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:delete', null, null, null, '权限管理-删除', 4,
+values (NOW(), 0, null, NOW(), 'sys:authority:delete', null, null, null, '权限管理-删除', 5,
         'API');
 --查询
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:select', null, null, null, '权限管理-查询', 4,
+values (NOW(), 0, null, NOW(), 'sys:authority:select', null, null, null, '权限管理-查询', 5,
         'API');
 --修改
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-查询', 4,
+values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-查询', 5,
         'API');
 
 
