@@ -156,7 +156,8 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         meta: {
           // title: t('router.exampleDialog')
           title: '权限管理',
-          hidden: true // 菜单中不显示
+          hidden: true, // 菜单中不显示
+          icon: null
         }
       },
       {

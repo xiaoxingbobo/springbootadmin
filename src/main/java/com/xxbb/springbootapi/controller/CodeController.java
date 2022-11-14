@@ -28,7 +28,7 @@ public class CodeController {
      * @return
      */
     @PostMapping("generate")
-    @PreAuthorize("@auth.hasAuth('sys_code_select')")
+    @PreAuthorize("@auth.hasAuth('sys:code:select')")
     @ApiOperation(value = "接口代码生成")
     public Boolean Generate(@RequestBody CodeInput codeInput) {
         return codeService.generate(codeInput);
@@ -36,7 +36,7 @@ public class CodeController {
 
     @GetMapping("classes")
     @ApiOperation(value = "可生成实体列表")
-    @PreAuthorize("@auth.hasAuth('sys_code_select')")
+    @PreAuthorize("@auth.hasAuth('sys:code:select')")
     public List<String> getClasses() {
         List<String> classes = new ArrayList<>();
         for (Class<?> item : ClassUtil.getClasses("com.xxbb.springbootapi.entity", false)) {//false不迭代，不获取子类
@@ -47,13 +47,13 @@ public class CodeController {
 
     @GetMapping("undo/{id}")
     @ApiOperation(value = "撤销生成")
-    @PreAuthorize("@auth.hasAuth('sys_code_undo')")
+    @PreAuthorize("@auth.hasAuth('sys:code:undo')")
     public boolean undoGen(@PathVariable("id") Integer id) {
         return codeService.delete(id);
     }
 
     @GetMapping("list")
-    @PreAuthorize("@auth.hasAuth('sys_code_select')")
+    @PreAuthorize("@auth.hasAuth('sys:code:select')")
     @ApiOperation(value = "所有生成记录")
     public List<GenRecord> list() {
         return codeService.list();

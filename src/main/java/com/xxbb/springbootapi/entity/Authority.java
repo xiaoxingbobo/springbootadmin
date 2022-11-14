@@ -6,6 +6,7 @@ import cn.org.atool.fluent.mybatis.annotation.TableField;
 import cn.org.atool.fluent.mybatis.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbb.springbootapi.config.IFMConfig;
+import com.xxbb.springbootapi.entity.dto.enums.AuthorityType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +14,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -50,10 +48,21 @@ public class Authority extends Common {
     @LogicDelete
     @TableField(value = "is_deleted", insert = "0")
     private Boolean isDeleted = super.isDeleted;
-    @ApiModelProperty(value = "权限")
+    @ApiModelProperty(value = "权限值")
     private String value;
     @ApiModelProperty(value = "名称")
     private String name;
     @ApiModelProperty(value = "上级权限Id")
     private Integer parentId;
+    @ApiModelProperty(value = "标题")
+    private String title;
+    @ApiModelProperty(value = "路径")
+    private String path;
+    @ApiModelProperty(value = "组件")
+    private String component;
+    @ApiModelProperty(value = "图标")
+    private String icon;
+    @ApiModelProperty(value = "权限类型")
+    @Enumerated(EnumType.STRING)
+    private AuthorityType authorityType;
 }
