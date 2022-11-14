@@ -50,7 +50,7 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'name',
+    field: 'title',
     label: '权限名'
   },
   {
@@ -325,7 +325,7 @@ const editaction = async (row) => {
     </Table> -->
     <!-- 树形table -->
     <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
-      <el-table-column prop="name" label="名称" sortable />
+      <el-table-column prop="title" label="名称" sortable />
       <el-table-column prop="value" label="权限值" sortable />
       <el-table-column prop="createTime" label="创建时间" sortable />
       <el-table-column label="操作" width="250">
