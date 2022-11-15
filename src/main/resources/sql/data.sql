@@ -7,118 +7,136 @@ values (NOW(), 0, 'development', NOW(), 'sys:development:setting', 'vaadin:code'
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 values (NOW(), 0, 'API', NOW(), 'sys:development:api', 'vaadin:code', '',
-        '/development', '接口文档', 1,
+        'http://localhost:9999/doc.html', '接口文档', 1,
         'ROUTER');
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 values (NOW(), 0, 'element-plus-admin-doc', NOW(), 'sys:development:doc', 'vaadin:code',
         'https://element-plus-admin-doc.cn/', '/doc', 'UI文档', 1,
         'ROUTER');
+--代码生成4
+insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
+                       authority_type)
+values (NOW(), 0, 'code-view', NOW(), 'sys:development:doc', 'vaadin:code',
+        '() => import(''@/views/code/index.vue'')', '/code', '代码生成', 1,
+        'ROUTER');
+--代码生成-查询
+insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
+                       authority_type)
+values (NOW(), 0, 'code-build', NOW(), 'sys:code:select', null,
+        null, null, '代码生成', 4,
+        'API');
+--代码生成-撤销
+insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
+                       authority_type)
+values (NOW(), 0, 'code-undo', NOW(), 'sys:code:undo', null,
+        null, null, '代码生成-撤销', 4,
+        'API');
 
---系统设置4
+
+--系统设置7
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
 values (NOW(), 0, 'setting', NOW(), 'sys:system:setting', 'ep:setting', 'Layout', '/setting', '系统设置', 0,
         'ROUTER');
---权限管理5
+--权限管理8
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
 values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', null,
-        '() => import(''@/views/System/Permission/index.vue'')', '/authority', '权限管理', 4,
+        '() => import(''@/views/System/Permission/index.vue'')', '/authority', '权限管理', 7,
         'ROUTER');
---增加
+--增加9
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:view', null, null, null, '权限管理-增加', 5,
+values (NOW(), 0, null, NOW(), 'sys:authority:view', null, null, null, '权限管理-增加', 8,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:delete', null, null, null, '权限管理-删除', 5,
+values (NOW(), 0, null, NOW(), 'sys:authority:delete', null, null, null, '权限管理-删除', 8,
         'API');
 --查询
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:select', null, null, null, '权限管理-查询', 5,
+values (NOW(), 0, null, NOW(), 'sys:authority:select', null, null, null, '权限管理-查询', 8,
         'API');
 --修改
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-查询', 5,
+values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-查询', 8,
         'API');
 
 
-
---角色管理10
+--角色管理13
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
 values (NOW(), 0, 'role', NOW(), 'sys:role:view', null, '() => import(''@/views/System/Role/index.vue'')', '/role',
-        '角色管理', 4,
+        '角色管理', 7,
         'ROUTER');
 
 --增加
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:role:add', null, null, null, '角色管理-查询', 10,
+values (NOW(), 0, null, NOW(), 'sys:role:add', null, null, null, '角色管理-查询', 13,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:role:delete', null, null, null, '角色管理-删除', 10,
+values (NOW(), 0, null, NOW(), 'sys:role:delete', null, null, null, '角色管理-删除', 13,
         'API');
 --查询
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:role:select', null, null, null, '角色管理-查询', 10,
+values (NOW(), 0, null, NOW(), 'sys:role:select', null, null, null, '角色管理-查询', 13,
         'API');
 --修改
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:role:update', null, null, null, '角色管理-修改', 10,
+values (NOW(), 0, null, NOW(), 'sys:role:update', null, null, null, '角色管理-修改', 13,
         'API');
 
---用户管理15
+--用户管理18
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
 values (NOW(), 0, 'user', NOW(), 'sys:user:view', null, '() => import(''@/views/System/User/index.vue'')', '/user',
-        '用户管理', 4,
+        '用户管理', 7,
         'ROUTER');
 
 --增加
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:user:add', null, null, null, '用户管理-增加', 15,
+values (NOW(), 0, null, NOW(), 'sys:user:add', null, null, null, '用户管理-增加', 18,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:user:delete', null, null, null, '用户管理-删除', 15,
+values (NOW(), 0, null, NOW(), 'sys:user:delete', null, null, null, '用户管理-删除', 18,
         'API');
 --查询
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:user:select', null, null, null, '用户管理-查询', 15,
+values (NOW(), 0, null, NOW(), 'sys:user:select', null, null, null, '用户管理-查询', 18,
         'API');
 --修改
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:user:update', null, null, null, '用户管理-修改', 15,
+values (NOW(), 0, null, NOW(), 'sys:user:update', null, null, null, '用户管理-修改', 18,
         'API');
 
 

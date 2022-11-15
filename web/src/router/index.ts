@@ -101,7 +101,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     name: 'ExternalLink',
     children: [
       {
-        path: 'https://element-plus-admin-doc.cn/',
+        path: 'http://localhost:9999/doc.html',
         name: 'ExternalLink',
         meta: {
           title: t('router.document'),
