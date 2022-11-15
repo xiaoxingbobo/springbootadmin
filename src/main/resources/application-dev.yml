@@ -16,8 +16,6 @@ spring:
     multipart:
       max-request-size: 1000MB
       max-file-size: 1000MB
-  profiles:
-    active: prod
   mvc:
     view:
       suffix: .jsp #访问jsp页面1
@@ -32,7 +30,7 @@ spring:
   sql: #初始化数据库
     init:
       schema-locations: classpath:sql/data.sql  #2.初始化数据库，DDL语句在resources/sql/schema.sql
-      mode: never #第一次初始化数据库使用always，之后使用never
+      mode: always #第一次初始化数据库使用always，之后使用never
 #      data-locations: classpath:sql/data.sql #3.初始化数据库，DML语句在resources/sql/data.sql #4.初始化数据库，每次启动都会初始化数据库
 
 mybatis:
