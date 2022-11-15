@@ -114,12 +114,9 @@ const getMenu = (arr) => {
   if (arr != null) {
     arr.forEach((item) => {
       if (item.component === 'Layout' || item.component === null) {
-        item.component = Layout //这里有bug，赋值无效哦
-      }
-      if (item.component != null) {
-        item.component = modules[`../views/${item.component}.vue`]
+        item.component = Layout
       } else {
-        item.component = null
+        item.component = modules[`../views/${item.component}.vue`]
       }
       if (item.children.length > 0) {
         getMenu(item.children)
