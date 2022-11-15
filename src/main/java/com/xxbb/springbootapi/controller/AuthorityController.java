@@ -188,6 +188,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @GetMapping("/menu")
     @ApiOperation(value = "获取菜单")
     @PreAuthorize("@auth.hasAuth('sys:authority:select')")
+    @ResponseBody
     public List<MenuDTO> viewMenu() {
         return service.viewMenu();
     }

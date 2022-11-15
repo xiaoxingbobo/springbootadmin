@@ -5,6 +5,7 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { ElButton, ElCheckbox, ElLink, ElMessage, ElMessageBox } from 'element-plus'
 import { useForm } from '@/hooks/web/useForm'
 import { loginApi } from '@/api/login'
+import { menuList } from '@/api/permission/index'
 import { useCache } from '@/hooks/web/useCache'
 import { useAppStore } from '@/store/modules/app'
 import { usePermissionStore } from '@/store/modules/permission'
@@ -138,6 +139,17 @@ const signIn = async () => {
           // userInfo
           wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 }) // 存当前用户的信息
           wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 }) // 当前用户拥有的权限列表
+          const { data: menuListdata } = await menuList() // 请求菜单信息
+          console.log(typeof menuListdata)
+          // menuListdata.forEach((em) => {
+          //   // console.log(em.children)
+          //   em.children.forEach((emzi) => {
+          //     // emzi.component = '../../../views/System/Role/index.vue'
+          //     // console.log(emzi.component)
+          //   })
+          // })
+          wsCache.set('menudata', menuListdata, { exp: 60 * 60 * 6 }) // 当前角色拥有的菜单
+          // console.log(wsCache.get('menudata'))
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
           // getRoleUserInfo()
           ElMessage({
@@ -148,7 +160,7 @@ const signIn = async () => {
           if (appStore.getDynamicRouter) {
             // getRole()  // 获取角色信息
             // push({ path: redirect.value || permissionStore.addRouters[0].path })
-            location.reload() // 跳转后刷新页面，不然页面不会出来
+            // location.reload() // 跳转并刷新页面
           } else {
             await permissionStore.generateRoutes().catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {

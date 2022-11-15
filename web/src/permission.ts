@@ -8,6 +8,7 @@ import { usePermissionStoreWithOut } from '@/store/modules/permission'
 import { useDictStoreWithOut } from '@/store/modules/dict'
 import { usePageLoading } from '@/hooks/web/usePageLoading'
 import { getDictApi } from '@/api/common'
+import nProgress from 'nprogress'
 
 const permissionStore = usePermissionStoreWithOut()
 
@@ -56,7 +57,7 @@ router.beforeEach(async (to, from, next) => {
           ? await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
           : await permissionStore.generateRoutes('test', roleRouters as string[])
       } else {
-        await permissionStore.generateRoutes('none')
+        await permissionStore.generateRoutes()
       }
 
       permissionStore.getAddRouters.forEach((route) => {

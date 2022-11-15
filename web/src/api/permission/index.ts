@@ -39,3 +39,8 @@ export const ParameterPermission = (data: string[]): Promise<IResponse> => {
 export const PaginationQuery = (data: Partial<currentDate>): Promise<IResponse> => {
   return request.get({ url: `/authority/paged/${data.current}/${data.size}` })
 }
+
+// 菜单列表
+export const menuList = (): Promise<IResponse> => {
+  return request.get({ url: '/authority/menu' })
+}

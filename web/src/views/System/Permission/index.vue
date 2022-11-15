@@ -9,7 +9,8 @@ import {
   EditPermissions,
   GetPermissionById,
   ParameterPermission,
-  PaginationQuery
+  PaginationQuery,
+  menuList
 } from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -45,41 +46,43 @@ const dialogVisible = ref(false)
 const isAddMenu = ref(false) // 是否是添加菜单
 
 // 表头
-const columns = reactive<TableColumn[]>([
-  {
-    field: 'index',
-    label: '序号',
-    type: 'index'
-  },
-  {
-    field: 'title',
-    label: '权限名'
-  },
-  {
-    field: 'value',
-    label: 'value'
-  },
-  {
-    field: 'createTime',
-    label: '创建时间'
-  },
-  {
-    field: 'action',
-    width: '160px',
-    label: '操作',
-    form: {
-      show: false
-    },
-    detail: {
-      show: false
-    }
-  }
-])
+// const columns = reactive<TableColumn[]>([
+//   {
+//     field: 'index',
+//     label: '序号',
+//     type: 'index'
+//   },
+//   {
+//     field: 'title',
+//     label: '权限名'
+//   },
+//   {
+//     field: 'value',
+//     label: 'value'
+//   },
+//   {
+//     field: 'createTime',
+//     label: '创建时间'
+//   },
+//   {
+//     field: 'action',
+//     width: '160px',
+//     label: '操作',
+//     form: {
+//       show: false
+//     },
+//     detail: {
+//       show: false
+//     }
+//   }
+// ])
 
 //  权限列表数据
 let tabledata = ref('')
 // 树形权限列表数据
 let treetabledata = ref([])
+// 菜单列表数据—树形
+let menuTableList = ref([])
 // 全部权限列表数据
 let allTabledata = ref([])
 
@@ -90,20 +93,24 @@ const numberForm = reactive({
   namejurisdiction: '',
   valuejurisdiction: '',
   parentIdjurisdiction: 0,
-  authorityType: 'API'
+  authorityType: 'API' // 表示为权限
 })
-// 添加权限的输入数据
+// 添加菜单的输入数据
 const numberFormmenu = reactive({
   namejurisdiction: '',
   valuejurisdiction: '',
   parentIdjurisdiction: 0,
   name: '',
   path: '',
-  component: '',
-  icon: '',
-  authorityType: 'ROUTER'
+  component: 'Layout',
+  icon: null,
+  authorityType: 'ROUTER' // 表示为菜单
 })
-
+// 上级菜单选择的树形指向
+const defaultProps = {
+  children: 'children',
+  label: 'title'
+}
 // 是否覆盖
 const isCover = ref('true')
 // 弹窗标题
@@ -140,10 +147,25 @@ const _PaginationQuery = async () => {
 // 查询全部权限列表-转化成树形
 const _PermissionList = async () => {
   const { data: treeres } = await PermissionList()
-  allTabledata.value = treeres
-  treetabledata.value = tranListToTreeData(treeres, 0) // 将数组转化成树形
+  const treerespromiseLIst = ref(treeres)
+  treetabledata.value = tranListToTreeData(treerespromiseLIst.value, 0) // 将数组转化成树形
+  _PermissionListmenu() // 查询全部菜单列表-转化成树形
 }
-_PermissionList()
+
+// 查询全部菜单列表-转化成树形
+const _PermissionListmenu = async () => {
+  const { data: treemenu } = await PermissionList()
+  // 筛选出菜单
+  let treeresmenuList = ref([]) // 只要菜单的数据列表
+  treemenu.forEach((emenu) => {
+    if (emenu.authorityType === 'ROUTER') {
+      treeresmenuList.value.push(emenu)
+      console.log(treeresmenuList.value)
+    }
+  })
+  menuTableList.value = tranListToTreeData(treeresmenuList.value, 0)
+}
+
 // 点击权限树形的节点
 const treenodeClick = (e) => {
   numberForm.parentIdjurisdiction = e.id
@@ -173,13 +195,28 @@ const disabled = ref(false)
 let _PageSize = ref(10)
 
 // 添加权限
-const _addPermission = async (name, value, parentId) => {
+const _addPermission = async (title, value, parentId) => {
   await addPermission({
-    title: name,
-    parentId: parentId,
-    value: value
+    title: title,
+    value: value,
+    parentId: parentId
   })
 }
+// 添加菜单
+const _addPermissionmenu = async (menudata) => {
+  const data = {
+    title: menudata.namejurisdiction,
+    parentId: menudata.parentIdjurisdiction,
+    value: menudata.valuejurisdiction,
+    name: menudata.name,
+    path: menudata.path,
+    component: menudata.component,
+    icon: menudata.icon,
+    authorityType: 'ROUTER'
+  }
+  await addPermission(data)
+}
+
 // 添加权限-带详情参数
 const _ParameterPermission = async (entityFields, name, value) => {
   await ParameterPermission({
@@ -220,6 +257,7 @@ const _GetPermissionById = async (id) => {
 onMounted(async () => {
   // await _PaginationQuery() // 跟新列表
   _PermissionList() // 跟新列表
+  // _PermissionListmenu() // 请求菜单列表
 })
 // 添加权限按钮
 const tianjiajiekoubtn = () => {
@@ -291,15 +329,12 @@ const savemenu = (formEl2: FormInstance | undefined) => {
       // 通过验证
       if (dialogTitle.value === '添加菜单') {
         try {
-          await _addPermission(
-            numberFormmenu.namejurisdiction,
-            numberFormmenu.valuejurisdiction,
-            numberFormmenu.parentIdjurisdiction
-          )
+          await _addPermissionmenu(numberFormmenu)
           ElMessage({
             message: '添加菜单成功!',
             type: 'success'
           })
+          console.log(numberFormmenu)
         } catch (error) {
           ElMessage.error(error)
         }
@@ -322,8 +357,7 @@ const savemenu = (formEl2: FormInstance | undefined) => {
       }
       // console.log(dinputvalue.value)
       dialogVisible.value = false
-      close()
-      // _PaginationQuery() // 跟新列表
+      closemenu()
       _PermissionList() // 跟新列表
     } else {
       // 表单不通过验证
@@ -348,15 +382,20 @@ const closemenu = () => {
   // 重置数据
   treeparentId.value = null
   isAddMenu.value = false
+  _PermissionList() // 跟新列表
   editactionid.value = 0
   // 重置表单
   ;(numberFormmenu.namejurisdiction = ''),
     (numberFormmenu.valuejurisdiction = ''),
-    (numberFormmenu.parentIdjurisdiction = 0)
+    (numberFormmenu.parentIdjurisdiction = 0),
+    (numberFormmenu.name = ''),
+    (numberFormmenu.path = ''),
+    (numberFormmenu.component = 'Layout'),
+    (numberFormmenu.icon = null)
 }
 // 删除按钮
 const deleteaction = async (row) => {
-  console.log(row.id)
+  // console.log(row.id)
   // console.log(index)
   try {
     const res = await ElMessageBox.confirm('确定要删除此权限吗?', '提示', {
@@ -364,7 +403,7 @@ const deleteaction = async (row) => {
       cancelButtonText: '取消',
       type: 'warning'
     })
-    console.log(res)
+    // console.log(res)
     // 点击了确定
     if (res === 'confirm') {
       await _DeletePermissions(row.id)
@@ -399,16 +438,13 @@ const editaction = async (row) => {
       <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton>
       <ElButton type="success" @click="tianjiamenu">添加菜单</ElButton>
     </div>
-    <!-- <Table :columns="columns" :data="tabledata">
-      <template #action="{ row }">
-        <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
-        <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
-      </template>
-    </Table> -->
     <!-- 树形table -->
     <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
       <el-table-column prop="title" label="名称" sortable />
       <el-table-column prop="value" label="权限值" sortable />
+      <el-table-column prop="path" label="path" sortable />
+      <el-table-column prop="icon" label="icon" sortable />
+      <el-table-column prop="authorityType" label="菜单" sortable />
       <el-table-column prop="createTime" label="创建时间" sortable />
       <el-table-column label="操作">
         <template #default="scope">
@@ -421,20 +457,6 @@ const editaction = async (row) => {
         </template>
       </el-table-column>
     </el-table>
-    <!-- <el-pagination
-      v-model:currentPage="currentPage"
-      v-model:page-size="pageSize"
-      :page-sizes="[10, 50, 100, 400]"
-      :small="small"
-      :disabled="disabled"
-      :background="background"
-      style="margin-top: 20px"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total"
-      page-size="Paginationdata.size"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-    /> -->
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog
@@ -484,6 +506,7 @@ const editaction = async (row) => {
       <el-button @click="close">关闭</el-button>
     </template>
   </Dialog>
+
   <!-- 添加菜单 -->
   <Dialog
     v-model="isAddMenu"
@@ -511,45 +534,54 @@ const editaction = async (row) => {
       <el-form-item prop="treeparentId" label="上级菜单">
         <el-tree-select
           v-model="treeparentId"
-          :data="treetabledata"
+          :data="menuTableList"
           check-strictly
-          value-key="title"
+          value-key="id"
           :render-after-expand="false"
           placeholder="请选择上级菜单"
+          :props="defaultProps"
           @node-click="treenodeClickmenu"
         />
       </el-form-item>
+
       <!-- name -->
       <el-form-item
         label="name"
-        prop="namejurisdiction"
+        prop="name"
         :rules="[{ required: true, message: '菜单名不能为空！' }]"
       >
-        <el-input v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
+        <el-input v-model="numberFormmenu.name" autocomplete="off" />
       </el-form-item>
+
       <!-- path -->
       <el-form-item
         label="path"
-        prop="namejurisdiction"
+        prop="path"
         :rules="[{ required: true, message: '菜单名不能为空！' }]"
       >
-        <el-input v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
+        <el-input
+          v-model="numberFormmenu.path"
+          placeholder="children的path前缀不加/"
+          autocomplete="off"
+        />
       </el-form-item>
+
       <!-- component -->
       <el-form-item
         label="component"
-        prop="namejurisdiction"
+        prop="component"
         :rules="[{ required: true, message: '菜单名不能为空！' }]"
       >
-        <el-input v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
+        <el-input
+          v-model="numberFormmenu.component"
+          placeholder="一级菜单：Layout，子菜单为导入组件的地址"
+          autocomplete="off"
+        />
       </el-form-item>
+
       <!-- icon -->
-      <el-form-item
-        label="icon"
-        prop="namejurisdiction"
-        :rules="[{ required: true, message: '菜单名不能为空！' }]"
-      >
-        <el-input v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
+      <el-form-item label="icon" prop="namejurisdiction">
+        <el-input v-model="numberFormmenu.icon" autocomplete="off" />
       </el-form-item>
     </el-form>
     <template #footer>
