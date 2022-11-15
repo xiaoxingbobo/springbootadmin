@@ -4,7 +4,6 @@ import type { App } from 'vue'
 import { Layout } from '@/utils/routerHelper'
 import { useI18n } from '@/hooks/web/useI18n'
 import { useCache } from '@/hooks/web/useCache'
-import { resolve } from 'path'
 
 const { wsCache } = useCache('localStorage')
 // const viewPages = import.meta.glob('@/views/**/.vue')
@@ -108,35 +107,37 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
 ]
 
 // export const myscreenRouters: AppRouteRecordRaw[] = wsCache.get('screenRouters')
-const menuListdata = wsCache.get('menudata')
-console.log(menuListdata)
-// const _mygetmenu = () => {
-//   menuListdata.forEach((em) => {
-//     console.log(em.component)
-//     if (em.component === 'Layout') {
-//       em.component = Layout
-//     }
-//     em.children.forEach((emzi) => {
-//       if (emzi.component === null) return
-//       if (emzi.component === 'Layout') {
-//         emzi.component = Layout
-//       }
-//       // console.log(emzi.component)
-//       // const componentFn = import(`@/views/${emzi.component}.vue`)
-//       emzi.component = () => import(`@/views/${emzi.component}.vue`)
-//       // emzi.component = Layout
-//       // emzi.path = 'code'
-//       // console.log(`@/views/${emzi.component}.vue`)
-//     })
-//   })
-// }
-// _mygetmenu()
+const menuListData = wsCache.get('menudata')
+// 首先把你需要动态路由的组件地址全部获取
+const modules = import.meta.glob('../views/**/*.vue')
+const getMenu = (arr) => {
+  if (arr != null) {
+    arr.forEach((item) => {
+      if (item.component === 'Layout' || item.component === null) {
+        item.component = Layout //这里有bug，赋值无效哦
+      }
+      if (item.component != null) {
+        item.component = modules[`../views/${item.component}.vue`]
+      } else {
+        item.component = null
+      }
+      if (item.children.length > 0) {
+        getMenu(item.children)
+      }
+    })
+  }
+}
+getMenu(menuListData)
+
+console.log(menuListData)
 // console.log(filter(menuListdata))
 // const test = JSON.stringify(menuListdata)
 // const test0 = test.replace(/(\"(?=\())|((?<=\))\")/g, '')
 // const res = JSON.parse(test0)
 // export const asyncRouterMap: AppRouteRecordRaw[] = filter(menuListdata)
-export const asyncRouterMap: AppRouteRecordRaw[] = []
+export const asyncRouterMap: AppRouteRecordRaw[] = menuListData
+
+// export const asyncRouterMap: AppRouteRecordRaw[] = []
 
 // 动态路由列表
 // export const asyncRouterMap: AppRouteRecordRaw[] = [

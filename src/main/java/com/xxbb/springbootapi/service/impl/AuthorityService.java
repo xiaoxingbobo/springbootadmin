@@ -11,6 +11,7 @@ import com.xxbb.springbootapi.service.IAuthorityService;
 import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.wrapper.AuthorityQuery;
 import com.xxbb.springbootapi.wrapper.AuthorityUpdate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
 @Service
 public class AuthorityService extends BaseService<Authority, AuthorityQuery, AuthorityUpdate, AuthorityMapper> implements IAuthorityService {
 
+    @Autowired
+    private UserService userService;
     @Override
     public boolean delete(int id) {
         if (id == 1) {

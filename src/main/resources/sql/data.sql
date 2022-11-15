@@ -18,7 +18,7 @@ values (NOW(), 0, 'element-plus-admin-doc', NOW(), 'sys:development:doc', 'vaadi
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 values (NOW(), 0, 'code-view', NOW(), 'sys:development:doc', 'vaadin:code',
-        '() => import(''@/views/code/index.vue'')', '/code', '代码生成', 1,
+        'code/index', '/code', '代码生成', 1,
         'ROUTER');
 --代码生成-查询
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
@@ -45,7 +45,7 @@ insert into authority (create_time, is_deleted, `name`, update_time, value, icon
                        authority_type)
 
 values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', null,
-        '() => import(''@/views/System/Permission/index.vue'')', '/authority', '权限管理', 7,
+        'System/Permission/index', 'authority', '权限管理', 7,
         'ROUTER');
 --增加9
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
@@ -77,7 +77,7 @@ values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'role', NOW(), 'sys:role:view', null, '() => import(''@/views/System/Role/index.vue'')', '/role',
+values (NOW(), 0, 'role', NOW(), 'sys:role:view', null, 'System/Role/index', 'role',
         '角色管理', 7,
         'ROUTER');
 
@@ -110,7 +110,7 @@ values (NOW(), 0, null, NOW(), 'sys:role:update', null, null, null, '角色管�
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'user', NOW(), 'sys:user:view', null, '() => import(''@/views/System/User/index.vue'')', '/user',
+values (NOW(), 0, 'user', NOW(), 'sys:user:view', null, 'System/User/index', 'user',
         '用户管理', 7,
         'ROUTER');
 
