@@ -325,7 +325,6 @@ const save = async (formEl: FormInstance | undefined) => {
           _ParameterPermission(dataList, dinputvalue.value, isCover.value)
           ElMessage.success('操作成功！')
           closeDialog() // 关闭弹窗
-          _Entitygenerationrecord() // 跟新列表数据
         } catch (error) {
           console.log(error)
         }
@@ -333,6 +332,7 @@ const save = async (formEl: FormInstance | undefined) => {
         console.log('error submit!')
         return false
       }
+      _Entitygenerationrecord() // 跟新列表数据
     })
   } else {
     // 不带参数
@@ -379,13 +379,13 @@ const action = async (row) => {
   } catch (error) {
     ElMessage.error(error)
   }
-
   _Entitygenerationrecord() // 跟新列表数据
 }
 
 // 关闭弹窗 重置表单数据
 const closeDialog = () => {
   dialogVisible.value = false
+  dinputvalue.value = []
   // 重置表单数据
   dynamicValidateForm.entityFields = [
     {
@@ -402,6 +402,7 @@ const closeDialog = () => {
       filedName: ''
     }
   ]
+  _Entitygenerationrecord() // 跟新列表数据
 }
 </script>
 
@@ -436,6 +437,7 @@ const closeDialog = () => {
     title="生成接口"
     maxHeight="350px"
     style="width: 40%; min-width: 375px; max-width: 600px"
+    @closed="closeDialog"
   >
     <el-tabs type="border-card" @tab-click="tabClick">
       <!-- 左边 -->
