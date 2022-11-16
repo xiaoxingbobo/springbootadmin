@@ -173,14 +173,6 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     public PagedResult<User> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
-
-    @GetMapping("getUserInfo")
-    @ApiOperation(value = "获取当前用户信息")
-    public User getUser() {
-        return service.getUserInfo().setPassword(null);
-    }
-
-
     @PostMapping("login")
     @ApiOperation(value = "登录")
     public JsonResultData<LoginResult> login(@RequestBody LoginInput input) {

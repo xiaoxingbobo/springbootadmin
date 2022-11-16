@@ -1,6 +1,8 @@
 package com.xxbb.springbootapi.service.impl;
 
 import com.xxbb.springbootapi.entity.Authority;
+import com.xxbb.springbootapi.entity.RoleAuthority;
+import com.xxbb.springbootapi.entity.dto.LoginResult;
 import com.xxbb.springbootapi.entity.dto.MenuDTO;
 import com.xxbb.springbootapi.entity.dto.MenuResult;
 import com.xxbb.springbootapi.entity.dto.Meta;
@@ -22,6 +24,7 @@ public class AuthorityService extends BaseService<Authority, AuthorityQuery, Aut
 
     @Autowired
     private UserService userService;
+
     @Override
     public boolean delete(int id) {
         if (id == 1) {
@@ -32,7 +35,16 @@ public class AuthorityService extends BaseService<Authority, AuthorityQuery, Aut
 
     @Override
     public List<MenuDTO> viewMenu() {
-        List<MenuResult> menuResultList = OrikaUtil.converts(dao.mapper().listEntity(dao.mapper().query().where().authorityType().eq(AuthorityType.ROUTER).end()), MenuResult.class);
+        //筛选
+        LoginResult loginResult = userService.getCurrentUser();
+        List<Integer> authorityIds = loginResult.getRoleAuthority().stream().map(RoleAuthority::getAuthorityId).collect(Collectors.toList());
+        /**authorityType().eq(AuthorityType.ROUTER)只查询路由
+         * loginResult.getUserInfo().getRoleId() != 1判断角色是否为管理员，不是则执行x->x.id().in(authorityIds)，否则查询所有
+         *
+         */
+
+        List<MenuResult> menuResultList = OrikaUtil.converts(dao.mapper().listEntity(dao.mapper().query().where().authorityType().eq(AuthorityType.ROUTER).applyIf(loginResult.getUserInfo().getRoleId() != 1, x -> x.id().in(authorityIds)).end()), MenuResult.class);
+        //递归处理子集
         menuResultList = getMenu(menuResultList, 0);
         return OrikaUtil.converts(menuResultList, MenuDTO.class);
     }

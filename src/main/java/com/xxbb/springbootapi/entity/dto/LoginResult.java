@@ -18,6 +18,7 @@ public class LoginResult {
     private User userInfo;
     private List<RoleAuthorityResult> roleAuthority;
     private boolean captcha;
+    private List<String> authorityValues;
 
 
 }

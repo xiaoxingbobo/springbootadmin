@@ -80,6 +80,6 @@ public class FileController {
         IOUtils.copy(fileInputStream, outputStream);
         IOUtils.closeQuietly(fileInputStream);
         IOUtils.closeQuietly(outputStream);
-        log.info(userService.getUser().getName() + "下载文件" + fileName);
+        log.info(userService.getCurrentUser().getUserInfo().getName() + "下载文件" + fileName);
     }
 }
