@@ -1,11 +1,6 @@
 import request from '@/config/axios'
-import type { TableData, currentDate } from './types'
 
-export const saveTableApi = (data: Partial<TableData>): Promise<IResponse> => {
-  return request.post({ url: '/example/save', data })
-}
-
-// 权限列表
+// 全部权限列表
 export const PermissionList = (): Promise<IResponse> => {
   return request.get({ url: '/authority' })
 }
@@ -28,16 +23,6 @@ export const EditPermissions = (data: string[]): Promise<IResponse> => {
 // 查询一条
 export const GetPermissionById = (id: string[]): Promise<IResponse> => {
   return request.get({ url: `/authority/${id}` })
-}
-
-// 添加权限-带详情参数
-export const ParameterPermission = (data: string[]): Promise<IResponse> => {
-  return request.post({ url: '/authority', data })
-}
-
-// 分页查询
-export const PaginationQuery = (data: Partial<currentDate>): Promise<IResponse> => {
-  return request.get({ url: `/authority/paged/${data.current}/${data.size}` })
 }
 
 // 菜单列表

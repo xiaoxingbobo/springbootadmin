@@ -8,7 +8,6 @@ import { usePermissionStoreWithOut } from '@/store/modules/permission'
 import { useDictStoreWithOut } from '@/store/modules/dict'
 import { usePageLoading } from '@/hooks/web/usePageLoading'
 import { getDictApi } from '@/api/common'
-import nProgress from 'nprogress'
 
 const permissionStore = usePermissionStoreWithOut()
 
@@ -47,16 +46,11 @@ router.beforeEach(async (to, from, next) => {
       }
 
       // 开发者可根据实际情况进行修改
-      const roleRouters = wsCache.get('roleRouters') || []
-      const userInfo = wsCache.get(appStore.getUserInfo)
-
+      // const roleRouters = wsCache.get('roleRouters') || []
       // 是否使用动态路由
       if (appStore.getDynamicRouter) {
         await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
-        // 判断角色
-        // userInfo.role === 'admin'
-        //   ? await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
-        //   : await permissionStore.generateRoutes('test', roleRouters as string[])
+        // await permissionStore.generateRoutes()
       } else {
         await permissionStore.generateRoutes()
       }

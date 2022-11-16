@@ -138,9 +138,9 @@ const signIn = async () => {
           wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
           // userInfo
           wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 }) // 存当前用户的信息
-          wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 }) // 当前用户拥有的权限列表
+          wsCache.set('roleAuthority', res.data.authorityValues, { exp: 60 * 60 * 6 }) // 存当前用户拥有的权限列表
           const { data: menuListdata } = await menuList() // 请求菜单信息
-          wsCache.set('menudata', menuListdata, { exp: 60 * 60 * 6 }) // 当前角色拥有的菜单
+          wsCache.set('menudata', menuListdata, { exp: 60 * 60 * 6 }) // 存当前角色拥有的菜单
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
           ElMessage({
             message: '登录成功',
@@ -155,7 +155,8 @@ const signIn = async () => {
               addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
             })
             permissionStore.setIsAddRouters(true)
-            push({ path: redirect.value || permissionStore.addRouters[0].path })
+            // push({ path: redirect.value || permissionStore.addRouters[0].path })
+            location.reload() // 跳转并刷新页面
           }
         }
       } finally {

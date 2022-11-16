@@ -8,8 +8,6 @@ import {
   DeletePermissions,
   EditPermissions,
   GetPermissionById,
-  ParameterPermission,
-  PaginationQuery,
   menuList
 } from '@/api/permission'
 import { Dialog } from '@/components/Dialog'
@@ -45,38 +43,6 @@ const dialogVisible = ref(false)
 // 添加菜单弹窗
 const isAddMenu = ref(false) // 是否是添加菜单
 
-// 表头
-// const columns = reactive<TableColumn[]>([
-//   {
-//     field: 'index',
-//     label: '序号',
-//     type: 'index'
-//   },
-//   {
-//     field: 'title',
-//     label: '权限名'
-//   },
-//   {
-//     field: 'value',
-//     label: 'value'
-//   },
-//   {
-//     field: 'createTime',
-//     label: '创建时间'
-//   },
-//   {
-//     field: 'action',
-//     width: '160px',
-//     label: '操作',
-//     form: {
-//       show: false
-//     },
-//     detail: {
-//       show: false
-//     }
-//   }
-// ])
-
 //  权限列表数据
 let tabledata = ref('')
 // 树形权限列表数据
@@ -87,8 +53,6 @@ let menuTableList = ref([])
 let allTabledata = ref([])
 // 编辑选择框里面的数据类型
 const radioauthorityType = ref(1)
-// 可生成实体列表
-let keshengchenglist = ref('')
 // 添加权限的输入数据
 const numberForm = reactive({
   namejurisdiction: '',
@@ -141,12 +105,7 @@ let Paginationdata: {
   // 每页条数
   size: 10
 }
-// 分页查询函数
-const _PaginationQuery = async () => {
-  const { data: res } = await PaginationQuery(Paginationdata)
-  tabledata.value = res.data
-  total.value = res.total
-}
+
 // 查询全部权限列表-转化成树形
 const _PermissionList = async () => {
   const { data: treeres } = await PermissionList()
@@ -178,35 +137,8 @@ const treenodeClick = (e) => {
 const treenodeClickmenu = (e) => {
   numberFormmenu.parentIdjurisdiction = e.id
 }
-// 修改每页显示多少条数
-const handleSizeChange = (val: number) => {
-  Paginationdata.size = val
-  // console.log(Paginationdata.size)
-  _PaginationQuery() // 跟新列表
-}
-// 切换到某页
-const handleCurrentChange = (val: number) => {
-  Paginationdata.current = val
-  _PaginationQuery() // 跟新列表
-}
 
-const currentPage = ref(1)
-const pageSize = ref(10)
-const small = ref(false)
-const background = ref(false)
-const disabled = ref(false)
-// 每页显示数目
-let _PageSize = ref(10)
-
-// 添加权限
-const _addPermission = async (title, value, parentId) => {
-  await addPermission({
-    title: title,
-    value: value,
-    parentId: parentId
-  })
-}
-// 添加菜单
+// 添加权限-菜单
 const _addPermissionmenu = async (menudata) => {
   const data = {
     title: menudata.namejurisdiction,
@@ -221,15 +153,7 @@ const _addPermissionmenu = async (menudata) => {
   await addPermission(data)
 }
 
-// 添加权限-带详情参数
-const _ParameterPermission = async (entityFields, name, value) => {
-  await ParameterPermission({
-    entityFields: entityFields,
-    title: name,
-    value: value
-  })
-}
-// 删除权限
+// 删除权限/菜单
 const _DeletePermissions = async (id) => {
   await DeletePermissions(id)
 }
@@ -280,66 +204,11 @@ onMounted(async () => {
   _PermissionList() // 跟新列表
   // _PermissionListmenu() // 请求菜单列表
 })
-// 添加权限按钮
-const tianjiajiekoubtn = () => {
-  dialogTitle.value = '添加权限'
-  dialogVisible.value = true
-}
-// 添加菜单按钮
-const tianjiamenu = () => {
-  dialogTitle.value = '添加菜单'
-  isAddMenu.value = true // 显示添加菜单弹窗
-}
 
-// 权限弹窗的确定按钮
-const save = (formEl: FormInstance | undefined) => {
-  // console.log(formEl)
-  if (!formEl) return
-  formEl.validate(async (valid) => {
-    if (valid) {
-      // 通过验证
-      if (dialogTitle.value === '添加权限') {
-        try {
-          await _addPermission(
-            numberForm.namejurisdiction,
-            numberForm.valuejurisdiction,
-            numberForm.parentIdjurisdiction
-          )
-          ElMessage({
-            message: '添加权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
-      }
-      // else {
-      // try {
-      //   await _EditPermissions(
-      //     numberForm.namejurisdiction,
-      //     numberForm.valuejurisdiction,
-      //     numberForm.parentIdjurisdiction,
-      //     editactionid.value // 当前id
-      //     // Permissions_data
-      //   )
-      //   ElMessage({
-      //     message: '编辑权限成功!',
-      //     type: 'success'
-      //   })
-      // } catch (error) {
-      //   ElMessage.error(error)
-      // }
-      // }
-      // console.log(dinputvalue.value)
-      dialogVisible.value = false
-      close()
-      // _PaginationQuery() // 跟新列表
-      _PermissionList() // 跟新列表
-    } else {
-      // 表单不通过验证
-      return false
-    }
-  })
+// 添加权限和菜单按钮
+const tianjiamenu = () => {
+  dialogTitle.value = '添加(权限/菜单)'
+  isAddMenu.value = true // 显示添加菜单弹窗
 }
 
 // 菜单弹窗确定按钮--点击编辑弹出的是菜单的弹窗
@@ -349,14 +218,13 @@ const savemenu = (formEl2: FormInstance | undefined) => {
   formEl2.validate(async (valid) => {
     if (valid) {
       // 通过验证
-      if (dialogTitle.value === '添加菜单') {
+      if (dialogTitle.value === '添加(权限/菜单)') {
         try {
           await _addPermissionmenu(numberFormmenu)
           ElMessage({
-            message: '添加菜单成功!',
+            message: '添加成功!',
             type: 'success'
           })
-          // console.log(numberFormmenu)
         } catch (error) {
           ElMessage.error(error)
         }
@@ -378,15 +246,13 @@ const savemenu = (formEl2: FormInstance | undefined) => {
             Permissions_data
           )
           ElMessage({
-            message: '操作成功!',
+            message: '编辑成功!',
             type: 'success'
           })
         } catch (error) {
           ElMessage.error(error)
         }
       }
-      // console.log(dinputvalue.value)
-      dialogVisible.value = false
       closemenu()
     } else {
       // 表单不通过验证
@@ -396,21 +262,11 @@ const savemenu = (formEl2: FormInstance | undefined) => {
 }
 
 // 关闭按钮
-const close = () => {
-  // 重置数据
-  treeparentId.value = null
-  dialogVisible.value = false
-  editactionid.value = 0
-  // 重置表单
-  ;(numberForm.namejurisdiction = ''),
-    (numberForm.valuejurisdiction = ''),
-    (numberForm.parentIdjurisdiction = 0)
-}
-// 关闭按钮
 const closemenu = () => {
   // 重置数据
   treeparentId.value = null
   isAddMenu.value = false
+  radioauthorityType.value = 1
   _PermissionList() // 跟新列表
   editactionid.value = 0
   // 重置表单
@@ -430,7 +286,6 @@ const deleteaction = async (row) => {
       cancelButtonText: '取消',
       type: 'warning'
     })
-    // console.log(res)
     // 点击了确定
     if (res === 'confirm') {
       await _DeletePermissions(row.id)
@@ -451,7 +306,6 @@ const editaction = async (row) => {
     await _GetPermissionById(row.id)
     dialogTitle.value = '编辑'
     isAddMenu.value = true
-    // console.log(row.id)
     editactionid.value = row.id
   } catch (error) {
     console.log(error)
@@ -462,8 +316,8 @@ const editaction = async (row) => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton>
-      <ElButton type="success" @click="tianjiamenu">添加菜单</ElButton>
+      <!-- <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton> -->
+      <ElButton type="success" @click="tianjiamenu">添加</ElButton>
     </div>
     <!-- 树形table -->
     <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
@@ -485,55 +339,6 @@ const editaction = async (row) => {
       </el-table-column>
     </el-table>
   </ContentWrap>
-  <!-- 弹窗 -->
-  <Dialog
-    v-model="dialogVisible"
-    :title="dialogTitle"
-    maxHeight="200px"
-    style="width: 30%; min-width: 375px; max-width: 600px"
-    @closed="close"
-  >
-    <!-- 添加权限 -->
-    <el-form ref="diaLogForm" :model="numberForm">
-      <el-form-item
-        label="权限名"
-        prop="namejurisdiction"
-        :rules="[{ required: true, message: '权限名不能为空！' }]"
-      >
-        <el-input v-model="numberForm.namejurisdiction" autocomplete="off" />
-      </el-form-item>
-      <el-form-item
-        prop="valuejurisdiction"
-        label="权限值"
-        :rules="[{ required: true, message: '权限值不能为空！' }]"
-      >
-        <el-input v-model="numberForm.valuejurisdiction" autocomplete="off" />
-      </el-form-item>
-      <el-form-item prop="treeparentId" label="上级权限">
-        <el-tree-select
-          v-model="treeparentId"
-          :data="treetabledata"
-          check-strictly
-          value-key="title"
-          :render-after-expand="false"
-          placeholder="请选择角色"
-          @node-click="treenodeClick"
-        />
-      </el-form-item>
-    </el-form>
-    <template #footer>
-      <ElButton
-        type="primary"
-        style="margin-left: 38%"
-        :loading="loading"
-        @click="save(diaLogForm)"
-      >
-        确定
-      </ElButton>
-      <el-button @click="close">关闭</el-button>
-    </template>
-  </Dialog>
-
   <!-- 添加菜单 -->
   <Dialog
     v-model="isAddMenu"
@@ -598,8 +403,8 @@ const editaction = async (row) => {
       <el-form-item label="icon" prop="namejurisdiction">
         <el-input v-model="numberFormmenu.icon" autocomplete="off" />
       </el-form-item>
-      <!-- 选择数据的类型（权限，菜单，编辑时可见） -->
-      <el-form-item label="数据类型" v-if="dialogTitle === '编辑'">
+      <!-- 选择数据的类型 -->
+      <el-form-item label="数据类型">
         <el-radio-group v-model="radioauthorityType">
           <el-radio :label="1">权限</el-radio>
           <el-radio :label="2">菜单</el-radio>
