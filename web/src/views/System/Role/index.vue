@@ -356,7 +356,7 @@ interface Tree {
 // 树形的显示
 const defaultProps = {
   children: 'children',
-  label: 'name'
+  label: 'title'
 }
 </script>
 

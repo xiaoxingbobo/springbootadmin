@@ -69,7 +69,7 @@ values (NOW(), 0, null, NOW(), 'sys:authority:select', null, null, null, '权限
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-查询', 8,
+values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限管理-修改', 8,
         'API');
 
 
@@ -85,7 +85,7 @@ values (NOW(), 0, 'role', NOW(), 'sys:role:view', null, 'System/Role/index', 'ro
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:role:add', null, null, null, '角色管理-查询', 13,
+values (NOW(), 0, null, NOW(), 'sys:role:add', null, null, null, '角色管理-添加', 13,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,

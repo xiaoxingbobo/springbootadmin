@@ -6,22 +6,9 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { useCache } from '@/hooks/web/useCache'
 
 const { wsCache } = useCache('localStorage')
-// const viewPages = import.meta.glob('@/views/**/.vue')
-// console.log(viewPages[`src/views/code/index.vue`])
 
 const { t } = useI18n()
-// function filter(arr) {
-//   return arr.map((item) => {
-//     if (item.children && item.children.length) {
-//       filter(item.children)
-//     }
-//     console.log(viewPages[`@/views/${item.component}/.vue`])
 
-//     item['component'] =
-//       item['component'] === 'Layout' ? Layout : viewPages[`@/views/${item.component}/.vue`]
-//     return item
-//   })
-// }
 // 静态路由
 export const constantRouterMap: AppRouteRecordRaw[] = [
   {
@@ -74,12 +61,47 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
       },
       {
         path: 'workplace',
-        // component: () => import('@/views/Dashboard/Workplace.vue'),
         component: () => import('@/views/Dashboard/Workplace.vue'),
         name: 'Workplace',
         meta: {
           title: t('router.workplace'),
           noCache: true
+        }
+      }
+    ]
+  },
+  // 文档
+  {
+    path: '/external-link',
+    component: Layout,
+    meta: {},
+    name: 'ExternalLink',
+    children: [
+      {
+        path: 'http://localhost:9999/doc.html',
+        name: 'ExternalLink',
+        meta: {
+          title: '接口文档',
+          icon: 'clarity:document-solid',
+          hidden: false // 菜单中不显示
+        }
+      }
+    ]
+  },
+  // 文档
+  {
+    path: '/external-link',
+    component: Layout,
+    meta: {},
+    name: 'ExternalLink',
+    children: [
+      {
+        path: 'https://element-plus-admin-doc.cn/',
+        name: 'ExternalLink',
+        meta: {
+          title: '项目文档',
+          icon: 'clarity:document-solid',
+          hidden: false // 菜单中不显示
         }
       }
     ]
@@ -125,7 +147,7 @@ const modules = import.meta.glob('../views/**/*.vue')
     arr.forEach((item) => {
       if (item.component === 'Layout') {
         item.component = Layout
-      } else if (item.component === 'null') {
+      } else if (!item.component) {
         delete item.component
       } else {
         item.component = modules[`../views/${item.component}.vue`]
@@ -136,15 +158,8 @@ const modules = import.meta.glob('../views/**/*.vue')
     })
   }
 })(menuListData)
-console.log(menuListData)
-// console.log(filter(menuListdata))
-// const test = JSON.stringify(menuListdata)
-// const test0 = test.replace(/(\"(?=\())|((?<=\))\")/g, '')
-// const res = JSON.parse(test0)
-// export const asyncRouterMap: AppRouteRecordRaw[] = filter(menuListdata)
+// console.log(menuListData)
 export const asyncRouterMap: AppRouteRecordRaw[] = menuListData
-
-// export const asyncRouterMap: AppRouteRecordRaw[] = []
 
 // 动态路由列表
 // export const asyncRouterMap: AppRouteRecordRaw[] = [

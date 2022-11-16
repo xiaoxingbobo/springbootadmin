@@ -85,7 +85,8 @@ let treetabledata = ref([])
 let menuTableList = ref([])
 // 全部权限列表数据
 let allTabledata = ref([])
-
+// 编辑选择框里面的数据类型
+const radioauthorityType = ref(1)
 // 可生成实体列表
 let keshengchenglist = ref('')
 // 添加权限的输入数据
@@ -95,6 +96,8 @@ const numberForm = reactive({
   parentIdjurisdiction: 0,
   authorityType: 'API' // 表示为权限
 })
+// 是权限还是菜单
+const isauthorityType = ref('ROUTER')
 // 添加菜单的输入数据
 const numberFormmenu = reactive({
   namejurisdiction: '',
@@ -115,7 +118,7 @@ const defaultProps = {
 const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加权限')
-// 点击编辑，id存放
+// 点击编辑，当前的id存放,
 const editactionid = ref(0)
 // 添加权限表单的实例
 const diaLogForm = ref<FormInstance>()
@@ -147,6 +150,7 @@ const _PaginationQuery = async () => {
 // 查询全部权限列表-转化成树形
 const _PermissionList = async () => {
   const { data: treeres } = await PermissionList()
+  allTabledata.value = treeres
   const treerespromiseLIst = ref(treeres)
   treetabledata.value = tranListToTreeData(treerespromiseLIst.value, 0) // 将数组转化成树形
   _PermissionListmenu() // 查询全部菜单列表-转化成树形
@@ -160,7 +164,7 @@ const _PermissionListmenu = async () => {
   treemenu.forEach((emenu) => {
     if (emenu.authorityType === 'ROUTER') {
       treeresmenuList.value.push(emenu)
-      console.log(treeresmenuList.value)
+      // console.log(treeresmenuList.value)
     }
   })
   menuTableList.value = tranListToTreeData(treeresmenuList.value, 0)
@@ -229,27 +233,44 @@ const _ParameterPermission = async (entityFields, name, value) => {
 const _DeletePermissions = async (id) => {
   await DeletePermissions(id)
 }
-// 编辑权限
-const _EditPermissions = async (name, value, parentId, id) => {
+// 编辑权限-菜单
+const _EditPermissions = async (name, value, parentId, id, data) => {
   await EditPermissions({
     title: name,
     value: value,
     parentId: parentId,
-    id: id
+    id: id,
+    // 下面是编辑菜单时候的参数
+    name: data.name,
+    path: data.path,
+    component: data.component,
+    icon: data.icon,
+    authorityType: data.authorityType
   })
 }
 // 通过id查询一条权限
 const _GetPermissionById = async (id) => {
   const res = await GetPermissionById(id)
-  // console.log(res)
+  // console.log(res.data)
   // 给编辑的输入框赋值
-  numberForm.namejurisdiction = res.data.title
-  numberForm.valuejurisdiction = res.data.value
-  numberForm.parentIdjurisdiction = res.data.parentId
+  numberFormmenu.namejurisdiction = res.data.title
+  numberFormmenu.valuejurisdiction = res.data.value
+  numberFormmenu.parentIdjurisdiction = res.data.parentId
+  numberFormmenu.name = res.data.name
+  numberFormmenu.path = res.data.path
+  numberFormmenu.component = res.data.component
+  numberFormmenu.icon = res.data.icon
+  numberFormmenu.component = res.data.component
+  isauthorityType.value = res.data.authorityType // 判断是权限还是菜单
+  // 判断数据是权限还是菜单，绑定给编辑单选框的的数值（1：权限，2：菜单）
+  if (res.data.authorityType === 'ROUTER') {
+    radioauthorityType.value = 2
+  } else {
+    radioauthorityType.value = 1
+  }
   // 通过父id，遍历所有权限，父id=id,就找出父权限的名字
   allTabledata.value.forEach((elall) => {
     if (res.data.parentId === elall.id) {
-      // console.log(elall.name)
       treeparentId.value = elall.title // 上级权限名字
     }
   })
@@ -291,23 +312,24 @@ const save = (formEl: FormInstance | undefined) => {
         } catch (error) {
           ElMessage.error(error)
         }
-      } else {
-        // 编辑权限
-        try {
-          await _EditPermissions(
-            numberForm.namejurisdiction,
-            numberForm.valuejurisdiction,
-            numberForm.parentIdjurisdiction,
-            editactionid.value
-          )
-          ElMessage({
-            message: '编辑权限成功!',
-            type: 'success'
-          })
-        } catch (error) {
-          ElMessage.error(error)
-        }
       }
+      // else {
+      // try {
+      //   await _EditPermissions(
+      //     numberForm.namejurisdiction,
+      //     numberForm.valuejurisdiction,
+      //     numberForm.parentIdjurisdiction,
+      //     editactionid.value // 当前id
+      //     // Permissions_data
+      //   )
+      //   ElMessage({
+      //     message: '编辑权限成功!',
+      //     type: 'success'
+      //   })
+      // } catch (error) {
+      //   ElMessage.error(error)
+      // }
+      // }
       // console.log(dinputvalue.value)
       dialogVisible.value = false
       close()
@@ -320,7 +342,7 @@ const save = (formEl: FormInstance | undefined) => {
   })
 }
 
-// 菜单弹窗确定按钮
+// 菜单弹窗确定按钮--点击编辑弹出的是菜单的弹窗
 const savemenu = (formEl2: FormInstance | undefined) => {
   // console.log(formEl)
   if (!formEl2) return
@@ -334,21 +356,29 @@ const savemenu = (formEl2: FormInstance | undefined) => {
             message: '添加菜单成功!',
             type: 'success'
           })
-          console.log(numberFormmenu)
+          // console.log(numberFormmenu)
         } catch (error) {
           ElMessage.error(error)
         }
       } else {
         // 编辑权限
+        const Permissions_data = {
+          name: numberFormmenu.name,
+          path: numberFormmenu.path,
+          component: isauthorityType.value === 'ROUTER' ? numberFormmenu.component : '', // 如果修改的是权限就传''
+          icon: numberFormmenu.icon,
+          authorityType: radioauthorityType.value === 1 ? 'API' : 'ROUTER'
+        }
         try {
           await _EditPermissions(
             numberFormmenu.namejurisdiction,
             numberFormmenu.valuejurisdiction,
             numberFormmenu.parentIdjurisdiction,
-            editactionid.value
+            editactionid.value,
+            Permissions_data
           )
           ElMessage({
-            message: '编辑菜单成功!',
+            message: '操作成功!',
             type: 'success'
           })
         } catch (error) {
@@ -358,7 +388,6 @@ const savemenu = (formEl2: FormInstance | undefined) => {
       // console.log(dinputvalue.value)
       dialogVisible.value = false
       closemenu()
-      _PermissionList() // 跟新列表
     } else {
       // 表单不通过验证
       return false
@@ -395,8 +424,6 @@ const closemenu = () => {
 }
 // 删除按钮
 const deleteaction = async (row) => {
-  // console.log(row.id)
-  // console.log(index)
   try {
     const res = await ElMessageBox.confirm('确定要删除此权限吗?', '提示', {
       confirmButtonText: '确定',
@@ -422,12 +449,12 @@ const deleteaction = async (row) => {
 const editaction = async (row) => {
   try {
     await _GetPermissionById(row.id)
-    dialogTitle.value = '编辑权限'
-    dialogVisible.value = true
+    dialogTitle.value = '编辑'
+    isAddMenu.value = true
     // console.log(row.id)
     editactionid.value = row.id
   } catch (error) {
-    console.log(reeor)
+    console.log(error)
   }
 }
 </script>
@@ -446,7 +473,7 @@ const editaction = async (row) => {
       <el-table-column prop="icon" label="icon" sortable />
       <el-table-column prop="authorityType" label="菜单" sortable />
       <el-table-column prop="createTime" label="创建时间" sortable />
-      <el-table-column label="操作">
+      <el-table-column label="操作" width="180px">
         <template #default="scope">
           <ElButton type="danger" :loading="delLoading" @click="deleteaction(scope.row)">
             删除
@@ -512,7 +539,7 @@ const editaction = async (row) => {
     v-model="isAddMenu"
     :title="dialogTitle"
     maxHeight="400px"
-    style="width: 30%; min-width: 575px; max-width: 700px"
+    style="width: 40%; min-width: 375px; max-width: 700px"
     @closed="closemenu"
   >
     <!-- 添加菜单 -->
@@ -545,20 +572,12 @@ const editaction = async (row) => {
       </el-form-item>
 
       <!-- name -->
-      <el-form-item
-        label="name"
-        prop="name"
-        :rules="[{ required: true, message: '菜单名不能为空！' }]"
-      >
+      <el-form-item label="name" prop="name">
         <el-input v-model="numberFormmenu.name" autocomplete="off" />
       </el-form-item>
 
       <!-- path -->
-      <el-form-item
-        label="path"
-        prop="path"
-        :rules="[{ required: true, message: '菜单名不能为空！' }]"
-      >
+      <el-form-item label="path" prop="path">
         <el-input
           v-model="numberFormmenu.path"
           placeholder="children的path前缀不加/"
@@ -567,11 +586,7 @@ const editaction = async (row) => {
       </el-form-item>
 
       <!-- component -->
-      <el-form-item
-        label="component"
-        prop="component"
-        :rules="[{ required: true, message: '菜单名不能为空！' }]"
-      >
+      <el-form-item label="component" prop="component">
         <el-input
           v-model="numberFormmenu.component"
           placeholder="一级菜单：Layout，子菜单为导入组件的地址"
@@ -582,6 +597,13 @@ const editaction = async (row) => {
       <!-- icon -->
       <el-form-item label="icon" prop="namejurisdiction">
         <el-input v-model="numberFormmenu.icon" autocomplete="off" />
+      </el-form-item>
+      <!-- 选择数据的类型（权限，菜单，编辑时可见） -->
+      <el-form-item label="数据类型" v-if="dialogTitle === '编辑'">
+        <el-radio-group v-model="radioauthorityType">
+          <el-radio :label="1">权限</el-radio>
+          <el-radio :label="2">菜单</el-radio>
+        </el-radio-group>
       </el-form-item>
     </el-form>
     <template #footer>

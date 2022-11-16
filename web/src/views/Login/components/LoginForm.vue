@@ -140,27 +140,15 @@ const signIn = async () => {
           wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 }) // 存当前用户的信息
           wsCache.set('roleAuthority', res.data.roleAuthority, { exp: 60 * 60 * 6 }) // 当前用户拥有的权限列表
           const { data: menuListdata } = await menuList() // 请求菜单信息
-          console.log(typeof menuListdata)
-          // menuListdata.forEach((em) => {
-          //   // console.log(em.children)
-          //   em.children.forEach((emzi) => {
-          //     // emzi.component = '../../../views/System/Role/index.vue'
-          //     // console.log(emzi.component)
-          //   })
-          // })
           wsCache.set('menudata', menuListdata, { exp: 60 * 60 * 6 }) // 当前角色拥有的菜单
-          // console.log(wsCache.get('menudata'))
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
-          // getRoleUserInfo()
           ElMessage({
             message: '登录成功',
             type: 'success'
           })
           // 是否使用动态路由
           if (appStore.getDynamicRouter) {
-            // getRole()  // 获取角色信息
-            // push({ path: redirect.value || permissionStore.addRouters[0].path })
-            // location.reload() // 跳转并刷新页面
+            location.reload() // 跳转并刷新页面
           } else {
             await permissionStore.generateRoutes().catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
