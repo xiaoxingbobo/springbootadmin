@@ -1,18 +1,18 @@
 --开发设置1
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
-values (NOW(), 0, 'Layout', NOW(), 'sys:development:setting', 'vaadin:code', 'Layout', '/development', '开发设置',
+values (NOW(), 0, 'development', NOW(), 'sys:development:setting', 'vaadin:code', 'Layout', '/development', '开发设置',
         0,
         'ROUTER');
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
-values (NOW(), 0, 'API', NOW(), 'sys:development:api', 'vaadin:code', '',
-        'http://localhost:9999/doc.html', '接口文档', 1,
+values (NOW(), 0, 'api', NOW(), 'sys:development:api', 'vaadin:code', null,
+        'http://localhost:9999/doc.html', 'API接口文档', 0,
         'ROUTER');
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 values (NOW(), 0, 'element-plus-admin-doc', NOW(), 'sys:development:doc', 'vaadin:code',
-        '', 'https://element-plus-admin-doc.cn/', 'UI文档', 1,
+        null, 'https://element-plus-admin-doc.cn/', 'UI组件文档', 0,
         'ROUTER');
 --代码生成4
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,

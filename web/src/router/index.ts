@@ -105,16 +105,28 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
     }
   }
 ]
+interface iRouter {
+  path: string
+  component: any
+  name: string
+  meta: {
+    title: string
+    icon: string
+  }
+  children: Array<iRouter>
+}
 
 // export const myscreenRouters: AppRouteRecordRaw[] = wsCache.get('screenRouters')
-const menuListData = wsCache.get('menudata')
+const menuListData: Array<iRouter> = wsCache.get('menudata')
 // 首先把你需要动态路由的组件地址全部获取
 const modules = import.meta.glob('../views/**/*.vue')
-const getMenu = (arr) => {
+;(function getMenu(arr: Array<iRouter>): void {
   if (arr != null) {
     arr.forEach((item) => {
-      if (item.component === 'Layout' || item.component === null) {
+      if (item.component === 'Layout') {
         item.component = Layout
+      } else if (item.component === 'null') {
+        delete item.component
       } else {
         item.component = modules[`../views/${item.component}.vue`]
       }
@@ -123,9 +135,7 @@ const getMenu = (arr) => {
       }
     })
   }
-}
-getMenu(menuListData)
-
+})(menuListData)
 console.log(menuListData)
 // console.log(filter(menuListdata))
 // const test = JSON.stringify(menuListdata)

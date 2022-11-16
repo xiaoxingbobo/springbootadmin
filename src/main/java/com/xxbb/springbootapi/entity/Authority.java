@@ -60,11 +60,9 @@ public class Authority extends Common {
     private String path;
     @ApiModelProperty(value = "组件")
     private String component;
-    @ApiModelProperty(value = "重定向")
-    private String redirect = "noredirect";
     @ApiModelProperty(value = "图标")
     private String icon;
     @ApiModelProperty(value = "权限类型")
     @Enumerated(EnumType.STRING)
-    private AuthorityType authorityType;
+    private AuthorityType authorityType=AuthorityType.ROUTER;
 }

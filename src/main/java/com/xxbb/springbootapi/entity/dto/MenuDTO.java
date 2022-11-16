@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
-public class MenuDTO {
+public class MenuDTO{
     //特有属性
     @ApiModelProperty(value = "名称")
     private String name;
