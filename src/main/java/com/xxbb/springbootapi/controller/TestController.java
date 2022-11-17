@@ -1,14 +1,14 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.{entityName};
+import com.xxbb.springbootapi.entity.Test;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
 import com.xxbb.springbootapi.entity.dto.PagedInputC;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
-import com.xxbb.springbootapi.mapper.{entityName}Mapper;
-import com.xxbb.springbootapi.service.impl.{entityName}Service;
-import com.xxbb.springbootapi.wrapper.{entityName}Query;
-import com.xxbb.springbootapi.wrapper.{entityName}Update;
+import com.xxbb.springbootapi.mapper.TestMapper;
+import com.xxbb.springbootapi.service.impl.TestService;
+import com.xxbb.springbootapi.wrapper.TestQuery;
+import com.xxbb.springbootapi.wrapper.TestUpdate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -18,12 +18,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("{entityNameLowCase}")
-@Api(tags = "{entityName}表")
+@RequestMapping("test")
+@Api(tags = "Test表")
 @RestController
-public class {entityName}Controller extends ApiController<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
+public class TestController extends ApiController<Test, TestQuery, TestUpdate, TestMapper> {
     @Autowired
-    private {entityName}Service service;
+    private TestService service;
     /**
      * Create boolean.
      *
@@ -32,9 +32,9 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @PostMapping
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:add')")
+    @PreAuthorize("@auth.hasAuth('sys:test:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean create(@RequestBody {entityName} entity) {
+    public Boolean create(@RequestBody Test entity) {
         return service.add(entity);
     }
 
@@ -46,7 +46,7 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:delete')")
+    @PreAuthorize("@auth.hasAuth('sys:test:delete')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -60,7 +60,7 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:delete')")
+    @PreAuthorize("@auth.hasAuth('sys:test:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -74,9 +74,9 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @PutMapping
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:update')")
+    @PreAuthorize("@auth.hasAuth('sys:test:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
-    public Boolean update(@RequestBody {entityName} entity) {
+    public Boolean update(@RequestBody Test entity) {
         return service.update(entity);
     }
 
@@ -88,9 +88,9 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
     @ApiOperation(value = "搜索")
-    public List<{entityName}> select(@RequestBody List<Search> searches) {
+    public List<Test> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
             return service.search(searches.get(0));
         } else if (searches.size() > 1) {
@@ -108,10 +108,10 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
     @ApiOperation(value = "查询一条")
-    public {entityName} find(@PathVariable("id") int id) {
-        return ({entityName}) service.find(id);
+    public Test find(@PathVariable("id") int id) {
+        return (Test) service.find(id);
     }
 
     /**
@@ -123,9 +123,9 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<{entityName}> select(@PathVariable("limit") int limit) {
+    public List<Test> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
@@ -137,8 +137,8 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
-    public List<{entityName}> select() {
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
+    public List<Test> select() {
         return service.list();
     }
 
@@ -151,8 +151,8 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
-    public PagedResult<{entityName}> select(@RequestBody PagedInputC<{entityName}> input) {
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
+    public PagedResult<Test> select(@RequestBody PagedInputC<Test> input) {
         return service.list(input);
     }
 
@@ -166,9 +166,9 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<{entityName}> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+    public PagedResult<Test> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
@@ -181,8 +181,8 @@ public class {entityName}Controller extends ApiController<{entityName}, {entityN
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("@auth.hasAuth('sys:{entityNameLowCase}:select')")
-    public PagedResult<{entityName}> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+    @PreAuthorize("@auth.hasAuth('sys:test:select')")
+    public PagedResult<Test> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
 }

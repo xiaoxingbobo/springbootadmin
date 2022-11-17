@@ -45,7 +45,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:delete')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -59,7 +59,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -73,7 +73,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @PutMapping
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
     public Boolean update(@RequestBody Authority entity) {
         return service.update(entity);
@@ -87,7 +87,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     @ApiOperation(value = "搜索")
     public List<Authority> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
@@ -107,7 +107,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     @ApiOperation(value = "查询一条")
     public Authority find(@PathVariable("id") int id) {
         return (Authority) service.find(id);
@@ -122,7 +122,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
     public List<Authority> select(@PathVariable("limit") int limit) {
         return service.list(limit);
@@ -136,7 +136,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     public List<Authority> select() {
         return service.list();
     }
@@ -150,7 +150,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     public PagedResult<Authority> select(@RequestBody PagedInputC<Authority> input) {
         return service.list(input);
     }
@@ -165,7 +165,7 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
     public PagedResult<Authority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
@@ -180,14 +180,13 @@ public class AuthorityController extends AuthApiController<Authority, AuthorityQ
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
+    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     public PagedResult<Authority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
 
     @GetMapping("/menu")
     @ApiOperation(value = "获取菜单")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
     @ResponseBody
     public List<MenuDTO> viewMenu() {
         return service.viewMenu();
