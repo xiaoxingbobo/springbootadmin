@@ -429,7 +429,7 @@ const defaultProps = {
           :data="jurisdictionList"
           default-expand-all
           show-checkbox
-          check-strictly
+          check-on-click-node
           node-key="id"
           :default-checked-keys="tcheckedIdLIst"
           :props="defaultProps"
