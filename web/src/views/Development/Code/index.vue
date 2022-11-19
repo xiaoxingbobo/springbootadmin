@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { h, ref, unref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { Table } from '@/components/Table'
 import {
   Entitygenerationrecord,
   Cangenerateentitylist,
   Singleentitygeneration,
   RevokeEntity,
-  ParameterPermission
+  ParameterPermission,
+  PaginationQuery
 } from '@/api/table'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
-  ElTag,
   ElForm,
   ElFormItem,
   ElInput,
@@ -29,8 +29,6 @@ import {
   ElPagination
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
-import Write from './components/Write.vue'
-import { values } from 'lodash'
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -69,15 +67,15 @@ const columns = reactive<TableColumn[]>([
 ])
 
 // 实体生成记录数据
-let tabledata = ref('')
+let tabledata: any = ref('')
 // 可生成实体列表
-let keshengchenglist = ref('')
+let keshengchenglist: any = ref('')
 // 选择实体类输入框的值
-const dinputvalue = ref('')
+const dinputvalue: any = ref('')
 // 是否覆盖
-const isCover = ref('true')
+const isCover: any = ref('true')
 // tabs标签索引
-let evalue = ref('')
+let evalue: any = ref('')
 // 字段枚举
 const fileTypeList = ref([
   {
@@ -139,14 +137,7 @@ let Paginationdata: {
   // 每页条数
   size: 10
 }
-//  全部角色信息数据
-let RoleList = ref('')
-// 选择角色信息获得焦点
-const selectFocus = async () => {
-  const res = await getRole()
-  RoleList.value = res.data
-  // console.log(res.data)
-}
+
 // 分页查询函数
 const _PaginationQuery = async () => {
   const { data: res } = await PaginationQuery(Paginationdata)
@@ -168,22 +159,20 @@ const handleCurrentChange = (val: number) => {
 }
 
 const currentPage = ref(1)
-const pageSize = ref(10)
 const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
-// 每页显示数目
-let _PageSize = ref(10)
 
 // 动态添加删除表单开始------
 const formRef = ref<FormInstance>()
-const dynamicValidateForm = reactive<{
+const dynamicValidateForm: any = reactive<{
   domains: DomainItem[]
   entityFields: {
     description: string
     fieldType: string
     filedName: string
   }
+  email: string
 }>({
   // 不可增删的数据绑定
   entityFields: {
@@ -227,12 +216,13 @@ const addDomain = () => {
   })
 }
 // 动态提交代码生成函数
-const _ParameterPermission = async (data: any, entityName, isCover) => {
-  await ParameterPermission({
+const _ParameterPermission = async (data: any, entityName: any, isCover: any) => {
+  const Parameterdata: any = {
     entityFields: data,
     entityName: entityName,
     isCover: isCover
-  })
+  }
+  await ParameterPermission(Parameterdata)
 }
 
 // tabs标签事件
@@ -240,36 +230,6 @@ const tabClick = (e) => {
   console.log(e.index)
   // console.log(w)
   evalue.value = e.index
-}
-
-// 动态增删点击确定按钮
-// const submitForm = (formEl: FormInstance | undefined) => {
-//   if (!formEl) return
-//   formEl.validate((valid) => {
-//     if (valid) {
-//       // 表单通过验证
-//       // console.log(dynamicValidateForm.domains)
-//       try {
-//         const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
-//         // console.log(dataList)
-//         _ParameterPermission(dataList, dinputvalue.value, isCover.value)
-//         ElMessage.success('操作成功！')
-//         closeDialog() // 关闭弹窗
-//         _Entitygenerationrecord() // 跟新列表数据
-//       } catch (error) {
-//         console.log(error)
-//       }
-//     } else {
-//       console.log('error submit!')
-//       return false
-//     }
-//   })
-// }
-
-// 重置按钮
-const resetForm = (formEl: FormInstance | undefined) => {
-  if (!formEl) return
-  formEl.resetFields()
 }
 // ------动态添加删除表单结束
 
@@ -320,7 +280,10 @@ const save = async (formEl: FormInstance | undefined) => {
         // 表单通过验证
         // console.log(dynamicValidateForm.domains)
         try {
-          const dataList = [].concat(dynamicValidateForm.entityFields, dynamicValidateForm.domains)
+          const dataList: any = [].concat(
+            dynamicValidateForm.entityFields,
+            dynamicValidateForm.domains
+          )
           // console.log(dataList)
           _ParameterPermission(dataList, dinputvalue.value, isCover.value)
           ElMessage.success('操作成功！')
@@ -345,7 +308,7 @@ const save = async (formEl: FormInstance | undefined) => {
       })
       dialogVisible.value = false // 关闭弹窗
       _Entitygenerationrecord() // 跟新列表数据
-    } catch (error) {
+    } catch (error: any) {
       ElMessage.error(error)
     }
   }
@@ -376,7 +339,7 @@ const action = async (row) => {
         type: 'success'
       })
     }
-  } catch (error) {
+  } catch (error: any) {
     ElMessage.error(error)
   }
   _Entitygenerationrecord() // 跟新列表数据
@@ -415,19 +378,13 @@ const closeDialog = () => {
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton
-          type="danger"
-          v-hasPermission="['sys:code:undo']"
-          :loading="delLoading"
-          @click="action(row)"
-        >
+        <ElButton type="danger" v-hasPermission="['sys:code:undo']" @click="action(row)">
           撤销
         </ElButton>
       </template>
     </Table>
     <el-pagination
       v-model:currentPage="currentPage"
-      v-model:page-size="pageSize"
       :page-sizes="[10, 50, 100, 400]"
       :small="small"
       :disabled="disabled"
@@ -471,11 +428,6 @@ const closeDialog = () => {
       <el-tab-pane label="生成实体加接口">
         <el-form>
           <el-form-item label="实体类名">
-            <!-- <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
-              <el-option v-for="(item, index) in keshengchenglist" :key="index" :value="item">
-                <span style="float: left">{{ item }}</span>
-              </el-option>
-            </el-select> -->
             <el-input placeholder="请输入实体类名" v-model="dinputvalue" />
           </el-form-item>
           <el-form-item label="是否覆盖">
@@ -509,12 +461,6 @@ const closeDialog = () => {
                   placeholder="字段名"
                   v-model="dynamicValidateForm.entityFields.filedName"
               /></el-col>
-              <!-- <el-col :span="8"
-                ><el-input
-                  placeholder="字段类型"
-                  v-model="dynamicValidateForm.entityFields.fieldType"
-              /></el-col> -->
-
               <el-col :span="8">
                 <el-select
                   v-model="dynamicValidateForm.entityFields.fieldType"
@@ -554,11 +500,6 @@ const closeDialog = () => {
               <el-col :span="7"
                 ><el-input placeholder="字段名" v-model="domain.filedName"
               /></el-col>
-
-              <!-- <el-col :span="7"
-                ><el-input placeholder="字段类型" v-model="domain.fieldType"
-              /></el-col> -->
-
               <el-col :span="7">
                 <el-select v-model="domain.fieldType" placeholder="字段类型">
                   <el-option
@@ -590,7 +531,7 @@ const closeDialog = () => {
     </el-tabs>
 
     <template #footer>
-      <ElButton type="primary" :loading="loading" @click="save(formRef)"> 确定 </ElButton>
+      <ElButton type="primary" @click="save(formRef)"> 确定 </ElButton>
       <el-button @click="closeDialog">关闭</el-button>
     </template>
   </Dialog>

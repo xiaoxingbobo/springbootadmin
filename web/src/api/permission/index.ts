@@ -16,7 +16,7 @@ export const DeletePermissions = (id: number[]): Promise<IResponse> => {
 }
 
 // 编辑权限
-export const EditPermissions = (data: string[]): Promise<IResponse> => {
+export const EditPermissions = (data: any[]): Promise<IResponse> => {
   return request.put({ url: '/authority', data })
 }
 

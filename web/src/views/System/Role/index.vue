@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { h, ref, unref, reactive, onMounted, toRefs } from 'vue'
+import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
 import {
   PaginationQuery,
@@ -8,7 +8,6 @@ import {
   byIddeleteUser,
   putUser,
   byIdgetUser,
-  getRole,
   getAuthority,
   batchRoleAuthoritys,
   RoleAuthoritysPaged
@@ -16,29 +15,15 @@ import {
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
-  ElTag,
   ElForm,
   ElFormItem,
   ElInput,
-  ElSelect,
-  ElOption,
-  ElRadioGroup,
-  ElRadio,
   ElMessage,
   ElMessageBox,
-  ElTabs,
-  ElTabPane,
-  ElRow,
-  ElCol,
   ElPagination,
-  ElCheckbox,
   ElTree
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
-import Write from './components/Write.vue'
-import { values } from 'lodash'
-import { number } from 'vue-types'
-import type Node from 'element-plus/es/components/tree/src/model/node'
 import { tranListToTreeData } from '@/utils/tree'
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -72,10 +57,8 @@ const columns = reactive<TableColumn[]>([
 ])
 
 //  user列表数据
-let tabledata = ref('')
+let tabledata: any = ref('')
 
-// 是否覆盖
-const isCover = ref('true')
 // 弹窗标题
 const dialogTitle = ref('添加角色')
 // 点击编辑，点击分配权限的 id 存放
@@ -85,20 +68,17 @@ const diaLogForm = ref<FormInstance>()
 const permTree = ref() // eltree树形
 
 // 添加角色参数
-const addUserdata = reactive({
+const addUserdata: any = reactive({
   name: ''
 })
-// 分配权限
-const checked1 = ref(true)
-const checked2 = ref(false)
+
 // 分配权限复选框最新的权限id列表
-const newtcheckedIdLIst = ref()
+const newtcheckedIdLIst: any = ref()
 // 所有权限列表数据
-let jurisdictionList = ref('')
+let jurisdictionList: any = ref('')
 // 批量添加参数
 let batchParameter: any[] = []
-// 角色权限表分页筛选数据
-let RoleAuthoritysPagedList = ref('')
+
 // 角色权限表分页筛选参数
 let RoleParameter = ref({
   condition: {
@@ -119,14 +99,7 @@ let Paginationdata: {
   // 每页条数
   size: 10
 }
-//  全部角色信息数据
-let RoleList = ref('')
-// 选择角色信息获得焦点
-const selectFocus = async () => {
-  const res = await getRole()
-  RoleList.value = res.data
-  // console.log(res.data)
-}
+
 // 分页查询函数
 const _PaginationQuery = async () => {
   const { data: res } = await PaginationQuery(Paginationdata)
@@ -155,12 +128,9 @@ const handleCurrentChange = (val: number) => {
 }
 
 const currentPage = ref(1)
-const pageSize = ref(10)
 const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
-// 每页显示数目
-let _PageSize = ref(10)
 _PaginationQuery() // 刷新列表
 
 // 添加角色按钮
@@ -180,8 +150,7 @@ const editaction = async (row) => {
   addUserdata.name = res.name
 }
 // 角色拥有的权限列表id列表，用于树形显示
-let tcheckedIdLIst = ref([])
-// let tcheckedIdLIst = []
+let tcheckedIdLIst: any = ref([])
 // 分配权限按钮
 const Assign = ref(false)
 const AssignPermissions = async (row) => {
@@ -207,28 +176,18 @@ const AssignPermissions = async (row) => {
   // console.log(res2.data)
   const PagedresList = res2.data // 当前角色的角色权限列表
   // console.log(PagedresList)
-  PagedresList.forEach((e) => {
+  PagedresList.forEach((e: any) => {
     // console.log(e.authorityId) // 角色拥有的权限列表id
     tcheckedIdLIst.value.push(e.authorityId)
-    // console.log(tcheckedIdLIst.value)
-    // jurisdictionList.value.forEach((e2) => {
-    //   // console.log(e2)
-    //   if (e.authorityId === e2.id) {
-    //     e2.state = true
-    //   }
-    // })
   })
 
   // 把数组修改为树形
   const RoleResList2 = tranListToTreeData(RoleResList, 0)
-  // console.log(RoleResList2)
   jurisdictionList.value = RoleResList2
-  // console.log(RoleResList)
 }
 // 添加角色函数
 const _addUser = async (data) => {
-  const res = await addUser(data)
-  // console.log(res)
+  await addUser(data)
 }
 // 删除角色按钮
 const deleteaction = async (row) => {
@@ -240,20 +199,20 @@ const deleteaction = async (row) => {
     })
     // 点击了确定
     if (res === 'confirm') {
-      const res = await byIddeleteUser(row.id)
+      const res: any = await byIddeleteUser(row.id)
       ElMessage({
         message: res.message,
         type: 'success'
       })
     }
-  } catch (error) {
+  } catch (error: any) {
     ElMessage.error(error)
   }
   _PaginationQuery() // 跟新列表
 }
 
 // 关闭弹窗
-const dclose = (formEl: FormInstance | undefined) => {
+const dclose = (formEl?: FormInstance | undefined) => {
   Assign.value = false // 还原是否是分配权限
   tcheckedIdLIst.value = [] // 重置树形的选中项
   dialogVisible.value = false
@@ -284,7 +243,7 @@ const save = async (formEl: FormInstance | undefined) => {
               message: '添加角色成功!',
               type: 'success'
             })
-          } catch (error) {
+          } catch (error: any) {
             ElMessage.error(error)
           }
         } else {
@@ -329,7 +288,7 @@ const save = async (formEl: FormInstance | undefined) => {
     }
 
     try {
-      const res = await batchRoleAuthoritys(batchParameter)
+      const res: any = await batchRoleAuthoritys(batchParameter)
       if (res.state) {
         ElMessage({
           message: res.message,
@@ -346,13 +305,6 @@ const save = async (formEl: FormInstance | undefined) => {
   }
 }
 
-// 树形显示分配权限
-let count = 1
-
-interface Tree {
-  name: string
-}
-
 // 树形的显示
 const defaultProps = {
   children: 'children',
@@ -366,7 +318,7 @@ const defaultProps = {
       <ElButton type="success" v-hasPermission="['sys:role:add']" @click="tianjiajiekoubtn"
         >添加角色</ElButton
       >
-      <ElButton :loading="delLoading" v-hasPermission="['sys:role:delete']" type="danger">
+      <ElButton v-hasPermission="['sys:role:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除</ElButton
       >
     </div>
@@ -375,32 +327,20 @@ const defaultProps = {
         <ElButton
           type="success"
           v-hasPermission="['sys:role:update']"
-          :loading="delLoading"
           @click="AssignPermissions(row)"
         >
           授权
         </ElButton>
-        <ElButton
-          type="danger"
-          v-hasPermission="['sys:role:delete']"
-          :loading="delLoading"
-          @click="deleteaction(row)"
-        >
+        <ElButton type="danger" v-hasPermission="['sys:role:delete']" @click="deleteaction(row)">
           删除
         </ElButton>
-        <ElButton
-          type="primary"
-          v-hasPermission="['sys:role:update']"
-          :loading="delLoading"
-          @click="editaction(row)"
-        >
+        <ElButton type="primary" v-hasPermission="['sys:role:update']" @click="editaction(row)">
           编辑
         </ElButton>
       </template>
     </Table>
     <el-pagination
       v-model:currentPage="currentPage"
-      v-model:page-size="pageSize"
       :page-sizes="[10, 50, 100, 400]"
       :small="small"
       :disabled="disabled"
@@ -408,7 +348,7 @@ const defaultProps = {
       style="margin-top: 20px"
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"
-      page-size="Paginationdata.size"
+      :page-size="Paginationdata.size"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
@@ -448,14 +388,7 @@ const defaultProps = {
       </el-form-item>
     </el-form>
     <template #footer>
-      <ElButton
-        type="primary"
-        style="margin-left: 38%"
-        :loading="loading"
-        @click="save(diaLogForm)"
-      >
-        确定
-      </ElButton>
+      <ElButton type="primary" style="margin-left: 38%" @click="save(diaLogForm)"> 确定 </ElButton>
       <el-button @click="dclose(diaLogForm)">关闭</el-button>
     </template>
   </Dialog>
