@@ -352,8 +352,10 @@ const inputBtnReset = () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" @click="tianjiajiekoubtn"> 添加用户</ElButton>
-      <ElButton :loading="delLoading" type="danger">
+      <ElButton type="success" v-hasPermission="['sys:user:add']" @click="tianjiajiekoubtn">
+        添加用户</ElButton
+      >
+      <ElButton v-hasPermission="['sys:user:delete']" :loading="delLoading" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
     </div>
@@ -369,15 +371,31 @@ const inputBtnReset = () => {
           <el-input style="width: 230px" v-model="inputAge" placeholder="age" />
         </el-form-item>
         <el-form-item>
-          <ElButton type="primary" @click="inputBlur"> <Icon icon="bi:search" /> 查询 </ElButton>
+          <ElButton type="primary" v-hasPermission="['sys:user:select']" @click="inputBlur">
+            <Icon icon="bi:search" /> 查询
+          </ElButton>
           <ElButton type="primary" @click="inputBtnReset"> <Icon icon="bx:reset" /> 重置 </ElButton>
         </el-form-item>
       </el-form>
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
-        <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
+        <ElButton
+          type="danger"
+          v-hasPermission="['sys:user:delete']"
+          :loading="delLoading"
+          @click="deleteaction(row)"
+        >
+          删除
+        </ElButton>
+        <ElButton
+          type="primary"
+          v-hasPermission="['sys:user:update']"
+          :loading="delLoading"
+          @click="editaction(row)"
+        >
+          编辑
+        </ElButton>
       </template>
     </Table>
     <el-pagination

@@ -317,7 +317,9 @@ const editaction = async (row) => {
   <ContentWrap>
     <div class="mb-10px">
       <!-- <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton> -->
-      <ElButton type="success" @click="tianjiamenu">添加</ElButton>
+      <ElButton type="success" v-hasPermission="['sys:authority:add']" @click="tianjiamenu"
+        >添加</ElButton
+      >
     </div>
     <!-- 树形table -->
     <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
@@ -329,10 +331,20 @@ const editaction = async (row) => {
       <el-table-column prop="createTime" label="创建时间" sortable />
       <el-table-column label="操作" width="180px">
         <template #default="scope">
-          <ElButton type="danger" :loading="delLoading" @click="deleteaction(scope.row)">
+          <ElButton
+            type="danger"
+            v-hasPermission="['sys:authority:delete']"
+            :loading="delLoading"
+            @click="deleteaction(scope.row)"
+          >
             删除
           </ElButton>
-          <ElButton type="primary" :loading="delLoading" @click="editaction(scope.row)">
+          <ElButton
+            type="primary"
+            v-hasPermission="['sys:authority:update']"
+            :loading="delLoading"
+            @click="editaction(scope.row)"
+          >
             编辑
           </ElButton>
         </template>

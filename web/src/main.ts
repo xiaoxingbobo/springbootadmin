@@ -28,11 +28,15 @@ import { setupRouter } from './router'
 // 权限
 import { setupPermission } from './directives'
 
+// 导入全局使用按钮权限
+import reghasPermission  from '@/utils/directives/index'
+
 import { createApp } from 'vue'
 
 import App from './App.vue'
 
 import './permission'
+
 // 创建实例
 const setupAll = async () => {
   const app = createApp(App)
@@ -48,6 +52,8 @@ const setupAll = async () => {
   setupRouter(app)
 
   setupPermission(app)
+
+  reghasPermission(app)
 
   app.mount('#app')
 }

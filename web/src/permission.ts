@@ -49,8 +49,8 @@ router.beforeEach(async (to, from, next) => {
       // const roleRouters = wsCache.get('roleRouters') || []
       // 是否使用动态路由
       if (appStore.getDynamicRouter) {
-        await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
-        // await permissionStore.generateRoutes()
+        // await permissionStore.generateRoutes('admin', roleRouters as AppCustomRouteRecordRaw[])
+        await permissionStore.generateRoutes()
       } else {
         await permissionStore.generateRoutes()
       }

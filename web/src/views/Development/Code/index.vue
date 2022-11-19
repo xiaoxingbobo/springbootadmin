@@ -409,12 +409,20 @@ const closeDialog = () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="primary" @click="tianjiajiekoubtn">生成接口</ElButton>
-      <!-- <ElButton :loading="delLoading" type="danger">删除</ElButton> -->
+      <ElButton type="primary" v-hasPermission="['sys:code:add']" @click="tianjiajiekoubtn"
+        >生成接口</ElButton
+      >
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton type="danger" :loading="delLoading" @click="action(row)"> 撤销 </ElButton>
+        <ElButton
+          type="danger"
+          v-hasPermission="['sys:code:undo']"
+          :loading="delLoading"
+          @click="action(row)"
+        >
+          撤销
+        </ElButton>
       </template>
     </Table>
     <el-pagination

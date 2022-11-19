@@ -363,18 +363,39 @@ const defaultProps = {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" @click="tianjiajiekoubtn">添加角色</ElButton>
-      <ElButton :loading="delLoading" type="danger">
+      <ElButton type="success" v-hasPermission="['sys:role:add']" @click="tianjiajiekoubtn"
+        >添加角色</ElButton
+      >
+      <ElButton :loading="delLoading" v-hasPermission="['sys:role:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除</ElButton
       >
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton type="success" :loading="delLoading" @click="AssignPermissions(row)">
+        <ElButton
+          type="success"
+          v-hasPermission="['sys:role:update']"
+          :loading="delLoading"
+          @click="AssignPermissions(row)"
+        >
           授权
         </ElButton>
-        <ElButton type="danger" :loading="delLoading" @click="deleteaction(row)"> 删除 </ElButton>
-        <ElButton type="primary" :loading="delLoading" @click="editaction(row)"> 编辑 </ElButton>
+        <ElButton
+          type="danger"
+          v-hasPermission="['sys:role:delete']"
+          :loading="delLoading"
+          @click="deleteaction(row)"
+        >
+          删除
+        </ElButton>
+        <ElButton
+          type="primary"
+          v-hasPermission="['sys:role:update']"
+          :loading="delLoading"
+          @click="editaction(row)"
+        >
+          编辑
+        </ElButton>
       </template>
     </Table>
     <el-pagination
