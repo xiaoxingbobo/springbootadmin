@@ -40,7 +40,7 @@ values (NOW(), 0, 'setting', NOW(), 'sys:system:setting', 'ep:setting', 'Layout'
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', null,
+values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', 'material-symbols:verified-user',
         'System/Permission/index', 'authority', '权限管理', 6,
         'ROUTER');
 --增加8
@@ -73,7 +73,7 @@ values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'role', NOW(), 'sys:role:view', null, 'System/Role/index', 'role',
+values (NOW(), 0, 'role', NOW(), 'sys:role:view', 'mdi:user-convert', 'System/Role/index', 'role',
         '角色管理', 6,
         'ROUTER');
 
@@ -106,7 +106,7 @@ values (NOW(), 0, null, NOW(), 'sys:role:update', null, null, null, '角色管�
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'user', NOW(), 'sys:user:view', null, 'System/User/index', 'user',
+values (NOW(), 0, 'user', NOW(), 'sys:user:view', 'mdi:user-group', 'System/User/index', 'user',
         '用户管理', 6,
         'ROUTER');
 
