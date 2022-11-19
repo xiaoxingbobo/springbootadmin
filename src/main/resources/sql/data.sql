@@ -189,9 +189,9 @@ values (NOW(), NOW(), 0, 1, 19);
 --普通用户
 
 --内置用户
-insert into user (create_time, update_time, is_deleted, `name`, age, sex, role_id, username, password)
-values (NOW(), NOW(), 0, '超级管理员', 18, 1, 1, 'admin',
+insert into user (create_time, update_time, is_deleted, `name`, age, sex, role_id, username,nickname, password)
+values (NOW(), NOW(), 0, '超级管理员', 18, 1, 1, 'admin','超级管理员',
         '$2a$10$yndC6fntPcMlU5zcB2pczeUS8H4q4xpws2slXcfShVXNC65R20U3y');
-insert into user (create_time, update_time, is_deleted, `name`, age, sex, role_id, username, password)
-values (NOW(), NOW(), 0, '用户', 18, 1, 2, 'user',
+insert into user (create_time, update_time, is_deleted, `name`, age, sex, role_id, username,nickname, password)
+values (NOW(), NOW(), 0, '用户', 18, 1, 2, 'user','小星',
         '$2a$10$yndC6fntPcMlU5zcB2pczeUS8H4q4xpws2slXcfShVXNC65R20U3y');

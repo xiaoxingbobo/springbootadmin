@@ -430,11 +430,7 @@ const inputBtnReset = () => {
       >
         <el-input v-model="addUserdata.username" autocomplete="off" />
       </el-form-item>
-      <el-form-item
-        label="密码"
-        prop="password"
-        :rules="[{ required: true, message: '密码不能为空！' }]"
-      >
+      <el-form-item label="密码" prop="password">
         <el-input v-model="addUserdata.password" autocomplete="off" />
       </el-form-item>
       <el-form-item
@@ -448,11 +444,7 @@ const inputBtnReset = () => {
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item
-        label="昵称"
-        prop="nickname"
-        :rules="[{ required: true, message: '请输入昵称！' }]"
-      >
+      <el-form-item label="昵称" prop="nickname">
         <el-input v-model="addUserdata.nickname" autocomplete="off" />
       </el-form-item>
       <el-form-item label="年龄" prop="age">
