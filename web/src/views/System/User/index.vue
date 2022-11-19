@@ -26,9 +26,6 @@ import {
   ElPagination
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
-import { useCache } from '@/hooks/web/useCache'
-
-const { wsCache } = useCache('localStorage')
 
 // 是否显示弹窗
 const dialogVisible = ref(false)
@@ -78,7 +75,7 @@ const columns = reactive<TableColumn[]>([
 ])
 
 //  user列表数据
-let tabledata = ref('')
+let tabledata: any = ref('')
 // 弹窗标题
 const dialogTitle = ref('添加用户')
 // 点击编辑，id存放
@@ -86,7 +83,7 @@ const editactionid = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
 // 添加用户参数
-const addUserdata = reactive({
+const addUserdata: any = reactive({
   age: 18,
   email: '',
   id: 0,
@@ -110,7 +107,7 @@ let Paginationdata: {
   size: 10
 }
 //  全部角色信息数据
-let RoleList = ref('')
+let RoleList: any = ref('')
 // 选择角色信息获得焦点
 const selectFocus = async () => {
   const res = await getRole()
@@ -144,7 +141,6 @@ const handleCurrentChange = (val: number) => {
 }
 
 const currentPage = ref(1)
-const pageSize = ref(10)
 const small = ref(false)
 const background = ref(false)
 const disabled = ref(false)
@@ -178,20 +174,20 @@ const _addUser = async (data) => {
 // 删除用户按钮
 const deleteaction = async (row) => {
   try {
-    const res = await ElMessageBox.confirm('确定要删除此用户吗？该操作将不可恢复！', '提示', {
+    const res: any = await ElMessageBox.confirm('确定要删除此用户吗？该操作将不可恢复！', '提示', {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
       type: 'warning'
     })
     // 点击了确定
     if (res === 'confirm') {
-      const res = await byIddeleteUser(row.id)
+      const res: any = await byIddeleteUser(row.id)
       ElMessage({
         message: res.message,
         type: 'success'
       })
     }
-  } catch (error) {
+  } catch (error: any) {
     ElMessage.error(error)
   }
   _PaginationQuery() // 跟新列表
@@ -224,7 +220,7 @@ const save = (formEl: FormInstance | undefined) => {
             message: '添加用户成功!',
             type: 'success'
           })
-        } catch (error) {
+        } catch (error: any) {
           ElMessage.error(error)
         }
       } else {
@@ -254,7 +250,7 @@ const inputUsername = ref(null)
 const inputName = ref(null)
 const inputAge = ref(null)
 // 筛选的参数
-const dataSearchesArr = ref({
+const dataSearchesArr: any = ref({
   condition: [],
   current: 1, // 页码
   size: 999 // 返回多少条数
@@ -337,9 +333,6 @@ const inputBlur = async () => {
   console.log(dataSearchesArr.value.condition)
 }
 
-// 请求路由列表
-const res8 = wsCache.get('screenRouters')
-// console.log(res8)
 // 重置搜索的输入框,点击重置按钮
 const inputBtnReset = () => {
   inputUsername.value = null
@@ -355,7 +348,7 @@ const inputBtnReset = () => {
       <ElButton type="success" v-hasPermission="['sys:user:add']" @click="tianjiajiekoubtn">
         添加用户</ElButton
       >
-      <ElButton v-hasPermission="['sys:user:delete']" :loading="delLoading" type="danger">
+      <ElButton v-hasPermission="['sys:user:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
     </div>
@@ -380,27 +373,16 @@ const inputBtnReset = () => {
     </div>
     <Table :columns="columns" :data="tabledata">
       <template #action="{ row }">
-        <ElButton
-          type="danger"
-          v-hasPermission="['sys:user:delete']"
-          :loading="delLoading"
-          @click="deleteaction(row)"
-        >
+        <ElButton type="danger" v-hasPermission="['sys:user:delete']" @click="deleteaction(row)">
           删除
         </ElButton>
-        <ElButton
-          type="primary"
-          v-hasPermission="['sys:user:update']"
-          :loading="delLoading"
-          @click="editaction(row)"
-        >
+        <ElButton type="primary" v-hasPermission="['sys:user:update']" @click="editaction(row)">
           编辑
         </ElButton>
       </template>
     </Table>
     <el-pagination
       v-model:currentPage="currentPage"
-      v-model:page-size="pageSize"
       :page-sizes="[10, 50, 100, 400]"
       :small="small"
       :disabled="disabled"
@@ -461,14 +443,7 @@ const inputBtnReset = () => {
       </el-form-item>
     </el-form>
     <template #footer>
-      <ElButton
-        type="primary"
-        style="margin-left: 38%"
-        :loading="loading"
-        @click="save(diaLogForm)"
-      >
-        确定
-      </ElButton>
+      <ElButton type="primary" style="margin-left: 38%" @click="save(diaLogForm)"> 确定 </ElButton>
       <el-button @click="close(diaLogForm)">关闭</el-button>
     </template>
   </Dialog>

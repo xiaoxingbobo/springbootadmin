@@ -3,12 +3,12 @@ import type { currentDate } from './types'
 
 // 代码生成接口
 // 可生成实体列表
-export const Cangenerateentitylist = (ids: string[] | number[]): Promise<IResponse> => {
+export const Cangenerateentitylist = (ids?: string[] | number[]): Promise<IResponse> => {
   return request.get({ url: '/code/classes', data: { ids } })
 }
 
 // 实体生成记录
-export const Entitygenerationrecord = (ids: string[] | number[]): Promise<IResponse> => {
+export const Entitygenerationrecord = (ids?: string[] | number[]): Promise<IResponse> => {
   return request.get({ url: '/code/list', data: { ids } })
 }
 
@@ -23,7 +23,7 @@ export const RevokeEntity = (ids: number[]): Promise<IResponse> => {
 }
 
 // 添加权限-带详情参数
-export const ParameterPermission = (data: string[]): Promise<IResponse> => {
+export const ParameterPermission = (data?: string[]): Promise<IResponse> => {
   return request.post({ url: '/code/generate', data })
 }
 

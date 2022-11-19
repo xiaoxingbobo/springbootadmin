@@ -2,7 +2,7 @@
 import { reactive, ref, unref, watch } from 'vue'
 import { Form } from '@/components/Form'
 import { useI18n } from '@/hooks/web/useI18n'
-import { ElButton, ElCheckbox, ElLink, ElMessage, ElMessageBox } from 'element-plus'
+import { ElButton, ElCheckbox, ElLink, ElMessage } from 'element-plus'
 import { useForm } from '@/hooks/web/useForm'
 import { loginApi } from '@/api/login'
 import { menuList } from '@/api/permission/index'
@@ -22,7 +22,7 @@ const appStore = useAppStore()
 
 const permissionStore = usePermissionStore()
 
-const { currentRoute, addRoute, push } = useRouter()
+const { currentRoute, addRoute } = useRouter()
 
 const { wsCache } = useCache('localStorage')
 
@@ -128,7 +128,7 @@ const signIn = async () => {
       const formData = await getFormData<UserType>()
 
       try {
-        const res = await loginApi(formData)
+        const res: any = await loginApi(formData)
         ElMessage({
           message: '登录成功！',
           type: 'success'
