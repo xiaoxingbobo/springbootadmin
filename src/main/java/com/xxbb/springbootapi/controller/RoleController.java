@@ -47,7 +47,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:delete')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -61,7 +61,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -75,7 +75,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
      */
     @Override
     @PutMapping
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
     public Boolean update(@RequestBody Role entity) {
         return service.update(entity);
@@ -89,7 +89,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiOperation(value = "搜索")
     public List<Role> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
@@ -109,7 +109,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiOperation(value = "查询一条")
     public Role find(@PathVariable("id") int id) {
         return (Role) service.find(id);
@@ -124,7 +124,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
     public List<Role> select(@PathVariable("limit") int limit) {
         return service.list(limit);
@@ -138,7 +138,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     public List<Role> select() {
         return service.list();
     }
@@ -152,7 +152,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     public PagedResult<Role> select(@RequestBody PagedInputC<Role> input) {
         return service.list(input);
     }
@@ -167,7 +167,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
     public PagedResult<Role> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
@@ -182,7 +182,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("@auth.hasAuth('sys:role:add')")
+    @PreAuthorize("@auth.hasAuth('sys:role:select')")
     public PagedResult<Role> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }

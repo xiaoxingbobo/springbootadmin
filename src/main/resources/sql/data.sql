@@ -51,7 +51,7 @@ values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', null,
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:authority:view', null, null, null, '权限管理-增加', 8,
+values (NOW(), 0, null, NOW(), 'sys:authority:add', null, null, null, '权限管理-增加', 8,
         'API');
 --删除
 insert into authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
