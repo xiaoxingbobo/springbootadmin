@@ -9,15 +9,15 @@ import { Echart } from '@/components/Echart'
 import { EChartsOption } from 'echarts'
 import { radarOption } from './echarts-data'
 import { Highlight } from '@/components/Highlight'
-import {
-  getCountApi,
-  getProjectApi,
-  getDynamicApi,
-  getTeamApi,
-  getRadarApi
-} from '@/api/dashboard/workplace'
+// import {
+//   getCountApi,
+//   getProjectApi,
+//   getDynamicApi,
+//   getTeamApi,
+//   getRadarApi
+// } from '@/api/dashboard/workplace'
 import type { WorkplaceTotal, Project, Dynamic, Team } from '@/api/dashboard/workplace/types'
-import { set } from 'lodash-es'
+// import { set } from 'lodash-es'
 
 const loading = ref(true)
 

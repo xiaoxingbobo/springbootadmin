@@ -4,16 +4,16 @@ import { ElRow, ElCol, ElCard, ElSkeleton } from 'element-plus'
 import { Echart } from '@/components/Echart'
 import { pieOptions, barOptions, lineOptions } from './echarts-data'
 import { ref, reactive } from 'vue'
-import {
-  getUserAccessSourceApi,
-  getWeeklyUserActivityApi,
-  getMonthlySalesApi
-} from '@/api/dashboard/analysis'
-import { set } from 'lodash-es'
+// import {
+//   getUserAccessSourceApi,
+//   getWeeklyUserActivityApi,
+//   getMonthlySalesApi
+// } from '@/api/dashboard/analysis'
+// import { set } from 'lodash-es'
 import { EChartsOption } from 'echarts'
-import { useI18n } from '@/hooks/web/useI18n'
+// import { useI18n } from '@/hooks/web/useI18n'
 
-const { t } = useI18n()
+// const { t } = useI18n()
 
 const loading = ref(true)
 

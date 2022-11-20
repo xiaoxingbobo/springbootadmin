@@ -77,9 +77,9 @@ const columns = reactive<TableColumn[]>([
 //  user列表数据
 let tabledata: any = ref('')
 // 弹窗标题
-const dialogTitle = ref('添加用户')
+const dialogTitle: any = ref('添加用户')
 // 点击编辑，id存放
-const editactionid = ref('')
+const editactionid: any = ref('')
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
 // 添加用户参数
@@ -95,7 +95,7 @@ const addUserdata: any = reactive({
   username: ''
 })
 // 表格分页
-let total = ref(0)
+let total: any = ref(0)
 // 分页数据
 let Paginationdata: {
   current: number
@@ -113,6 +113,7 @@ const selectFocus = async () => {
   const res = await getRole()
   RoleList.value = res.data
 }
+
 // 分页查询函数
 const _PaginationQuery = async () => {
   const { data: res } = await PaginationQuery(Paginationdata)
@@ -126,20 +127,19 @@ const _PaginationQuery = async () => {
   })
   tabledata.value = newreslist
   total.value = res.total
-  // console.log(total.value)
 }
 // 修改每页显示多少条数
 const handleSizeChange = (val: number) => {
   Paginationdata.size = val
-  // console.log(Paginationdata.size)
   _PaginationQuery() // 跟新列表
 }
-// 切换到某页
+// 跳转切换到某页
 const handleCurrentChange = (val: number) => {
   Paginationdata.current = val
   _PaginationQuery() // 跟新列表
 }
 
+// 分页功能用到的
 const currentPage = ref(1)
 const small = ref(false)
 const background = ref(false)
@@ -149,13 +149,11 @@ _PaginationQuery() // 刷新列表
 // 添加用户按钮
 const tianjiajiekoubtn = () => {
   dialogTitle.value = '添加用户'
-  // console.log(111)
   dialogVisible.value = true
 }
 // 编辑用户按钮
 const editaction = async (row) => {
   dialogTitle.value = '编辑用户'
-  // console.log(row.id)
   editactionid.value = row.id
   dialogVisible.value = true
   const { data: res } = await byIdgetUser(row.id)
@@ -169,9 +167,8 @@ const editaction = async (row) => {
 // 添加用户函数
 const _addUser = async (data) => {
   await addUser(data)
-  // console.log(res)
 }
-// 删除用户按钮
+// 点击删除用户按钮
 const deleteaction = async (row) => {
   try {
     const res: any = await ElMessageBox.confirm('确定要删除此用户吗？该操作将不可恢复！', '提示', {
@@ -187,9 +184,7 @@ const deleteaction = async (row) => {
         type: 'success'
       })
     }
-  } catch (error: any) {
-    ElMessage.error(error)
-  }
+  } catch (error: any) {}
   _PaginationQuery() // 跟新列表
 }
 
@@ -225,7 +220,6 @@ const save = (formEl: FormInstance | undefined) => {
         }
       } else {
         // 编辑
-        console.log('点击了编辑的按钮')
         try {
           addUserdata.id = editactionid.value
           await putUser(addUserdata)
@@ -235,7 +229,6 @@ const save = (formEl: FormInstance | undefined) => {
           })
         } catch (error) {}
       }
-
       // 关闭弹窗  刷新列表
       close()
       _PaginationQuery() // 刷新列表
@@ -259,7 +252,6 @@ const dataSearchesArr: any = ref({
 // 筛选搜索函数
 const _pagedsearches = async (data) => {
   const resseach = await pagedSearches(data)
-  console.log(resseach)
   if (resseach.data.length !== 0) {
     // 查询到数据
     let newreslist2 = resseach.data.data
@@ -330,7 +322,6 @@ const inputBlur = async () => {
     type: 'success'
   })
   dataSearchesArr.value.condition = []
-  console.log(dataSearchesArr.value.condition)
 }
 
 // 重置搜索的输入框,点击重置按钮

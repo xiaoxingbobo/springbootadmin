@@ -7,7 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="" />
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/config/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/config/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Dashboard/Analysis.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Dashboard/Analysis.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Dashboard/Workplace.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Dashboard/Workplace.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Dashboard/components/PanelGroup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Dashboard/components/PanelGroup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Permission/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Permission/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/index.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,6 +162,8 @@
       <workItem from="1668480171249" duration="1178000" />
       <workItem from="1668781421177" duration="660000" />
       <workItem from="1668828552432" duration="1232000" />
+      <workItem from="1668846477938" duration="687000" />
+      <workItem from="1668911841678" duration="759000" />
     </task>
     <servers />
   </component>

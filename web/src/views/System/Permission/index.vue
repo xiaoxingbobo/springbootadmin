@@ -275,7 +275,6 @@ const editaction = async (row) => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <!-- <ElButton type="success" @click="tianjiajiekoubtn">添加权限</ElButton> -->
       <ElButton type="success" v-hasPermission="['sys:authority:add']" @click="tianjiamenu"
         >添加</ElButton
       >
