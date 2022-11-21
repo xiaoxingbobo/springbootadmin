@@ -108,3 +108,19 @@ export function toAnyString() {
   })
   return str
 }
+/**
+ * 置空对象属性为null
+ */
+export function setNull(objs: any) {
+  for (const item in objs) {
+    objs[item] = null
+  }
+}
+/**
+ * 设置对象属性值
+ */
+export function setValue(target: any, source: any) {
+  for (const item in target) {
+    target[item] = source[item]
+  }
+}

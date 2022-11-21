@@ -1,5 +1,5 @@
 import request from '@/config/axios'
-import type { User } from './types'
+import type { {entityName} } from './types'
 import type { Page } from '@/api/common/types'
 
 /**
@@ -8,7 +8,7 @@ import type { Page } from '@/api/common/types'
  * @returns
  */
 export const pagedQueryUser = (data: Partial<Page>): Promise<IResponse> => {
-  return request.get({ url: `/user/paged/${data.current}/${data.size}` })
+  return request.get({ url: `/{entityNameLowCase}/paged/${data.current}/${data.size}` })
 }
 /**
  * 分页搜索
@@ -23,7 +23,7 @@ export const pagedSearchUser = (data: any): Promise<IResponse> => {
  * @param data
  * @returns
  */
-export const addUser = (data: Partial<User>): Promise<IResponse> => {
+export const addUser = (data: Partial<{entityName}>): Promise<IResponse> => {
   return request.post({ url: '/user', data })
 }
 /**
@@ -32,15 +32,15 @@ export const addUser = (data: Partial<User>): Promise<IResponse> => {
  * @returns
  */
 export const deleteUser = (id: number): Promise<IResponse> => {
-  return request.delete({ url: `/user/${id}` })
+  return request.delete({ url: `/{entityNameLowCase}/${id}` })
 }
 /**
  * 修改
  * @param data
  * @returns
  */
-export const putUser = (data: Partial<User>): Promise<IResponse> => {
-  return request.put({ url: '/user', data })
+export const putUser = (data: Partial<{entityName}>): Promise<IResponse> => {
+  return request.put({ url: '/{entityNameLowCase}', data })
 }
 /**
  * 根据id查询
@@ -48,13 +48,5 @@ export const putUser = (data: Partial<User>): Promise<IResponse> => {
  * @returns
  */
 export const getUser = (id: number): Promise<IResponse> => {
-  return request.get({ url: `/user/${id}` })
-}
-
-/**
- * 查询所有角色信息
- * @returns
- */
-export const getRole = (): Promise<IResponse> => {
-  return request.get({ url: '/Roles' })
+  return request.get({ url: `/{entityNameLowCase}/${id}` })
 }

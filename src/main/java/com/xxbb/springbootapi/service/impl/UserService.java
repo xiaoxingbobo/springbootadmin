@@ -116,7 +116,7 @@ public class UserService extends BaseService<User, UserQuery, UserUpdate, UserMa
         if (entity.getRoleId() == 1 && getCurrentUser().getUserInfo().getRoleId() != 1) {
             throw new LegalException("超级管理员为内置账号，您无权操作！");
         }
-        if (entity.getPassword().isEmpty()) {
+        if (entity.getPassword() == null) {
             entity.setPassword(dao.find(entity.getId()).getPassword());
         } else {
             entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
