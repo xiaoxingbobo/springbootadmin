@@ -226,7 +226,7 @@ const dclose = (formEl?: FormInstance | undefined) => {
 const demonodeclick = () => {
   // 点击复选框后最新选中的权限id列表
   newtcheckedIdLIst.value = permTree.value.getCheckedKeys()
-  console.log(newtcheckedIdLIst.value)
+  // console.log(newtcheckedIdLIst.value)
 }
 // 点击保存按钮
 const save = async (formEl: FormInstance | undefined) => {
