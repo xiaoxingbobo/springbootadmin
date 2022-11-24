@@ -25,7 +25,7 @@ import java.util.Date;
 @Data
 @FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
-public class Dds extends Common {
+public class Adafsf extends Common {
     //基础属性
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增
@@ -46,8 +46,8 @@ public class Dds extends Common {
     private Boolean isDeleted = super.isDeleted;
     //特有属性
     
-    @ApiModelProperty(value = "阿萨德")
-    private String asd;
-    @ApiModelProperty(value = "阿")
-    private String de;
+    @ApiModelProperty(value = "阿斯顿")
+    private String testa;
+    @ApiModelProperty(value = "阿三士大夫")
+    private String asdhoi;
 }

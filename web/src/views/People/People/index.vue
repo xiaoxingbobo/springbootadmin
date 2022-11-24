@@ -3,13 +3,13 @@ import { ContentWrap } from '@/components/ContentWrap'
 import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
 import {
-  pagedQueryOrder,
-  addOrder,
-  deleteOrder,
-  putOrder,
-  getOrder,
-  pagedSearchOrder
-} from '@/api/order'
+  pagedQueryPeople,
+  addPeople,
+  deletePeople,
+  putPeople,
+  getPeople,
+  pagedSearchPeople
+} from '@/api/people'
 import { Page } from '@/api/common/types'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -23,7 +23,7 @@ import {
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { setNull, setValue } from '@/utils/index'
-import { Order } from '@/api/order/types'
+import { People } from '@/api/people/types'
 import { SearchField } from '@/api/common/types'
 
 /**
@@ -50,13 +50,13 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'desc',
-    label: '撒旦',
+    field: 'tests',
+    label: '测试1',
     search: true
   },
   {
-    field: 'as',
-    label: '阿斯顿',
+    field: 'testt',
+    label: '测试二',
     search: true
   },
   {
@@ -73,12 +73,12 @@ const columns = reactive<TableColumn[]>([
 ])
 
 // 添加的实体
-const orderPayload: Order = reactive({
+const peoplePayload: People = reactive({
   id: null,
   createTime: null,
   updateTime: null,
-  desc: null,
-  as: null
+  tests: null,
+  testt: null
 })
 
 // 分页数据
@@ -109,7 +109,7 @@ const initData = async () => {
     i.keyword = null
   })
   searchPlayload.condition = []
-  const { data: res } = await pagedQueryOrder(pagedPlayload)
+  const { data: res } = await pagedQueryPeople(pagedPlayload)
   res.data.forEach((e) => {
     e.sex === 1 ? (e.sex = '男') : (e.sex = '女')
   })
@@ -144,13 +144,13 @@ const clickAdd = () => {
  * @param row
  */
 const clickEdit = async (row) => {
-  orderPayload.id = row.id //设置id
-  const { data: res } = await getOrder(row.id)
+  peoplePayload.id = row.id //设置id
+  const { data: res } = await getPeople(row.id)
   dialog.value = {
     title: '编辑',
     visiable: true
   }
-  setValue(orderPayload, res)
+  setValue(peoplePayload, res)
 }
 
 /**
@@ -165,7 +165,7 @@ const clickDelete = async (row) => {
   })
   // 点击了确定
   if (res === 'confirm') {
-    const res: any = await deleteOrder(row.id)
+    const res: any = await deletePeople(row.id)
     ElMessage({
       message: res.message,
       type: 'success'
@@ -180,7 +180,7 @@ const clickDelete = async (row) => {
  */
 const clickClose = (formEl: FormInstance | undefined = undefined) => {
   dialog.value.visiable = false
-  setNull(orderPayload)
+  setNull(peoplePayload)
   // 重置表单
   if (!formEl) return
   formEl.resetFields()
@@ -194,11 +194,11 @@ const clickSave = (formEl: FormInstance | undefined) => {
   formEl.validate(async (valid) => {
     if (valid) {
       // 表单验证通过
-      if (orderPayload.id === null) {
-        await addOrder(orderPayload)
+      if (peoplePayload.id === null) {
+        await addPeople(peoplePayload)
       } else {
         // 编辑
-        await putOrder(orderPayload)
+        await putPeople(peoplePayload)
       }
       ElMessage({
         message: '操作成功!',
@@ -216,7 +216,7 @@ const clickSave = (formEl: FormInstance | undefined) => {
  * @param data
  */
 const pagedSearches = async (data) => {
-  const { data: res } = await pagedSearchOrder(data)
+  const { data: res } = await pagedSearchPeople(data)
   if (res.data.length !== 0) {
     res.data.forEach((e) => {
       e.sex == 1 ? (e.sex = '男') : (e.sex = '女')
@@ -260,10 +260,10 @@ const clickQuery = async () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:order:add']" @click="clickAdd">
+      <ElButton type="success" v-hasPermission="['sys:people:add']" @click="clickAdd">
         <Icon icon="material-symbols:add" />添加
       </ElButton>
-      <ElButton v-hasPermission="['sys:order:delete']" type="danger">
+      <ElButton v-hasPermission="['sys:people:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
     </div>
@@ -279,7 +279,7 @@ const clickQuery = async () => {
           <el-input style="width: 230px" v-model="item.keyword" :placeholder="item.label" />
         </el-form-item>
         <el-form-item>
-          <ElButton type="primary" v-hasPermission="['sys:order:select']" @click="clickQuery">
+          <ElButton type="primary" v-hasPermission="['sys:people:select']" @click="clickQuery">
             <Icon icon="bi:search" /> 查询
           </ElButton>
           <ElButton type="primary" @click="initData"> <Icon icon="bx:reset" /> 重置 </ElButton>
@@ -294,10 +294,10 @@ const clickQuery = async () => {
       :page-size="pagedPlayload.size"
     >
       <template #action="{ row }">
-        <ElButton type="danger" v-hasPermission="['sys:order:delete']" @click="clickDelete(row)">
+        <ElButton type="danger" v-hasPermission="['sys:people:delete']" @click="clickDelete(row)">
           删除
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:order:update']" @click="clickEdit(row)">
+        <ElButton type="primary" v-hasPermission="['sys:people:update']" @click="clickEdit(row)">
           编辑
         </ElButton>
       </template>
@@ -322,12 +322,12 @@ const clickQuery = async () => {
     style="width: 40%; min-width: 375px; max-width: 600px"
   >
     <!-- 表单 -->
-    <el-form ref="diaLogForm" :model="orderPayload" label-width="65px">
-      <el-form-item label="撒旦" prop="desc">
-        <el-input v-model="orderPayload.desc" autocomplete="off" />
+    <el-form ref="diaLogForm" :model="peoplePayload" label-width="65px">
+      <el-form-item label="测试1" prop="tests">
+        <el-input v-model="peoplePayload.tests" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="阿斯顿" prop="as">
-        <el-input v-model="orderPayload.as" autocomplete="off" />
+      <el-form-item label="测试二" prop="testt">
+        <el-input v-model="peoplePayload.testt" autocomplete="off" />
       </el-form-item>
     </el-form>
     <template #footer>

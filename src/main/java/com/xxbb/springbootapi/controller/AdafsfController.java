@@ -1,14 +1,14 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.Dds;
+import com.xxbb.springbootapi.entity.Adafsf;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
 import com.xxbb.springbootapi.entity.dto.PagedInputC;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
-import com.xxbb.springbootapi.mapper.DdsMapper;
-import com.xxbb.springbootapi.service.impl.DdsService;
-import com.xxbb.springbootapi.wrapper.DdsQuery;
-import com.xxbb.springbootapi.wrapper.DdsUpdate;
+import com.xxbb.springbootapi.mapper.AdafsfMapper;
+import com.xxbb.springbootapi.service.impl.AdafsfService;
+import com.xxbb.springbootapi.wrapper.AdafsfQuery;
+import com.xxbb.springbootapi.wrapper.AdafsfUpdate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -18,12 +18,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("dds")
-@Api(tags = "Dds表")
+@RequestMapping("adafsf")
+@Api(tags = "Adafsf表")
 @RestController
-public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMapper> {
+public class AdafsfController extends ApiController<Adafsf, AdafsfQuery, AdafsfUpdate, AdafsfMapper> {
     @Autowired
-    private DdsService service;
+    private AdafsfService service;
     /**
      * Create boolean.
      *
@@ -32,9 +32,9 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @PostMapping
-    @PreAuthorize("@auth.hasAuth('sys:dds:add')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean create(@RequestBody Dds entity) {
+    public Boolean create(@RequestBody Adafsf entity) {
         return service.add(entity);
     }
 
@@ -46,7 +46,7 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @DeleteMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:dds:delete')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:delete')")
     @ApiOperation(value = "删除")
     public Boolean delete(@PathVariable("id") int id) {
         return service.delete(id);
@@ -60,7 +60,7 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @DeleteMapping("/batch")
-    @PreAuthorize("@auth.hasAuth('sys:dds:delete')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
         return service.delete(ids);
@@ -74,9 +74,9 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @PutMapping
-    @PreAuthorize("@auth.hasAuth('sys:dds:update')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
-    public Boolean update(@RequestBody Dds entity) {
+    public Boolean update(@RequestBody Adafsf entity) {
         return service.update(entity);
     }
 
@@ -88,9 +88,9 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @PostMapping("/searches")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
     @ApiOperation(value = "搜索")
-    public List<Dds> select(@RequestBody List<Search> searches) {
+    public List<Adafsf> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
             return service.search(searches.get(0));
         } else if (searches.size() > 1) {
@@ -108,10 +108,10 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
      */
     @Override
     @GetMapping("/{id}")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
     @ApiOperation(value = "查询一条")
-    public Dds find(@PathVariable("id") int id) {
-        return (Dds) service.find(id);
+    public Adafsf find(@PathVariable("id") int id) {
+        return (Adafsf) service.find(id);
     }
 
     /**
@@ -123,9 +123,9 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
     @Override
     @GetMapping("/list/{limit}")
     @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<Dds> select(@PathVariable("limit") int limit) {
+    public List<Adafsf> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
@@ -137,8 +137,8 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
-    public List<Dds> select() {
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
+    public List<Adafsf> select() {
         return service.list();
     }
 
@@ -151,8 +151,8 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
     @Override
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
-    public PagedResult<Dds> select(@RequestBody PagedInputC<Dds> input) {
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
+    public PagedResult<Adafsf> select(@RequestBody PagedInputC<Adafsf> input) {
         return service.list(input);
     }
 
@@ -166,9 +166,9 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
     @Override
     @ApiOperation(value = "分页查询")
     @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<Dds> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+    public PagedResult<Adafsf> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
@@ -181,8 +181,8 @@ public class DdsController extends ApiController<Dds, DdsQuery, DdsUpdate, DdsMa
     @Override
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
-    @PreAuthorize("@auth.hasAuth('sys:dds:select')")
-    public PagedResult<Dds> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+    @PreAuthorize("@auth.hasAuth('sys:adafsf:select')")
+    public PagedResult<Adafsf> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
 }

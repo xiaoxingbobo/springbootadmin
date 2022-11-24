@@ -53,7 +53,7 @@ public class BuildVue {
                 String fieldValueStr = String.format("  %s: null", field.getFiledName());
                 fieldValueContent.append(fieldValueStr);
                 //添加字段描述
-                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"orderPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>", field.getDescription(), field.getFiledName(), field.getFiledName());
+                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
                 fieldEleContent.append(fieldEle);
             } else {
                 String entityField = String.format("  %s?: %s | null\n", field.getFiledName(), field.getFieldType().getType());
@@ -62,7 +62,7 @@ public class BuildVue {
                 String fieldValueStr = String.format("  %s: null,\n", field.getFiledName());
                 fieldValueContent.append(fieldValueStr);
                 //添加字段描述
-                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"orderPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>\n", field.getDescription(), field.getFiledName(), field.getFiledName());
+                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>\n", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
                 fieldEleContent.append(fieldEle);
             }
 
