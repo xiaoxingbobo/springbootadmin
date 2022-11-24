@@ -17,8 +17,6 @@ import {
   ElForm,
   ElFormItem,
   ElInput,
-  ElRadioGroup,
-  ElRadio,
   ElMessage,
   ElMessageBox,
   ElPagination
@@ -50,8 +48,7 @@ const columns = reactive<TableColumn[]>([
     field: 'index',
     label: '序号',
     type: 'index'
-  },
-  {tableFields}
+  },{tableFields}
   {
     field: 'action',
     width: '160px',
@@ -67,15 +64,10 @@ const columns = reactive<TableColumn[]>([
 
 // 添加的实体
 const {entityNameLowCase}Payload: {entityName} = reactive({
-  age: 18,
-  email: null,
-  id: 0,
-  name: null,
-  nickname: null,
-  password: null,
-  {entityNameLowCase}name: null,
-  roleId: null,
-  sex: 0
+  id: null,
+  createTime: null,
+  updateTime: null,
+{fieldValue}
 })
 
 // 分页数据
@@ -320,31 +312,7 @@ const clickQuery = async () => {
   >
     <!-- 表单 -->
     <el-form ref="diaLogForm" :model="{entityNameLowCase}Payload" label-width="65px">
-      <el-form-item
-        label="用户名"
-        prop="{entityNameLowCase}name"
-        :rules="[{ required: true, message: '用户名不能为空！' }]"
-      >
-        <el-input v-model="{entityNameLowCase}Payload.{entityNameLowCase}name" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="{entityNameLowCase}Payload.password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="昵称" prop="nickname">
-        <el-input v-model="{entityNameLowCase}Payload.nickname" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="年龄" prop="age">
-        <el-input v-model="{entityNameLowCase}Payload.age" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="email" prop="email">
-        <el-input v-model="{entityNameLowCase}Payload.email" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="性别" prop="sex" :rules="[{ required: true, message: '请选择性别！' }]">
-        <el-radio-group v-model="{entityNameLowCase}Payload.sex">
-          <el-radio :label="0">女</el-radio>
-          <el-radio :label="1">男</el-radio>
-        </el-radio-group>
-      </el-form-item>
+{fieldEle}
     </el-form>
     <template #footer>
       <ElButton type="primary" style="margin-left: 38%" @click="clickSave(diaLogForm)">

@@ -17,8 +17,6 @@ import {
   ElForm,
   ElFormItem,
   ElInput,
-  ElRadioGroup,
-  ElRadio,
   ElMessage,
   ElMessageBox,
   ElPagination
@@ -52,12 +50,13 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'name',
-    label: 'sss',
+    field: 'desc',
+    label: '撒旦',
     search: true
-  },{
-    field: 'age',
-    label: 'age',
+  },
+  {
+    field: 'as',
+    label: '阿斯顿',
     search: true
   },
   {
@@ -75,15 +74,11 @@ const columns = reactive<TableColumn[]>([
 
 // 添加的实体
 const orderPayload: Order = reactive({
-  age: 18,
-  email: null,
-  id: 0,
-  name: null,
-  nickname: null,
-  password: null,
-  ordername: null,
-  roleId: null,
-  sex: 0
+  id: null,
+  createTime: null,
+  updateTime: null,
+  desc: null,
+  as: null
 })
 
 // 分页数据
@@ -328,30 +323,11 @@ const clickQuery = async () => {
   >
     <!-- 表单 -->
     <el-form ref="diaLogForm" :model="orderPayload" label-width="65px">
-      <el-form-item
-        label="用户名"
-        prop="ordername"
-        :rules="[{ required: true, message: '用户名不能为空！' }]"
-      >
-        <el-input v-model="orderPayload.ordername" autocomplete="off" />
+      <el-form-item label="撒旦" prop="desc">
+        <el-input v-model="orderPayload.desc" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="orderPayload.password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="昵称" prop="nickname">
-        <el-input v-model="orderPayload.nickname" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="年龄" prop="age">
-        <el-input v-model="orderPayload.age" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="email" prop="email">
-        <el-input v-model="orderPayload.email" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="性别" prop="sex" :rules="[{ required: true, message: '请选择性别！' }]">
-        <el-radio-group v-model="orderPayload.sex">
-          <el-radio :label="0">女</el-radio>
-          <el-radio :label="1">男</el-radio>
-        </el-radio-group>
+      <el-form-item label="阿斯顿" prop="as">
+        <el-input v-model="orderPayload.as" autocomplete="off" />
       </el-form-item>
     </el-form>
     <template #footer>

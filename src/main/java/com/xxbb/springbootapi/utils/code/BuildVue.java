@@ -34,27 +34,39 @@ public class BuildVue {
         listPair.put(apiTemp, api);
         listPair.put(typesTemp, types);
         listPair.put(vueTemp, vue);
-        //生成表格字段
-        StringBuilder tableFieldsContent = new StringBuilder();
-        for (EntityField field : fields) {
-            String tableField = String.format("{\n" +
-                    "    field: '%s',\n" +
-                    "    label: '%s',\n" +
-                    "    search: true\n" +
-                    "  },", field.getFiledName(), field.getDescription());
-            tableFieldsContent.append(tableField);
-        }
         //生成实体类型
         StringBuilder entityFieldsContent = new StringBuilder();
+        //生成表格字段
+        StringBuilder tableFieldsContent = new StringBuilder();
+        //字段列表
+        StringBuilder fieldValueContent = new StringBuilder();
+        //字段描述
+        StringBuilder fieldEleContent = new StringBuilder();
         for (EntityField field : fields) {
+            String tableField = String.format("\n  {\n" + "    field: '%s',\n" + "    label: '%s',\n" + "    search: true\n" + "  },", field.getFiledName(), field.getDescription());
+            tableFieldsContent.append(tableField);
             //处理最后一个字段不加\n
             if (fields.indexOf(field) == fields.size() - 1) {
                 String entityField = String.format("  %s?: %s | null", field.getFiledName(), field.getFieldType().getType());
                 entityFieldsContent.append(entityField);
+                //添加字段
+                String fieldValueStr = String.format("  %s: null", field.getFiledName());
+                fieldValueContent.append(fieldValueStr);
+                //添加字段描述
+                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"orderPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>", field.getDescription(), field.getFiledName(), field.getFiledName());
+                fieldEleContent.append(fieldEle);
             } else {
                 String entityField = String.format("  %s?: %s | null\n", field.getFiledName(), field.getFieldType().getType());
                 entityFieldsContent.append(entityField);
+                //添加字段
+                String fieldValueStr = String.format("  %s: null,\n", field.getFiledName());
+                fieldValueContent.append(fieldValueStr);
+                //添加字段描述
+                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"orderPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>\n", field.getDescription(), field.getFiledName(), field.getFiledName());
+                fieldEleContent.append(fieldEle);
             }
+
+
         }
 
         listPair.forEach((k, v) -> {
@@ -65,6 +77,8 @@ public class BuildVue {
             map.put("entityNameLowCase", Introspector.decapitalize(entityName));//首字母转小写
             map.put("tableFields", tableFieldsContent.toString());
             map.put("entityFields", entityFieldsContent.toString());
+            map.put("fieldValue", fieldValueContent.toString());
+            map.put("fieldEle", fieldEleContent.toString());
             String contents = StrUtil.format(content, map);//替换字符串
             try {
                 write(contents, v, isCover);//输出模板
