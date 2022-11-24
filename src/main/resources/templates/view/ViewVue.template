@@ -17,8 +17,6 @@ import {
   ElForm,
   ElFormItem,
   ElInput,
-  ElSelect,
-  ElOption,
   ElRadioGroup,
   ElRadio,
   ElMessage,
@@ -46,8 +44,6 @@ const dialog = ref({
 
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
-//  全部角色信息数据
-let roleList: any = ref({})
 // 表头
 const columns = reactive<TableColumn[]>([
   {

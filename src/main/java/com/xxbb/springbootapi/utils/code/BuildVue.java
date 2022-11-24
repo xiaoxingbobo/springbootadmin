@@ -26,8 +26,8 @@ public class BuildVue {
         String vueTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/ViewVue.template";//vue
 
         //生成文件名
-        String api = String.format("\\web\\src\\api\\%s\\index.ts", entityName);//api
-        String types = String.format("\\web\\src\\api\\%s\\types.ts", entityName);//types
+        String api = String.format("\\web\\src\\api\\%s\\index.ts", entityName.toLowerCase());//api
+        String types = String.format("\\web\\src\\api\\%s\\types.ts", entityName.toLowerCase());//types
         String vue = String.format("\\web\\src\\views\\%s\\%s\\index.vue", entityName, entityName);//vue
 
         //添加到生成列表

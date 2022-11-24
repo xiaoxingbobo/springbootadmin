@@ -2,7 +2,7 @@ export type Page = {
   current: number
   size: number
 }
-export type CommonEntity = {
+export type Common = {
   id?: number | null
   createTime?: string | null
   updateTime?: string | null

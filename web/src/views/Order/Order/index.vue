@@ -8,7 +8,6 @@ import {
   deleteOrder,
   putOrder,
   getOrder,
-  getRole,
   pagedSearchOrder
 } from '@/api/order'
 import { Page } from '@/api/common/types'
@@ -18,8 +17,6 @@ import {
   ElForm,
   ElFormItem,
   ElInput,
-  ElSelect,
-  ElOption,
   ElRadioGroup,
   ElRadio,
   ElMessage,
@@ -47,8 +44,6 @@ const dialog = ref({
 
 // 表单的实例
 const diaLogForm = ref<FormInstance>()
-//  全部角色信息数据
-let roleList: any = ref({})
 // 表头
 const columns = reactive<TableColumn[]>([
   {
@@ -57,8 +52,12 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'desc',
-    label: '描述',
+    field: 'name',
+    label: 'sss',
+    search: true
+  },{
+    field: 'age',
+    label: 'age',
     search: true
   },
   {
@@ -134,13 +133,6 @@ const handleSizeChange = () => {
     initData() // 跟新列表
   }
 }
-/**
- * 查询所有角色
- */
-const queryRole = async () => {
-  const role = await getRole()
-  roleList.value = role.data
-}
 
 /**
  * 添加
@@ -150,7 +142,6 @@ const clickAdd = () => {
     title: '添加',
     visiable: true
   }
-  queryRole()
 }
 
 /**
@@ -160,7 +151,6 @@ const clickAdd = () => {
 const clickEdit = async (row) => {
   orderPayload.id = row.id //设置id
   const { data: res } = await getOrder(row.id)
-  queryRole()
   dialog.value = {
     title: '编辑',
     visiable: true
@@ -347,17 +337,6 @@ const clickQuery = async () => {
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input v-model="orderPayload.password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item
-        label="角色"
-        prop="roleId"
-        :rules="[{ required: true, message: '请选择角色！' }]"
-      >
-        <el-select v-model="orderPayload.roleId" placeholder="请选择角色">
-          <el-option v-for="item in roleList" :key="item.id" :label="item.name" :value="item.id">
-            <span style="float: left">{{ item.name }}</span>
-          </el-option>
-        </el-select>
       </el-form-item>
       <el-form-item label="昵称" prop="nickname">
         <el-input v-model="orderPayload.nickname" autocomplete="off" />
