@@ -1,11 +1,4 @@
-export type {entityName} = {
-  age?: string | number
-  email?: number | string
-  id?: number
-  name?: number | string
-  nickname?: number | string
-  password: any
-  roleId: number
-  sex?: number
-  username: number | string
+import { Common } from '@/api/common/types'
+export type {entityName} = Common & {
+{entityFields}
 }

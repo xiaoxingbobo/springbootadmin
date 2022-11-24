@@ -52,4 +52,6 @@ public class GenRecord extends Common {
     //自定义属性
     @ApiModelProperty(value = "实体名称")
     private String entityName;
+    @ApiModelProperty(value = "权限Id")
+    private String authorityId;
 }

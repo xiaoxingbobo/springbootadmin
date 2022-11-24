@@ -1,4 +1,5 @@
-export type User = {
+import { Common } from '@/api/common/types'
+export type User = Common & {
   age?: number | null
   id?: number | null
   name?: string | null

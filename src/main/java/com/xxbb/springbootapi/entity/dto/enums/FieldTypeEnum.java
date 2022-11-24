@@ -6,20 +6,25 @@ package com.xxbb.springbootapi.entity.dto.enums;
 
 //java基本包装类型
 public enum FieldTypeEnum {
-    STRING("String"),
-    INTEGER("Integer"),
-    LONG("Long"),
-    DOUBLE("Double"),
-    FLOAT("Float"),
-    SHORT("Short"),
-    BOOLEAN("Boolean"),
-    DATETIME("Date"),
-    BIGDECIMAL("BigDecimal");
+    STRING("String", "string"),
+    INTEGER("Integer", "number"),
+    LONG("Long", "number"),
+    DOUBLE("Double", "number"),
+    FLOAT("Float", "number"),
+    SHORT("Short", "number"),
+    BOOLEAN("Boolean", "boolean"),
+    DATETIME("Date", "date"),
+    BIGDECIMAL("BigDecimal", "number");
     private final String code;
-    FieldTypeEnum(String code) {
+    private final String type;
+    FieldTypeEnum(String code, String type) {
         this.code = code;
+        this.type = type;
     }
     public String getCode() {
         return code;
+    }
+    public String getType() {
+        return type;
     }
 }

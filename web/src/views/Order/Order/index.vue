@@ -3,14 +3,14 @@ import { ContentWrap } from '@/components/ContentWrap'
 import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
 import {
-  pagedQueryUser,
-  addUser,
-  deleteUser,
-  putUser,
-  getUser,
+  pagedQueryOrder,
+  addOrder,
+  deleteOrder,
+  putOrder,
+  getOrder,
   getRole,
-  pagedSearchUser
-} from '@/api/user'
+  pagedSearchOrder
+} from '@/api/order'
 import { Page } from '@/api/common/types'
 import { Dialog } from '@/components/Dialog'
 import {
@@ -28,7 +28,7 @@ import {
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { setNull, setValue } from '@/utils/index'
-import { User } from '@/api/user/types'
+import { Order } from '@/api/order/types'
 import { SearchField } from '@/api/common/types'
 
 /**
@@ -57,33 +57,9 @@ const columns = reactive<TableColumn[]>([
     type: 'index'
   },
   {
-    field: 'username',
-    label: '用户名',
+    field: 'desc',
+    label: '描述',
     search: true
-  },
-  {
-    field: 'name',
-    label: '名称',
-    search: true
-  },
-  {
-    field: 'nickname',
-    label: '昵称',
-    search: true
-  },
-  {
-    field: 'age',
-    label: '年龄',
-    search: true
-  },
-  {
-    field: 'sex',
-    label: '性别',
-    search: true
-  },
-  {
-    field: 'createTime',
-    label: '创建时间'
   },
   {
     field: 'action',
@@ -99,14 +75,14 @@ const columns = reactive<TableColumn[]>([
 ])
 
 // 添加的实体
-const userPayload: User = reactive({
+const orderPayload: Order = reactive({
   age: 18,
   email: null,
   id: 0,
   name: null,
   nickname: null,
   password: null,
-  username: null,
+  ordername: null,
   roleId: null,
   sex: 0
 })
@@ -139,7 +115,7 @@ const initData = async () => {
     i.keyword = null
   })
   searchPlayload.condition = []
-  const { data: res } = await pagedQueryUser(pagedPlayload)
+  const { data: res } = await pagedQueryOrder(pagedPlayload)
   res.data.forEach((e) => {
     e.sex === 1 ? (e.sex = '男') : (e.sex = '女')
   })
@@ -182,14 +158,14 @@ const clickAdd = () => {
  * @param row
  */
 const clickEdit = async (row) => {
-  userPayload.id = row.id //设置id
-  const { data: res } = await getUser(row.id)
+  orderPayload.id = row.id //设置id
+  const { data: res } = await getOrder(row.id)
   queryRole()
   dialog.value = {
     title: '编辑',
     visiable: true
   }
-  setValue(userPayload, res)
+  setValue(orderPayload, res)
 }
 
 /**
@@ -204,7 +180,7 @@ const clickDelete = async (row) => {
   })
   // 点击了确定
   if (res === 'confirm') {
-    const res: any = await deleteUser(row.id)
+    const res: any = await deleteOrder(row.id)
     ElMessage({
       message: res.message,
       type: 'success'
@@ -219,7 +195,7 @@ const clickDelete = async (row) => {
  */
 const clickClose = (formEl: FormInstance | undefined = undefined) => {
   dialog.value.visiable = false
-  setNull(userPayload)
+  setNull(orderPayload)
   // 重置表单
   if (!formEl) return
   formEl.resetFields()
@@ -233,11 +209,11 @@ const clickSave = (formEl: FormInstance | undefined) => {
   formEl.validate(async (valid) => {
     if (valid) {
       // 表单验证通过
-      if (userPayload.id === null) {
-        await addUser(userPayload)
+      if (orderPayload.id === null) {
+        await addOrder(orderPayload)
       } else {
         // 编辑
-        await putUser(userPayload)
+        await putOrder(orderPayload)
       }
       ElMessage({
         message: '操作成功!',
@@ -255,7 +231,7 @@ const clickSave = (formEl: FormInstance | undefined) => {
  * @param data
  */
 const pagedSearches = async (data) => {
-  const { data: res } = await pagedSearchUser(data)
+  const { data: res } = await pagedSearchOrder(data)
   if (res.data.length !== 0) {
     res.data.forEach((e) => {
       e.sex == 1 ? (e.sex = '男') : (e.sex = '女')
@@ -299,10 +275,10 @@ const clickQuery = async () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:user:add']" @click="clickAdd">
+      <ElButton type="success" v-hasPermission="['sys:order:add']" @click="clickAdd">
         <Icon icon="material-symbols:add" />添加
       </ElButton>
-      <ElButton v-hasPermission="['sys:user:delete']" type="danger">
+      <ElButton v-hasPermission="['sys:order:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
     </div>
@@ -318,7 +294,7 @@ const clickQuery = async () => {
           <el-input style="width: 230px" v-model="item.keyword" :placeholder="item.label" />
         </el-form-item>
         <el-form-item>
-          <ElButton type="primary" v-hasPermission="['sys:user:select']" @click="clickQuery">
+          <ElButton type="primary" v-hasPermission="['sys:order:select']" @click="clickQuery">
             <Icon icon="bi:search" /> 查询
           </ElButton>
           <ElButton type="primary" @click="initData"> <Icon icon="bx:reset" /> 重置 </ElButton>
@@ -333,10 +309,10 @@ const clickQuery = async () => {
       :page-size="pagedPlayload.size"
     >
       <template #action="{ row }">
-        <ElButton type="danger" v-hasPermission="['sys:user:delete']" @click="clickDelete(row)">
+        <ElButton type="danger" v-hasPermission="['sys:order:delete']" @click="clickDelete(row)">
           删除
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:user:update']" @click="clickEdit(row)">
+        <ElButton type="primary" v-hasPermission="['sys:order:update']" @click="clickEdit(row)">
           编辑
         </ElButton>
       </template>
@@ -361,39 +337,39 @@ const clickQuery = async () => {
     style="width: 40%; min-width: 375px; max-width: 600px"
   >
     <!-- 表单 -->
-    <el-form ref="diaLogForm" :model="userPayload" label-width="65px">
+    <el-form ref="diaLogForm" :model="orderPayload" label-width="65px">
       <el-form-item
         label="用户名"
-        prop="username"
+        prop="ordername"
         :rules="[{ required: true, message: '用户名不能为空！' }]"
       >
-        <el-input v-model="userPayload.username" autocomplete="off" />
+        <el-input v-model="orderPayload.ordername" autocomplete="off" />
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input v-model="userPayload.password" autocomplete="off" />
+        <el-input v-model="orderPayload.password" autocomplete="off" />
       </el-form-item>
       <el-form-item
         label="角色"
         prop="roleId"
         :rules="[{ required: true, message: '请选择角色！' }]"
       >
-        <el-select v-model="userPayload.roleId" placeholder="请选择角色">
+        <el-select v-model="orderPayload.roleId" placeholder="请选择角色">
           <el-option v-for="item in roleList" :key="item.id" :label="item.name" :value="item.id">
             <span style="float: left">{{ item.name }}</span>
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="昵称" prop="nickname">
-        <el-input v-model="userPayload.nickname" autocomplete="off" />
+        <el-input v-model="orderPayload.nickname" autocomplete="off" />
       </el-form-item>
       <el-form-item label="年龄" prop="age">
-        <el-input v-model="userPayload.age" autocomplete="off" />
+        <el-input v-model="orderPayload.age" autocomplete="off" />
       </el-form-item>
       <el-form-item label="email" prop="email">
-        <el-input v-model="userPayload.email" autocomplete="off" />
+        <el-input v-model="orderPayload.email" autocomplete="off" />
       </el-form-item>
       <el-form-item label="性别" prop="sex" :rules="[{ required: true, message: '请选择性别！' }]">
-        <el-radio-group v-model="userPayload.sex">
+        <el-radio-group v-model="orderPayload.sex">
           <el-radio :label="0">女</el-radio>
           <el-radio :label="1">男</el-radio>
         </el-radio-group>
