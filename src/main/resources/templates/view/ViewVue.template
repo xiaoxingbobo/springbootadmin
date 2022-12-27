@@ -265,7 +265,11 @@ const clickQuery = async () => {
           })"
           :key="index"
         >
-          <el-input style="width: 230px" v-model="item.keyword" :placeholder="item.label" />
+          <el-input
+            style="width: 230px"
+            v-model="item.keyword"
+            :placeholder="'请输入' + item.label"
+          />
         </el-form-item>
         <el-form-item>
           <ElButton type="primary" v-hasPermission="['sys:{entityNameLowCase}:select']" @click="clickQuery">

@@ -5,8 +5,8 @@ export type User = Common & {
   name?: string | null
   nickname?: string | null
   password?: string | null
-  roleId?: number | null
-  sex?: number | null
+  roleId?: number | 0
+  sex?: number | 0
   username?: string | null
   email?: string | null
 }

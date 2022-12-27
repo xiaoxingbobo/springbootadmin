@@ -373,7 +373,7 @@ const closeDialog = () => {
   <ContentWrap>
     <div class="mb-10px">
       <ElButton type="primary" v-hasPermission="['sys:code:add']" @click="tianjiajiekoubtn"
-        >生成接口</ElButton
+        >生成</ElButton
       >
     </div>
     <Table :columns="columns" :data="tabledata">
@@ -425,7 +425,7 @@ const closeDialog = () => {
         </el-form>
       </el-tab-pane>
       <!-- 右边 -->
-      <el-tab-pane label="生成实体加接口">
+      <el-tab-pane label="生成后台">
         <el-form>
           <el-form-item label="实体类名">
             <el-input placeholder="请输入实体类名" v-model="dinputvalue" />

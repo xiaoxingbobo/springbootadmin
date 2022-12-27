@@ -33,7 +33,9 @@ public class CodeService implements ICodeGenerate {
             throw new LegalException(codeInput.getEntityName()+"为内置基础实体类，不允许该操作");
         }
         genRecordService.add(new GenRecord().setEntityName(codeInput.getEntityName()));
-        BuildVue.build(codeInput.getEntityFields(),codeInput.getEntityName(),codeInput.getIsCover());
+        if (codeInput.getEntityFields() != null) {
+            BuildVue.build(codeInput.getEntityFields(),codeInput.getEntityName(),codeInput.getIsCover());
+        }
         CodeGen.build(codeInput);//代码生成，参数：要生成代码的实体类名
         //添加路由
         /**
