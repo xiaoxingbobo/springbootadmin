@@ -331,6 +331,9 @@ const clickQuery = async () => {
       :current-page="pagedPlayload.current"
       :page-sizes="[10, 20, 50, 100]"
       :page-size="pagedPlayload.size"
+      :pagination="{
+        total: 10
+      }"
     >
       <template #action="{ row }">
         <ElButton type="danger" v-hasPermission="['sys:user:delete']" @click="clickDelete(row)">
