@@ -32,7 +32,6 @@ public class TestController extends ApiController<Test, TestQuery, TestUpdate, T
      */
     @Override
     @PostMapping
-    @PreAuthorize("@auth.hasAuth('sys:test:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
     public Boolean create(@RequestBody Test entity) {
         return service.add(entity);
@@ -137,7 +136,6 @@ public class TestController extends ApiController<Test, TestQuery, TestUpdate, T
     @Override
     @GetMapping
     @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:test:select')")
     public List<Test> select() {
         return service.list();
     }
