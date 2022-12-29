@@ -8,14 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/CodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/CodeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/user/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +65,9 @@
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b4835d7cae286c6e29d5308fb64835c0&quot;
   }
 }</component>
   <component name="RebelAgentSelection">
@@ -168,6 +165,8 @@
       <workItem from="1668846477938" duration="687000" />
       <workItem from="1668911841678" duration="762000" />
       <workItem from="1669261029340" duration="1573000" />
+      <workItem from="1672301617471" duration="34000" />
+      <workItem from="1672303657677" duration="107000" />
     </task>
     <servers />
   </component>

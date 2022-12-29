@@ -206,14 +206,9 @@ const clickSave = (formEl: FormInstance | undefined) => {
  */
 const pagedSearches = async (data) => {
   const { data: res } = await pagedSearch{entityName}(data)
-  if (res.data.length !== 0) {
-    res.data.forEach((e) => {
-      e.sex == 1 ? (e.sex = '男') : (e.sex = '女')
-    })
-    tableData.value = {
-      ...res
-    }
-  }
+   tableData.value = {
+     ...res
+   }
 }
 /**
  * 切换页码
