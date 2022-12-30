@@ -202,7 +202,7 @@ const clickSave = (formEl: FormInstance | undefined) => {
  * @param data
  */
 const pagedSearches = async (data) => {
-  const { data: res } = await pagedSearchArticle(data)
+  const { data: res } = await pagedSearch{entityName}(data)
   tableData.value = {
     ...res
   }
