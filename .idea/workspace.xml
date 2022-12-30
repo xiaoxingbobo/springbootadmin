@@ -9,8 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,8 @@
       <workItem from="1672301617471" duration="34000" />
       <workItem from="1672303657677" duration="201000" />
       <workItem from="1672313721145" duration="1120000" />
-      <workItem from="1672321638887" duration="45000" />
+      <workItem from="1672321638887" duration="675000" />
+      <workItem from="1672365264046" duration="10000" />
     </task>
     <servers />
   </component>

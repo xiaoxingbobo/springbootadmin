@@ -99,9 +99,6 @@ const initData = async () => {
   })
   searchPlayload.condition = []
   const { data: res } = await pagedQuery{entityName}(pagedPlayload)
-  res.data.forEach((e) => {
-    e.sex === 1 ? (e.sex = '男') : (e.sex = '女')
-  })
   tableData.value = { ...res }
 }
 initData()
