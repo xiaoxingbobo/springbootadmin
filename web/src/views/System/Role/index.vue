@@ -11,7 +11,7 @@ import {
   getAuthority,
   batchRoleAuthoritys,
   RoleAuthoritysPaged
-} from '@/api/role'
+} from '@/api/sysRole'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -315,10 +315,10 @@ const defaultProps = {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:role:add']" @click="tianjiajiekoubtn"
+      <ElButton type="success" v-hasPermission="['sys:sysRole:add']" @click="tianjiajiekoubtn"
         >添加角色</ElButton
       >
-      <ElButton v-hasPermission="['sys:role:delete']" type="danger">
+      <ElButton v-hasPermission="['sys:sysRole:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除</ElButton
       >
     </div>
@@ -326,15 +326,15 @@ const defaultProps = {
       <template #action="{ row }">
         <ElButton
           type="success"
-          v-hasPermission="['sys:role:update']"
+          v-hasPermission="['sys:sysRole:update']"
           @click="AssignPermissions(row)"
         >
           授权
         </ElButton>
-        <ElButton type="danger" v-hasPermission="['sys:role:delete']" @click="deleteaction(row)">
+        <ElButton type="danger" v-hasPermission="['sys:sysRole:delete']" @click="deleteaction(row)">
           删除
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:role:update']" @click="editaction(row)">
+        <ElButton type="primary" v-hasPermission="['sys:sysRole:update']" @click="editaction(row)">
           编辑
         </ElButton>
       </template>

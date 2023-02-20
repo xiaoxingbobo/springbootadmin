@@ -1,12 +1,12 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.Role;
+import com.xxbb.springbootapi.entity.SysRole;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
 import com.xxbb.springbootapi.entity.dto.PagedInputC;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.mapper.RoleMapper;
-import com.xxbb.springbootapi.service.impl.RoleService;
+import com.xxbb.springbootapi.service.impl.SysRoleService;
 import com.xxbb.springbootapi.wrapper.RoleQuery;
 import com.xxbb.springbootapi.wrapper.RoleUpdate;
 import io.swagger.annotations.Api;
@@ -22,9 +22,9 @@ import java.util.List;
 @RequestMapping("Roles")
 @Api(tags = "Role表")
 @RestController
-public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdate, RoleMapper> {
+public class RoleController extends AuthApiController<SysRole, RoleQuery, RoleUpdate, RoleMapper> {
     @Autowired
-    private RoleService service;
+    private SysRoleService service;
     /**
      * Create boolean.
      *
@@ -35,7 +35,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @PostMapping
     @PreAuthorize("@auth.hasAuth('sys:role:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean create(@RequestBody Role entity) {
+    public Boolean create(@RequestBody SysRole entity) {
         return service.add(entity);
     }
 
@@ -77,7 +77,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @PutMapping
     @PreAuthorize("@auth.hasAuth('sys:role:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
-    public Boolean update(@RequestBody Role entity) {
+    public Boolean update(@RequestBody SysRole entity) {
         return service.update(entity);
     }
 
@@ -91,7 +91,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @PostMapping("/searches")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiOperation(value = "搜索")
-    public List<Role> select(@RequestBody List<Search> searches) {
+    public List<SysRole> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
             return service.search(searches.get(0));
         } else if (searches.size() > 1) {
@@ -111,8 +111,8 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @GetMapping("/{id}")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiOperation(value = "查询一条")
-    public Role find(@PathVariable("id") int id) {
-        return (Role) service.find(id);
+    public SysRole find(@PathVariable("id") int id) {
+        return (SysRole) service.find(id);
     }
 
     /**
@@ -126,7 +126,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @ApiOperation(value = "查询固定条数")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<Role> select(@PathVariable("limit") int limit) {
+    public List<SysRole> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
@@ -139,7 +139,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @GetMapping
     @ApiOperation(value = "查询所有")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
-    public List<Role> select() {
+    public List<SysRole> select() {
         return service.list();
     }
 
@@ -153,7 +153,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
-    public PagedResult<Role> select(@RequestBody PagedInputC<Role> input) {
+    public PagedResult<SysRole> select(@RequestBody PagedInputC<SysRole> input) {
         return service.list(input);
     }
 
@@ -169,7 +169,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @GetMapping("/paged/{current}/{size}")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<Role> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+    public PagedResult<SysRole> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
@@ -183,7 +183,7 @@ public class RoleController extends AuthApiController<Role, RoleQuery, RoleUpdat
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
-    public PagedResult<Role> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+    public PagedResult<SysRole> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
 }

@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.GenRecord;
+import com.xxbb.springbootapi.entity.SysGenRecord;
 import com.xxbb.springbootapi.mapper.GenRecordMapper;
 import com.xxbb.springbootapi.wrapper.GenRecordQuery;
 import com.xxbb.springbootapi.wrapper.GenRecordUpdate;
@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("genRecord")
 @Api(tags = "GenRecord表")
 @RestController
-public class GenRecordController extends AuthApiController<GenRecord, GenRecordQuery, GenRecordUpdate, GenRecordMapper> {
+public class GenRecordController extends AuthApiController<SysGenRecord, GenRecordQuery, GenRecordUpdate, GenRecordMapper> {
 
 }

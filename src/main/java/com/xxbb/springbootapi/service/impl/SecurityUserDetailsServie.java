@@ -1,8 +1,9 @@
 package com.xxbb.springbootapi.service.impl;
 
-import com.xxbb.springbootapi.entity.RoleAuthority;
-import com.xxbb.springbootapi.entity.User;
-import com.xxbb.springbootapi.mapper.UserMapper;
+import com.xxbb.springbootapi.entity.SysAuthority;
+import com.xxbb.springbootapi.entity.SysRoleAuthority;
+import com.xxbb.springbootapi.entity.SysUser;
+import com.xxbb.springbootapi.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,24 +17,21 @@ import java.util.stream.Collectors;
 @Service
 public class SecurityUserDetailsServie implements UserDetailsService {
     @Autowired
-    private UserMapper userMapper;
+    private SysUserMapper userMapper;
     @Autowired
-    private RoleAuthorityService roleAuthorityService;
+    private SysRoleAuthorityService sysRoleAuthorityService;
     @Autowired
-    private AuthorityService authorityService;
-
+    private SysAuthorityService sysAuthorityService;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userMapper.findOne(userMapper.query().where.username().eq(s).end());
-        if (Objects.isNull(user)) {
+        SysUser sysUser = userMapper.findOne(userMapper.query().where.username().eq(s).end());
+        if (Objects.isNull(sysUser)) {
             throw new UsernameNotFoundException("用户不存在");
         }
         //获取用户权限ids
-        List<Integer> roleAuthorityIds = roleAuthorityService.list(new RoleAuthority().setRoleId(user.getRoleId())).stream().map(RoleAuthority::getAuthorityId).collect(Collectors.toList());
+        List<Integer> roleAuthorityIds = sysRoleAuthorityService.list(new SysRoleAuthority().setRoleId(sysUser.getRoleId())).stream().map(SysRoleAuthority::getAuthorityId).collect(Collectors.toList());
         //查询权限值
-        List<String> permissions = authorityService.list(roleAuthorityIds).stream().map(com.xxbb.springbootapi.entity.Authority::getValue).collect(Collectors.toList());
-        return new SecurityUserDetails(user, permissions);
+        List<String> permissions = sysAuthorityService.list(roleAuthorityIds).stream().map(SysAuthority::getValue).collect(Collectors.toList());
+        return new SecurityUserDetails(sysUser, permissions);
     }
-
-
 }

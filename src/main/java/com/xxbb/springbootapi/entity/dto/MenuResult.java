@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.entity.dto;
 
-import com.xxbb.springbootapi.entity.Authority;
+import com.xxbb.springbootapi.entity.SysAuthority;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor//有参数构造
 @Accessors(chain = true)//链式调用
 @NoArgsConstructor//无参数构造
-public class MenuResult extends Authority {
+public class MenuResult extends SysAuthority {
     @ApiModelProperty("子组件")
     private List<MenuResult> children;
     @ApiModelProperty("元信息")

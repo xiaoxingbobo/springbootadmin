@@ -25,7 +25,7 @@ import java.util.Date;
 @Data
 @FluentMybatis(defaults = IFMConfig.class)//defaults设置默认查询条件
 @Entity
-public class Test extends Common {
+public class Test extends SysCommon {
     //基础属性
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自动递增

@@ -5,7 +5,7 @@ import com.auth0.jwt.exceptions.InvalidClaimException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.entity.SysUser;
 import com.xxbb.springbootapi.utils.IpUtil;
 import com.xxbb.springbootapi.utils.jwt.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -43,8 +43,8 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
                     authority.add("ROLE_ADMIN");
                 }
                 //把token中的信息存入SecurityContext
-                User user = new User().setId(userId).setUsername(username).setRoleId(roleId).setName(name);
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user, null, authority.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
+                SysUser sysUser = new SysUser().setId(userId).setUsername(username).setRoleId(roleId).setName(name);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(sysUser, null, authority.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
             } catch (SignatureVerificationException exception) {

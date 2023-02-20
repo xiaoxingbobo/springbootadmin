@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.entity.dto;
 
-import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.entity.SysUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +15,8 @@ import java.util.List;
 public class LoginResult {
     private String token;
     private String routePath;
-    private User userInfo;
-    private List<RoleAuthorityResult> roleAuthority;
+    private SysUser sysUserInfo;
+    private List<SysRoleAuthorityResult> roleAuthority;
     private boolean captcha;
     private List<String> authorityValues;
 

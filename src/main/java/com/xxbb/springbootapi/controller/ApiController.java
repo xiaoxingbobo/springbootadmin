@@ -3,12 +3,12 @@ package com.xxbb.springbootapi.controller;
 import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
-import com.xxbb.springbootapi.entity.Common;
+import com.xxbb.springbootapi.entity.SysCommon;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
 import com.xxbb.springbootapi.entity.dto.PagedInputC;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
-import com.xxbb.springbootapi.service.impl.BaseService;
+import com.xxbb.springbootapi.service.impl.SysBaseService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -27,9 +27,9 @@ import java.util.List;
  * @param <E> the type parameter
  * @author xiaoxingbobo
  */
-public class ApiController<K extends Common, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController {
+public class ApiController<K extends SysCommon, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController {
     @Autowired(required = false)
-    private BaseService<K, T, V, E> service;
+    private SysBaseService<K, T, V, E> service;
 
 
     /**

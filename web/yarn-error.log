@@ -1251,9 +1251,9 @@ Lockfile:
       "@volar/typescript-faster" "0.40.13"
       "@volar/vue-language-core" "0.40.13"
   
-  "@vue-macros/common@0.11.2":
+  "@vue-macros/sysCommon@0.11.2":
     version "0.11.2"
-    resolved "https://registry.npmmirror.com/@vue-macros/common/-/common-0.11.2.tgz#afdcf42f65e862b4bbd8fa8bc42ba8ad31205b7e"
+    resolved "https://registry.npmmirror.com/@vue-macros/sysCommon/-/sysCommon-0.11.2.tgz#afdcf42f65e862b4bbd8fa8bc42ba8ad31205b7e"
     integrity sha512-z6yKvUL45Sb29QzEDNTwt8mMgcA/ErEZA+BUr6VGiGC0eTXMvkP8E8nwER1q/bVg/R+Xa/m3A6vcJHSUZFodRw==
     dependencies:
       "@babel/types" "^7.18.13"
@@ -1266,7 +1266,7 @@ Lockfile:
     integrity sha512-XYH1zFBWNBjJUTzVuwgGo0Yx4cCtUEDvLMcu6TKVeqq9wrcleof4pwikOc7XrLDNqN5AxPzGFQ7wPl0iUDfb7Q==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       ast-walker-scope "^0.2.3"
       unplugin "^0.9.5"
   
@@ -1276,7 +1276,7 @@ Lockfile:
     integrity sha512-Q+19LmqNlYNvNLqm8MGKqQej5WJ21ubrrqbNwDsyJl7mEChiv0wfwc0TQTgfHflkxlLomG2+JR0PPwlRT+qoXQ==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       unplugin "^0.9.5"
   
   "@vue-macros/hoist-static@^0.11.2":
@@ -1285,7 +1285,7 @@ Lockfile:
     integrity sha512-jswa/5tVFdr2o0zoqGEnzLURaQRY4lrMN0/c1pDXJcFfGXkjqIVc9/AA0IIXInnw4uORsjatjQH4B5wFA8f0OA==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       unplugin "^0.9.5"
   
   "@vue-macros/setup-component@^0.11.2":
@@ -1294,7 +1294,7 @@ Lockfile:
     integrity sha512-dE8pQfPDKTyJx33uw7f+nY/ErHf2mtW+O8aHWEbc4qi8TEsrsVgT+hHEjEYibTG6Sund5pDpddOnLf6Y6jA3gw==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       unplugin "^0.9.5"
   
   "@vue-macros/setup-sfc@^0.11.2":
@@ -1303,7 +1303,7 @@ Lockfile:
     integrity sha512-uhYXNR0nFycuQCMUmjPFxXEF8DB8iFCxKrzfMyrKroRYefC5k3KtnzXdGe6bcvy42QpswFTpeXgVgGCyAjQheg==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       unplugin "^0.9.5"
   
   "@vue/babel-helper-vue-transform-on@^1.0.2":
@@ -6668,7 +6668,7 @@ Lockfile:
     integrity sha512-Eql/lAih50HLdg6eOGNjPZhLCTW7B297FvKdpfibRMtnlhhrZsRFUs5DyS3tcNBc7Zkc6GcS8mt6HKGNGhaXKg==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       ast-walker-scope "^0.2.3"
       unplugin "^0.9.5"
   
@@ -6678,7 +6678,7 @@ Lockfile:
     integrity sha512-DvEFbqyio24pOzSyvzDiCaPXnOwJEd9u1Dr2cshMcnSft6OWBgwbm6IumVBbOSydEpClORcZAouxA9CyjUyMbQ==
     dependencies:
       "@rollup/pluginutils" "^4.2.1"
-      "@vue-macros/common" "0.11.2"
+      "@vue-macros/sysCommon" "0.11.2"
       "@vue-macros/define-model" "^0.11.2"
       "@vue-macros/define-render" "^0.11.2"
       "@vue-macros/hoist-static" "^0.11.2"

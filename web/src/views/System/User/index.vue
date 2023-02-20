@@ -10,8 +10,8 @@ import {
   getUser,
   getRole,
   pagedSearchUser
-} from '@/api/user'
-import { Page } from '@/api/common/types'
+} from '@/api/sysUser'
+import { Page } from '@/api/sysCommon/types'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -28,8 +28,8 @@ import {
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { setNull, setValue } from '@/utils/index'
-import { User } from '@/api/user/types'
-import { SearchField } from '@/api/common/types'
+import { User } from '@/api/sysUser/types'
+import { SearchField } from '@/api/sysCommon/types'
 
 /**
  * 声明data
@@ -162,8 +162,8 @@ const handleSizeChange = () => {
  * 查询所有角色
  */
 const queryRole = async () => {
-  const role = await getRole()
-  roleList.value = role.data
+  const sysRole = await getRole()
+  roleList.value = sysRole.data
 }
 
 /**
@@ -299,10 +299,10 @@ const clickQuery = async () => {
 <template>
   <ContentWrap>
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:user:add']" @click="clickAdd">
+      <ElButton type="success" v-hasPermission="['sys:sysUser:add']" @click="clickAdd">
         <Icon icon="material-symbols:add" />添加
       </ElButton>
-      <ElButton v-hasPermission="['sys:user:delete']" type="danger">
+      <ElButton v-hasPermission="['sys:sysUser:delete']" type="danger">
         <Icon icon="fluent:delete-28-regular" />删除
       </ElButton>
     </div>
@@ -318,7 +318,7 @@ const clickQuery = async () => {
           <el-input style="width: 230px" v-model="item.keyword" :placeholder="item.label" />
         </el-form-item>
         <el-form-item>
-          <ElButton type="primary" v-hasPermission="['sys:user:select']" @click="clickQuery">
+          <ElButton type="primary" v-hasPermission="['sys:sysUser:select']" @click="clickQuery">
             <Icon icon="bi:search" /> 查询
           </ElButton>
           <ElButton type="primary" @click="initData"> <Icon icon="bx:reset" /> 重置 </ElButton>
@@ -333,10 +333,10 @@ const clickQuery = async () => {
       :page-size="pagedPlayload.size"
     >
       <template #action="{ row }">
-        <ElButton type="danger" v-hasPermission="['sys:user:delete']" @click="clickDelete(row)">
+        <ElButton type="danger" v-hasPermission="['sys:sysUser:delete']" @click="clickDelete(row)">
           删除
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:user:update']" @click="clickEdit(row)">
+        <ElButton type="primary" v-hasPermission="['sys:sysUser:update']" @click="clickEdit(row)">
           编辑
         </ElButton>
       </template>

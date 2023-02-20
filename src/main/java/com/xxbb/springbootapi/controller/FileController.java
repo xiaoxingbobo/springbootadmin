@@ -3,7 +3,7 @@ package com.xxbb.springbootapi.controller;
 import com.xxbb.springbootapi.config.AppConfig;
 import com.xxbb.springbootapi.entity.dto.JsonResult;
 import com.xxbb.springbootapi.entity.dto.JsonResultData;
-import com.xxbb.springbootapi.service.impl.UserService;
+import com.xxbb.springbootapi.service.impl.SysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class FileController {
     @Autowired
     private AppConfig appConfig;
     @Autowired
-    private UserService userService;
+    private SysUserService userService;
 
 
     @PostMapping("upload")
@@ -80,6 +80,6 @@ public class FileController {
         IOUtils.copy(fileInputStream, outputStream);
         IOUtils.closeQuietly(fileInputStream);
         IOUtils.closeQuietly(outputStream);
-        log.info(userService.getCurrentUser().getUserInfo().getName() + "下载文件" + fileName);
+        log.info(userService.getCurrentUser().getSysUserInfo().getName() + "下载文件" + fileName);
     }
 }

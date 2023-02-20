@@ -1,11 +1,11 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.dao.IBaseDao;
-import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.dao.ISysBaseDao;
+import com.xxbb.springbootapi.entity.SysUser;
 import com.xxbb.springbootapi.entity.dto.SocketDto;
-import com.xxbb.springbootapi.mapper.UserMapper;
-import com.xxbb.springbootapi.wrapper.UserQuery;
-import com.xxbb.springbootapi.wrapper.UserUpdate;
+import com.xxbb.springbootapi.mapper.SysUserMapper;
+import com.xxbb.springbootapi.wrapper.SysUserQuery;
+import com.xxbb.springbootapi.wrapper.SysUserUpdate;
 import io.swagger.annotations.Api;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +66,7 @@ public class WebSocketController {
     }
 
     @Mapper
-    public static interface IUserDao extends IBaseDao<User, UserQuery, UserUpdate, UserMapper> {
+    public static interface ISysUserDao extends ISysBaseDao<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> {
 
     }
 }

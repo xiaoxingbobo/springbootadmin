@@ -10,7 +10,7 @@ import {
   get{entityName},
   pagedSearch{entityName}
 } from '@/api/{entityNameLowCase}'
-import { Page } from '@/api/common/types'
+import { Page } from '@/api/sysCommon/types'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -24,7 +24,7 @@ import {
 import type { FormInstance } from 'element-plus'
 import { setNull, setValue } from '@/utils/index'
 import { {entityName} } from '@/api/{entityNameLowCase}/types'
-import { SearchField } from '@/api/common/types'
+import { SearchField } from '@/api/sysCommon/types'
 
 /**
  * 声明data

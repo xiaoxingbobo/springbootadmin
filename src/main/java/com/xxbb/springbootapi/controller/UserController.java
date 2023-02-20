@@ -1,11 +1,11 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.entity.SysUser;
 import com.xxbb.springbootapi.entity.dto.*;
-import com.xxbb.springbootapi.mapper.UserMapper;
-import com.xxbb.springbootapi.service.impl.UserService;
-import com.xxbb.springbootapi.wrapper.UserQuery;
-import com.xxbb.springbootapi.wrapper.UserUpdate;
+import com.xxbb.springbootapi.mapper.SysUserMapper;
+import com.xxbb.springbootapi.service.impl.SysUserService;
+import com.xxbb.springbootapi.wrapper.SysUserQuery;
+import com.xxbb.springbootapi.wrapper.SysUserUpdate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -19,9 +19,9 @@ import java.util.List;
 @RequestMapping("user")
 @Api(tags = "User表")
 @RestController
-public class UserController extends AuthApiController<User, UserQuery, UserUpdate, UserMapper> {
+public class UserController extends AuthApiController<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> {
     @Autowired
-    private UserService service;
+    private SysUserService service;
     /**
      * Create boolean.
      *
@@ -31,7 +31,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @PostMapping
     @PreAuthorize("@auth.hasAuth('sys:user:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean create(@RequestBody User entity) {
+    public Boolean create(@RequestBody SysUser entity) {
         return super.create(entity);
     }
 
@@ -70,7 +70,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @PutMapping
     @PreAuthorize("@auth.hasAuth('sys:user:update')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
-    public Boolean update(@RequestBody User entity) {
+    public Boolean update(@RequestBody SysUser entity) {
         return service.update(entity);
     }
 
@@ -83,7 +83,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @PostMapping("/searches")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
     @ApiOperation(value = "搜索")
-    public List<User> select(@RequestBody List<Search> searches) {
+    public List<SysUser> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
             return service.search(searches.get(0));
         } else if (searches.size() > 1) {
@@ -102,8 +102,8 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @GetMapping("/{id}")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
     @ApiOperation(value = "查询一条")
-    public User find(@PathVariable("id") int id) {
-        return (User) service.find(id).setPassword(null);
+    public SysUser find(@PathVariable("id") int id) {
+        return (SysUser) service.find(id).setPassword(null);
     }
 
     /**
@@ -116,7 +116,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @ApiOperation(value = "查询固定条数")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<User> select(@PathVariable("limit") int limit) {
+    public List<SysUser> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
@@ -128,7 +128,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @GetMapping
     @ApiOperation(value = "查询所有")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    public List<User> select() {
+    public List<SysUser> select() {
         return service.list();
     }
 
@@ -141,7 +141,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    public PagedResult<User> select(@RequestBody PagedInputC<User> input) {
+    public PagedResult<SysUser> select(@RequestBody PagedInputC<SysUser> input) {
         return service.list(input);
     }
 
@@ -156,7 +156,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @GetMapping("/paged/{current}/{size}")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<User> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+    public PagedResult<SysUser> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
@@ -170,7 +170,7 @@ public class UserController extends AuthApiController<User, UserQuery, UserUpdat
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    public PagedResult<User> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+    public PagedResult<SysUser> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
     @PostMapping("login")

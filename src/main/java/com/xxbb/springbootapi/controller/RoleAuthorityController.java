@@ -1,9 +1,9 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.RoleAuthority;
+import com.xxbb.springbootapi.entity.SysRoleAuthority;
 import com.xxbb.springbootapi.entity.dto.*;
 import com.xxbb.springbootapi.mapper.RoleAuthorityMapper;
-import com.xxbb.springbootapi.service.impl.RoleAuthorityService;
+import com.xxbb.springbootapi.service.impl.SysRoleAuthorityService;
 import com.xxbb.springbootapi.wrapper.RoleAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.RoleAuthorityUpdate;
 import io.swagger.annotations.Api;
@@ -19,11 +19,11 @@ import java.util.List;
 @RequestMapping("RoleAuthoritys")
 @Api(tags = "RoleAuthority表")
 @RestController
-public class RoleAuthorityController extends AuthApiController<RoleAuthority, RoleAuthorityQuery, RoleAuthorityUpdate, RoleAuthorityMapper> {
+public class RoleAuthorityController extends AuthApiController<SysRoleAuthority, RoleAuthorityQuery, RoleAuthorityUpdate, RoleAuthorityMapper> {
 
 
     @Autowired
-    private RoleAuthorityService service;
+    private SysRoleAuthorityService service;
     /**
      * Create boolean.
      *
@@ -34,7 +34,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PostMapping
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "添加", notes = "id，创建时间，修改时间无需提交")
-    public Boolean create(@RequestBody RoleAuthority entity) {
+    public Boolean create(@RequestBody SysRoleAuthority entity) {
         return service.add(entity);
     }
 
@@ -76,7 +76,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PutMapping
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "修改", notes = "创建时间，修改时间无需提交")
-    public Boolean update(@RequestBody RoleAuthority entity) {
+    public Boolean update(@RequestBody SysRoleAuthority entity) {
         return service.update(entity);
     }
 
@@ -90,7 +90,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PostMapping("/searches")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "搜索")
-    public List<RoleAuthority> select(@RequestBody List<Search> searches) {
+    public List<SysRoleAuthority> select(@RequestBody List<Search> searches) {
         if (searches.size() == 1) {
             return service.search(searches.get(0));
         } else if (searches.size() > 1) {
@@ -110,8 +110,8 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @GetMapping("/{id}")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "查询一条")
-    public RoleAuthority find(@PathVariable("id") int id) {
-        return (RoleAuthority) service.find(id);
+    public SysRoleAuthority find(@PathVariable("id") int id) {
+        return (SysRoleAuthority) service.find(id);
     }
 
     /**
@@ -125,7 +125,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @ApiOperation(value = "查询固定条数")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<RoleAuthority> select(@PathVariable("limit") int limit) {
+    public List<SysRoleAuthority> select(@PathVariable("limit") int limit) {
         return service.list(limit);
     }
 
@@ -138,7 +138,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @GetMapping
     @ApiOperation(value = "查询所有")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
-    public List<RoleAuthority> select() {
+    public List<SysRoleAuthority> select() {
         return service.list();
     }
 
@@ -152,7 +152,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PostMapping("/paged")
     @ApiOperation(value = "分页筛选")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
-    public PagedResult<RoleAuthority> select(@RequestBody PagedInputC<RoleAuthority> input) {
+    public PagedResult<SysRoleAuthority> select(@RequestBody PagedInputC<SysRoleAuthority> input) {
         return service.list(input);
     }
 
@@ -168,7 +168,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @GetMapping("/paged/{current}/{size}")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<RoleAuthority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
+    public PagedResult<SysRoleAuthority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
         return service.paged(new PagedInput().setCurrent(current).setSize(size));
     }
 
@@ -182,7 +182,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PostMapping("/paged/searches")
     @ApiOperation(value = "分页搜索")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
-    public PagedResult<RoleAuthority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
+    public PagedResult<SysRoleAuthority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
         return service.searchPaged(pagedInput);
     }
 
@@ -194,7 +194,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PostMapping("/listJoin")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "连接查询列表", notes = "id，创建时间，修改时间无需提交")
-    public List<RoleAuthorityResult> listJoin(@RequestBody RoleAuthority entity) {
+    public List<SysRoleAuthorityResult> listJoin(@RequestBody SysRoleAuthority entity) {
         return service.listJoin(entity);
     }
 
@@ -207,7 +207,7 @@ public class RoleAuthorityController extends AuthApiController<RoleAuthority, Ro
     @PutMapping ("batch")
     @PreAuthorize("@auth.hasAuth('sys:roleAuthority:add')")
     @ApiOperation(value = "批量修改", notes = "id，创建时间，修改时间无需提交")
-    public Boolean updateBatch(@RequestBody List<RoleAuthority> entities) {
+    public Boolean updateBatch(@RequestBody List<SysRoleAuthority> entities) {
         return service.updateBatch(entities);
     }
 }

@@ -1,6 +1,6 @@
 package com.xxbb.springbootapi.service.impl;
 
-import com.xxbb.springbootapi.entity.User;
+import com.xxbb.springbootapi.entity.SysUser;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @Data
 @NoArgsConstructor
 public class SecurityUserDetails implements UserDetails {
-    private User user;
+    private SysUser sysUser;
     private List<String> permissions;
 
     private List<SimpleGrantedAuthority> collect;
@@ -22,8 +22,8 @@ public class SecurityUserDetails implements UserDetails {
     /**
      * 有参数构造
      */
-    public SecurityUserDetails(User user, List<String> permissions) {
-        this.user = user;
+    public SecurityUserDetails(SysUser sysUser, List<String> permissions) {
+        this.sysUser = sysUser;
         this.permissions = permissions;
         this.collect = permissions.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
@@ -43,12 +43,12 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return sysUser.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return sysUser.getUsername();
     }
 
     @Override

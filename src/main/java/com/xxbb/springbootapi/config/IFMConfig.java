@@ -4,7 +4,7 @@ import cn.org.atool.fluent.mybatis.base.IEntity;
 import cn.org.atool.fluent.mybatis.base.crud.IDefaultSetter;
 import cn.org.atool.fluent.mybatis.base.crud.IQuery;
 import cn.org.atool.fluent.mybatis.base.crud.IUpdate;
-import com.xxbb.springbootapi.entity.Common;
+import com.xxbb.springbootapi.entity.SysCommon;
 
 import java.util.Date;
 
@@ -41,13 +41,13 @@ public interface IFMConfig extends IDefaultSetter {
      */
     @Override
     default void setInsertDefault(IEntity entity) {
-        if (!(entity instanceof Common)) {
+        if (!(entity instanceof SysCommon)) {
             return;
         }
-        Common common = (Common) entity;
-        common.setCreateTime(new Date());
-        common.setIsDeleted(false);
-        common.setUpdateTime(new Date());
-        common.setId(null);
+        SysCommon sysCommon = (SysCommon) entity;
+        sysCommon.setCreateTime(new Date());
+        sysCommon.setIsDeleted(false);
+        sysCommon.setUpdateTime(new Date());
+        sysCommon.setId(null);
     }
 }

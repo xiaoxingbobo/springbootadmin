@@ -1,8 +1,8 @@
 package com.xxbb.springbootapi.controller;
 
-import com.xxbb.springbootapi.entity.GenRecord;
+import com.xxbb.springbootapi.entity.SysGenRecord;
 import com.xxbb.springbootapi.entity.dto.CodeInput;
-import com.xxbb.springbootapi.service.impl.CodeService;
+import com.xxbb.springbootapi.service.impl.SysCodeService;
 import com.xxbb.springbootapi.utils.ClassUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class CodeController {
     @Autowired(required = false)
-    private CodeService codeService;
+    private SysCodeService codeService;
 
     /**
      * 代码生成
@@ -55,7 +55,7 @@ public class CodeController {
     @GetMapping("list")
     @PreAuthorize("@auth.hasAuth('sys:code:select')")
     @ApiOperation(value = "所有生成记录")
-    public List<GenRecord> list() {
+    public List<SysGenRecord> list() {
         return codeService.list();
     }
 }

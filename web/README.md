@@ -13,7 +13,7 @@ vue-element-plus-admin is a free and open source middle and background template 
 
 vue-element-plus-admin is positioned as a background integration scheme, which is not suitable for secondary development as a basic template. Because it integrates many functions that you may not use, it will cause a lot of code redundancy. If your project doesn't pay attention to this problem, you can also directly carry out secondary development based on it.
 
-If you need a basic template, please switch to the `tempalte` branch. `Tempalte` simply integrates some common layout functions such as layout and dynamic menu, which is more suitable for developers to carry out secondary development.
+If you need a basic template, please switch to the `tempalte` branch. `Tempalte` simply integrates some sysCommon layout functions such as layout and dynamic menu, which is more suitable for developers to carry out secondary development.
 
 ## Feature
 
