@@ -139,7 +139,7 @@ const signIn = async () => {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: config.token_exp })
           // userInfo
-          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: config.token_exp }) // 存当前用户的信息
+          wsCache.set(appStore.getUserInfo, res.data.sysUserInfo, { exp: config.token_exp }) // 存当前用户的信息
           wsCache.set('roleAuthority', res.data.authorityValues, { exp: config.token_exp }) // 存当前用户拥有的权限列表
           const { data: menuListdata } = await menuList() // 请求菜单信息
           wsCache.set('menuData', menuListdata, { exp: config.token_exp }) // 存当前角色拥有的菜单
