@@ -11,7 +11,7 @@ import {
   getAuthority,
   batchRoleAuthoritys,
   RoleAuthoritysPaged
-} from '@/api/sysRole'
+} from '@/api/Role'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,

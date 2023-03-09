@@ -10,8 +10,8 @@ import {
   getUser,
   getRole,
   pagedSearchUser
-} from '@/api/sysUser'
-import { Page } from '@/api/sysCommon/types'
+} from '@/api/User'
+import { Page } from '@/api/Common/types'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
@@ -28,8 +28,8 @@ import {
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { setNull, setValue } from '@/utils/index'
-import { User } from '@/api/sysUser/types'
-import { SearchField } from '@/api/sysCommon/types'
+import { User } from '@/api/User/types'
+import { SearchField } from '@/api/Common/types'
 
 /**
  * 声明data
