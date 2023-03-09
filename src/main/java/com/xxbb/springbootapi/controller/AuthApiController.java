@@ -26,7 +26,7 @@ import java.util.List;
  * @param <V> the type parameter
  * @param <E> the type parameter
  */
-public class AuthApiController<K extends SysCommon, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> extends BaseController {
+public class AuthApiController<K extends SysCommon, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> {
     @Autowired(required = false)
     private SysBaseService<K, T, V, E> service;
 

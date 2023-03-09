@@ -129,6 +129,7 @@ const signIn = async () => {
       const formData = await getFormData<UserType>()
 
       try {
+        debugger
         const res: any = await loginApi(formData)
         ElMessage({
           message: '登录成功！',

@@ -8,27 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/SysConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/GenRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/GenRecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysAuthorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysAuthorityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysGenRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysGenRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysRoleAuthorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysRoleAuthorityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysSysRoleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysAuthorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysAuthorityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysGenRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysGenRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysRoleAuthorityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysRoleAuthorityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysRoleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/config/axios/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/config/axios/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/BaseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysTestDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/TestDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysTestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/TestService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +82,9 @@
     "RequestMappingsPanelWidth1": "75",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "spring.configuration.checksum": "b4835d7cae286c6e29d5308fb64835c0"
   }
 }]]></component>
@@ -112,6 +105,7 @@
     <configuration name="SpringBootApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xxbb.springbootapi.SpringBootApiApplication" />
       <module name="springbootadmin" />
+      <option name="VM_PARAMETERS" value="-Dspring.output.ansi.enabled=ALWAYS" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.xxbb.springbootapi.*" />
@@ -129,6 +123,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.SpringBootApiApplication" />
+      <item itemvalue="Spring Boot.SpringBootApiApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.SpringBootApiApplication" />
@@ -203,7 +201,10 @@
       <workItem from="1676883524736" duration="4042000" />
       <workItem from="1676895397072" duration="3281000" />
       <workItem from="1677383400435" duration="2409000" />
-      <workItem from="1678330918591" duration="1483000" />
+      <workItem from="1678330918591" duration="2118000" />
+      <workItem from="1678341485434" duration="37000" />
+      <workItem from="1678342331080" duration="195000" />
+      <workItem from="1678342734443" duration="898000" />
     </task>
     <servers />
   </component>
