@@ -139,7 +139,7 @@ interface iRouter {
 }
 
 // export const myscreenRouters: AppRouteRecordRaw[] = wsCache.get('screenRouters')
-const menuListData: Array<iRouter> = wsCache.get('menudata')
+const menuListData: Array<iRouter> = wsCache.get('menuData')
 // 首先把你需要动态路由的组件地址全部获取
 const modules = import.meta.glob('../views/**/*.vue')
 ;(function getMenu(arr: Array<iRouter>): void {

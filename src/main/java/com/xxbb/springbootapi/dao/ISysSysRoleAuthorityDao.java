@@ -1,12 +1,12 @@
 package com.xxbb.springbootapi.dao;
 
 import com.xxbb.springbootapi.entity.SysRoleAuthority;
-import com.xxbb.springbootapi.mapper.RoleAuthorityMapper;
-import com.xxbb.springbootapi.wrapper.RoleAuthorityQuery;
-import com.xxbb.springbootapi.wrapper.RoleAuthorityUpdate;
+import com.xxbb.springbootapi.mapper.SysRoleAuthorityMapper;
+import com.xxbb.springbootapi.wrapper.SysRoleAuthorityQuery;
+import com.xxbb.springbootapi.wrapper.SysRoleAuthorityUpdate;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface ISysSysRoleAuthorityDao extends ISysBaseDao<SysRoleAuthority, RoleAuthorityQuery, RoleAuthorityUpdate, RoleAuthorityMapper> {
+public interface ISysSysRoleAuthorityDao extends ISysBaseDao<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> {
 
 }

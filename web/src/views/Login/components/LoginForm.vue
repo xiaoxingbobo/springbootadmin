@@ -13,6 +13,7 @@ import { useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router'
 import { UserType } from '@/api/login/types'
 import { useValidator } from '@/hooks/web/useValidator'
+import { config } from '@/config/axios/config'
 
 const { required } = useValidator()
 
@@ -135,12 +136,12 @@ const signIn = async () => {
         })
         if (res) {
           // 登录成功,保存token  6小时自动清除
-          wsCache.set('token', res.data.token, { exp: 60 * 60 * 6 })
+          wsCache.set('token', res.data.token, { exp: config.token_exp })
           // userInfo
-          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: 60 * 60 * 6 }) // 存当前用户的信息
-          wsCache.set('roleAuthority', res.data.authorityValues, { exp: 60 * 60 * 6 }) // 存当前用户拥有的权限列表
+          wsCache.set(appStore.getUserInfo, res.data.userInfo, { exp: config.token_exp }) // 存当前用户的信息
+          wsCache.set('roleAuthority', res.data.authorityValues, { exp: config.token_exp }) // 存当前用户拥有的权限列表
           const { data: menuListdata } = await menuList() // 请求菜单信息
-          wsCache.set('menudata', menuListdata, { exp: 60 * 60 * 6 }) // 存当前角色拥有的菜单
+          wsCache.set('menuData', menuListdata, { exp: config.token_exp }) // 存当前角色拥有的菜单
           userInfo.value = res.data.userInfo // 保存当前登录的用户信息
           ElMessage({
             message: '登录成功',

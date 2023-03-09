@@ -24,7 +24,7 @@ spring:
   #      path: /api #访问接口
   jpa:
     hibernate:
-      ddl-auto: create #实体类自动生成数据库，更新状态，不会删除数据
+      ddl-auto: create #实体类自动生成数据库，updete更新状态，不会删除数据
     defer-datasource-initialization: true #1.自动初始化数据库
     open-in-view: false #视图关闭
   sql: #初始化数据库

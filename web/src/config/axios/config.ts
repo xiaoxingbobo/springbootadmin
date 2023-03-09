@@ -8,6 +8,7 @@ const config: {
   result_code: number | string
   default_headers: AxiosHeaders
   request_timeout: number
+  token_exp: number
 } = {
   /**
    * api请求基础路径
@@ -39,7 +40,11 @@ const config: {
    * 默认接口请求类型
    * 可选值：application/x-www-form-urlencoded multipart/form-data
    */
-  default_headers: 'application/json'
+  default_headers: 'application/json',
+  /**
+   * token过期时间
+   */
+  token_exp: 60 * 60 * 6 //6个小时
 }
 
 export { config }

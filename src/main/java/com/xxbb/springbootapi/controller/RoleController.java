@@ -5,10 +5,10 @@ import com.xxbb.springbootapi.entity.dto.PagedInput;
 import com.xxbb.springbootapi.entity.dto.PagedInputC;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
-import com.xxbb.springbootapi.mapper.RoleMapper;
+import com.xxbb.springbootapi.mapper.SysRoleMapper;
 import com.xxbb.springbootapi.service.impl.SysRoleService;
-import com.xxbb.springbootapi.wrapper.RoleQuery;
-import com.xxbb.springbootapi.wrapper.RoleUpdate;
+import com.xxbb.springbootapi.wrapper.SysRoleQuery;
+import com.xxbb.springbootapi.wrapper.SysRoleUpdate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("Roles")
 @Api(tags = "Role表")
 @RestController
-public class RoleController extends AuthApiController<SysRole, RoleQuery, RoleUpdate, RoleMapper> {
+public class RoleController extends AuthApiController<SysRole, SysRoleQuery, SysRoleUpdate, SysRoleMapper> {
     @Autowired
     private SysRoleService service;
     /**
