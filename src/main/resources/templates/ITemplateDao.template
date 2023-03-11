@@ -7,5 +7,5 @@ import com.xxbb.springbootapi.wrapper.{entityName}Update;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface I{entityName}Dao extends IBaseDao<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
+public interface I{entityName}Dao extends ISysBaseDao<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
 }

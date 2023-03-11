@@ -8,6 +8,6 @@ import com.xxbb.springbootapi.wrapper.{entityName}Update;
 import org.springframework.stereotype.Service;
 
 @Service
-public class {entityName}Dao extends BaseDao<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> implements I{entityName}Dao {
+public class {entityName}Dao extends SysBaseDao<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> implements I{entityName}Dao {
 
 }

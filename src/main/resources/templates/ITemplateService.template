@@ -5,6 +5,6 @@ import com.xxbb.springbootapi.mapper.{entityName}Mapper;
 import com.xxbb.springbootapi.wrapper.{entityName}Query;
 import com.xxbb.springbootapi.wrapper.{entityName}Update;
 
-public interface I{entityName}Service extends IBaseService<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
+public interface I{entityName}Service extends ISysBaseService<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> {
 
 }

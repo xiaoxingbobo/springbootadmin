@@ -7,7 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="" />
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ITemplateDao.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ITemplateDao.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ITemplateService.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ITemplateService.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateDao.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateDao.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateEntity.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateEntity.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateService.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateService.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewApi.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/ViewApi.template" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +78,7 @@
     "RequestMappingsPanelWidth1": "75",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/SpringBoot/springbootadmin/src/main/resources/templates",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -80,6 +89,9 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SpringBoot\springbootadmin\src\main\resources\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\SpringBoot\springbootadmin\src\main\resources\initialzation" />
       <recent name="E:\SpringBoot\springbootadmin\src\main\resources" />
@@ -193,6 +205,12 @@
       <workItem from="1678341485434" duration="37000" />
       <workItem from="1678342331080" duration="195000" />
       <workItem from="1678342734443" duration="2422000" />
+      <workItem from="1678348015391" duration="1848000" />
+      <workItem from="1678411059877" duration="433000" />
+      <workItem from="1678411723620" duration="2000" />
+      <workItem from="1678532688713" duration="90000" />
+      <workItem from="1678534645078" duration="35000" />
+      <workItem from="1678535305247" duration="338000" />
     </task>
     <servers />
   </component>

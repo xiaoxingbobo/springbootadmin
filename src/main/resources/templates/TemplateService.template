@@ -8,7 +8,7 @@ import com.xxbb.springbootapi.wrapper.{entityName}Update;
 import org.springframework.stereotype.Service;
 
 @Service
-public class {entityName}Service extends BaseService<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> implements I{entityName}Service {
+public class {entityName}Service extends SysBaseService<{entityName}, {entityName}Query, {entityName}Update, {entityName}Mapper> implements I{entityName}Service {
 
 }
 
