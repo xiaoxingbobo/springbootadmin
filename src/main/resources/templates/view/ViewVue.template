@@ -10,7 +10,7 @@ import {
   get{entityName},
   pagedSearch{entityName}
 } from '@/api/{entityNameLowCase}'
-import { Page } from '@/api/sysCommon/types'
+import { Page } from '@/api/Common/types'
 import { Dialog } from '@/components/Dialog'
 import {
   ElButton,

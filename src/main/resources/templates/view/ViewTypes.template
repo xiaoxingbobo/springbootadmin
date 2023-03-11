@@ -1,4 +1,4 @@
-import { Common } from '@/api/sysCommon/types'
+import { Common } from '@/api/Common/types'
 export type {entityName} = Common & {
 {entityFields}
 }
