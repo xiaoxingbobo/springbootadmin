@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(new SecurityAuthFailHdl()) //登录失败处理
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()//不通过session获取securityContext
                 .logout().logoutSuccessHandler(new LogoutSuccHdl()) //登出成功处理
-
+                .permitAll() //允许所有用户
                 .and().csrf().disable() //禁用跨域
 //                .and().csrf() //启用跨域
 //                .and()
