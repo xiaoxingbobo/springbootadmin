@@ -32,3 +32,8 @@ SpringBootAdmin快速开发框架，继承SpringBootApi+Vue3+Vite+TypeScript，�
 2. 代码生成器，创建实体类后，在api接口文档中调用即可，entityName为实体类名，isCover是否覆盖
 ![输入图片说明](gitee/%E5%9B%BE%E7%89%87.png)
 3. 数据库操作，请查看fluent mybatis文档 https://gitee.com/fluent-mybatis/fluent-mybatis-docs ,建议直接在service里面操作数据，通过mapper对象可以满足所有数据库操作，不要修改dao里面的代码
+4. 开发环境
+#开启接口文档
+knife4j:
+  # 开启生产环境屏蔽
+  production: false
