@@ -21,9 +21,9 @@ const { wsCache } = useCache('localStorage')
 const { replace } = useRouter()
 
 const loginOut = () => {
-  ElMessageBox.confirm(t('sysCommon.loginOutMessage'), t('sysCommon.reminder'), {
-    confirmButtonText: t('sysCommon.ok'),
-    cancelButtonText: t('sysCommon.cancel'),
+  ElMessageBox.confirm(t('common.loginOutMessage'), t('common.reminder'), {
+    confirmButtonText: t('common.ok'),
+    cancelButtonText: t('common.cancel'),
     type: 'warning'
   })
     .then(async () => {
@@ -59,10 +59,10 @@ const userInfo = wsCache.get('userInfo') || ''
     <template #dropdown>
       <ElDropdownMenu>
         <ElDropdownItem>
-          <div @click="toDocument">{{ t('sysCommon.document') }}</div>
+          <div @click="toDocument">{{ t('common.document') }}</div>
         </ElDropdownItem>
         <ElDropdownItem divided>
-          <div @click="loginOut">{{ t('sysCommon.loginOut') }}</div>
+          <div @click="loginOut">{{ t('common.loginOut') }}</div>
         </ElDropdownItem>
       </ElDropdownMenu>
     </template>

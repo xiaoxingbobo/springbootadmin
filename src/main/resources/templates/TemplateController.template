@@ -2,7 +2,7 @@ package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.entity.{entityName};
 import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedInputT;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.mapper.{entityName}Mapper;

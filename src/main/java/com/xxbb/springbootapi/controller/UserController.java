@@ -8,7 +8,6 @@ import com.xxbb.springbootapi.wrapper.SysUserQuery;
 import com.xxbb.springbootapi.wrapper.SysUserUpdate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,6 +21,7 @@ import java.util.List;
 public class UserController extends AuthApiController<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> {
     @Autowired
     private SysUserService service;
+
     /**
      * Create boolean.
      *
@@ -54,7 +54,7 @@ public class UserController extends AuthApiController<SysUser, SysUserQuery, Sys
      * @param ids
      * @return
      */
-    @DeleteMapping("/batch")
+    @PostMapping("/delete")
     @PreAuthorize("@auth.hasAuth('sys:user:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {
@@ -131,35 +131,6 @@ public class UserController extends AuthApiController<SysUser, SysUserQuery, Sys
     public List<SysUser> select() {
         return service.list();
     }
-
-    /**
-     * Select paged result.
-     *
-     * @param input the input
-     * @return the paged result
-     */
-    @PostMapping("/paged")
-    @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    public PagedResult<SysUser> select(@RequestBody PagedInputC<SysUser> input) {
-        return service.list(input);
-    }
-
-    /**
-     * Paged paged result.
-     *
-     * @param current the current
-     * @param size    the size
-     * @return the paged result
-     */
-    @ApiOperation(value = "分页查询")
-    @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<SysUser> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
-        return service.paged(new PagedInput().setCurrent(current).setSize(size));
-    }
-
     /**
      * Search paged result.
      *
@@ -167,12 +138,13 @@ public class UserController extends AuthApiController<SysUser, SysUserQuery, Sys
      * @return the paged result
      */
     @Override
-    @PostMapping("/paged/searches")
-    @ApiOperation(value = "分页搜索")
+    @PostMapping("/paged")
+    @ApiOperation(value = "分页查询")
     @PreAuthorize("@auth.hasAuth('sys:user:select')")
-    public PagedResult<SysUser> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
-        return service.searchPaged(pagedInput);
+    public PagedResult<SysUser> paged(@RequestBody PagedInputT<SysUser> pagedInput) {
+        return service.paged(pagedInput);
     }
+
     @PostMapping("login")
     @ApiOperation(value = "登录")
     public JsonResultData<LoginResult> login(@RequestBody LoginInput input) {

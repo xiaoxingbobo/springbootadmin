@@ -5,6 +5,6 @@ import com.xxbb.springbootapi.mapper.SysGenRecordMapper;
 import com.xxbb.springbootapi.wrapper.SysGenRecordQuery;
 import com.xxbb.springbootapi.wrapper.SysGenRecordUpdate;
 
-public interface ISysSysGenRecordService extends ISysBaseService<SysGenRecord, SysGenRecordQuery, SysGenRecordUpdate, SysGenRecordMapper> {
+public interface ISysGenRecordService extends ISysBaseService<SysGenRecord, SysGenRecordQuery, SysGenRecordUpdate, SysGenRecordMapper> {
 
 }

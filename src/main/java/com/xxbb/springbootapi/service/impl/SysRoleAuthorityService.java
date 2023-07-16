@@ -5,7 +5,7 @@ import com.xxbb.springbootapi.entity.SysRoleAuthority;
 import com.xxbb.springbootapi.entity.dto.SysRoleAuthorityResult;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.SysRoleAuthorityMapper;
-import com.xxbb.springbootapi.service.ISysSysRoleAuthorityService;
+import com.xxbb.springbootapi.service.ISysRoleAuthorityService;
 import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.wrapper.SysRoleAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.SysRoleAuthorityUpdate;
@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class SysRoleAuthorityService extends SysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> implements ISysSysRoleAuthorityService {
+public class SysRoleAuthorityService extends SysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> implements ISysRoleAuthorityService {
 
     @Autowired
     private SysAuthorityService sysAuthorityService;

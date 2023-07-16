@@ -2,6 +2,8 @@ export type TableData = {
   current: number | string
   size: number | string
 }
+export type Role = {}
+
 export type userData = {
   age?: string | number
   email?: number | string

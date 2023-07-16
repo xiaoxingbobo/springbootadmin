@@ -8,12 +8,12 @@ import cn.org.atool.fluent.mybatis.model.StdPagedList;
 import com.xxbb.springbootapi.dao.ISysBaseDao;
 import com.xxbb.springbootapi.entity.SysCommon;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedInputT;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class SysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V extends BaseUpdate<K, V, T>, E extends IWrapperMapper<K, T, V>> implements ISysBaseDao<K, T, V, E> {
@@ -72,8 +72,9 @@ public class SysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V extend
      */
     @Override
     public int delete(List<Integer> ids) {
-        return mapper.deleteByIds(Collections.singletonList(ids));
+        return mapper.deleteByIds(Arrays.asList(ids.toArray()));
     }
+
     /**
      * 逻辑删除
      *
@@ -143,22 +144,6 @@ public class SysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V extend
         return mapper().listEntity(query);
     }
 
-    /**
-     * 查询列表，传入多个搜索字段，分页
-     *
-     * @param pagedInputCondition
-     * @return
-     */
-
-    @Override
-    public PagedResult<K> searchPaged(PagedInputC<List<Search>> pagedInputCondition) {
-        T query = mapper.query().selectAll();
-        pagedInputCondition.getCondition().forEach(i -> query.where().applyIf(!i.getField().isEmpty() && !i.getKeyword().isEmpty(), x -> x.apply(i.getField()).like(i.getKeyword())).end());
-        //分页
-        int index = pagedInputCondition.getSize() * (pagedInputCondition.getCurrent() - 1);
-        StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputCondition.getSize()));
-        return new PagedResult<K>().setPages(pagedList.getTotal() / pagedInputCondition.getSize() + 1).setCurrent(pagedInputCondition.getCurrent()).setSize(pagedInputCondition.getSize()).setData(pagedList.getData()).setTotal(pagedList.getTotal());
-    }
 
     /*
      * 查询列表，限定条数，无筛选条件
@@ -190,17 +175,17 @@ public class SysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V extend
     /**
      * 查询列表，传入实体类，通过实体类的属性筛选
      *
-     * @param pagedInputC
+     * @param pagedInputT
      * @return
      */
 
     @Override
-    public PagedResult<K> list(PagedInputC<K> pagedInputC) {
-        T query = mapper.query().where().eqByEntity(pagedInputC.getCondition()).end();
+    public PagedResult<K> list(PagedInputT<K> pagedInputT) {
+        T query = mapper.query().where().eqByEntity(pagedInputT.getCondition()).end();
         //分页
-        int index = pagedInputC.getSize() * (pagedInputC.getCurrent() - 1);
-        StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputC.getSize()));
-        return new PagedResult<K>().setTotal(pagedList.getTotal()).setPages(pagedList.getTotal() / pagedInputC.getSize() + 1).setCurrent(pagedInputC.getCurrent()).setSize(pagedInputC.getSize()).setData(pagedList.getData());
+        int index = pagedInputT.getSize() * (pagedInputT.getCurrent() - 1);
+        StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, pagedInputT.getSize()));
+        return new PagedResult<K>().setTotal(pagedList.getTotal()).setPages(pagedList.getTotal() / pagedInputT.getSize() + 1).setCurrent(pagedInputT.getCurrent()).setSize(pagedInputT.getSize()).setData(pagedList.getData());
     }
 
     @Override
@@ -230,6 +215,27 @@ public class SysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V extend
         int index = pagedInput.getSize() * (pagedInput.getCurrent() - 1);
         StdPagedList<K> pagedList = mapper.stdPagedEntity(mapper.query().limit(index, pagedInput.getSize()));
         return pagedResult.setPages(pagedList.getTotal() / pagedInput.getSize() + 1).setCurrent(pagedInput.getCurrent()).setSize(pagedInput.getSize()).setTotal(pagedList.getTotal()).setData(pagedList.getData());
+    }
+    /**
+     * 查询列表，传入多个搜索字段,和搜索字段，分页
+     *
+     * @param input
+     * @return
+     */
+
+    @Override
+    public PagedResult<K> paged(PagedInputT<K> input) {
+        T query = mapper.query().selectAll();
+        if (input.getSearches() != null) {
+            //搜索
+            input.getSearches().forEach(i -> query.where().applyIf(!i.getField().isEmpty() && !i.getKeyword().isEmpty(), x -> x.apply(i.getField()).like(i.getKeyword())).end());
+        }
+        //筛选
+        query.where().applyIf(input.getCondition()!=null,x->x.eqByEntity(input.getCondition()));
+        //分页
+        int index = input.getSize() * (input.getCurrent() - 1);
+        StdPagedList<K> pagedList = mapper.stdPagedEntity(query.limit(index, input.getSize()));
+        return new PagedResult<K>().setPages(pagedList.getTotal() / input.getSize() + 1).setCurrent(input.getCurrent()).setSize(input.getSize()).setData(pagedList.getData()).setTotal(pagedList.getTotal());
     }
 
 

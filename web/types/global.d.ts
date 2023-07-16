@@ -10,7 +10,10 @@ declare type ElememtPlusSize = 'default' | 'small' | 'large'
 
 declare type ElementPlusInfoType = 'success' | 'info' | 'warning' | 'danger'
 
-declare type Recordable<T = any, K = string> = Record<K extends null | undefined ? string : K, T>
+declare type Recordable<T = any, K = string | null> = Record<
+  K extends null | undefined ? string : K,
+  T
+>
 
 declare type ComponentRef<T> = InstanceType<T>
 

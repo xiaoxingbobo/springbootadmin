@@ -8,7 +8,7 @@ import com.xxbb.springbootapi.mapper.SysUserMapper;
 import com.xxbb.springbootapi.wrapper.SysUserQuery;
 import com.xxbb.springbootapi.wrapper.SysUserUpdate;
 
-public interface ISysSysUserService extends ISysBaseService<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> {
+public interface ISysUserService extends ISysBaseService<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> {
 
     JsonResult login(LoginInput input);
 

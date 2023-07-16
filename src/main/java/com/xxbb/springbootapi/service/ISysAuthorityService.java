@@ -8,6 +8,6 @@ import com.xxbb.springbootapi.wrapper.SysAuthorityUpdate;
 
 import java.util.List;
 
-public interface ISysSysAuthorityService extends ISysBaseService<SysAuthority, SysAuthorityQuery, SysAuthorityUpdate, SysAuthorityMapper> {
+public interface ISysAuthorityService extends ISysBaseService<SysAuthority, SysAuthorityQuery, SysAuthorityUpdate, SysAuthorityMapper> {
     List<MenuDTO> viewMenu();
 }

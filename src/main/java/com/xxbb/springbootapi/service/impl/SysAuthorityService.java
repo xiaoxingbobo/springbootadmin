@@ -9,7 +9,7 @@ import com.xxbb.springbootapi.entity.dto.Meta;
 import com.xxbb.springbootapi.entity.dto.enums.AuthorityType;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.SysAuthorityMapper;
-import com.xxbb.springbootapi.service.ISysSysAuthorityService;
+import com.xxbb.springbootapi.service.ISysAuthorityService;
 import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.wrapper.SysAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.SysAuthorityUpdate;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class SysAuthorityService extends SysBaseService<SysAuthority, SysAuthorityQuery, SysAuthorityUpdate, SysAuthorityMapper> implements ISysSysAuthorityService {
+public class SysAuthorityService extends SysBaseService<SysAuthority, SysAuthorityQuery, SysAuthorityUpdate, SysAuthorityMapper> implements ISysAuthorityService {
 
     @Autowired
     private SysUserService userService;

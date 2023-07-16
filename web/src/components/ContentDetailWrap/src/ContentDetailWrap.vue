@@ -35,7 +35,7 @@ onMounted(() => {
         <div :class="[`${prefixCls}-header__back`, 'flex pl-10px pr-10px ']">
           <el-button @click="emit('back')">
             <Icon icon="ep:arrow-left" class="mr-5px" />
-            {{ t('sysCommon.back') }}
+            {{ t('common.back') }}
           </el-button>
         </div>
         <div :class="[`${prefixCls}-header__title`, 'flex flex-1  justify-center']">

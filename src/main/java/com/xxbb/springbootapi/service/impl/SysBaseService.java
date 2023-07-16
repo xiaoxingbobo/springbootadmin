@@ -6,10 +6,7 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.dao.impl.SysBaseDao;
 import com.xxbb.springbootapi.entity.SysCommon;
-import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
-import com.xxbb.springbootapi.entity.dto.PagedResult;
-import com.xxbb.springbootapi.entity.dto.Search;
+import com.xxbb.springbootapi.entity.dto.*;
 import com.xxbb.springbootapi.service.ISysBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -57,7 +54,7 @@ public abstract class SysBaseService<K extends SysCommon, T extends BaseQuery<K,
 
     @Override
     public boolean delete(List<Integer> ids) {
-        return dao.delete(ids) > 0;
+       return dao.delete(ids)>0;
     }
 
     @Override
@@ -102,7 +99,7 @@ public abstract class SysBaseService<K extends SysCommon, T extends BaseQuery<K,
     }
 
     @Override
-    public PagedResult<K> list(PagedInputC<K> input) {
+    public PagedResult<K> list(PagedInputT<K> input) {
         return dao.list(input);
     }
 
@@ -117,8 +114,15 @@ public abstract class SysBaseService<K extends SysCommon, T extends BaseQuery<K,
     }
 
     @Override
-    public PagedResult<K> searchPaged(PagedInputC<List<Search>> searches) {
-        return dao.searchPaged(searches);
+    public PagedResult<K> paged(PagedInputT<K> input) {
+        if(input.getCurrent()==null){
+            input.setCurrent(1);
+        }
+        if(input.getSize()==null){
+            input.setSize(10);
+        }
+
+        return dao.paged(input);
     }
 
     @Override

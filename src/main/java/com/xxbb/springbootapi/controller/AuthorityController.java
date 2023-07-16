@@ -1,14 +1,14 @@
 package com.xxbb.springbootapi.controller;
 
 import com.xxbb.springbootapi.entity.SysAuthority;
-import com.xxbb.springbootapi.entity.dto.*;
+import com.xxbb.springbootapi.entity.dto.MenuDTO;
+import com.xxbb.springbootapi.entity.dto.PagedInputT;
+import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.mapper.SysAuthorityMapper;
 import com.xxbb.springbootapi.service.impl.SysAuthorityService;
 import com.xxbb.springbootapi.wrapper.SysAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.SysAuthorityUpdate;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -80,26 +80,6 @@ public class AuthorityController extends AuthApiController<SysAuthority, SysAuth
     }
 
     /**
-     * Select list.
-     *
-     * @param searches the searches
-     * @return the list
-     */
-    @Override
-    @PostMapping("/searches")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    @ApiOperation(value = "搜索")
-    public List<SysAuthority> select(@RequestBody List<Search> searches) {
-        if (searches.size() == 1) {
-            return service.search(searches.get(0));
-        } else if (searches.size() > 1) {
-            return service.search(searches);
-        } else {
-            return service.list();
-        }
-    }
-
-    /**
      * Find k.
      *
      * @param id the id
@@ -116,21 +96,6 @@ public class AuthorityController extends AuthApiController<SysAuthority, SysAuth
     /**
      * Select list.
      *
-     * @param limit the limit
-     * @return the list
-     */
-    @Override
-    @GetMapping("/list/{limit}")
-    @ApiOperation(value = "查询固定条数")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10")
-    public List<SysAuthority> select(@PathVariable("limit") int limit) {
-        return service.list(limit);
-    }
-
-    /**
-     * Select list.
-     *
      * @return the list
      */
     @Override
@@ -141,48 +106,19 @@ public class AuthorityController extends AuthApiController<SysAuthority, SysAuth
         return service.list();
     }
 
-    /**
-     * Select paged result.
-     *
-     * @param input the input
-     * @return the paged result
-     */
-    @Override
-    @PostMapping("/paged")
-    @ApiOperation(value = "分页筛选")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    public PagedResult<SysAuthority> select(@RequestBody PagedInputC<SysAuthority> input) {
-        return service.list(input);
-    }
-
-    /**
-     * Paged paged result.
-     *
-     * @param current the current
-     * @param size    the size
-     * @return the paged result
-     */
-    @Override
-    @ApiOperation(value = "分页查询")
-    @GetMapping("/paged/{current}/{size}")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1"), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10")})
-    public PagedResult<SysAuthority> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
-        return service.paged(new PagedInput().setCurrent(current).setSize(size));
-    }
 
     /**
      * Search paged result.
      *
-     * @param pagedInput the paged input
+     * @param input the paged input
      * @return the paged result
      */
     @Override
-    @PostMapping("/paged/searches")
-    @ApiOperation(value = "分页搜索")
+    @PostMapping("/paged")
+    @ApiOperation(value = "分页查询")
     @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    public PagedResult<SysAuthority> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
-        return service.searchPaged(pagedInput);
+    public PagedResult<SysAuthority> paged(@RequestBody PagedInputT<SysAuthority> input) {
+        return service.paged(input);
     }
 
     @GetMapping("/menu")

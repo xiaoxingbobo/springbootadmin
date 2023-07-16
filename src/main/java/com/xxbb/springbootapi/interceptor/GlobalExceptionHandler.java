@@ -26,9 +26,11 @@ public class GlobalExceptionHandler {
             return new JsonResult().NotFound();
         }
         log.error("发生未知异常！信息：" + e + "，" + e.getMessage());
+        //直接返回错误信息
         if (e.toString().contains(e.getMessage())) {
-            return new JsonResult().Unknown("你请求的对象发生了未知异常！并给你留了一句话：" + e.getMessage());
+
+            return new JsonResult().Unknown(e.getMessage());
         }
-        return new JsonResult().Unknown("你请求的对象发生了未知异常！并给你留了一句话：" + e + "，" + e.getMessage());
+        return new JsonResult().Unknown(e + "|" + e.getMessage());
     }
 }

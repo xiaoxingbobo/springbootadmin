@@ -4,10 +4,7 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.SysCommon;
-import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
-import com.xxbb.springbootapi.entity.dto.PagedResult;
-import com.xxbb.springbootapi.entity.dto.Search;
+import com.xxbb.springbootapi.entity.dto.*;
 
 import java.util.List;
 
@@ -67,21 +64,23 @@ public interface ISysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V e
     List<K> list();
 
 
-
     /**
      * 通过关键字搜索列表
+     *
      * @param search
      * @return
      */
     List<K> search(Search search);
+
     /**
      * 多条件搜索
+     *
      * @param searches
      * @return
      */
     List<K> search(List<Search> searches);
 
-    PagedResult<K> searchPaged(PagedInputC<List<Search>> pagedInputCondition);
+    PagedResult<K> paged(PagedInputT<K> input);
 
     /**
      * 动态条件查询
@@ -91,12 +90,13 @@ public interface ISysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V e
      */
     List<K> list(T query);
 
-    PagedResult<K> list(PagedInputC<K> pagedInputC);
+    PagedResult<K> list(PagedInputT<K> pagedInputT);
 
     List<K> list(K entity);
 
     /**
      * 通过ids查询列表
+     *
      * @param ids
      * @return
      */
