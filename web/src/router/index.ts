@@ -59,13 +59,23 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
           affix: true
         }
       },
+      // {
+      //   path: 'workplace',
+      //   component: () => import('@/views/Dashboard/Workplace.vue'),
+      //   name: 'Workplace',
+      //   meta: {
+      //     title: t('router.workplace'),
+      //     noCache: true
+      //   }
+      // },
       {
-        path: 'workplace',
-        component: () => import('@/views/Dashboard/Workplace.vue'),
-        name: 'Workplace',
+        path: 'test-work',
+        component: () => import('@/views/System/User/index.vue'),
+        name: 'xx',
         meta: {
-          title: t('router.workplace'),
-          noCache: true
+          // hidden: true,
+          title: 'xxx',
+          noTagsView: true
         }
       }
     ]
@@ -142,6 +152,7 @@ interface iRouter {
 const menuListData: Array<iRouter> = wsCache.get('menuData')
 // 首先把你需要动态路由的组件地址全部获取
 const modules = import.meta.glob('../views/**/*.vue')
+// 自动调用函数
 ;(function getMenu(arr: Array<iRouter>): void {
   if (arr != null) {
     arr.forEach((item) => {
@@ -150,7 +161,9 @@ const modules = import.meta.glob('../views/**/*.vue')
       } else if (!item.component) {
         delete item.component
       } else {
+        // console.error(item.component)
         item.component = modules[`../views/${item.component}.vue`]
+        // item.component = modules['../views/System/User/index.vue']
       }
       if (item.children.length > 0) {
         getMenu(item.children)
@@ -158,7 +171,7 @@ const modules = import.meta.glob('../views/**/*.vue')
     })
   }
 })(menuListData)
-// console.log(menuListData)
+console.log(menuListData)
 export const asyncRouterMap: AppRouteRecordRaw[] = menuListData
 
 // 动态路由列表

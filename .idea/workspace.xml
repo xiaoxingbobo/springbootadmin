@@ -8,53 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/SpringBootApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/XiaoXingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/ISysBaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/dao/impl/SysBaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/PagedInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/PagedInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/PagedInputC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/PagedInputT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/dto/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysBaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysBaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysSysAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysSysGenRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysGenRecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysSysRoleAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysRoleAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysSysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysSysUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/ISysUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SecurityUserDetailsServie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SecurityUserDetailsServie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysBaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysBaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysGenRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysGenRecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xxbb/springbootapi/SpringBootApiApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xxbb/springbootapi/XiaoXingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/web/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/common/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/common/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/ContentDetailWrap/src/ContentDetailWrap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/ContentDetailWrap/src/ContentDetailWrap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/Search/src/Search.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/Search/src/Search.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/TagsView/src/TagsView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/TagsView/src/TagsView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/hooks/web/useTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/hooks/web/useTable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/types/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,29 +64,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/BigData/springbootadmin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;E:\\SpringBoot\\springbootadmin\\web\\node_modules\\stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;394068bc2746e3518a6f5a17ec461b3e&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/BigData/springbootadmin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "394068bc2746e3518a6f5a17ec461b3e",
+    "ts.external.directory.path": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -299,6 +254,7 @@
       <workItem from="1683809158846" duration="2528000" />
       <workItem from="1689347832210" duration="742000" />
       <workItem from="1689436334104" duration="473000" />
+      <workItem from="1689559330849" duration="1641000" />
     </task>
     <servers />
   </component>
@@ -338,7 +294,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java</url>
           <line>59</line>
-          <properties class="com.xxbb.springbootapi.service.impl.SysUserService" method="login">
+          <properties class="com.xxbb.springbootapi.service.impl.SysUserService">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
