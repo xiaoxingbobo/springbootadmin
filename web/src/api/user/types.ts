@@ -1,12 +1,12 @@
 import { Common } from '@/api/common/types'
 export type User = Common & {
-  age?: number | null
-  id?: number | null
-  name?: string | null
-  nickname?: string | null
-  password?: string | null
-  roleId?: number | 0
-  sex?: number | 0
-  username?: string | null
-  email?: string | null
+  age?: number | null | undefined
+  id?: number | null | undefined
+  name?: string | null | undefined
+  nickname?: string | null | undefined
+  password?: string | null | undefined
+  roleId?: number | 0 | undefined
+  sex?: number | 0 | undefined
+  username?: string | null | undefined
+  email?: string | null | undefined
 }

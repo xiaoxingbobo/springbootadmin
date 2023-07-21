@@ -41,7 +41,7 @@ insert into sys_authority (create_time, is_deleted, `name`, update_time, value, 
                        authority_type)
 
 values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', 'material-symbols:verified-sysUser',
-        'System/Permission/Index', 'authority', '权限管理', 6,
+        'System/Authority/Index', 'authority', '权限管理', 6,
         'ROUTER');
 --增加8
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,

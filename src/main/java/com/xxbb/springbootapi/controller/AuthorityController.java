@@ -93,19 +93,6 @@ public class AuthorityController extends AuthApiController<SysAuthority, SysAuth
         return (SysAuthority) service.find(id);
     }
 
-    /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @Override
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:authority:select')")
-    public List<SysAuthority> select() {
-        return service.list();
-    }
-
 
     /**
      * Search paged result.

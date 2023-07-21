@@ -1,44 +1,65 @@
-import request from '@/config/axios'
-import type { TableData, userData, RoleAuthorityspaged } from './types'
+import type { Role } from './types'
+import {
+  addData,
+  putData,
+  deleteData,
+  batchDeleteData,
+  getData,
+  getDataList
+} from '@/api/common/index'
+import { Page } from '../common/types'
 
-// 分页查询
-export const PaginationQuery = (data: Partial<TableData>): Promise<IResponse> => {
-  return request.get({ url: `/Roles/paged/${data.current}/${data.size}` })
+//实体名称
+const entity = 'role'
+/**
+ * 根据id查询
+ * @param id
+ * @returns
+ */
+export const getRole = (id?: number | string): Promise<IResponse> => {
+  return getData(entity, id)
 }
-
-// 添加用户
-export const addUser = (data: Partial<userData>): Promise<IResponse> => {
-  return request.post({ url: '/Roles', data })
+export const getRoleList = async (payload: Partial<Page<Role>>): Promise<IResponse> => {
+  return getDataList(entity, payload)
 }
-
-// 根据id删除用户
-export const byIddeleteUser = (id: number): Promise<IResponse> => {
-  return request.delete({ url: `/Roles/${id}` })
-}
-// 修改用户Roles
-export const putUser = (data: Partial<userData>): Promise<IResponse> => {
-  return request.put({ url: '/Roles', data })
-}
-// 根据id查询一个用户
-export const byIdgetUser = (id: number): Promise<IResponse> => {
-  return request.get({ url: `/Roles/${id}` })
-}
-
-// 查询所有角色信息
-export const getRole = () => {
-  return request.get({ url: '/Roles' })
-}
-// 查询所有权限
-export const getAuthority = () => {
-  return request.get({ url: '/authority' })
+/**
+ * 增加
+ * @param data
+ * @returns
+ */
+export const addRole = async (data: Partial<Role>): Promise<IResponse> => {
+  return addData(entity, data)
 }
 
-// 批量添加权限给角色，添加到RoleAuthoritys
-export const batchRoleAuthoritys = (data: any): Promise<IResponse> => {
-  return request.put({ url: '/RoleAuthoritys/batch', data })
+/**
+ * 修改
+ * @param data
+ * @returns
+ */
+export const putRole = async (data: Partial<Role>): Promise<IResponse> => {
+  return putData(entity, data)
+}
+/**
+ * 删除
+ * @param id
+ * @returns
+ * */
+export const deleteRole = async (id?: number | string): Promise<IResponse> => {
+  return deleteData(entity, id)
+}
+/**
+ * 批量删除
+ * @param ids
+ * @returns
+ * */
+export const batchDeleteRole = async (ids: Array<string | number>): Promise<IResponse> => {
+  return batchDeleteData(entity, ids)
 }
 
-// 分页筛选角色权限表
-export const RoleAuthoritysPaged = (data: RoleAuthorityspaged): Promise<IResponse> => {
-  return request.post({ url: '/RoleAuthoritys/paged', data })
-}
+// /**
+//  * 查询所有角色信息
+//  * @returns
+//  */
+// export const getRole = (): Promise<IResponse> => {
+//   return request.get({ url: '/Roles' })
+// }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("Roles")
+@RequestMapping("role")
 @Api(tags = "Role表")
 @RestController
 public class RoleController extends AuthApiController<SysRole, SysRoleQuery, SysRoleUpdate, SysRoleMapper> {
@@ -93,26 +93,14 @@ public class RoleController extends AuthApiController<SysRole, SysRoleQuery, Sys
     }
 
     /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @Override
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:role:select')")
-    public List<SysRole> select() {
-        return service.list();
-    }
-    /**
      * Search paged result.
      *
      * @param pagedInput the paged input
      * @return the paged result
      */
     @Override
-    @PostMapping("/paged/condition")
-    @ApiOperation(value = "分页搜索")
+    @PostMapping("/paged")
+    @ApiOperation(value = "分页查询")
     @PreAuthorize("@auth.hasAuth('sys:role:select')")
     public PagedResult<SysRole> paged(@RequestBody PagedInputT<SysRole> pagedInput) {
         return service.paged(pagedInput);

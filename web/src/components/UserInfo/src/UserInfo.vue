@@ -7,6 +7,7 @@ import { useRouter } from 'vue-router'
 import { loginOutApi } from '@/api/login'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useTagsViewStore } from '@/store/modules/tagsView'
+import user from 'mock/user'
 
 const tagsViewStore = useTagsViewStore()
 
@@ -53,7 +54,7 @@ const userInfo = wsCache.get('userInfo') || ''
         class="w-[calc(var(--logo-height)-25px)] rounded-[50%]"
       />
       <span class="<lg:hidden text-14px pl-[5px] text-[var(--top-header-text-color)]">{{
-        userInfo.name
+        userInfo.name ? userInfo.name : userInfo.username
       }}</span>
     </div>
     <template #dropdown>

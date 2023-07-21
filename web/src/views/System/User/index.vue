@@ -11,6 +11,7 @@ import { User } from '@/api/user/types'
 import { useCrudSchemas } from '@/hooks/web/useCrudSchemas'
 import { useI18n } from '@/hooks/web/useI18n'
 import { useTable } from '@/hooks/web/useTable'
+import { unref } from 'vue'
 
 /**
  * 获取角色信息
@@ -18,6 +19,7 @@ import { useTable } from '@/hooks/web/useTable'
 const roleList = ref<Array<any>>([])
 const getRoleList = async () => {
   const { data: res } = await getRole()
+  roleList.value = []
   res.forEach((e: any) => {
     roleList.value.push({
       label: e.name,
@@ -25,11 +27,12 @@ const getRoleList = async () => {
     })
   })
 }
-getRoleList()
+
 const dialog = ref({
   visiable: false,
   title: '添加'
 })
+
 const { t } = useI18n()
 
 const { register, tableObject, methods } = useTable<User>({
@@ -40,7 +43,9 @@ const { register, tableObject, methods } = useTable<User>({
     total: 'total'
   }
 })
+
 const { delList, getSelections, setSearchParams } = methods
+
 const columns = reactive<TableColumn[]>([
   {
     field: 'index',
@@ -102,7 +107,7 @@ const columns = reactive<TableColumn[]>([
     },
     form: {
       component: 'Select',
-      value: '0',
+      value: 0,
       componentProps: {
         style: {
           width: '100%'
@@ -110,14 +115,21 @@ const columns = reactive<TableColumn[]>([
         options: [
           {
             label: '男',
-            value: '1'
+            value: 1
           },
           {
             label: '女',
-            value: '0'
+            value: 0
           }
         ]
       }
+    }
+  },
+  {
+    field: 'password',
+    label: '登录密码',
+    search: {
+      show: false
     }
   },
   {
@@ -130,87 +142,84 @@ const columns = reactive<TableColumn[]>([
   {
     field: 'action',
     width: '160px',
-    label: '操作'
+    label: '操作',
+    form: {
+      show: false
+    }
   }
 ])
 
 const { allSchemas } = useCrudSchemas(columns)
-const data = ref<User>({})
-// const searches = reactive<Array<SearchType>>([])
-// const page = reactive<Page<User>>({
-//   current: 1,
-//   size: 10,
-//   condition: null,
-//   searches: searches
-// })
+
+const data = ref<User>()
+
 const loading = ref(false)
 
-const delLoading = ref(false)
-
+/**
+ * 删除
+ * @param row
+ * @param multiple
+ */
 const delData = async (row: User | null, multiple: boolean) => {
   tableObject.currentRow = row
   const selections = await getSelections()
-  delLoading.value = true
+  loading.value = true
   await delList(
     multiple ? selections.map((v) => v.id) : [tableObject.currentRow?.id as number],
     multiple
   ).finally(() => {
-    delLoading.value = false
+    loading.value = false
   })
 }
+
 /**
- * 添加数据或修改数据
- *
+ * 添加或修改数据
+ * @param row
  */
 const editData = async (row?: User) => {
   getRoleList()
   dialog.value.visiable = true
+  //修改
   if (row) {
+    tableObject.currentRow = row as User
     dialog.value.title = '修改'
     const { data: res } = await getUser(row.id?.toString())
     data.value = res
   } else {
-    dialog.value.title = '添加'
-    dialog.value.visiable = true
+    tableObject.currentRow = null
+    dialog.value = {
+      visiable: true,
+      title: t('exampleDemo.add')
+    }
   }
 }
+
+const writeRef = ref<ComponentRef<typeof Write>>()
 
 /**
  * 保存数据
  */
 const saveData = async () => {
-  if (data.value.id) {
-    loading.value = true
-    await putUser(data.value)
-  } else {
-    await addUser(data.value)
-  }
-  dialog.value.visiable = false
+  const write = unref(writeRef)
+  await write?.elFormRef?.validate(async (isValid) => {
+    if (isValid) {
+      loading.value = true
+      const data = (await write?.getFormData()) as User
+      if (data.id) {
+        await putUser(data)
+      } else {
+        await addUser(data)
+      }
+      loading.value = false
+      dialog.value.visiable = false
+    }
+    methods.getList()
+  })
 }
-/**
- * 搜索
- */
-// ;(params: User) => {
-//   const searches: Array<SearchType> = []
-//   for (const key in params) {
-//     if (params[key]) {
-//       searches.push({
-//         field: key,
-//         keyword: params[key]
-//       })
-//     }
-//   }
-//   page.searches = searches
-// }
 
-const actionType = ref('')
-dialog.value.title = t('exampleDemo.add')
-const AddAction = () => {
-  dialog.value.title = t('exampleDemo.add')
-  // tableData.value.currentRow = null
-  dialog.value.visiable = true
-  actionType.value = ''
-}
+/**
+ * 请求数据
+ */
 methods.getList()
 </script>
 
@@ -218,7 +227,7 @@ methods.getList()
   <ContentWrap>
     <Search :schema="allSchemas.searchSchema" @search="setSearchParams" />
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:sysUser:add']" @click="AddAction()">
+      <ElButton type="success" v-hasPermission="['sys:sysUser:add']" @click="editData()">
         <Icon icon="material-symbols:add" />{{ t('exampleDemo.add') }}
       </ElButton>
       <ElButton type="danger" v-hasPermission="['sys:sysUser:delete']" @click="delData(null, true)">
@@ -249,16 +258,15 @@ methods.getList()
           v-hasPermission="['sys:sysUser:delete']"
           @click="delData(row, false)"
         >
-          删除
+          {{ t('exampleDemo.del') }}
         </ElButton>
         <ElButton type="primary" v-hasPermission="['sys:sysUser:update']" @click="editData(row)">
-          编辑
+          {{ t('exampleDemo.edit') }}
         </ElButton>
       </template>
     </Table>
   </ContentWrap>
   <!-- 弹窗 -->
-
   <Dialog
     v-model="dialog.visiable"
     :title="dialog.title"
@@ -266,10 +274,16 @@ methods.getList()
     @closed="dialog.visiable = false"
     style="width: 40%; min-width: 375px; max-width: 600px"
   >
-    <Write v-if="actionType !== 'detail'" ref="writeRef" :form-schema="allSchemas.formSchema" />
+    <Write
+      ref="writeRef"
+      :form-schema="allSchemas.formSchema"
+      :current-row="tableObject.currentRow"
+    />
     <template #footer>
-      <ElButton type="primary" style="margin-left: 38%" @click="saveData()"> 确定 </ElButton>
-      <el-button @click="dialog.visiable = false">关闭</el-button>
+      <ElButton type="primary" style="margin-left: 38%" @click="saveData()">
+        {{ t('dialogDemo.submit') }}
+      </ElButton>
+      <el-button @click="dialog.visiable = false">{{ t('dialogDemo.close') }}</el-button>
     </template>
   </Dialog>
 </template>

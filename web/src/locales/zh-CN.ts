@@ -146,7 +146,8 @@ export default {
     sticky: '黏性'
   },
   permission: {
-    hasPermission: '请设置操作权限值'
+    hasPermission: '请设置操作权限值',
+    permission: '授权'
   },
   analysis: {
     newUser: '新增用户',

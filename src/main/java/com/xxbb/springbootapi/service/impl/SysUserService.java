@@ -128,6 +128,15 @@ public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUse
         }
         return userDao.update(entity) > 0;
     }
+    @Override
+    public PagedResult<SysUser> paged(PagedInputT<SysUser> input) {
+        PagedResult<SysUser> paged = super.paged(input);
+        //去除密码
+        paged.getData().forEach(x -> {
+            x.setPassword(null);
+        });
+        return paged;
+    }
 
     //删除
     @Override

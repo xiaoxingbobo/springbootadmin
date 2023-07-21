@@ -84,18 +84,6 @@ public class ApiController<K extends SysCommon, T extends BaseQuery<K, T>, V ext
     }
 
     /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    public List<K> select() {
-        return service.list();
-    }
-
-
-    /**
      * Search paged result.
      *
      * @param input the paged input

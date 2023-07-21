@@ -95,18 +95,6 @@ public class RoleAuthorityController extends AuthApiController<SysRoleAuthority,
         return (SysRoleAuthority) service.find(id);
     }
 
-    /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @Override
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:roleAuthority:select')")
-    public List<SysRoleAuthority> select() {
-        return service.list();
-    }
 
     /**
      * Search paged result.

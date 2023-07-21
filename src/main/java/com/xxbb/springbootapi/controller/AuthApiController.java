@@ -93,17 +93,6 @@ public abstract class AuthApiController<K extends SysCommon, T extends BaseQuery
     }
 
     /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    @PreAuthorize("@auth.hasAuth('sys:authority:add')")
-    public List<K> select() {
-        return service.list();
-    }
-    /**
      * Search paged result.
      *
      * @param pagedInput the paged input
