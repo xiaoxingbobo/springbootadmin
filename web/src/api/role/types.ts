@@ -6,3 +6,15 @@ export type Role = Common & {
   name: string | null
   updateTime: Date | null
 }
+
+export type Authority = {
+  id: number | null
+  name: string | null
+  parentId: number | null
+  path: string | null
+  type: number | null
+}
+export type RoleAuthority = {
+  role: Role
+  authority: Authority
+}

@@ -1,4 +1,3 @@
-import request from '@/config/axios'
 import type { User } from './types'
 import {
   addData,
@@ -8,6 +7,7 @@ import {
   getData,
   getDataList
 } from '@/api/common/index'
+import { getRoleList } from '@/api/role/index'
 import { Page } from '../common/types'
 
 const entity = 'user'
@@ -60,6 +60,6 @@ export const batchDeleteUser = async (ids: Array<string | number>): Promise<IRes
  * 查询所有角色信息
  * @returns
  */
-export const getRole = (): Promise<IResponse> => {
-  return request.get({ url: '/Roles' })
+export const getRoleAll = async (): Promise<IResponse> => {
+  return getRoleList({})
 }

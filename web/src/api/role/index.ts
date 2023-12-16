@@ -19,7 +19,7 @@ const entity = 'role'
 export const getRole = (id?: number | string): Promise<IResponse> => {
   return getData(entity, id)
 }
-export const getRoleList = async (payload: Partial<Page<Role>>): Promise<IResponse> => {
+export const getRoleList = async (payload: Partial<Page<Role>>): Promise<IResponse<Role>> => {
   return getDataList(entity, payload)
 }
 /**

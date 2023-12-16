@@ -57,7 +57,7 @@ public class RoleController extends AuthApiController<SysRole, SysRoleQuery, Sys
      * @return
      */
     @Override
-    @DeleteMapping("/batch")
+    @PostMapping("/delete")
     @PreAuthorize("@auth.hasAuth('sys:role:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {

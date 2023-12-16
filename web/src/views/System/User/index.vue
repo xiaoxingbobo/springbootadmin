@@ -2,10 +2,10 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
-import { addUser, putUser, getUser, getRole, getUserList, batchDeleteUser } from '@/api/user'
+import { addUser, putUser, getUser, getRoleAll, getUserList, batchDeleteUser } from '@/api/user'
 import { Dialog } from '@/components/Dialog'
 import Write from './components/Write.vue'
-import { ElButton } from 'element-plus'
+import { ElButton, ElMessage } from 'element-plus'
 import { Search } from '@/components/Search'
 import { User } from '@/api/user/types'
 import { useCrudSchemas } from '@/hooks/web/useCrudSchemas'
@@ -18,9 +18,9 @@ import { unref } from 'vue'
  */
 const roleList = ref<Array<any>>([])
 const getRoleList = async () => {
-  const { data: res } = await getRole()
+  const { data: res } = await getRoleAll()
   roleList.value = []
-  res.forEach((e: any) => {
+  res.data.forEach((e: any) => {
     roleList.value.push({
       label: e.name,
       value: e.id
@@ -130,6 +130,10 @@ const columns = reactive<TableColumn[]>([
     label: '登录密码',
     search: {
       show: false
+    },
+    form: {
+      component: 'InputPassword',
+      show: true
     }
   },
   {
@@ -207,8 +211,10 @@ const saveData = async () => {
       const data = (await write?.getFormData()) as User
       if (data.id) {
         await putUser(data)
+        ElMessage.success(t('common.success'))
       } else {
         await addUser(data)
+        ElMessage.success(t('common.success'))
       }
       loading.value = false
       dialog.value.visiable = false

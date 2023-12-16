@@ -39,6 +39,8 @@ declare interface AxiosConfig {
 
 declare interface IResponse<T = any> {
   token(token: any)
-  code: string
+  code: number
+  state: boolean
+  message: string
   data: T extends any ? T : T & any
 }

@@ -8,27 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修改权限管理">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/permission/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/permission/types.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/api/role/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/user/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/locales/zh-CN.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/locales/zh-CN.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/permission.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Permission/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/components/Write.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/User/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/types/global.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +65,10 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2Gfwoti939hl7R8PTuZ55JgORz5" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -86,13 +79,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.XiaoXingApplication.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/BigData/springbootadmin",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/SpringBoot/springbootadmim-android",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -170,6 +166,13 @@
         <item itemvalue="Application.XiaoXingApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-1.8.0_392-corretto-1.8.0_392-3183f394aec4-cb300fc7" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -277,7 +280,12 @@
       <workItem from="1689436334104" duration="473000" />
       <workItem from="1689559330849" duration="3751000" />
       <workItem from="1689908399725" duration="613000" />
-      <workItem from="1689921063093" duration="10889000" />
+      <workItem from="1689921063093" duration="10967000" />
+      <workItem from="1690017482787" duration="3915000" />
+      <workItem from="1690166351877" duration="2769000" />
+      <workItem from="1691326165294" duration="2308000" />
+      <workItem from="1693489082747" duration="15000" />
+      <workItem from="1702709680606" duration="3646000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />
@@ -287,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689569453176</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改权限管理">
+      <option name="closed" value="true" />
+      <created>1689957923282</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689957923283</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
