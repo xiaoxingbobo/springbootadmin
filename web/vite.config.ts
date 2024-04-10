@@ -9,7 +9,7 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import { createStyleImportPlugin, ElementPlusResolve } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import PurgeIcons from 'vite-plugin-purge-icons'
-import { viteMockServe } from 'vite-plugin-mock'
+// import { viteMockServe } from 'vite-plugin-mock'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import VueMarcos from 'unplugin-vue-macros/vite'
 
@@ -59,17 +59,18 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         svgoOptions: true
       }),
       PurgeIcons(),
-      viteMockServe({
-        ignore: /^\_/,
-        mockPath: 'mock',
-        localEnabled: !isBuild,
-        prodEnabled: isBuild,
-        injectCode: `
-          import { setupProdMockServer } from '../mock/_createProductionServer'
+      // 使用mock数据
+      // viteMockServe({
+      //   ignore: /^\_/,
+      //   mockPath: 'mock',
+      //   localEnabled: !isBuild,
+      //   prodEnabled: isBuild,
+      //   injectCode: `
+      //     import { setupProdMockServer } from '../mock/_createProductionServer'
 
-          setupProdMockServer()
-          `
-      }),
+      //     setupProdMockServer()
+      //     `
+      // }),
       VueMarcos(),
       createHtmlPlugin({
         inject: {
@@ -114,13 +115,17 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         }
       }
     },
+    // 注意：只是本地开发时的代理，build之后的代理需要在nginx配置
+    // nginx配置参考：
+    // location /api {
+    //   proxy_pass http://localhost:9797;
+    // }
     server: {
       port: 4000,
       proxy: {
         // 选项写法
         '/api': {
           target: 'http://localhost:9999',
-          // target: 'http://damapi.xiaoxingbobo.top',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, '')
         }

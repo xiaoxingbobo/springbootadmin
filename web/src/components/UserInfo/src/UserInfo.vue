@@ -7,7 +7,6 @@ import { useRouter } from 'vue-router'
 import { loginOutApi } from '@/api/login'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useTagsViewStore } from '@/store/modules/tagsView'
-import user from 'mock/user'
 
 const tagsViewStore = useTagsViewStore()
 

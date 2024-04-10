@@ -9,4 +9,6 @@ export type User = Common & {
   sex?: number | 0 | undefined
   username?: string | null | undefined
   email?: string | null | undefined
+  updateTime?: Date | null | undefined
+  createTime?: Date | null | undefined
 }

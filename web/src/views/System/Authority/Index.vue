@@ -8,7 +8,6 @@ import {
   EditPermissions,
   GetPermissionById
 } from '@/api/authority'
-import { Dialog } from '@/components/Dialog'
 import {
   ElButton,
   ElForm,
@@ -20,7 +19,8 @@ import {
   ElMessageBox,
   ElTreeSelect,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElDialog
 } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { tranListToTreeData } from '@/utils/tree'
@@ -153,11 +153,15 @@ const _GetPermissionById = async (id) => {
   })
 }
 onMounted(async () => {
-  // _PermissionListmenu() // 请求菜单列表
+  intiData()
+})
+
+const intiData = async () => {
+  // 请求菜单列表
   const { data: trees } = await PermissionList()
   // await _PaginationQuery() // 跟新列表
   _PermissionList(trees.data) // 跟新列表
-})
+}
 
 // 添加权限和菜单按钮
 const addMenu = () => {
@@ -218,6 +222,8 @@ const savemenu = (formEl2: FormInstance | undefined) => {
         }
       }
       closemenu()
+      //刷新
+      intiData()
     } else {
       // 表单不通过验证
       return false
@@ -230,18 +236,6 @@ const closemenu = () => {
   // 重置数据
   // treeparentId.value = null
   isAddMenu.value = false
-  // radioauthorityType.value = 1
-  // const { data: trees } = PermissionList()
-  // _PermissionList(trees.data) // 跟新列表
-  // editactionid.value = 0
-  // // 重置表单
-  // ;(numberFormmenu.namejurisdiction = ''),
-  //   (numberFormmenu.valuejurisdiction = ''),
-  //   (numberFormmenu.parentIdjurisdiction = 0),
-  //   (numberFormmenu.name = ''),
-  //   (numberFormmenu.path = ''),
-  //   (numberFormmenu.component = 'Layout'),
-  //   (numberFormmenu.icon = null)
 }
 // 删除按钮
 const deleteaction = async (row) => {
@@ -286,15 +280,14 @@ const editaction = async (row) => {
         >添加</ElButton
       >
     </div>
-    <!-- 树形table -->
-    <el-table :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
-      <el-table-column prop="title" label="名称" sortable />
-      <el-table-column prop="value" label="权限值" sortable />
-      <el-table-column prop="path" label="path" sortable />
-      <el-table-column prop="icon" label="icon" sortable />
-      <el-table-column prop="authorityType" label="菜单" sortable />
-      <el-table-column prop="createTime" label="创建时间" sortable />
-      <el-table-column label="操作" width="180px">
+    <ElTable :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
+      <ElTableColumn prop="title" label="权限" sortable />
+      <ElTableColumn prop="value" label="权限值" sortable />
+      <ElTableColumn prop="path" label="路由" sortable />
+      <ElTableColumn prop="icon" label="图标" sortable />
+      <ElTableColumn prop="authorityType" label="菜单类型" sortable />
+      <ElTableColumn prop="createTime" label="创建时间" sortable />
+      <ElTableColumn label="操作" width="180px">
         <template #default="scope">
           <ElButton
             type="danger"
@@ -311,11 +304,11 @@ const editaction = async (row) => {
             编辑
           </ElButton>
         </template>
-      </el-table-column>
-    </el-table>
+      </ElTableColumn>
+    </ElTable>
   </ContentWrap>
   <!-- 添加菜单 -->
-  <Dialog
+  <ElDialog
     v-model="isAddMenu"
     :title="dialogTitle"
     maxHeight="400px"
@@ -323,23 +316,23 @@ const editaction = async (row) => {
     @closed="closemenu"
   >
     <!-- 添加菜单 -->
-    <el-form ref="diaLogFormmenu" :model="numberFormmenu" label-width="100px">
-      <el-form-item
+    <ElForm ref="diaLogFormmenu" :model="numberFormmenu" label-width="100px">
+      <ElFormItem
         label="菜单名"
         prop="namejurisdiction"
         :rules="[{ required: true, message: '菜单名不能为空！' }]"
       >
-        <el-input v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
-      </el-form-item>
-      <el-form-item
+        <ElInput v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
+      </ElFormItem>
+      <ElFormItem
         prop="valuejurisdiction"
         label="权限值"
         :rules="[{ required: true, message: '权限值不能为空！' }]"
       >
-        <el-input v-model="numberFormmenu.valuejurisdiction" autocomplete="off" />
-      </el-form-item>
-      <el-form-item prop="treeparentId" label="上级菜单">
-        <el-tree-select
+        <ElInput v-model="numberFormmenu.valuejurisdiction" autocomplete="off" />
+      </ElFormItem>
+      <ElFormItem prop="treeparentId" label="上级菜单">
+        <ElTreeSelect
           v-model="treeparentId"
           :data="menuTableList"
           check-strictly
@@ -349,48 +342,48 @@ const editaction = async (row) => {
           :props="defaultProps"
           @node-click="treenodeClickmenu"
         />
-      </el-form-item>
+      </ElFormItem>
 
       <!-- name -->
-      <el-form-item label="name" prop="name">
-        <el-input v-model="numberFormmenu.name" autocomplete="off" />
-      </el-form-item>
+      <ElFormItem label="name" prop="name">
+        <ElInput v-model="numberFormmenu.name" autocomplete="off" />
+      </ElFormItem>
 
       <!-- path -->
-      <el-form-item label="path" prop="path">
-        <el-input
+      <ElFormItem label="path" prop="path">
+        <ElInput
           v-model="numberFormmenu.path"
           placeholder="children的path前缀不加/"
           autocomplete="off"
         />
-      </el-form-item>
+      </ElFormItem>
 
       <!-- component -->
-      <el-form-item label="component" prop="component">
-        <el-input
+      <ElFormItem label="component" prop="component">
+        <ElInput
           v-model="numberFormmenu.component"
           placeholder="一级菜单：Layout，子菜单为导入组件的地址"
           autocomplete="off"
         />
-      </el-form-item>
+      </ElFormItem>
 
       <!-- icon -->
-      <el-form-item label="icon" prop="namejurisdiction">
-        <el-input v-model="numberFormmenu.icon" autocomplete="off" />
-      </el-form-item>
+      <ElFormItem label="icon" prop="namejurisdiction">
+        <ElInput v-model="numberFormmenu.icon" autocomplete="off" />
+      </ElFormItem>
       <!-- 选择数据的类型 -->
-      <el-form-item label="数据类型">
-        <el-radio-group v-model="radioauthorityType">
-          <el-radio :label="1">权限</el-radio>
-          <el-radio :label="2">菜单</el-radio>
-        </el-radio-group>
-      </el-form-item>
-    </el-form>
+      <ElFormItem label="数据类型">
+        <ElRadioGroup v-model="radioauthorityType">
+          <ElRadio :label="1">权限</ElRadio>
+          <ElRadio :label="2">菜单</ElRadio>
+        </ElRadioGroup>
+      </ElFormItem>
+    </ElForm>
     <template #footer>
       <ElButton type="primary" style="margin-left: 38%" @click="savemenu(diaLogFormmenu)">
         确定
       </ElButton>
       <el-button @click="closemenu">关闭</el-button>
     </template>
-  </Dialog>
+  </ElDialog>
 </template>

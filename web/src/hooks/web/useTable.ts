@@ -4,7 +4,6 @@ import { ref, reactive, watch, computed, unref, nextTick } from 'vue'
 import { get } from 'lodash-es'
 import type { TableProps } from '@/components/Table/src/types'
 import { useI18n } from '@/hooks/web/useI18n'
-import { de, el } from 'element-plus/es/locale'
 
 const { t } = useI18n()
 
@@ -201,7 +200,6 @@ export const useTable = <T = any>(config?: UseTableConfig<T>) => {
   }
 
   config?.props && methods.setProps(config.props)
-
   return {
     register,
     elTableRef,

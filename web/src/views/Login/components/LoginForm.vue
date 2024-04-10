@@ -134,6 +134,7 @@ const signIn = async () => {
           message: '登录成功！',
           type: 'success'
         })
+        debugger
         if (res) {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: config.token_exp })

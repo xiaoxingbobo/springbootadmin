@@ -59,23 +59,13 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
           affix: true
         }
       },
-      // {
-      //   path: 'workplace',
-      //   component: () => import('@/views/Dashboard/Workplace.vue'),
-      //   name: 'Workplace',
-      //   meta: {
-      //     title: t('router.workplace'),
-      //     noCache: true
-      //   }
-      // },
       {
-        path: 'test-work',
-        component: () => import('@/views/System/User/index.vue'),
-        name: 'xx',
+        path: 'workplace',
+        component: () => import('@/views/Dashboard/Workplace.vue'),
+        name: 'Workplace',
         meta: {
-          // hidden: true,
-          title: 'xxx',
-          noTagsView: true
+          title: t('router.workplace'),
+          noCache: true
         }
       }
     ]
