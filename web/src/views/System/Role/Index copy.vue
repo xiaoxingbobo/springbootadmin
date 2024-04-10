@@ -281,7 +281,7 @@ const save = async (formEl: FormInstance | undefined) => {
       console.log(batchParameter)
     } else {
       ElMessage({
-        message: '数据没有变更!',
+        message: '数据没有变更',
         type: 'error'
       })
       dclose()

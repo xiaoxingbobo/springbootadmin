@@ -21,3 +21,6 @@ VITE_OUT_DIR=dist-pro
 
 # 标题
 VITE_APP_TITLE=ElementAdmin
+
+# 是否启用Mock
+VITE_USE_MOCK=false

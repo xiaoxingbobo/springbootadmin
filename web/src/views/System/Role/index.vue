@@ -11,7 +11,6 @@ import { useCrudSchemas } from '@/hooks/web/useCrudSchemas'
 import { useI18n } from '@/hooks/web/useI18n'
 import { useTable } from '@/hooks/web/useTable'
 import { unref } from 'vue'
-// import { Role } from '@/api/Role/types'
 import { Role } from '@/api/role/types'
 
 /**
