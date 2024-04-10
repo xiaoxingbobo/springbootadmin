@@ -13,11 +13,6 @@ import { useTable } from '@/hooks/web/useTable'
 import { unref } from 'vue'
 import { Role } from '@/api/role/types'
 
-/**
- * 获取角色信息
- */
-// const roleList = ref<Array<any>>([])
-
 const dialog = ref({
   visiable: false,
   title: '添加'

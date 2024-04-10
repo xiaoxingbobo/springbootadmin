@@ -83,11 +83,15 @@ const columns = reactive<TableColumn[]>([
       show: true
     }
   },
+
   {
     field: 'roleId',
     label: '角色',
     search: {
       show: true
+    },
+    formatter: ({ roleId }) => {
+      return roleList.value.find((v) => v.value === roleId)?.label
     },
     form: {
       component: 'Select',
@@ -104,6 +108,9 @@ const columns = reactive<TableColumn[]>([
     label: '性别',
     search: {
       show: true
+    },
+    formatter: ({ sex }) => {
+      return sex === 1 ? '男' : '女'
     },
     form: {
       component: 'Select',
@@ -226,6 +233,7 @@ const saveData = async () => {
 /**
  * 请求数据
  */
+getRoleList()
 methods.getList()
 </script>
 

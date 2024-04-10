@@ -7,26 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修改权限管理">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.env.base" beforeDir="false" afterPath="$PROJECT_DIR$/web/.env.base" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.env.pro" beforeDir="false" afterPath="$PROJECT_DIR$/web/.env.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/index copy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/types copy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/user/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/authority.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/Menu/src/Menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/Menu/src/Menu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/UserInfo/src/UserInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/hooks/web/useTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/hooks/web/useTable.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/locales/zh-CN.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/locales/zh-CN.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Login/components/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/Index copy.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/vite.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="优化用户表" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -295,7 +276,7 @@
       <workItem from="1691326165294" duration="2308000" />
       <workItem from="1693489082747" duration="15000" />
       <workItem from="1702709680606" duration="3718000" />
-      <workItem from="1712732826183" duration="4778000" />
+      <workItem from="1712732826183" duration="5436000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />
@@ -313,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689957923283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="优化用户表">
+      <option name="closed" value="true" />
+      <created>1712744789619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712744789619</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +322,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修复路由bug" />
     <MESSAGE value="修改权限管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改权限管理" />
+    <MESSAGE value="优化用户表" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化用户表" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
