@@ -1,13 +1,13 @@
-export type TableData = {
-  id: string
-  author: string
-  title: string
-  content: string
-  importance: number
-  display_time: string
-  pageviews: number
+import { Common } from '@/api/common/types'
+export type Authority = Common & {
+  title?: string | null | undefined
+  value?: string | null | undefined
+  path?: string | null | undefined
+  icon?: string | null | undefined
+  parentId?: number | null | undefined
+  authorityType?: string | null | undefined
 }
-export type currentDate = {
-  current: number | string
-  size: number | string
+
+export type AuthorityTree = Authority & {
+  children?: AuthorityTree[] | null | undefined
 }

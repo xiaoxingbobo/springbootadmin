@@ -1,389 +1,290 @@
 <script setup lang="ts">
 import { ContentWrap } from '@/components/ContentWrap'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, unref } from 'vue'
+import { Table } from '@/components/Table'
+import { Dialog } from '@/components/Dialog'
+import Write from './components/Write.vue'
 import {
-  PermissionList,
-  addPermission,
-  DeletePermissions,
-  EditPermissions,
-  GetPermissionById
+  getAuthority,
+  getAuthorityList,
+  batchDeleteAuthority,
+  putAuthority,
+  addAuthority
 } from '@/api/authority'
-import {
-  ElButton,
-  ElForm,
-  ElFormItem,
-  ElInput,
-  ElRadioGroup,
-  ElRadio,
-  ElMessage,
-  ElMessageBox,
-  ElTreeSelect,
-  ElTable,
-  ElTableColumn,
-  ElDialog
-} from 'element-plus'
-import type { FormInstance } from 'element-plus'
-import { tranListToTreeData } from '@/utils/tree'
+import { useCrudSchemas } from '@/hooks/web/useCrudSchemas'
+import { useTable } from '@/hooks/web/useTable'
+import { useI18n } from '@/hooks/web/useI18n'
+import { ElButton } from 'element-plus'
+import { Authority, AuthorityTree } from '@/api/authority/types'
 
-// 添加菜单弹窗
-const isAddMenu = ref(false) // 是否是添加菜单
-
-// 树形权限列表数据
-let treetabledata: any = ref([])
-// 菜单列表数据—树形
-let menuTableList: any = ref([])
-// 全部权限列表数据
-let allTabledata = ref([])
-// 编辑选择框里面的数据类型
-const radioauthorityType = ref(1)
-
-// 是权限还是菜单
-const isauthorityType = ref('ROUTER')
-// 添加菜单的输入数据
-const numberFormmenu = reactive({
-  namejurisdiction: '',
-  valuejurisdiction: '',
-  parentIdjurisdiction: 0,
-  name: '',
-  path: '',
-  component: 'Layout',
-  icon: null,
-  authorityType: 'ROUTER' // 表示为菜单
+const dialog = ref({
+  visiable: false,
+  title: '添加'
 })
-// 上级菜单选择的树形指向
-const defaultProps = {
-  children: 'children',
-  label: 'title'
-}
+const treeData = ref<any>()
 
-// 弹窗标题
-const dialogTitle = ref('添加权限')
-// 点击编辑，当前的id存放,
-const editactionid = ref(0)
+const { t } = useI18n()
 
-// 添加菜单表单的实例
-const diaLogFormmenu = ref<FormInstance>()
-
-// 树形上级id选择
-// 当前选择的树形权限的上级id
-const treeparentId = ref(null)
-
-// 查询全部权限列表-转化成树形
-const _PermissionList = async (trees) => {
-  allTabledata.value = trees // 全部权限列表数据
-  const treerespromiseLIst = ref(trees)
-  treetabledata.value = tranListToTreeData(treerespromiseLIst.value, 0) // 将数组转化成树形
-  // 查询全部菜单列表-转化成树形
-  // 筛选出菜单
-  let treeresmenuList: any = ref([]) // 只要菜单的数据列表
-  trees.forEach((emenu) => {
-    if (emenu.authorityType === 'ROUTER') {
-      treeresmenuList.value.push(emenu)
-      // console.log(treeresmenuList.value)
-    }
-  })
-  menuTableList.value = tranListToTreeData(treeresmenuList.value, 0)
-}
-
-// 点击菜单树形的节点
-const treenodeClickmenu = (e) => {
-  numberFormmenu.parentIdjurisdiction = e.id
-}
-
-// 添加权限-菜单
-const _addPermissionmenu = async (menudata) => {
-  const data: any = {
-    title: menudata.namejurisdiction,
-    parentId: menudata.parentIdjurisdiction,
-    value: menudata.valuejurisdiction,
-    name: menudata.name,
-    path: menudata.path,
-    component: menudata.component,
-    icon: menudata.icon,
-    authorityType: 'ROUTER'
+const { register, tableObject, methods } = useTable<Authority>({
+  getListApi: getAuthorityList,
+  delListApi: batchDeleteAuthority,
+  response: {
+    list: 'data',
+    total: 'total'
   }
-  await addPermission(data)
-}
-
-// 删除权限/菜单
-const _DeletePermissions = async (id) => {
-  await DeletePermissions(id)
-}
-// 编辑权限-菜单
-const _EditPermissions = async (title: string, value, parentId, id, data) => {
-  const datamenu: any = {
-    title: title,
-    value: value,
-    parentId: parentId,
-    id: id,
-    // 下面是编辑菜单时候的参数
-    name: data.name,
-    path: data.path,
-    component: data.component,
-    icon: data.icon,
-    authorityType: data.authorityType
-  }
-  await EditPermissions(datamenu)
-}
-// 通过id查询一条权限
-const _GetPermissionById = async (id) => {
-  const res = await GetPermissionById(id)
-  // console.log(res.data)
-  // 给编辑的输入框赋值
-  numberFormmenu.namejurisdiction = res.data.title
-  numberFormmenu.valuejurisdiction = res.data.value
-  numberFormmenu.parentIdjurisdiction = res.data.parentId
-  numberFormmenu.name = res.data.name
-  numberFormmenu.path = res.data.path
-  numberFormmenu.component = res.data.component
-  numberFormmenu.icon = res.data.icon
-  numberFormmenu.component = res.data.component
-  isauthorityType.value = res.data.authorityType // 判断是权限还是菜单
-  // 判断数据是权限还是菜单，绑定给编辑单选框的的数值（1：权限，2：菜单）
-  if (res.data.authorityType === 'ROUTER') {
-    radioauthorityType.value = 2
-  } else {
-    radioauthorityType.value = 1
-  }
-  // 通过父id，遍历所有权限，父id=id,就找出父权限的名字
-  allTabledata.value.forEach((elall: any) => {
-    if (res.data.parentId === elall.id) {
-      treeparentId.value = elall.title // 上级权限名字
-    }
-  })
-}
-onMounted(async () => {
-  intiData()
 })
 
-const intiData = async () => {
-  // 请求菜单列表
-  const { data: trees } = await PermissionList()
-  // await _PaginationQuery() // 跟新列表
-  _PermissionList(trees.data) // 跟新列表
-}
+const { delList, getSelections, setSearchParams } = methods
 
-// 添加权限和菜单按钮
-const addMenu = () => {
-  dialogTitle.value = '添加(权限/菜单)'
-  isAddMenu.value = true // 显示添加菜单弹窗
-  // 重置表单
-  numberFormmenu.namejurisdiction = ''
-  numberFormmenu.valuejurisdiction = ''
-  numberFormmenu.parentIdjurisdiction = 0
-  numberFormmenu.name = ''
-  numberFormmenu.path = ''
-  numberFormmenu.component = 'Layout'
-  numberFormmenu.icon = null
-  radioauthorityType.value = 1
-  treeparentId.value = null
-}
-
-// 菜单弹窗确定按钮--点击编辑弹出的是菜单的弹窗
-const savemenu = (formEl2: FormInstance | undefined) => {
-  // console.log(formEl)
-  if (!formEl2) return
-  formEl2.validate(async (valid) => {
-    if (valid) {
-      // 通过验证
-      if (dialogTitle.value === '添加(权限/菜单)') {
-        try {
-          await _addPermissionmenu(numberFormmenu)
-          ElMessage({
-            message: '添加成功!',
-            type: 'success'
-          })
-        } catch (error: any) {
-          ElMessage.error(error)
-        }
-      } else {
-        // 编辑权限
-        const Permissions_data = {
-          name: numberFormmenu.name,
-          path: numberFormmenu.path,
-          component: isauthorityType.value === 'ROUTER' ? numberFormmenu.component : '', // 如果修改的是权限就传''
-          icon: numberFormmenu.icon,
-          authorityType: radioauthorityType.value === 1 ? 'API' : 'ROUTER'
-        }
-        try {
-          await _EditPermissions(
-            numberFormmenu.namejurisdiction,
-            numberFormmenu.valuejurisdiction,
-            numberFormmenu.parentIdjurisdiction,
-            editactionid.value,
-            Permissions_data
-          )
-          ElMessage({
-            message: '编辑成功!',
-            type: 'success'
-          })
-        } catch (error: any) {
-          ElMessage.error(error)
-        }
+const columns = reactive<TableColumn[]>([
+  {
+    field: 'index',
+    label: '序号',
+    type: 'index',
+    form: {
+      show: false
+    }
+  },
+  {
+    field: 'title',
+    label: '名称',
+    form: {
+      show: true
+    }
+  },
+  {
+    field: 'value',
+    label: '权限值'
+  },
+  {
+    field: 'path',
+    label: '路由'
+  },
+  {
+    field: 'icon',
+    label: '图标'
+  },
+  {
+    field: 'authorityType',
+    label: '菜单类型',
+    formatter: ({ authorityType }) => {
+      return authorityType === 'API' ? '权限' : '菜单'
+    },
+    form: {
+      component: 'Select',
+      componentProps: {
+        style: {
+          width: '100%'
+        },
+        options: [
+          {
+            label: '权限',
+            value: 'API'
+          },
+          {
+            label: '菜单',
+            value: 'ROUTER'
+          }
+        ]
       }
-      closemenu()
-      //刷新
-      intiData()
-    } else {
-      // 表单不通过验证
-      return false
     }
+  },
+  {
+    field: 'component',
+    label: '组件'
+  },
+
+  {
+    field: 'createTime',
+    label: '创建时间',
+    form: {
+      show: false
+    }
+  },
+  {
+    field: 'action',
+    width: '250px',
+    label: '操作',
+    form: {
+      show: false
+    }
+  }
+])
+
+const { allSchemas } = useCrudSchemas(columns)
+
+const data = ref<Authority>()
+
+const loading = ref(false)
+
+/**
+ * 删除
+ * @param row
+ * @param multiple
+ */
+const delData = async (row: Authority | null, multiple: boolean) => {
+  tableObject.currentRow = row
+  const selections = await getSelections()
+  loading.value = true
+  await delList(
+    multiple ? selections.map((v) => v.id) : [tableObject.currentRow?.id as number],
+    multiple
+  ).finally(() => {
+    loading.value = false
   })
 }
 
-// 关闭按钮
-const closemenu = () => {
-  // 重置数据
-  // treeparentId.value = null
-  isAddMenu.value = false
-}
-// 删除按钮
-const deleteaction = async (row) => {
-  try {
-    const res = await ElMessageBox.confirm('确定要删除此权限吗?', '提示', {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
-      type: 'warning'
-    })
-    // 点击了确定
-    if (res === 'confirm') {
-      await _DeletePermissions(row.id)
-      ElMessage({
-        message: '操作成功!',
-        type: 'success'
-      })
+/**
+ * 添加或修改数据
+ * @param row
+ */
+const editData = async (row?: Authority) => {
+  dialog.value.visiable = true
+  //修改
+  if (row) {
+    tableObject.currentRow = row as Authority
+    dialog.value.title = '修改'
+    const { data: res } = await getAuthority(row.id?.toString())
+    data.value = res
+  } else {
+    tableObject.currentRow = null
+    dialog.value = {
+      visiable: true,
+      title: t('exampleDemo.add')
     }
-  } catch (error: any) {
-    ElMessage.error(error)
-  }
-  // _PaginationQuery() // 跟新列表
-  const { data: trees } = await PermissionList()
-  _PermissionList(trees.data) // 跟新列表
-}
-// 编辑按钮
-const editaction = async (row) => {
-  try {
-    await _GetPermissionById(row.id)
-    dialogTitle.value = '编辑'
-    isAddMenu.value = true
-    editactionid.value = row.id
-  } catch (error) {
-    console.log(error)
   }
 }
+
+const writeRef = ref<ComponentRef<typeof Write>>()
+
+/**
+ * 保存数据
+ */
+const saveData = async () => {
+  const write = unref(writeRef)
+  await write?.elFormRef?.validate(async (isValid) => {
+    if (isValid) {
+      loading.value = true
+      const data = (await write?.getFormData()) as Authority
+      if (data.id) {
+        await putAuthority(data)
+      } else {
+        await addAuthority(data)
+      }
+      loading.value = false
+      dialog.value.visiable = false
+    }
+    methods.getList()
+  })
+}
+
+/**
+ * 处理数据
+ */
+function processData(items: any): AuthorityTree[] {
+  // 创建一个Map来存储所有项，方便查找
+  const itemMap = new Map<number, AuthorityTree>()
+
+  // 首先将所有项添加到Map中，并初始化children数组
+  items.forEach((item: AuthorityTree) => {
+    itemMap.set(item.id, { ...item, children: [] })
+  })
+
+  // 构建树形结构
+  const result: AuthorityTree[] = []
+
+  items.forEach((item: AuthorityTree) => {
+    const currentItem = itemMap.get(item.id)
+    if (item.parentId === 0) {
+      // 如果是顶级节点，直接加入结果数组
+      result.push(currentItem!)
+    } else {
+      // 如果不是顶级节点，找到其父节点并添加到children中
+      const parentItem = itemMap.get(item.parentId as number)
+      if (parentItem) {
+        parentItem.children!.push(currentItem!)
+      }
+    }
+  })
+
+  // 清理空的children数组
+  const cleanEmptyChildren = (items: AuthorityTree[]) => {
+    items.forEach((item) => {
+      if (item.children && item.children.length === 0) {
+        delete item.children
+      } else if (item.children) {
+        cleanEmptyChildren(item.children)
+      }
+    })
+  }
+
+  cleanEmptyChildren(result)
+  treeData.value = result
+  return result
+}
+//查询所有数据
+tableObject.size = 1000
+
+/**
+ * 请求数据
+ */
+methods.getList()
 </script>
 
 <template>
   <ContentWrap>
+    <Search :schema="allSchemas.searchSchema" @search="setSearchParams" />
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:authority:add']" @click="addMenu"
-        >添加</ElButton
-      >
-    </div>
-    <ElTable :data="treetabledata" style="width: 100%; margin-bottom: 20px" row-key="id" border>
-      <ElTableColumn prop="title" label="权限" sortable />
-      <ElTableColumn prop="value" label="权限值" sortable />
-      <ElTableColumn prop="path" label="路由" sortable />
-      <ElTableColumn prop="icon" label="图标" sortable />
-      <ElTableColumn prop="authorityType" label="菜单类型" sortable />
-      <ElTableColumn prop="createTime" label="创建时间" sortable />
-      <ElTableColumn label="操作" width="180px">
-        <template #default="scope">
-          <ElButton
-            type="danger"
-            v-hasPermission="['sys:authority:delete']"
-            @click="deleteaction(scope.row)"
-          >
-            删除
-          </ElButton>
-          <ElButton
-            type="primary"
-            v-hasPermission="['sys:authority:update']"
-            @click="editaction(scope.row)"
-          >
-            编辑
-          </ElButton>
-        </template>
-      </ElTableColumn>
-    </ElTable>
-  </ContentWrap>
-  <!-- 添加菜单 -->
-  <ElDialog
-    v-model="isAddMenu"
-    :title="dialogTitle"
-    maxHeight="400px"
-    style="width: 40%; min-width: 375px; max-width: 700px"
-    @closed="closemenu"
-  >
-    <!-- 添加菜单 -->
-    <ElForm ref="diaLogFormmenu" :model="numberFormmenu" label-width="100px">
-      <ElFormItem
-        label="菜单名"
-        prop="namejurisdiction"
-        :rules="[{ required: true, message: '菜单名不能为空！' }]"
-      >
-        <ElInput v-model="numberFormmenu.namejurisdiction" autocomplete="off" />
-      </ElFormItem>
-      <ElFormItem
-        prop="valuejurisdiction"
-        label="权限值"
-        :rules="[{ required: true, message: '权限值不能为空！' }]"
-      >
-        <ElInput v-model="numberFormmenu.valuejurisdiction" autocomplete="off" />
-      </ElFormItem>
-      <ElFormItem prop="treeparentId" label="上级菜单">
-        <ElTreeSelect
-          v-model="treeparentId"
-          :data="menuTableList"
-          check-strictly
-          value-key="id"
-          :render-after-expand="false"
-          placeholder="请选择上级菜单"
-          :props="defaultProps"
-          @node-click="treenodeClickmenu"
-        />
-      </ElFormItem>
-
-      <!-- name -->
-      <ElFormItem label="name" prop="name">
-        <ElInput v-model="numberFormmenu.name" autocomplete="off" />
-      </ElFormItem>
-
-      <!-- path -->
-      <ElFormItem label="path" prop="path">
-        <ElInput
-          v-model="numberFormmenu.path"
-          placeholder="children的path前缀不加/"
-          autocomplete="off"
-        />
-      </ElFormItem>
-
-      <!-- component -->
-      <ElFormItem label="component" prop="component">
-        <ElInput
-          v-model="numberFormmenu.component"
-          placeholder="一级菜单：Layout，子菜单为导入组件的地址"
-          autocomplete="off"
-        />
-      </ElFormItem>
-
-      <!-- icon -->
-      <ElFormItem label="icon" prop="namejurisdiction">
-        <ElInput v-model="numberFormmenu.icon" autocomplete="off" />
-      </ElFormItem>
-      <!-- 选择数据的类型 -->
-      <ElFormItem label="数据类型">
-        <ElRadioGroup v-model="radioauthorityType">
-          <ElRadio :label="1">权限</ElRadio>
-          <ElRadio :label="2">菜单</ElRadio>
-        </ElRadioGroup>
-      </ElFormItem>
-    </ElForm>
-    <template #footer>
-      <ElButton type="primary" style="margin-left: 38%" @click="savemenu(diaLogFormmenu)">
-        确定
+      <ElButton type="success" v-hasPermission="['sys:sysUser:add']" @click="editData()">
+        <Icon icon="material-symbols:add" />{{ t('exampleDemo.add') }}
       </ElButton>
-      <el-button @click="closemenu">关闭</el-button>
+    </div>
+    <Table
+      :columns="columns"
+      :data="processData(tableObject.tableList)"
+      v-model:pageSize="tableObject.size"
+      v-model:currentPage="tableObject.current"
+      :row-key="(row) => row.id"
+      :border="true"
+      :loading="loading"
+      :stripe="true"
+      @register="register"
+    >
+      <template #action="{ row }">
+        <ElButton
+          type="danger"
+          plain
+          v-hasPermission="['sys:sysUser:delete']"
+          @click="delData(row, false)"
+        >
+          {{ t('exampleDemo.del') }}
+        </ElButton>
+        <ElButton type="primary" v-hasPermission="['sys:sysUser:update']" @click="editData(row)">
+          {{ t('exampleDemo.edit') }}
+        </ElButton>
+      </template>
+    </Table>
+  </ContentWrap>
+  <!-- 弹窗 -->
+  <Dialog
+    v-model="dialog.visiable"
+    :title="dialog.title"
+    maxHeight="60%"
+    @closed="dialog.visiable = false"
+    style="width: 40%; min-width: 375px; max-width: 600px"
+  >
+    <Write
+      ref="writeRef"
+      :form-schema="allSchemas.formSchema"
+      :current-row="tableObject.currentRow"
+      :tree-data="treeData"
+    />
+
+    <template #footer>
+      <ElButton type="primary" style="margin-left: 38%" @click="saveData()">
+        {{ t('dialogDemo.submit') }}
+      </ElButton>
+      <el-button @click="dialog.visiable = false">{{ t('dialogDemo.close') }}</el-button>
     </template>
-  </ElDialog>
+  </Dialog>
 </template>

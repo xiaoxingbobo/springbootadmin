@@ -1,5 +1,4 @@
 import request from '@/config/axios'
-import { number } from '@intlify/core-base'
 import { Common, Page } from './types'
 
 // 获取所有字典

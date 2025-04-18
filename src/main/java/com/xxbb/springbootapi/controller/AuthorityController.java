@@ -58,7 +58,7 @@ public class AuthorityController extends AuthApiController<SysAuthority, SysAuth
      * @return
      */
     @Override
-    @DeleteMapping("/batch")
+    @PostMapping("/delete")
     @PreAuthorize("@auth.hasAuth('sys:authority:delete')")
     @ApiOperation(value = "批量删除")
     public Boolean delete(@RequestBody List<Integer> ids) {

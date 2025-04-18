@@ -3,7 +3,7 @@ export type SearchType = {
   keyword?: string
 }
 export type Common = {
-  id: number | string
+  id: number | string | null | any
   createTime?: string | null
   updateTime?: string | null
 }
