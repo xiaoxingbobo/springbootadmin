@@ -3,7 +3,6 @@ import { PropType, reactive, watch, ref, computed } from 'vue'
 import { useValidator } from '@/hooks/web/useValidator'
 import { Authority } from '@/api/authority/types'
 import { ElForm, ElFormItem, ElInput, ElSelect, ElOption, ElTreeSelect } from 'element-plus'
-import { QuestionFilled } from '@element-plus/icons-vue'
 
 const { required } = useValidator()
 
@@ -23,15 +22,8 @@ const props = defineProps({
 })
 
 const formRef = ref()
-const formData = ref<{
-  title: string
-  value?: string
-  authorityType: string
-  parentId: number
-  path: string
-  icon: string
-  component: string
-}>({
+const formData = ref<Authority>({
+  id: '',
   title: '',
   value: '',
   authorityType: 'ROUTER',
@@ -58,21 +50,6 @@ const treeDataWithTop = computed(() => {
   ]
 })
 
-// 处理树形数据为扁平结构
-const flattenTreeData = (tree: any[], level = 0) => {
-  return tree.reduce((acc, item) => {
-    const prefix = '　'.repeat(level) + (level > 0 ? '└─ ' : '')
-    acc.push({
-      label: prefix + item.title,
-      value: item.id
-    })
-    if (item.children && item.children.length > 0) {
-      acc.push(...flattenTreeData(item.children, level + 1))
-    }
-    return acc
-  }, [])
-}
-
 // 监听当前行变化
 watch(
   () => props.currentRow,
@@ -80,6 +57,7 @@ watch(
     if (!currentRow) {
       // 新建时设置默认值
       formData.value = {
+        id: '',
         title: '',
         value: '',
         authorityType: 'ROUTER',
@@ -92,6 +70,7 @@ watch(
     }
     // 编辑时设置当前行数据
     formData.value = {
+      id: currentRow?.id ?? '',
       title: currentRow?.title ?? '',
       value: currentRow?.value ?? '',
       authorityType: currentRow?.authorityType ?? 'ROUTER',

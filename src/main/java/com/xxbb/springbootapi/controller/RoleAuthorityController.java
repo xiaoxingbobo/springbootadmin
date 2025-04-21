@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("RoleAuthoritys")
+@RequestMapping("roleAuthority")
 @Api(tags = "RoleAuthority表")
 @RestController
 public class RoleAuthorityController extends AuthApiController<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> {

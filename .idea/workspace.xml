@@ -9,11 +9,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="优化用户表">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/AuthorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/api/authority/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/authority/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/api/authority/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/authority/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/common/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/common/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +299,8 @@
       <workItem from="1744855211622" duration="197000" />
       <workItem from="1744858356958" duration="3037000" />
       <workItem from="1744880703909" duration="889000" />
-      <workItem from="1744938079420" duration="2804000" />
+      <workItem from="1744938079420" duration="3600000" />
+      <workItem from="1745198951433" duration="5338000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />

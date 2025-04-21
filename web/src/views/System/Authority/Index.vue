@@ -143,7 +143,7 @@ const editData = async (row?: Authority) => {
   //修改
   if (row) {
     tableObject.currentRow = row as Authority
-    dialog.value.title = '修改'
+    dialog.value.title = t('exampleDemo.edit')
     const { data: res } = await getAuthority(row.id?.toString())
     data.value = res
   } else {

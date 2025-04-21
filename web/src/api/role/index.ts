@@ -7,7 +7,7 @@ import {
   getData,
   getDataList
 } from '@/api/common/index'
-import { Page } from '../common/types'
+import { Page } from '@/api/common/types'
 
 //实体名称
 const entity = 'role'

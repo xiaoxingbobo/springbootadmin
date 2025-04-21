@@ -8,7 +8,7 @@ import {
   getDataList
 } from '@/api/common/index'
 import { getRoleList } from '@/api/role/index'
-import { Page } from '../common/types'
+import { Page } from '@/api/common/types'
 
 const entity = 'user'
 /**

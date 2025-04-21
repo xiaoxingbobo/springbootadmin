@@ -161,7 +161,7 @@ const modules = import.meta.glob('../views/**/*.vue')
     })
   }
 })(menuListData)
-console.log(menuListData)
+// console.log(menuListData)
 export const asyncRouterMap: AppRouteRecordRaw[] = menuListData
 
 // 动态路由列表

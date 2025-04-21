@@ -5,7 +5,8 @@ export type Authority = Common & {
   path?: string | null | undefined
   icon?: string | null | undefined
   parentId?: number | null | undefined
-  authorityType?: string | null | undefined
+  authorityType?: string | undefined
+  component?: string | null | undefined
 }
 
 export type AuthorityTree = Authority & {
