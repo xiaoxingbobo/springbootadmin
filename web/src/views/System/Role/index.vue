@@ -12,10 +12,20 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { useTable } from '@/hooks/web/useTable'
 import { unref } from 'vue'
 import { Role } from '@/api/role/types'
+import WriteRoleAuthority from './components/WriteRoleAuthority.vue'
+import { getRoleAuthorityByRoleId } from '@/api/roleAuthority'
+import { getAllAuthority } from '@/api/authority'
+import type { Authority } from '@/api/authority/types'
+import { batchRoleAuthority } from '@/api/roleAuthority'
 
 const dialog = ref({
   visiable: false,
   title: '添加'
+})
+
+const dialogRoleAuthority = ref({
+  visiable: false,
+  title: '授权'
 })
 
 const { t } = useI18n()
@@ -121,7 +131,32 @@ const editData = async (row?: Role) => {
   }
 }
 
+/**
+ * 获取所有权限
+ */
+const authorityList = ref<Authority[]>([])
+const currentAuthorityList = ref<Authority[]>([])
+const selectedKeys = ref<number[]>([])
+
+/**
+ * 授权
+ * @param row
+ */
+const editRoleAuthorityData = async (row?: Role) => {
+  dialogRoleAuthority.value.visiable = true
+  //修改
+  if (row) {
+    tableObject.currentRow = row as Role
+    dialogRoleAuthority.value.title = '授权'
+    const { data: res } = await getRoleAuthorityByRoleId(row.id) //获取当前row的权限
+    currentAuthorityList.value = res
+    const { data: res2 } = await getAllAuthority()
+    authorityList.value = res2.data // Extract the data array from the response
+    selectedKeys.value = res.map((v) => v.authorityId)
+  }
+}
 const writeRef = ref<ComponentRef<typeof Write>>()
+const writeRoleAuthorityRef = ref<ComponentRef<typeof WriteRoleAuthority>>()
 
 /**
  * 保存数据
@@ -142,6 +177,26 @@ const saveData = async () => {
     }
     methods.getList()
   })
+}
+
+/**
+ * 保存授权
+ */
+const saveRoleAuthorityData = async () => {
+  const write = unref(writeRoleAuthorityRef)
+  console.log(write)
+  const selectedKeys = await write?.getSelectedKeys()
+  //export const batchRoleAuthority = async (data: Partial<RoleAuthority>[]): Promise<IResponse> => {
+  // 批量修改
+  // await batchRoleAuthority([{ authorityId: 1, roleId: 1 }])
+  // console.log(selectedKeys)
+  if (selectedKeys) {
+    await batchRoleAuthority(
+      selectedKeys.map((v) => ({ authorityId: v, roleId: tableObject.currentRow?.id }))
+    ).then(() => {
+      dialogRoleAuthority.value.visiable = false
+    })
+  }
 }
 
 /**
@@ -187,6 +242,13 @@ methods.getList()
         >
           {{ t('exampleDemo.del') }}
         </ElButton>
+        <ElButton
+          type="success"
+          v-hasPermission="['sys:sysUser:update']"
+          @click="editRoleAuthorityData(row)"
+        >
+          {{ t('permission.permission') }}
+        </ElButton>
         <ElButton type="primary" v-hasPermission="['sys:sysUser:update']" @click="editData(row)">
           {{ t('exampleDemo.edit') }}
         </ElButton>
@@ -212,6 +274,29 @@ methods.getList()
         {{ t('dialogDemo.submit') }}
       </ElButton>
       <el-button @click="dialog.visiable = false">{{ t('dialogDemo.close') }}</el-button>
+    </template>
+  </Dialog>
+  <!-- 授权弹窗 -->
+  <Dialog
+    v-model="dialogRoleAuthority.visiable"
+    :title="dialogRoleAuthority.title"
+    maxHeight="60%"
+    @closed="dialogRoleAuthority.visiable = false"
+    style="width: 40%; min-width: 375px; max-width: 600px"
+  >
+    <WriteRoleAuthority
+      ref="writeRoleAuthorityRef"
+      :authority-list="authorityList"
+      :selected-keys="selectedKeys"
+    />
+
+    <template #footer>
+      <ElButton type="primary" style="margin-left: 38%" @click="saveRoleAuthorityData">
+        {{ t('dialogDemo.submit') }}
+      </ElButton>
+      <el-button @click="dialogRoleAuthority.visiable = false">{{
+        t('dialogDemo.close')
+      }}</el-button>
     </template>
   </Dialog>
 </template>

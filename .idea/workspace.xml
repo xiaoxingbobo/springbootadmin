@@ -7,17 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="优化用户表">
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修复所有系统设置页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleAuthorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysRoleAuthorityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/authority/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/authority/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/authority/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/authority/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/user/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +294,7 @@
       <workItem from="1744858356958" duration="3037000" />
       <workItem from="1744880703909" duration="889000" />
       <workItem from="1744938079420" duration="3600000" />
-      <workItem from="1745198951433" duration="5338000" />
+      <workItem from="1745198951433" duration="6077000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />
@@ -326,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712744789619</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="修复所有系统设置页面">
+      <option name="closed" value="true" />
+      <created>1745242690956</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745242690956</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +349,8 @@
     <MESSAGE value="修复路由bug" />
     <MESSAGE value="修改权限管理" />
     <MESSAGE value="优化用户表" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化用户表" />
+    <MESSAGE value="修复所有系统设置页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复所有系统设置页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
