@@ -8,24 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修复所有系统设置页面">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Write.vue.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/index.ts.template" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewApi.template" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewTypes.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/types.ts.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Index.vue.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/SysRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/entity/SysRole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +81,10 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/SpringBoot/springbootadmim-android",
     "node.js.detected.package.eslint": "true",
@@ -182,8 +168,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -315,6 +301,7 @@
       <workItem from="1745285237942" duration="14000" />
       <workItem from="1745285262813" duration="44000" />
       <workItem from="1745285313100" duration="17847000" />
+      <workItem from="1745326389214" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />
