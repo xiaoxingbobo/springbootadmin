@@ -1,4 +1,4 @@
-import type { Role } from './types'
+import type { {entityName} } from './types'
 import {
   addData,
   putData,
@@ -10,20 +10,20 @@ import {
 import { Page } from '@/api/common/types'
 
 //实体名称
-const entity = 'role'
+const entity = '{entityNameLowCase}'
 /**
  * 根据id查询
  * @param id
  * @returns
  */
-export const getRole = (id?: number | string): Promise<IResponse> => {
+export const get{entityName} = (id?: number | string): Promise<IResponse> => {
   return getData(entity, id)
 }
 /**
  * 分页查询所有信息
  * @returns
  */
-export const getRoleList = async (payload: Partial<Page<Role>>): Promise<IResponse> => {
+export const get{entityName}List = async (payload: Partial<Page<{entityName}>>): Promise<IResponse> => {
   return getDataList(entity, payload)
 }
 /**
@@ -31,7 +31,7 @@ export const getRoleList = async (payload: Partial<Page<Role>>): Promise<IRespon
  * @param data
  * @returns
  */
-export const addRole = async (data: Partial<Role>): Promise<IResponse> => {
+export const add{entityName} = async (data: Partial<{entityName}>): Promise<IResponse> => {
   return addData(entity, data)
 }
 
@@ -40,7 +40,7 @@ export const addRole = async (data: Partial<Role>): Promise<IResponse> => {
  * @param data
  * @returns
  */
-export const putRole = async (data: Partial<Role>): Promise<IResponse> => {
+export const put{entityName} = async (data: Partial<{entityName}>): Promise<IResponse> => {
   return putData(entity, data)
 }
 /**
@@ -48,7 +48,7 @@ export const putRole = async (data: Partial<Role>): Promise<IResponse> => {
  * @param id
  * @returns
  * */
-export const deleteRole = async (id?: number | string): Promise<IResponse> => {
+export const delete{entityName} = async (id?: number | string): Promise<IResponse> => {
   return deleteData(entity, id)
 }
 /**
@@ -56,6 +56,6 @@ export const deleteRole = async (id?: number | string): Promise<IResponse> => {
  * @param ids
  * @returns
  * */
-export const batchDeleteRole = async (ids: Array<string | number>): Promise<IResponse> => {
+export const batchDelete{entityName} = async (ids: Array<string | number>): Promise<IResponse> => {
   return batchDeleteData(entity, ids)
 }

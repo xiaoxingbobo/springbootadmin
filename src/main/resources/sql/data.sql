@@ -1,3 +1,8 @@
+--移除数据
+TRUNCATE TABLE sys_authority;
+TRUNCATE TABLE sys_role;
+TRUNCATE TABLE sys_role_authority;
+TRUNCATE TABLE sys_user;
 --开发设置1
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)

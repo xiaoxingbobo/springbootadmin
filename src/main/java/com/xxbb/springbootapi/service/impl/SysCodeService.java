@@ -53,7 +53,7 @@ public class SysCodeService implements ISysCodeGenerate {
          */
         SysAuthority sysAuthorityRouter = new SysAuthority().setName(codeInput.getEntityName()).setValue("sys:"+codeInput.getEntityName()).setIcon("vaadin:code").setComponent("Layout").setPath("/"+codeInput.getEntityName().toLowerCase()).setTitle(codeInput.getEntityName()).setParentId(0).setAuthorityType(AuthorityType.ROUTER);
         sysAuthorityService.add(sysAuthorityRouter);
-        SysAuthority sysAuthorityTowRouter = new SysAuthority().setName(codeInput.getEntityName().toLowerCase()+"-view").setValue("sys:"+codeInput.getEntityName().toLowerCase()+":view").setComponent(codeInput.getEntityName()+"/"+codeInput.getEntityName()+"/index").setPath(codeInput.getEntityName().toLowerCase()).setTitle(codeInput.getEntityName()).setParentId(sysAuthorityRouter.getId()).setAuthorityType(AuthorityType.ROUTER);
+        SysAuthority sysAuthorityTowRouter = new SysAuthority().setName(codeInput.getEntityName().toLowerCase()+"-view").setValue("sys:"+codeInput.getEntityName().toLowerCase()+":view").setComponent(codeInput.getEntityName()+"/"+codeInput.getEntityName()+"/Index").setPath(codeInput.getEntityName().toLowerCase()).setTitle(codeInput.getEntityName()).setParentId(sysAuthorityRouter.getId()).setAuthorityType(AuthorityType.ROUTER);
         sysAuthorityService.add(sysAuthorityTowRouter);
         sysAuthorityService.add(new SysAuthority().setName(codeInput.getEntityName().toLowerCase()+"-add").setValue("sys:"+codeInput.getEntityName().toLowerCase()+":add").setIcon(null).setComponent(null).setPath(null).setTitle(codeInput.getEntityName()+"-添加").setParentId(sysAuthorityTowRouter.getId()).setAuthorityType(AuthorityType.API));
         sysAuthorityService.add(new SysAuthority().setName(codeInput.getEntityName().toLowerCase()+"-edit").setValue("sys:"+codeInput.getEntityName().toLowerCase()+":update").setIcon(null).setComponent(null).setPath(null).setTitle(codeInput.getEntityName()+"-编辑").setParentId(sysAuthorityTowRouter.getId()).setAuthorityType(AuthorityType.API));
@@ -75,7 +75,9 @@ public class SysCodeService implements ISysCodeGenerate {
         BuildVue.delete(sysGenRecord.getEntityName());
         //删除路由
         SysAuthority sysAuthorityRouter = sysAuthorityService.find(sysGenRecord.getId());
-        sysAuthorityService.mapper().delete(sysAuthorityService.mapper().query().where().id().eq(sysAuthorityRouter.getId()).or.parentId().eq(sysAuthorityRouter.getId()).end());
+        if (sysAuthorityRouter != null) {
+            sysAuthorityService.mapper().delete(sysAuthorityService.mapper().query().where().id().eq(sysAuthorityRouter.getId()).or.parentId().eq(sysAuthorityRouter.getId()).end());
+        }
         return CodeGen.delete(sysGenRecord.getEntityName());//代码删除，参数：要删除代码的实体类名
     }
 

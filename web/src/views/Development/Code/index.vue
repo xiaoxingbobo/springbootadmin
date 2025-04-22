@@ -409,7 +409,7 @@ const closeDialog = () => {
   >
     <ElTabs type="border-card" @tab-click="tabClick">
       <!-- 左边 -->
-      <el-tab-pane label="生成接口">
+      <el-tab-pane label="已有实体类生成API接口">
         <el-form>
           <el-form-item label="选择实体类">
             <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
@@ -428,7 +428,7 @@ const closeDialog = () => {
         </el-form>
       </el-tab-pane>
       <!-- 右边 -->
-      <el-tab-pane label="生成后台">
+      <el-tab-pane label="生成实体类、API、管理后台">
         <el-form>
           <el-form-item label="实体类名">
             <el-input placeholder="请输入实体类名" v-model="dinputvalue" />

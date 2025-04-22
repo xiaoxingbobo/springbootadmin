@@ -8,10 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修复所有系统设置页面">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Write.vue.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/index.ts.template" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/interceptor/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewApi.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewTypes.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/types.ts.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Index.vue.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,34 +89,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.XiaoXingApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SpringBoot/springbootadmim-android&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;E:\\SpringBoot\\springbootadmin\\web\\node_modules\\stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;394068bc2746e3518a6f5a17ec461b3e&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\SpringBoot\\springbootadmin\\web\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.XiaoXingApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/SpringBoot/springbootadmim-android",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "394068bc2746e3518a6f5a17ec461b3e",
+    "ts.external.directory.path": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -294,7 +308,13 @@
       <workItem from="1744858356958" duration="3037000" />
       <workItem from="1744880703909" duration="889000" />
       <workItem from="1744938079420" duration="3600000" />
-      <workItem from="1745198951433" duration="6077000" />
+      <workItem from="1745198951433" duration="6586000" />
+      <workItem from="1745284771470" duration="88000" />
+      <workItem from="1745284872159" duration="243000" />
+      <workItem from="1745285158773" duration="69000" />
+      <workItem from="1745285237942" duration="14000" />
+      <workItem from="1745285262813" duration="44000" />
+      <workItem from="1745285313100" duration="17847000" />
     </task>
     <task id="LOCAL-00001" summary="修复路由bug">
       <option name="closed" value="true" />
@@ -328,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745242690956</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修复所有系统设置页面">
+      <option name="closed" value="true" />
+      <created>1745242871165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745242871165</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +392,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysBaseService.java</url>
           <line>56</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java</url>

@@ -21,19 +21,22 @@ public class BuildVue {
         Map<String, String> listPair = new HashMap<>();
         //读取模板
 
-        String apiTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/ViewApi.template";//api
-        String typesTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/ViewTypes.template";//types
-        String vueTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/ViewVue.template";//vue
+        String apiTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/index.ts.template";//api
+        String typesTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/types.ts.template";//types
+        String vueTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/Index.vue.template";//vue
+        String writeTemp = CodeGen.class.getResource("/").getPath() + "/templates/view/Write.vue.template";//vue
 
         //生成文件名
         String api = String.format("\\web\\src\\api\\%s\\index.ts", entityName.toLowerCase());//api
         String types = String.format("\\web\\src\\api\\%s\\types.ts", entityName.toLowerCase());//types
-        String vue = String.format("\\web\\src\\views\\%s\\%s\\index.vue", entityName, entityName);//vue
+        String vue = String.format("\\web\\src\\views\\%s\\%s\\Index.vue", entityName, entityName);//vue
+        String write = String.format("\\web\\src\\views\\%s\\%s\\components\\Write.vue", entityName, entityName);//vue
 
         //添加到生成列表
         listPair.put(apiTemp, api);
         listPair.put(typesTemp, types);
         listPair.put(vueTemp, vue);
+        listPair.put(writeTemp, write);
         //生成实体类型
         StringBuilder entityFieldsContent = new StringBuilder();
         //生成表格字段
@@ -43,7 +46,7 @@ public class BuildVue {
         //字段描述
         StringBuilder fieldEleContent = new StringBuilder();
         for (EntityField field : fields) {
-            String tableField = String.format("\n  {\n" + "    field: '%s',\n" + "    label: '%s',\n" + "    search: true\n" + "  },", field.getFiledName(), field.getDescription());
+            String tableField = String.format("\n  {\n" + "    field: '%s',\n" + "    label: '%s'\n" + "  },", field.getFiledName(), field.getDescription());
             tableFieldsContent.append(tableField);
             //处理最后一个字段不加\n
             if (fields.indexOf(field) == fields.size() - 1) {
@@ -53,8 +56,8 @@ public class BuildVue {
                 String fieldValueStr = String.format("  %s: null", field.getFiledName());
                 fieldValueContent.append(fieldValueStr);
                 //添加字段描述
-                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
-                fieldEleContent.append(fieldEle);
+//                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
+//                fieldEleContent.append(fieldEle);
             } else {
                 String entityField = String.format("  %s?: %s | null\n", field.getFiledName(), field.getFieldType().getType());
                 entityFieldsContent.append(entityField);
@@ -62,8 +65,8 @@ public class BuildVue {
                 String fieldValueStr = String.format("  %s: null,\n", field.getFiledName());
                 fieldValueContent.append(fieldValueStr);
                 //添加字段描述
-                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>\n", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
-                fieldEleContent.append(fieldEle);
+//                String fieldEle = String.format("      <el-form-item label=\"%s\" prop=\"%s\">\n" + "        <el-input v-model=\"%sPayload.%s\" autocomplete=\"off\" />\n" + "      </el-form-item>\n", field.getDescription(), field.getFiledName(),entityName.toLowerCase(), field.getFiledName());
+//                fieldEleContent.append(fieldEle);
             }
 
 
@@ -78,7 +81,7 @@ public class BuildVue {
             map.put("tableFields", tableFieldsContent.toString());
             map.put("entityFields", entityFieldsContent.toString());
             map.put("fieldValue", fieldValueContent.toString());
-            map.put("fieldEle", fieldEleContent.toString());
+//            map.put("fieldEle", fieldEleContent.toString());
             String contents = StrUtil.format(content, map);//替换字符串
             try {
                 write(contents, v, isCover);//输出模板
@@ -128,7 +131,7 @@ public class BuildVue {
                 return true;
             }
         } catch (Exception e) {
-            throw new LegalException("删除代码异常！异常位置：" + entityName + "：异常信息：" + e.getMessage());
+            throw new LegalException("删除代码异常！异常位置：" + entityName + " | 异常信息：" + e.getMessage());
         }
         return false;
     }
@@ -141,35 +144,62 @@ public class BuildVue {
      */
     private static Boolean deleteStart(String entityName) throws IOException {
         //删除的文件
-        String api = String.format("\\web\\src\\api\\%s\\index.ts", entityName);//api
-        String types = String.format("\\web\\src\\api\\%s\\types.ts", entityName);//types
-        String vue = String.format("\\web\\src\\views\\%s\\index.vue", entityName);//vue
-        String apiPath = String.format("\\web\\src\\api\\%s", entityName);//api
-        String vuePath = String.format("\\web\\src\\views\\%s", entityName);//vue
-        //删除文件
+//        String api = String.format("\\web\\src\\api\\%s\\index.ts", entityName);//api
+//        String types = String.format("\\web\\src\\api\\%s\\types.ts", entityName);//types
+//        String vue = String.format("\\web\\src\\views\\%s\\%s\\Index.vue", entityName,entityName);//vue
+//        String writeVue = String.format("\\web\\src\\views\\%s\\%s\\components\\Write.vue", entityName,entityName);//vue
+//        String apiPath = String.format("\\web\\src\\api\\%s", entityName);//api
+//        String vuePath = String.format("\\web\\src\\views\\%s", entityName);//vue
         File directory = new File("");// 参数为空
         String courseFile = directory.getCanonicalPath();
-        File file = new File(courseFile + api);
-        if (file.exists()) {
-            file.delete();
+        String apiPath = String.format("\\web\\src\\api\\%s", entityName);//api
+        //删除文件
+        if (FileUtil.exist(courseFile+apiPath)) {
+            FileUtil.del(courseFile+apiPath);
+            System.out.println(" api文件删除成功！");
+        } else {
+            System.out.println(" api文件或目录不存在！");
         }
-        file = new File(courseFile + types);
-        if (file.exists()) {
-            file.delete();
+
+
+        String viewPath = String.format("\\web\\src\\views\\%s", entityName);//api
+        //删除文件
+        if (FileUtil.exist(courseFile+viewPath)) {
+            FileUtil.del(courseFile+viewPath);
+            System.out.println(" view删除成功！");
+        } else {
+            System.out.println(" view文件或目录不存在！");
         }
-        file = new File(courseFile + vue);
-        if (file.exists()) {
-            file.delete();
-        }
-        //删除文件夹
-        file = new File(courseFile + apiPath);
-        if (file.exists()) {
-            file.delete();
-        }
-        file = new File(courseFile + vuePath);
-        if (file.exists()) {
-            file.delete();
-        }
+
+
+
+//        File directory = new File("");// 参数为空
+//        String courseFile = directory.getCanonicalPath();
+//        File file = new File(courseFile + api);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//        file = new File(courseFile + types);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//        file = new File(courseFile + vue);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//        file = new File(courseFile + writeVue);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//        //删除文件夹
+//        file = new File(courseFile + apiPath);
+//        if (file.exists()) {
+//            file.delete();
+//        }
+//        file = new File(courseFile + vuePath);
+//        if (file.exists()) {
+//            file.delete();
+//        }
         return true;
     }
 }

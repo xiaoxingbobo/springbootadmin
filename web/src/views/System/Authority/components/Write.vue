@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType, reactive, watch, ref, computed } from 'vue'
 import { useValidator } from '@/hooks/web/useValidator'
-import { Authority } from '@/api/authority/types'
+import { Authority, AuthorityTree } from '@/api/authority/types'
 import { ElForm, ElFormItem, ElInput, ElSelect, ElOption, ElTreeSelect } from 'element-plus'
 
 const { required } = useValidator()
@@ -16,14 +16,14 @@ const props = defineProps({
     default: () => []
   },
   treeData: {
-    type: Array as PropType<any[]>,
+    type: Array as PropType<AuthorityTree[]>,
     default: () => []
   }
 })
 
 const formRef = ref()
 const formData = ref<Authority>({
-  id: '',
+  id: 0,
   title: '',
   value: '',
   authorityType: 'ROUTER',
@@ -57,7 +57,7 @@ watch(
     if (!currentRow) {
       // 新建时设置默认值
       formData.value = {
-        id: '',
+        id: 0,
         title: '',
         value: '',
         authorityType: 'ROUTER',
@@ -77,7 +77,7 @@ watch(
       parentId: currentRow?.parentId ?? 0,
       path: currentRow?.path ?? '',
       icon: currentRow?.icon ?? '',
-      component: currentRow?.icon ?? ''
+      component: currentRow?.component ?? ''
     }
   },
   {
@@ -124,6 +124,8 @@ defineExpose({
       <ElTreeSelect
         v-model="formData.parentId"
         :data="treeDataWithTop"
+        node-key="id"
+        :default-expanded-keys="[formData.parentId]"
         :props="{
           label: 'title',
           value: 'id',
@@ -137,11 +139,15 @@ defineExpose({
     </ElFormItem>
     <ElFormItem label="路由" prop="path">
       <ElInput v-model="formData.path" placeholder="请输入路由" />
-      <div class="form-tip">路由地址，如：/system/user</div>
+      <div class="form-tip">
+        路由地址，做为顶级菜单时候需要加/，如：/system，二级菜单为路径如：system/user/index，权限则留空</div
+      >
     </ElFormItem>
     <ElFormItem label="组件" prop="component">
       <ElInput v-model="formData.component" placeholder="请输入组件路径" />
-      <div class="form-tip">组件路径，顶级菜单默认为Layout，如：system/user/index</div>
+      <div class="form-tip"
+        >组件路径，顶级菜单为Layout，二级菜单为路径如：system/user/index，权限则留空
+      </div>
     </ElFormItem>
     <ElFormItem label="图标" prop="icon">
       <ElInput v-model="formData.icon" placeholder="请输入图标名称" />

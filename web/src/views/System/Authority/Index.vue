@@ -21,7 +21,7 @@ const dialog = ref({
   visiable: false,
   title: '添加'
 })
-const treeData = ref<any>()
+const treeData = ref<AuthorityTree[]>()
 
 const { t } = useI18n()
 
