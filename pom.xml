@@ -12,7 +12,7 @@
 
     <!--打包配置-->
     <groupId>com.xxbb</groupId>
-    <artifactId>springbootadmin</artifactId>
+    <artifactId>xiaoxingadmin</artifactId>
     <version>1</version><!--打包版本-->
     <name>springboard</name><!--打包名字-->
     <description>Demo project for Spring Boot</description>

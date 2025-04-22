@@ -5,6 +5,7 @@ import com.xxbb.springbootapi.entity.SysRoleAuthority;
 import com.xxbb.springbootapi.entity.SysUser;
 import com.xxbb.springbootapi.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class SecurityUserDetailsServie implements UserDetailsService {
+    @Qualifier("fmSysUserMapper")
     @Autowired
     private SysUserMapper userMapper;
     @Autowired

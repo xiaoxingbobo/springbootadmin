@@ -1,12 +1,9 @@
 package com.xxbb.springbootapi;
 
 
-import com.xxbb.springbootapi.config.SecurityConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
 /**
@@ -14,10 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Slf4j
 @SpringBootApplication
-public class SpringBootApiApplication {
+public class XiaoXingApplication {
     public static void main(String[] args) throws Exception {
         log.info("Application running...");
-        SpringApplication.run(SpringBootApiApplication.class, args);
+        SpringApplication.run(XiaoXingApplication.class, args);
     }
 
 }

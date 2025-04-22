@@ -4,13 +4,9 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseQuery;
 import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.SysCommon;
-import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedInputT;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
-import com.xxbb.springbootapi.entity.dto.Search;
 import com.xxbb.springbootapi.service.impl.SysBaseService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -74,23 +70,6 @@ public class ApiController<K extends SysCommon, T extends BaseQuery<K, T>, V ext
         return service.update(entity);
     }
 
-    /**
-     * Select list.
-     *
-     * @param searches the searches
-     * @return the list
-     */
-    @PostMapping("/searches")
-    @ApiOperation(value = "搜索")
-    public List<K> select(@RequestBody List<Search> searches) {
-        if (searches.size() == 1) {
-            return service.search(searches.get(0));
-        } else if (searches.size() > 1) {
-            return service.search(searches);
-        } else {
-            return service.list();
-        }
-    }
 
     /**
      * Find k.
@@ -105,63 +84,14 @@ public class ApiController<K extends SysCommon, T extends BaseQuery<K, T>, V ext
     }
 
     /**
-     * Select list.
-     *
-     * @param limit the limit
-     * @return the list
-     */
-    @GetMapping("/list/{limit}")
-    @ApiOperation(value = "查询固定条数")
-    @ApiImplicitParam(name = "limit", value = "限定条数", defaultValue = "10", dataType = "int", paramType = "path", dataTypeClass = Integer.class)
-    public List<K> select(@PathVariable("limit") int limit) {
-        return service.list(limit);
-    }
-
-    /**
-     * Select list.
-     *
-     * @return the list
-     */
-    @GetMapping
-    @ApiOperation(value = "查询所有")
-    public List<K> select() {
-        return service.list();
-    }
-
-    /**
-     * Select paged result.
-     *
-     * @param input the input
-     * @return the paged result
-     */
-    @PostMapping("/paged")
-    @ApiOperation(value = "分页筛选")
-    public PagedResult<K> select(@RequestBody PagedInputC<K> input) {
-        return service.list(input);
-    }
-
-    /**
-     * Paged paged result.
-     *
-     * @param current the current
-     * @param size    the size
-     * @return the paged result
-     */
-    @ApiOperation(value = "分页查询")
-    @ApiImplicitParams({@ApiImplicitParam(name = "current", value = "当前页", defaultValue = "1", dataType = "int", paramType = "path", dataTypeClass = Integer.class), @ApiImplicitParam(name = "size", value = "每页条数", defaultValue = "10", dataType = "int", paramType = "path", dataTypeClass = Integer.class)})
-    public PagedResult<K> paged(@PathVariable("current") int current, @PathVariable("size") int size) {
-        return service.paged(new PagedInput().setCurrent(current).setSize(size));
-    }
-
-    /**
      * Search paged result.
      *
-     * @param pagedInput the paged input
+     * @param input the paged input
      * @return the paged result
      */
-    @PostMapping("/paged/searches")
+    @PostMapping("/paged/condition")
     @ApiOperation(value = "分页搜索")
-    public PagedResult<K> search(@RequestBody PagedInputC<List<Search>> pagedInput) {
-        return service.searchPaged(pagedInput);
+    public PagedResult<K> paged(@RequestBody PagedInputT<K> input) {
+        return service.paged(input);
     }
 }

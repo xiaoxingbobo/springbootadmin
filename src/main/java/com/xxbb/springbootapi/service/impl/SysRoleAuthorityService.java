@@ -5,7 +5,7 @@ import com.xxbb.springbootapi.entity.SysRoleAuthority;
 import com.xxbb.springbootapi.entity.dto.SysRoleAuthorityResult;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.SysRoleAuthorityMapper;
-import com.xxbb.springbootapi.service.ISysSysRoleAuthorityService;
+import com.xxbb.springbootapi.service.ISysRoleAuthorityService;
 import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.wrapper.SysRoleAuthorityQuery;
 import com.xxbb.springbootapi.wrapper.SysRoleAuthorityUpdate;
@@ -14,11 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class SysRoleAuthorityService extends SysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> implements ISysSysRoleAuthorityService {
+public class SysRoleAuthorityService extends SysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> implements ISysRoleAuthorityService {
 
     @Autowired
     private SysAuthorityService sysAuthorityService;
@@ -35,19 +34,26 @@ public class SysRoleAuthorityService extends SysBaseService<SysRoleAuthority, Sy
 
     @Override
     public List<SysRoleAuthorityResult> listJoin(SysRoleAuthority entity) {
+        //查询角色权限
         List<SysRoleAuthority> roleAuthorityList = dao.list(entity);
+        //对象拷贝
         List<SysRoleAuthorityResult> roleAuthorityResultList = OrikaUtil.converts(roleAuthorityList, SysRoleAuthorityResult.class);
         //获取ids
         List<Integer> ids = roleAuthorityList.stream().map(SysRoleAuthority::getAuthorityId).collect(Collectors.toList());
         //查询权限值
         List<SysAuthority> permissions = sysAuthorityService.list(ids);
         //设置权限值
-        //使用stream()关联
-        roleAuthorityResultList.stream().peek(roleAuthorityResult -> {
-            //设置权限值
-            roleAuthorityResult.setAuthorityValue(Objects.requireNonNull(permissions.stream().filter(authority -> authority.getId().equals(roleAuthorityResult.getAuthorityId())).findFirst().orElse(null)).getValue());
-            roleAuthorityResult.setAuthorityName(Objects.requireNonNull(permissions.stream().filter(authority -> authority.getId().equals(roleAuthorityResult.getAuthorityId())).findFirst().orElse(null)).getName());
-        }).collect(Collectors.toList());
+        roleAuthorityResultList.forEach(roleAuthorityResult -> {
+            SysAuthority matchedAuthority = permissions.stream()
+                    .filter(authority -> authority.getId().equals(roleAuthorityResult.getAuthorityId()))
+                    .findFirst()
+                    .orElse(null);
+
+            if (matchedAuthority != null) {
+                roleAuthorityResult.setAuthorityValue(matchedAuthority.getValue());
+                roleAuthorityResult.setAuthorityName(matchedAuthority.getName());
+            }
+        });
 
 
 //        roleAuthorityResultList.forEach(roleAuthorityResult -> {

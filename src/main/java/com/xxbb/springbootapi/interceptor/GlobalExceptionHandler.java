@@ -18,17 +18,19 @@ public class GlobalExceptionHandler {
     public JsonResult exceptionHandler(Exception e) {
         //如果是合法异常
         if (e instanceof LegalException) {
-            log.error("自定义异常：" + e.getMessage());
+            log.error("合法异常：" + e.getMessage());
             return new JsonResult().Error(e.getMessage());
         } else if (e instanceof AccessDeniedException) {
             return new JsonResult().Unauthorized();
         } else if (e instanceof NoHandlerFoundException) {
             return new JsonResult().NotFound();
         }
-        log.error("发生未知异常！信息：" + e + "，" + e.getMessage());
+        log.error("系统异常：" + e + "，" + e.getMessage());
+        //直接返回错误信息
         if (e.toString().contains(e.getMessage())) {
-            return new JsonResult().Unknown("你请求的对象发生了未知异常！并给你留了一句话：" + e.getMessage());
+
+            return new JsonResult().Unknown(e.getMessage());
         }
-        return new JsonResult().Unknown("你请求的对象发生了未知异常！并给你留了一句话：" + e + "，" + e.getMessage());
+        return new JsonResult().Unknown(e + "|" + e.getMessage());
     }
 }

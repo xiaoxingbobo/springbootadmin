@@ -1,0 +1,61 @@
+import type { {entityName} } from './types'
+import {
+  addData,
+  putData,
+  deleteData,
+  batchDeleteData,
+  getData,
+  getDataList
+} from '@/api/common/index'
+import { Page } from '@/api/common/types'
+
+//实体名称
+const entity = '{entityNameLowCase}'
+/**
+ * 根据id查询
+ * @param id
+ * @returns
+ */
+export const get{entityName} = (id?: number | string): Promise<IResponse> => {
+  return getData(entity, id)
+}
+/**
+ * 分页查询所有信息
+ * @returns
+ */
+export const get{entityName}List = async (payload: Partial<Page<{entityName}>>): Promise<IResponse> => {
+  return getDataList(entity, payload)
+}
+/**
+ * 增加
+ * @param data
+ * @returns
+ */
+export const add{entityName} = async (data: Partial<{entityName}>): Promise<IResponse> => {
+  return addData(entity, data)
+}
+
+/**
+ * 修改
+ * @param data
+ * @returns
+ */
+export const put{entityName} = async (data: Partial<{entityName}>): Promise<IResponse> => {
+  return putData(entity, data)
+}
+/**
+ * 删除
+ * @param id
+ * @returns
+ * */
+export const delete{entityName} = async (id?: number | string): Promise<IResponse> => {
+  return deleteData(entity, id)
+}
+/**
+ * 批量删除
+ * @param ids
+ * @returns
+ * */
+export const batchDelete{entityName} = async (ids: Array<string | number>): Promise<IResponse> => {
+  return batchDeleteData(entity, ids)
+}

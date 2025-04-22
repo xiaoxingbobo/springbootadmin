@@ -5,7 +5,7 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { ElButton, ElCheckbox, ElLink, ElMessage } from 'element-plus'
 import { useForm } from '@/hooks/web/useForm'
 import { loginApi } from '@/api/login'
-import { menuList } from '@/api/permission/index'
+import { menuList } from '@/api/authority/index'
 import { useCache } from '@/hooks/web/useCache'
 import { useAppStore } from '@/store/modules/app'
 import { usePermissionStore } from '@/store/modules/permission'
@@ -129,12 +129,12 @@ const signIn = async () => {
       const formData = await getFormData<UserType>()
 
       try {
-        debugger
         const res: any = await loginApi(formData)
         ElMessage({
           message: '登录成功！',
           type: 'success'
         })
+        debugger
         if (res) {
           // 登录成功,保存token  6小时自动清除
           wsCache.set('token', res.data.token, { exp: config.token_exp })

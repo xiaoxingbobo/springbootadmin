@@ -8,7 +8,7 @@ import com.xxbb.springbootapi.wrapper.SysRoleAuthorityUpdate;
 
 import java.util.List;
 
-public interface ISysSysRoleAuthorityService extends ISysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> {
+public interface ISysRoleAuthorityService extends ISysBaseService<SysRoleAuthority, SysRoleAuthorityQuery, SysRoleAuthorityUpdate, SysRoleAuthorityMapper> {
     List<SysRoleAuthorityResult> listJoin(SysRoleAuthority entity);
 
     Boolean updateBatch(List<SysRoleAuthority> entities);

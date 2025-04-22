@@ -7,6 +7,7 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { useForm } from '@/hooks/web/useForm'
 import { findIndex } from '@/utils'
 import { cloneDeep } from 'lodash-es'
+import { FormSchema } from '@/types/form'
 
 const { t } = useI18n()
 
@@ -32,7 +33,11 @@ const props = defineProps({
   expand: propTypes.bool.def(false),
   // 伸缩的界限字段
   expandField: propTypes.string.def(''),
-  inline: propTypes.bool.def(true)
+  inline: propTypes.bool.def(true),
+  model: {
+    type: Object as PropType<Recordable>,
+    default: () => ({})
+  }
 })
 
 const emit = defineEmits(['search', 'reset'])
@@ -61,7 +66,9 @@ const newSchema = computed(() => {
   return schema
 })
 
-const { register, elFormRef, methods } = useForm()
+const { register, elFormRef, methods } = useForm({
+  model: props.model || {}
+})
 
 const search = async () => {
   await unref(elFormRef)?.validate(async (isValid) => {
@@ -106,14 +113,14 @@ const setVisible = () => {
       <div v-if="layout === 'inline'">
         <ElButton v-if="showSearch" type="primary" @click="search">
           <Icon icon="ep:search" class="mr-5px" />
-          {{ t('sysCommon.query') }}
+          {{ t('common.query') }}
         </ElButton>
         <ElButton v-if="showReset" @click="reset">
           <Icon icon="ep:refresh-right" class="mr-5px" />
-          {{ t('sysCommon.reset') }}
+          {{ t('common.reset') }}
         </ElButton>
         <ElButton v-if="expand" text @click="setVisible">
-          {{ t(visible ? 'sysCommon.shrink' : 'sysCommon.expand') }}
+          {{ t(visible ? 'common.shrink' : 'common.expand') }}
           <Icon :icon="visible ? 'ant-design:up-outlined' : 'ant-design:down-outlined'" />
         </ElButton>
       </div>
@@ -124,14 +131,14 @@ const setVisible = () => {
     <div :style="bottonButtonStyle">
       <ElButton v-if="showSearch" type="primary" @click="search">
         <Icon icon="ep:search" class="mr-5px" />
-        {{ t('sysCommon.query') }}
+        {{ t('common.query') }}
       </ElButton>
       <ElButton v-if="showReset" @click="reset">
         <Icon icon="ep:refresh-right" class="mr-5px" />
-        {{ t('sysCommon.reset') }}
+        {{ t('common.reset') }}
       </ElButton>
       <ElButton v-if="expand" text @click="setVisible">
-        {{ t(visible ? 'sysCommon.shrink' : 'sysCommon.expand') }}
+        {{ t(visible ? 'common.shrink' : 'common.expand') }}
         <Icon :icon="visible ? 'ant-design:up-outlined' : 'ant-design:down-outlined'" />
       </ElButton>
     </div>

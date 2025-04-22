@@ -273,7 +273,7 @@ const tianjiajiekoubtn = () => {
 const save = async (formEl: FormInstance | undefined) => {
   if (evalue.value === '1') {
     // 带参数
-    console.log('带参数')
+    // console.log('带参数')
     if (!formEl) return
     formEl.validate((valid) => {
       if (valid) {
@@ -383,18 +383,21 @@ const closeDialog = () => {
         </ElButton>
       </template>
     </Table>
-    <el-pagination
-      v-model:currentPage="currentPage"
-      :page-sizes="[10, 50, 100, 400]"
-      :small="small"
-      :disabled="disabled"
-      :background="background"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total"
-      page-size="Paginationdata.size"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-    />
+    <!-- 分页 -->
+    <div class="mt-10px">
+      <ElPagination
+        v-model:currentPage="currentPage"
+        :page-sizes="[10, 50, 100, 400]"
+        :small="small"
+        :disabled="disabled"
+        :background="background"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total"
+        :page-size="Paginationdata.size"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
+    </div>
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog
@@ -404,9 +407,9 @@ const closeDialog = () => {
     style="width: 40%; min-width: 375px; max-width: 600px"
     @closed="closeDialog"
   >
-    <el-tabs type="border-card" @tab-click="tabClick">
+    <ElTabs type="border-card" @tab-click="tabClick">
       <!-- 左边 -->
-      <el-tab-pane label="生成接口">
+      <el-tab-pane label="已有实体类生成API接口">
         <el-form>
           <el-form-item label="选择实体类">
             <el-select v-model="dinputvalue" placeholder="请选择实体名" @focus="selectfocus">
@@ -425,7 +428,7 @@ const closeDialog = () => {
         </el-form>
       </el-tab-pane>
       <!-- 右边 -->
-      <el-tab-pane label="生成后台">
+      <el-tab-pane label="生成实体类、API、管理后台">
         <el-form>
           <el-form-item label="实体类名">
             <el-input placeholder="请输入实体类名" v-model="dinputvalue" />
@@ -528,11 +531,11 @@ const closeDialog = () => {
           </el-form-item>
         </el-form>
       </el-tab-pane>
-    </el-tabs>
+    </ElTabs>
 
     <template #footer>
       <ElButton type="primary" @click="save(formRef)"> 确定 </ElButton>
-      <el-button @click="closeDialog">关闭</el-button>
+      <ElButton @click="closeDialog">关闭</ElButton>
     </template>
   </Dialog>
 </template>

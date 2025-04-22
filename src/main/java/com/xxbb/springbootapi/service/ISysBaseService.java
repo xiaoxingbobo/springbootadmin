@@ -5,7 +5,7 @@ import cn.org.atool.fluent.mybatis.base.crud.BaseUpdate;
 import cn.org.atool.fluent.mybatis.base.mapper.IWrapperMapper;
 import com.xxbb.springbootapi.entity.SysCommon;
 import com.xxbb.springbootapi.entity.dto.PagedInput;
-import com.xxbb.springbootapi.entity.dto.PagedInputC;
+import com.xxbb.springbootapi.entity.dto.PagedInputT;
 import com.xxbb.springbootapi.entity.dto.PagedResult;
 import com.xxbb.springbootapi.entity.dto.Search;
 
@@ -70,7 +70,7 @@ public interface ISysBaseService<K extends SysCommon, T extends BaseQuery<K, T>,
 
     List<K> list(List<Integer> ids);
 
-    PagedResult<K> list(PagedInputC<K> input);
+    PagedResult<K> list(PagedInputT<K> input);
 
     /**
      * 搜索
@@ -79,10 +79,17 @@ public interface ISysBaseService<K extends SysCommon, T extends BaseQuery<K, T>,
      * @return
      */
     List<K> search(Search search);
+
     List<K> search(List<Search> searches);
 
 
-    PagedResult<K> searchPaged(PagedInputC<List<Search>> searches);
+    /**
+     * 分页查询,带搜索条件，带筛选条件
+     *
+     * @param input
+     * @return
+     */
+    PagedResult<K> paged(PagedInputT<K> input);
 
     /*
      * 分页查询

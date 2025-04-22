@@ -1,20 +1,20 @@
-export type TableData = {
-  current: number | string
-  size: number | string
+import { Common } from '@/api/common/types'
+export type Role = Common & {
+  createTime: Date | null
+  id: number | null
+  isDeleted: number | null
+  name: string | null
+  updateTime: Date | null
 }
-export type userData = {
-  age?: string | number
-  email?: number | string
-  id?: number
-  name?: number | string
-  nickname?: number | string
-  password: any
-  roleId: number
-  sex?: number
-  username: number | string
+
+export type Authority = {
+  id: number | null
+  name: string | null
+  parentId: number | null
+  path: string | null
+  type: number | null
 }
-export type RoleAuthorityspaged = {
-  condition: any
-  current: number
-  size: number
+export type RoleAuthority = {
+  role: Role
+  authority: Authority
 }

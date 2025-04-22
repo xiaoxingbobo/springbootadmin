@@ -1,3 +1,8 @@
+--移除数据
+TRUNCATE TABLE sys_authority;
+TRUNCATE TABLE sys_role;
+TRUNCATE TABLE sys_role_authority;
+TRUNCATE TABLE sys_user;
 --开发设置1
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
@@ -8,7 +13,7 @@ values (NOW(), 0, 'development', NOW(), 'sys:development:setting', 'vaadin:code'
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 values (NOW(), 0, 'code-view', NOW(), 'sys:code:view', 'vaadin:code',
-        'Development/Code/index', 'code', '代码生成', 1,
+        'Development/Code/Index', 'code', '代码生成', 1,
         'ROUTER');
 --代码生成-增加3
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
@@ -41,7 +46,7 @@ insert into sys_authority (create_time, is_deleted, `name`, update_time, value, 
                        authority_type)
 
 values (NOW(), 0, 'authority', NOW(), 'sys:authority:view', 'material-symbols:verified-sysUser',
-        'System/Permission/index', 'authority', '权限管理', 6,
+        'System/Authority/Index', 'authority', '权限管理', 6,
         'ROUTER');
 --增加8
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
@@ -73,7 +78,7 @@ values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'sysRole', NOW(), 'sys:sysRole:view', 'mdi:sysUser-convert', 'System/Role/index', 'sysRole',
+values (NOW(), 0, 'sysRole', NOW(), 'sys:sysRole:view', 'mdi:sysUser-convert', 'System/Role/Index', 'sysRole',
         '角色管理', 6,
         'ROUTER');
 
@@ -106,7 +111,7 @@ values (NOW(), 0, null, NOW(), 'sys:sysRole:update', null, null, null, '角色�
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'sysUser', NOW(), 'sys:sysUser:view', 'mdi:sysUser-group', 'System/User/index', 'sysUser',
+values (NOW(), 0, 'sysUser', NOW(), 'sys:sysUser:view', 'mdi:sysUser-group', 'System/User/Index', 'sysUser',
         '用户管理', 6,
         'ROUTER');
 

@@ -142,6 +142,7 @@ interface iRouter {
 const menuListData: Array<iRouter> = wsCache.get('menuData')
 // 首先把你需要动态路由的组件地址全部获取
 const modules = import.meta.glob('../views/**/*.vue')
+// 自动调用函数
 ;(function getMenu(arr: Array<iRouter>): void {
   if (arr != null) {
     arr.forEach((item) => {
@@ -150,7 +151,9 @@ const modules = import.meta.glob('../views/**/*.vue')
       } else if (!item.component) {
         delete item.component
       } else {
+        // console.error(item.component)
         item.component = modules[`../views/${item.component}.vue`]
+        // item.component = modules['../views/System/User/index.vue']
       }
       if (item.children.length > 0) {
         getMenu(item.children)

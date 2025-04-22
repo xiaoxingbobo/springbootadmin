@@ -10,7 +10,7 @@ import com.xxbb.springbootapi.entity.SysUser;
 import com.xxbb.springbootapi.entity.dto.*;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.SysUserMapper;
-import com.xxbb.springbootapi.service.ISysSysUserService;
+import com.xxbb.springbootapi.service.ISysUserService;
 import com.xxbb.springbootapi.utils.OrikaUtil;
 import com.xxbb.springbootapi.utils.jwt.JwtUtil;
 import com.xxbb.springbootapi.wrapper.SysUserQuery;
@@ -29,10 +29,10 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> implements ISysSysUserService {
+public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUserUpdate, SysUserMapper> implements ISysUserService {
     @Autowired
     private AppConfig appConfig;
-    @Qualifier("sysUserMapper")
+    @Qualifier("fmSysUserMapper")
     @Autowired(required = false)
     SysUserMapper mapper;
     @Autowired(required = false)
@@ -49,6 +49,7 @@ public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUse
     private PasswordEncoder passwordEncoder;
     @Autowired(required = false)
     SysUserDao userDao;
+    ;
     /*           *
      * 登录
      *
@@ -103,6 +104,15 @@ public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUse
         if (sysUser != null) {
             throw new LegalException("账号已存在");
         }
+        //判断角色是否存在
+        SysRole sysRole = sysRoleService.find(entity.getRoleId());
+        if (sysRole == null) {
+            throw new LegalException("角色不存在");
+        }
+        //设置默认密码
+        if (entity.getPassword() == null) {
+            entity.setPassword(passwordEncoder.encode("123456"));
+        }
         return userDao.insert(entity) > 0;
     }
 
@@ -117,6 +127,15 @@ public class SysUserService extends SysBaseService<SysUser, SysUserQuery, SysUse
             entity.setPassword(passwordEncoder.encode(entity.getPassword()));//加密密码
         }
         return userDao.update(entity) > 0;
+    }
+    @Override
+    public PagedResult<SysUser> paged(PagedInputT<SysUser> input) {
+        PagedResult<SysUser> paged = super.paged(input);
+        //去除密码
+        paged.getData().forEach(x -> {
+            x.setPassword(null);
+        });
+        return paged;
     }
 
     //删除

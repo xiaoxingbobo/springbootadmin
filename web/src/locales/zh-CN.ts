@@ -40,7 +40,8 @@ export default {
     delOk: '确定',
     delCancel: '取消',
     delNoData: '请选择需要删除的数据',
-    delSuccess: '删除成功'
+    delSuccess: '删除成功',
+    success: '操作成功'
   },
   error: {
     noPermission: `抱歉，您无权访问此页面。`,
@@ -146,7 +147,8 @@ export default {
     sticky: '黏性'
   },
   permission: {
-    hasPermission: '请设置操作权限值'
+    hasPermission: '请设置操作权限值',
+    permission: '授权'
   },
   analysis: {
     newUser: '新增用户',
@@ -432,6 +434,10 @@ export default {
   },
   inputPasswordDemo: {
     title: '密码输入框',
+    inputPasswordDes: '基于 ElementPlus 的 Input 组件二次封装'
+  },
+  authorityTable: {
+    name: '权限',
     inputPasswordDes: '基于 ElementPlus 的 Input 组件二次封装'
   }
 }

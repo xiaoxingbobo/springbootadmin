@@ -2,394 +2,298 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { ref, reactive } from 'vue'
 import { Table } from '@/components/Table'
-import {
-  PaginationQuery,
-  addUser,
-  byIddeleteUser,
-  putUser,
-  byIdgetUser,
-  getAuthority,
-  batchRoleAuthoritys,
-  RoleAuthoritysPaged
-} from '@/api/Role'
+import { addRole, putRole, getRole, getRoleList, batchDeleteRole } from '@/api/role'
 import { Dialog } from '@/components/Dialog'
-import {
-  ElButton,
-  ElForm,
-  ElFormItem,
-  ElInput,
-  ElMessage,
-  ElMessageBox,
-  ElPagination,
-  ElTree
-} from 'element-plus'
-import type { FormInstance } from 'element-plus'
-import { tranListToTreeData } from '@/utils/tree'
-// 是否显示弹窗
-const dialogVisible = ref(false)
+import Write from './components/Write.vue'
+import { ElButton } from 'element-plus'
+import { Search } from '@/components/Search'
+import { useCrudSchemas } from '@/hooks/web/useCrudSchemas'
+import { useI18n } from '@/hooks/web/useI18n'
+import { useTable } from '@/hooks/web/useTable'
+import { unref } from 'vue'
+import { Role } from '@/api/role/types'
+import WriteRoleAuthority from './components/WriteRoleAuthority.vue'
+import { getRoleAuthorityByRoleId } from '@/api/roleAuthority'
+import { getAllAuthority } from '@/api/authority'
+import type { Authority } from '@/api/authority/types'
+import { batchRoleAuthority } from '@/api/roleAuthority'
 
-// 表头
+const dialog = ref({
+  visiable: false,
+  title: '添加'
+})
+
+const dialogRoleAuthority = ref({
+  visiable: false,
+  title: '授权'
+})
+
+const { t } = useI18n()
+
+const { register, tableObject, methods } = useTable<Role>({
+  getListApi: getRoleList,
+  delListApi: batchDeleteRole,
+  response: {
+    list: 'data',
+    total: 'total'
+  }
+})
+
+const { delList, getSelections, setSearchParams } = methods
+
 const columns = reactive<TableColumn[]>([
   {
     field: 'index',
     label: '序号',
-    type: 'index'
+    type: 'index',
+    form: {
+      show: false
+    }
   },
   {
     field: 'name',
-    label: '角色名称'
+    label: '角色名称',
+    search: {
+      show: true
+    }
   },
   {
     field: 'createTime',
-    label: '创建时间'
+    label: '创建时间',
+    search: {
+      show: false
+    },
+    form: {
+      show: false
+    }
+  },
+  {
+    field: 'updateTime',
+    label: '修改时间',
+    search: {
+      show: false
+    },
+    form: {
+      show: false
+    }
   },
   {
     field: 'action',
-    width: '260px',
+    width: '250px',
     label: '操作',
     form: {
-      show: false
-    },
-    detail: {
       show: false
     }
   }
 ])
 
-//  user列表数据
-let tabledata: any = ref('')
+const { allSchemas } = useCrudSchemas(columns)
 
-// 弹窗标题
-const dialogTitle = ref('添加角色')
-// 点击编辑，点击分配权限的 id 存放
-const editactionid = ref('')
-// 表单的实例
-const diaLogForm = ref<FormInstance>()
-const permTree = ref() // eltree树形
+const data = ref<Role>()
 
-// 添加角色参数
-const addUserdata: any = reactive({
-  name: ''
-})
+const loading = ref(false)
 
-// 分配权限复选框最新的权限id列表
-const newtcheckedIdLIst: any = ref()
-// 所有权限列表数据
-let jurisdictionList: any = ref('')
-// 批量添加参数
-let batchParameter: any[] = []
-
-// 角色权限表分页筛选参数
-let RoleParameter = ref({
-  condition: {
-    roleId: 1
-  },
-  current: 1,
-  size: 9999
-})
-// 表格分页
-let total = ref(0)
-// 分页数据
-let Paginationdata: {
-  current: number
-  size: number
-} = {
-  // 当前页
-  current: 1,
-  // 每页条数
-  size: 10
-}
-
-// 分页查询函数
-const _PaginationQuery = async () => {
-  const { data: res } = await PaginationQuery(Paginationdata)
-  let newreslist = res.data
-  newreslist.forEach((e) => {
-    if (e.sex === 0) {
-      e.sex = '男'
-    } else {
-      e.sex = '女'
-    }
+/**
+ * 删除
+ * @param row
+ * @param multiple
+ */
+const delData = async (row: Role | null, multiple: boolean) => {
+  tableObject.currentRow = row
+  const selections = await getSelections()
+  loading.value = true
+  await delList(
+    multiple ? selections.map((v) => v.id) : [tableObject.currentRow?.id as number],
+    multiple
+  ).finally(() => {
+    loading.value = false
   })
-  tabledata.value = newreslist
-  total.value = res.total
-  // console.log(total.value)
-}
-// 修改每页显示多少条数
-const handleSizeChange = (val: number) => {
-  Paginationdata.size = val
-  // console.log(Paginationdata.size)
-  _PaginationQuery() // 跟新列表
-}
-// 切换到某页
-const handleCurrentChange = (val: number) => {
-  Paginationdata.current = val
-  _PaginationQuery() // 跟新列表
 }
 
-const currentPage = ref(1)
-const small = ref(false)
-const background = ref(false)
-const disabled = ref(false)
-_PaginationQuery() // 刷新列表
-
-// 添加角色按钮
-const tianjiajiekoubtn = () => {
-  dialogTitle.value = '添加角色'
-  // console.log(111)
-  dialogVisible.value = true
-}
-// 编辑角色按钮
-const editaction = async (row) => {
-  Assign.value = false
-  dialogTitle.value = '编辑角色'
-  // console.log(row.id)
-  editactionid.value = row.id
-  dialogVisible.value = true
-  const { data: res } = await byIdgetUser(row.id)
-  addUserdata.name = res.name
-}
-// 角色拥有的权限列表id列表，用于树形显示
-let tcheckedIdLIst: any = ref([])
-// 分配权限按钮
-const Assign = ref(false)
-const AssignPermissions = async (row) => {
-  Assign.value = true // 显示分配权限表单
-  dialogTitle.value = '分配权限'
-  // console.log(row.id)
-  editactionid.value = row.id // 当前项id
-  dialogVisible.value = true // 是否显示弹窗
-  // 请求权限列表
-  const res = await getAuthority()
-  const RoleResList = res.data
-  // console.log(RoleResList)
-  // 给权限加一个state选中状态
-  RoleResList.forEach((e) => {
-    e.state = false
-  })
-
-  // 设置请求角色权限分页筛选的id参数
-  RoleParameter.value.condition.roleId = row.id
-  // console.log(RoleParameter.value)
-  // // 请求角色权限表分页筛选
-  const { data: res2 } = await RoleAuthoritysPaged(RoleParameter.value)
-  // console.log(res2.data)
-  const PagedresList = res2.data // 当前角色的角色权限列表
-  // console.log(PagedresList)
-  PagedresList.forEach((e: any) => {
-    // console.log(e.authorityId) // 角色拥有的权限列表id
-    tcheckedIdLIst.value.push(e.authorityId)
-  })
-
-  // 把数组修改为树形
-  const RoleResList2 = tranListToTreeData(RoleResList, 0)
-  jurisdictionList.value = RoleResList2
-}
-// 添加角色函数
-const _addUser = async (data) => {
-  await addUser(data)
-}
-// 删除角色按钮
-const deleteaction = async (row) => {
-  try {
-    const res = await ElMessageBox.confirm('确定要删除此角色吗？该操作将不可恢复！', '提示', {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
-      type: 'warning'
-    })
-    // 点击了确定
-    if (res === 'confirm') {
-      const res: any = await byIddeleteUser(row.id)
-      ElMessage({
-        message: res.message,
-        type: 'success'
-      })
-    }
-  } catch (error: any) {
-    ElMessage.error(error)
-  }
-  _PaginationQuery() // 跟新列表
-}
-
-// 关闭弹窗
-const dclose = (formEl?: FormInstance | undefined) => {
-  Assign.value = false // 还原是否是分配权限
-  tcheckedIdLIst.value = [] // 重置树形的选中项
-  dialogVisible.value = false
-  // 重置表单
-  if (!formEl) return
-  formEl.resetFields()
-  addUserdata.name = ''
-}
-
-// 点击复选框后的事件
-const demonodeclick = () => {
-  // 点击复选框后最新选中的权限id列表
-  newtcheckedIdLIst.value = permTree.value.getCheckedKeys()
-  // console.log(newtcheckedIdLIst.value)
-}
-// 点击保存按钮
-const save = async (formEl: FormInstance | undefined) => {
-  if (Assign.value === false) {
-    // 添加和编辑
-    if (!formEl) return
-    formEl.validate(async (valid) => {
-      if (valid) {
-        // 表单验证通过
-        if (dialogTitle.value === '添加角色') {
-          try {
-            await _addUser(addUserdata)
-            ElMessage({
-              message: '添加角色成功!',
-              type: 'success'
-            })
-          } catch (error: any) {
-            ElMessage.error(error)
-          }
-        } else {
-          // 编辑
-          try {
-            addUserdata.id = editactionid.value
-            // console.log(addUserdata.id)
-            await putUser(addUserdata)
-            ElMessage({
-              message: '操作成功!',
-              type: 'success'
-            })
-          } catch (error) {}
-        }
-
-        // 关闭弹窗  刷新列表
-        dclose()
-        _PaginationQuery() // 刷新列表
-      } else {
-        return false
-      }
-    })
+/**
+ * 添加或修改数据
+ * @param row
+ */
+const editData = async (row?: Role) => {
+  dialog.value.visiable = true
+  //修改
+  if (row) {
+    tableObject.currentRow = row as Role
+    dialog.value.title = '修改'
+    const { data: res } = await getRole(row.id?.toString())
+    data.value = res
   } else {
-    // 确定分配权限
-    // 给角色分配权限参数赋值
-    // 判断有没有点击复选框
-    if (newtcheckedIdLIst.value) {
-      // console.log(newtcheckedIdLIst.value)
-      newtcheckedIdLIst.value.forEach((element) => {
-        batchParameter.push({
-          authorityId: element,
-          roleId: editactionid.value // 角色id
-        })
-      })
-      console.log(batchParameter)
-    } else {
-      ElMessage({
-        message: '数据没有变更!',
-        type: 'error'
-      })
-      dclose()
+    tableObject.currentRow = null
+    dialog.value = {
+      visiable: true,
+      title: t('exampleDemo.add')
     }
-
-    try {
-      const res: any = await batchRoleAuthoritys(batchParameter)
-      if (res.state) {
-        ElMessage({
-          message: res.message,
-          type: 'success'
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    }
-    // 关闭弹窗  刷新列表
-    dclose()
-    batchParameter = []
-    _PaginationQuery() // 刷新列表
   }
 }
 
-// 树形的显示
-const defaultProps = {
-  children: 'children',
-  label: 'title'
+/**
+ * 获取所有权限
+ */
+const authorityList = ref<Authority[]>([])
+const currentAuthorityList = ref<Authority[]>([])
+const selectedKeys = ref<number[]>([])
+
+/**
+ * 授权
+ * @param row
+ */
+const editRoleAuthorityData = async (row?: Role) => {
+  dialogRoleAuthority.value.visiable = true
+  //修改
+  if (row) {
+    tableObject.currentRow = row as Role
+    dialogRoleAuthority.value.title = '授权'
+    const { data: res } = await getRoleAuthorityByRoleId(row.id) //获取当前row的权限
+    currentAuthorityList.value = res
+    const { data: res2 } = await getAllAuthority()
+    authorityList.value = res2.data // Extract the data array from the response
+    selectedKeys.value = res.map((v) => v.authorityId)
+  }
 }
+const writeRef = ref<ComponentRef<typeof Write>>()
+const writeRoleAuthorityRef = ref<ComponentRef<typeof WriteRoleAuthority>>()
+
+/**
+ * 保存数据
+ */
+const saveData = async () => {
+  const write = unref(writeRef)
+  await write?.elFormRef?.validate(async (isValid) => {
+    if (isValid) {
+      loading.value = true
+      const data = (await write?.getFormData()) as Role
+      if (data.id) {
+        await putRole(data)
+      } else {
+        await addRole(data)
+      }
+      loading.value = false
+      dialog.value.visiable = false
+    }
+    methods.getList()
+  })
+}
+
+/**
+ * 保存授权
+ */
+const saveRoleAuthorityData = async () => {
+  const write = unref(writeRoleAuthorityRef)
+  console.log(write)
+  const selectedKeys = await write?.getSelectedKeys()
+  if (selectedKeys) {
+    await batchRoleAuthority(
+      selectedKeys.map((v) => ({ authorityId: v, roleId: tableObject.currentRow?.id }))
+    ).then(() => {
+      dialogRoleAuthority.value.visiable = false
+    })
+  }
+}
+
+/**
+ * 请求数据
+ */
+methods.getList()
 </script>
 
 <template>
   <ContentWrap>
+    <Search :schema="allSchemas.searchSchema" @search="setSearchParams" />
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:sysRole:add']" @click="tianjiajiekoubtn"
-        >添加角色</ElButton
-      >
-      <ElButton v-hasPermission="['sys:sysRole:delete']" type="danger">
-        <Icon icon="fluent:delete-28-regular" />删除</ElButton
-      >
+      <ElButton type="success" v-hasPermission="['sys:sysUser:add']" @click="editData()">
+        <Icon icon="material-symbols:add" />{{ t('exampleDemo.add') }}
+      </ElButton>
+      <ElButton type="danger" v-hasPermission="['sys:sysUser:delete']" @click="delData(null, true)">
+        <Icon icon="fluent:delete-28-regular" />{{ t('exampleDemo.del') }}
+      </ElButton>
     </div>
-    <Table :columns="columns" :data="tabledata">
+    <Table
+      :columns="columns"
+      :data="tableObject.tableList"
+      :page-sizes="[10, 20, 50, 100]"
+      v-model:pageSize="tableObject.size"
+      v-model:currentPage="tableObject.current"
+      :row-key="(row) => row.id"
+      :selection="true"
+      :border="true"
+      :loading="loading"
+      :stripe="true"
+      :pagination="{
+        background: true,
+        total: tableObject.total
+      }"
+      @register="register"
+    >
       <template #action="{ row }">
         <ElButton
-          type="success"
-          v-hasPermission="['sys:sysRole:update']"
-          @click="AssignPermissions(row)"
+          type="danger"
+          plain
+          v-hasPermission="['sys:sysUser:delete']"
+          @click="delData(row, false)"
         >
-          授权
+          {{ t('exampleDemo.del') }}
         </ElButton>
-        <ElButton type="danger" v-hasPermission="['sys:sysRole:delete']" @click="deleteaction(row)">
-          删除
+        <ElButton
+          type="success"
+          v-hasPermission="['sys:sysUser:update']"
+          @click="editRoleAuthorityData(row)"
+        >
+          {{ t('permission.permission') }}
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:sysRole:update']" @click="editaction(row)">
-          编辑
+        <ElButton type="primary" v-hasPermission="['sys:sysUser:update']" @click="editData(row)">
+          {{ t('exampleDemo.edit') }}
         </ElButton>
       </template>
     </Table>
-    <el-pagination
-      v-model:currentPage="currentPage"
-      :page-sizes="[10, 50, 100, 400]"
-      :small="small"
-      :disabled="disabled"
-      :background="background"
-      style="margin-top: 20px"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="total"
-      :page-size="Paginationdata.size"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-    />
   </ContentWrap>
   <!-- 弹窗 -->
   <Dialog
-    v-model="dialogVisible"
-    :title="dialogTitle"
+    v-model="dialog.visiable"
+    :title="dialog.title"
     maxHeight="60%"
+    @closed="dialog.visiable = false"
     style="width: 40%; min-width: 375px; max-width: 600px"
-    @closed="dclose"
   >
-    <!-- 分配权限表单 -->
-    <el-form ref="diaLogForm" :model="addUserdata" v-if="Assign" label-width="80px">
-      <el-form-item label="分配权限" prop="name">
-        <el-tree
-          ref="permTree"
-          :data="jurisdictionList"
-          default-expand-all
-          show-checkbox
-          check-on-click-node
-          node-key="id"
-          :default-checked-keys="tcheckedIdLIst"
-          :props="defaultProps"
-          @check="demonodeclick"
-        />
-      </el-form-item>
-    </el-form>
-    <!-- 添加编辑表单 -->
-    <el-form ref="diaLogForm" :model="addUserdata" v-else label-width="65px">
-      <el-form-item
-        label="角色名"
-        prop="name"
-        :rules="[{ required: true, message: '角色名不能为空！' }]"
-      >
-        <el-input v-model="addUserdata.name" autocomplete="off" />
-      </el-form-item>
-    </el-form>
+    <Write
+      ref="writeRef"
+      :form-schema="allSchemas.formSchema"
+      :current-row="tableObject.currentRow"
+    />
+
     <template #footer>
-      <ElButton type="primary" style="margin-left: 38%" @click="save(diaLogForm)"> 确定 </ElButton>
-      <el-button @click="dclose(diaLogForm)">关闭</el-button>
+      <ElButton type="primary" style="margin-left: 38%" @click="saveData()">
+        {{ t('dialogDemo.submit') }}
+      </ElButton>
+      <el-button @click="dialog.visiable = false">{{ t('dialogDemo.close') }}</el-button>
+    </template>
+  </Dialog>
+  <!-- 授权弹窗 -->
+  <Dialog
+    v-model="dialogRoleAuthority.visiable"
+    :title="dialogRoleAuthority.title"
+    maxHeight="60%"
+    @closed="dialogRoleAuthority.visiable = false"
+    style="width: 40%; min-width: 375px; max-width: 600px"
+  >
+    <WriteRoleAuthority
+      ref="writeRoleAuthorityRef"
+      :authority-list="authorityList"
+      :selected-keys="selectedKeys"
+    />
+
+    <template #footer>
+      <ElButton type="primary" style="margin-left: 38%" @click="saveRoleAuthorityData">
+        {{ t('dialogDemo.submit') }}
+      </ElButton>
+      <el-button @click="dialogRoleAuthority.visiable = false">{{
+        t('dialogDemo.close')
+      }}</el-button>
     </template>
   </Dialog>
 </template>
+<style scoped></style>

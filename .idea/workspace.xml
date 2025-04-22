@@ -7,8 +7,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/config/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修复所有系统设置页面">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Write.vue.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/view/index.ts.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysCodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/TemplateController.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewApi.template" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewTypes.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/types.ts.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/view/ViewVue.template" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/view/Index.vue.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/api/role/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/api/role/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Authority/components/Write.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +57,17 @@
   <component name="JRebelWorkspace">
     <option name="jrebelEnabledAutocompile" value="true" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -56,6 +77,10 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2Gfwoti939hl7R8PTuZ55JgORz5" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -64,26 +89,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SpringBoot/springbootadmin/src/main/resources/templates&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;b4835d7cae286c6e29d5308fb64835c0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.XiaoXingApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/SpringBoot/springbootadmim-android",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "394068bc2746e3518a6f5a17ec461b3e",
+    "ts.external.directory.path": "E:\\SpringBoot\\springbootadmin\\web\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SpringBoot\springbootadmin\src\main\java\com\xxbb\springbootapi\service" />
       <recent name="E:\SpringBoot\springbootadmin\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -95,10 +134,10 @@
       <recent name="com.xxbb.springbootapi.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SpringBootApiApplication">
-    <configuration name="SpringBootApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xxbb.springbootapi.SpringBootApiApplication" />
-      <module name="springbootadmin" />
+  <component name="RunManager" selected="Application.XiaoXingApplication">
+    <configuration name="XiaoXingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xxbb.springbootapi.XiaoXingApplication" />
+      <module name="xiaoxingadmin" />
       <option name="VM_PARAMETERS" value="-Dspring.output.ansi.enabled=ALWAYS" />
       <extension name="coverage">
         <pattern>
@@ -110,22 +149,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpringBootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="springbootadmin" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.SpringBootApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="springbootadmin" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringBootApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="xiaoxingadmin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xxbb.springbootapi.XiaoXingApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.SpringBootApiApplication" />
+      <item itemvalue="Application.XiaoXingApplication" />
       <item itemvalue="Spring Boot.SpringBootApiApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SpringBootApiApplication" />
+        <item itemvalue="Application.XiaoXingApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -206,8 +266,97 @@
       <workItem from="1678534645078" duration="35000" />
       <workItem from="1678535305247" duration="364000" />
       <workItem from="1678536328819" duration="214000" />
-      <workItem from="1678623879528" duration="15000" />
+      <workItem from="1678623879528" duration="177000" />
+      <workItem from="1678683736808" duration="8498000" />
+      <workItem from="1678702962470" duration="7122000" />
+      <workItem from="1678748648929" duration="1472000" />
+      <workItem from="1678782217584" duration="153000" />
+      <workItem from="1678784628726" duration="4683000" />
+      <workItem from="1678855756774" duration="4211000" />
+      <workItem from="1678926186094" duration="7000" />
+      <workItem from="1679753845532" duration="2645000" />
+      <workItem from="1679812516606" duration="90000" />
+      <workItem from="1679813199648" duration="3335000" />
+      <workItem from="1679877101689" duration="7061000" />
+      <workItem from="1679924923249" duration="118000" />
+      <workItem from="1683165136907" duration="800000" />
+      <workItem from="1683462657840" duration="847000" />
+      <workItem from="1683604683721" duration="454000" />
+      <workItem from="1683605916203" duration="4858000" />
+      <workItem from="1683623285416" duration="25000" />
+      <workItem from="1683634716841" duration="9000" />
+      <workItem from="1683707502511" duration="25000" />
+      <workItem from="1683713435374" duration="4368000" />
+      <workItem from="1683789824776" duration="20000" />
+      <workItem from="1683809158846" duration="2528000" />
+      <workItem from="1689347832210" duration="742000" />
+      <workItem from="1689436334104" duration="473000" />
+      <workItem from="1689559330849" duration="3751000" />
+      <workItem from="1689908399725" duration="613000" />
+      <workItem from="1689921063093" duration="10967000" />
+      <workItem from="1690017482787" duration="3915000" />
+      <workItem from="1690166351877" duration="2769000" />
+      <workItem from="1691326165294" duration="2308000" />
+      <workItem from="1693489082747" duration="15000" />
+      <workItem from="1702709680606" duration="3718000" />
+      <workItem from="1712732826183" duration="5436000" />
+      <workItem from="1712800870182" duration="18000" />
+      <workItem from="1712800908555" duration="388000" />
+      <workItem from="1712804026480" duration="37000" />
+      <workItem from="1712990487852" duration="56000" />
+      <workItem from="1744855211622" duration="197000" />
+      <workItem from="1744858356958" duration="3037000" />
+      <workItem from="1744880703909" duration="889000" />
+      <workItem from="1744938079420" duration="3600000" />
+      <workItem from="1745198951433" duration="6586000" />
+      <workItem from="1745284771470" duration="88000" />
+      <workItem from="1745284872159" duration="243000" />
+      <workItem from="1745285158773" duration="69000" />
+      <workItem from="1745285237942" duration="14000" />
+      <workItem from="1745285262813" duration="44000" />
+      <workItem from="1745285313100" duration="17847000" />
     </task>
+    <task id="LOCAL-00001" summary="修复路由bug">
+      <option name="closed" value="true" />
+      <created>1689569453176</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689569453176</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改权限管理">
+      <option name="closed" value="true" />
+      <created>1689957923282</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689957923283</updated>
+    </task>
+    <task id="LOCAL-00003" summary="优化用户表">
+      <option name="closed" value="true" />
+      <created>1712744789619</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712744789619</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修复所有系统设置页面">
+      <option name="closed" value="true" />
+      <created>1745242690956</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745242690956</updated>
+    </task>
+    <task id="LOCAL-00005" summary="修复所有系统设置页面">
+      <option name="closed" value="true" />
+      <created>1745242871165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745242871165</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,12 +373,40 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修复路由bug" />
+    <MESSAGE value="修改权限管理" />
+    <MESSAGE value="优化用户表" />
+    <MESSAGE value="修复所有系统设置页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复所有系统设置页面" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysAuthorityService.java</url>
-          <line>39</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/controller/UserController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysBaseService.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/utils/code/BuildVue.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xxbb/springbootapi/service/impl/SysUserService.java</url>
+          <line>36</line>
+          <properties field="mapper" class="com.xxbb.springbootapi.service.impl.SysUserService" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

@@ -10,7 +10,10 @@ declare type ElememtPlusSize = 'default' | 'small' | 'large'
 
 declare type ElementPlusInfoType = 'success' | 'info' | 'warning' | 'danger'
 
-declare type Recordable<T = any, K = string> = Record<K extends null | undefined ? string : K, T>
+declare type Recordable<T = any, K = string | null> = Record<
+  K extends null | undefined ? string : K,
+  T
+>
 
 declare type ComponentRef<T> = InstanceType<T>
 
@@ -36,6 +39,8 @@ declare interface AxiosConfig {
 
 declare interface IResponse<T = any> {
   token(token: any)
-  code: string
+  code: number
+  state: boolean
+  message: string
   data: T extends any ? T : T & any
 }

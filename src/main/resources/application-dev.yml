@@ -10,7 +10,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springbootadmin?useSSL=false&useUnicode=true&characterEncoding=utf-8
     username: root
-    #    password: YHXyhx1214+.
     password: root
   servlet:
     multipart:
@@ -24,13 +23,13 @@ spring:
   #      path: /api #访问接口
   jpa:
     hibernate:
-      ddl-auto: create #实体类自动生成数据库，updete更新状态，不会删除数据
+      ddl-auto: update #实体类自动生成数据库，updete更新状态，不会删除数据
     defer-datasource-initialization: true #1.自动初始化数据库
     open-in-view: false #视图关闭
   sql: #初始化数据库
     init:
       schema-locations: classpath:sql/data.sql  #2.初始化数据库，DDL语句在resources/sql/schema.sql
-      mode: always #第一次初始化数据库使用always，之后使用never
+      mode: never #第一次初始化数据库使用always，之后使用never，否则会一直初始化数据库
 #      data-locations: classpath:sql/data.sql #3.初始化数据库，DML语句在resources/sql/data.sql #4.初始化数据库，每次启动都会初始化数据库
 
 mybatis:

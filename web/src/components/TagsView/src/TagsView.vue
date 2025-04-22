@@ -281,7 +281,7 @@ watch(
             :schema="[
               {
                 icon: 'ant-design:sync-outlined',
-                label: t('sysCommon.reload'),
+                label: t('common.reload'),
                 disabled: selectedTag?.fullPath !== item.fullPath,
                 command: () => {
                   refreshSelectedTag(item)
@@ -289,7 +289,7 @@ watch(
               },
               {
                 icon: 'ant-design:close-outlined',
-                label: t('sysCommon.closeTab'),
+                label: t('common.closeTab'),
                 disabled: !!visitedViews?.length && selectedTag?.meta.affix,
                 command: () => {
                   closeSelectedTag(item)
@@ -298,7 +298,7 @@ watch(
               {
                 divided: true,
                 icon: 'ant-design:vertical-right-outlined',
-                label: t('sysCommon.closeTheLeftTab'),
+                label: t('common.closeTheLeftTab'),
                 disabled:
                   !!visitedViews?.length &&
                   (item.fullPath === visitedViews[0].fullPath ||
@@ -309,7 +309,7 @@ watch(
               },
               {
                 icon: 'ant-design:vertical-left-outlined',
-                label: t('sysCommon.closeTheRightTab'),
+                label: t('common.closeTheRightTab'),
                 disabled:
                   !!visitedViews?.length &&
                   (item.fullPath === visitedViews[visitedViews.length - 1].fullPath ||
@@ -321,7 +321,7 @@ watch(
               {
                 divided: true,
                 icon: 'ant-design:tag-outlined',
-                label: t('sysCommon.closeOther'),
+                label: t('common.closeOther'),
                 disabled: selectedTag?.fullPath !== item.fullPath,
                 command: () => {
                   closeOthersTags()
@@ -329,7 +329,7 @@ watch(
               },
               {
                 icon: 'ant-design:line-outlined',
-                label: t('sysCommon.closeAll'),
+                label: t('common.closeAll'),
                 command: () => {
                   closeAllTags()
                 }
@@ -404,20 +404,20 @@ watch(
       :schema="[
         {
           icon: 'ant-design:sync-outlined',
-          label: t('sysCommon.reload'),
+          label: t('common.reload'),
           command: () => {
             refreshSelectedTag(selectedTag)
           }
         },
         {
           icon: 'ant-design:close-outlined',
-          label: t('sysCommon.closeTab'),
+          label: t('common.closeTab'),
           disabled: !!visitedViews?.length && selectedTag?.meta.affix
         },
         {
           divided: true,
           icon: 'ant-design:vertical-right-outlined',
-          label: t('sysCommon.closeTheLeftTab'),
+          label: t('common.closeTheLeftTab'),
           disabled: !!visitedViews?.length && selectedTag?.fullPath === visitedViews[0].fullPath,
           command: () => {
             closeLeftTags()
@@ -425,7 +425,7 @@ watch(
         },
         {
           icon: 'ant-design:vertical-left-outlined',
-          label: t('sysCommon.closeTheRightTab'),
+          label: t('common.closeTheRightTab'),
           disabled:
             !!visitedViews?.length &&
             selectedTag?.fullPath === visitedViews[visitedViews.length - 1].fullPath,
@@ -436,14 +436,14 @@ watch(
         {
           divided: true,
           icon: 'ant-design:tag-outlined',
-          label: t('sysCommon.closeOther'),
+          label: t('common.closeOther'),
           command: () => {
             closeOthersTags()
           }
         },
         {
           icon: 'ant-design:line-outlined',
-          label: t('sysCommon.closeAll'),
+          label: t('common.closeAll'),
           command: () => {
             closeAllTags()
           }
