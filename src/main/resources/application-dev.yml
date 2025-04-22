@@ -52,3 +52,4 @@ upload:
 #后台管理系统
 admin:
   index: /admin #后台管理系统的访问路径
+
