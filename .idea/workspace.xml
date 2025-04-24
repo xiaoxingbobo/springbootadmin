@@ -7,8 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修复所有系统设置页面">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b27e2e12-a16c-47cd-803b-f990c19a2eb6" name="Changes" comment="修改index为Index">
+      <change afterPath="$PROJECT_DIR$/web/src/views/Development/Code/Indexx.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/views/System/Role/Indexx.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/views/System/User/Indexx.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/Development/Code/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/Role/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/views/System/User/index.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,7 +372,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745242871165</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改index为Index">
+      <option name="closed" value="true" />
+      <created>1745475949248</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745475949248</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +402,8 @@
     <MESSAGE value="修改权限管理" />
     <MESSAGE value="优化用户表" />
     <MESSAGE value="修复所有系统设置页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复所有系统设置页面" />
+    <MESSAGE value="修改index为Index" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改index为Index" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
