@@ -1,7 +1,7 @@
 # SpringBootApi
 
 #### 介绍
-SpringBootApin快速开发框架，继承SpringBootApi+Vue3+Vite+TypeScript，高度封装，集成Admin管理后台，低代码量
+SpringBootApi快速开发框架，继承SpringBootApi+Vue3+Vite+TypeScript，高度封装，集成Admin管理后台，低代码量
 
 #### 软件架构
 软件架构说明
