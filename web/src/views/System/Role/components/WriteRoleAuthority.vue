@@ -89,7 +89,7 @@ watch(
 )
 
 defineExpose({
-  elFormRef: treeRef,
+  elTreeRef: treeRef,
   getSelectedKeys: () => {
     console.log(treeRef.value?.getCheckedKeys())
     return treeRef.value?.getCheckedKeys() || []

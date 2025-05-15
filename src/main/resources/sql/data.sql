@@ -78,7 +78,7 @@ values (NOW(), 0, null, NOW(), 'sys:authority:update', null, null, null, '权限
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'sysRole', NOW(), 'sys:sysRole:view', 'mdi:sysUser-convert', 'System/Role/Index', 'sysRole',
+values (NOW(), 0, 'sysRole', NOW(), 'sys:role:view', 'mdi:sysUser-convert', 'System/Role/Index', 'sysRole',
         '角色管理', 6,
         'ROUTER');
 
@@ -86,32 +86,32 @@ values (NOW(), 0, 'sysRole', NOW(), 'sys:sysRole:view', 'mdi:sysUser-convert', '
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysRole:add', null, null, null, '角色管理-添加', 12,
+values (NOW(), 0, null, NOW(), 'sys:role:add', null, null, null, '角色管理-添加', 12,
         'API');
 --删除
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysRole:delete', null, null, null, '角色管理-删除', 12,
+values (NOW(), 0, null, NOW(), 'sys:role:delete', null, null, null, '角色管理-删除', 12,
         'API');
 --查询
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysRole:select', null, null, null, '角色管理-查询', 12,
+values (NOW(), 0, null, NOW(), 'sys:role:select', null, null, null, '角色管理-查询', 12,
         'API');
 --修改
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysRole:update', null, null, null, '角色管理-修改', 12,
+values (NOW(), 0, null, NOW(), 'sys:role:update', null, null, null, '角色管理-修改', 12,
         'API');
 
 --用户管理18
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, 'sysUser', NOW(), 'sys:sysUser:view', 'mdi:sysUser-group', 'System/User/Index', 'sysUser',
+values (NOW(), 0, 'sysUser', NOW(), 'sys:user:view', 'mdi:sysUser-group', 'System/User/Index', 'sysUser',
         '用户管理', 6,
         'ROUTER');
 
@@ -119,25 +119,25 @@ values (NOW(), 0, 'sysUser', NOW(), 'sys:sysUser:view', 'mdi:sysUser-group', 'Sy
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysUser:add', null, null, null, '用户管理-增加', 17,
+values (NOW(), 0, null, NOW(), 'sys:user:add', null, null, null, '用户管理-增加', 17,
         'API');
 --删除
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysUser:delete', null, null, null, '用户管理-删除', 17,
+values (NOW(), 0, null, NOW(), 'sys:user:delete', null, null, null, '用户管理-删除', 17,
         'API');
 --查询
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysUser:select', null, null, null, '用户管理-查询', 17,
+values (NOW(), 0, null, NOW(), 'sys:user:select', null, null, null, '用户管理-查询', 17,
         'API');
 --修改
 insert into sys_authority (create_time, is_deleted, `name`, update_time, value, icon, component, path, title, parent_id,
                        authority_type)
 
-values (NOW(), 0, null, NOW(), 'sys:sysUser:update', null, null, null, '用户管理-修改', 17,
+values (NOW(), 0, null, NOW(), 'sys:user:update', null, null, null, '用户管理-修改', 17,
         'API');
 
 

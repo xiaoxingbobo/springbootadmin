@@ -233,7 +233,6 @@ const saveData = async () => {
 /**
  * 请求数据
  */
-getRoleList()
 methods.getList()
 </script>
 
