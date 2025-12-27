@@ -136,10 +136,10 @@ methods.getList()
   <ContentWrap>
     <Search :schema="allSchemas.searchSchema" @search="setSearchParams" />
     <div class="mb-10px">
-      <ElButton type="success" v-hasPermission="['sys:{entityName}:add']" @click="editData()">
+      <ElButton type="success" v-hasPermission="['sys:{entityNameLowCase}:add']" @click="editData()">
         <Icon icon="material-symbols:add" />{{ t('exampleDemo.add') }}
       </ElButton>
-      <ElButton type="danger" v-hasPermission="['sys:{entityName}:delete']" @click="delData(null, true)">
+      <ElButton type="danger" v-hasPermission="['sys:{entityNameLowCase}:delete']" @click="delData(null, true)">
         <Icon icon="fluent:delete-28-regular" />{{ t('exampleDemo.del') }}
       </ElButton>
     </div>
@@ -164,12 +164,12 @@ methods.getList()
         <ElButton
           type="danger"
           plain
-          v-hasPermission="['sys:{entityName}:delete']"
+          v-hasPermission="['sys:{entityNameLowCase}:delete']"
           @click="delData(row, false)"
         >
           {{ t('exampleDemo.del') }}
         </ElButton>
-        <ElButton type="primary" v-hasPermission="['sys:{entityName}:update']" @click="editData(row)">
+        <ElButton type="primary" v-hasPermission="['sys:{entityNameLowCase}:update']" @click="editData(row)">
           {{ t('exampleDemo.edit') }}
         </ElButton>
       </template>
