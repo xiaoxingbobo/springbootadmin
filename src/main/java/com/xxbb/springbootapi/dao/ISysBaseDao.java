@@ -18,6 +18,7 @@ public interface ISysBaseDao<K extends SysCommon, T extends BaseQuery<K, T>, V e
 
     int insert(K entity);
 
+
     /**
      * 批量添加
      *
