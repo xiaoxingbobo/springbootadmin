@@ -3,7 +3,7 @@ package com.xxbb.springbootapi.service.impl;
 import com.xxbb.springbootapi.entity.SysAuthority;
 import com.xxbb.springbootapi.entity.SysGenRecord;
 import com.xxbb.springbootapi.entity.dto.CodeInput;
-import com.xxbb.springbootapi.entity.dto.enums.AuthorityType;
+import com.xxbb.springbootapi.entity.enums.AuthorityType;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.service.ISysCodeGenerate;
 import com.xxbb.springbootapi.utils.code.BuildVue;

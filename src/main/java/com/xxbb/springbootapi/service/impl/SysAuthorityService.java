@@ -6,7 +6,7 @@ import com.xxbb.springbootapi.entity.dto.LoginResult;
 import com.xxbb.springbootapi.entity.dto.MenuDTO;
 import com.xxbb.springbootapi.entity.dto.MenuResult;
 import com.xxbb.springbootapi.entity.dto.Meta;
-import com.xxbb.springbootapi.entity.dto.enums.AuthorityType;
+import com.xxbb.springbootapi.entity.enums.AuthorityType;
 import com.xxbb.springbootapi.interceptor.LegalException;
 import com.xxbb.springbootapi.mapper.SysAuthorityMapper;
 import com.xxbb.springbootapi.service.ISysAuthorityService;
